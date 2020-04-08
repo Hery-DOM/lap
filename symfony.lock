@@ -115,6 +115,9 @@
             "config/packages/fos_ckeditor.yaml"
         ]
     },
+    "friendsofsymfony/user-bundle": {
+        "version": "v2.1.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -450,6 +453,9 @@
         "version": "v1.1.8"
     },
     "symfony/stopwatch": {
+        "version": "v4.4.7"
+    },
+    "symfony/templating": {
         "version": "v4.4.7"
     },
     "symfony/test-pack": {
