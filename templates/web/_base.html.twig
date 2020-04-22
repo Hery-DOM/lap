@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Locataire à propriétaire !!!!!!!!!!!!!!!!!!!!!!!!">
+    <title>Locataire à propriétaire - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="header-img-box">
+                <a href="{{ path('home') }}">
+                    <img src="{{ asset('assets/img/static/logo.png') }}" alt="logo locataire à propriétaire">
+                </a>
+            </div>
+            
+            <nav class="header-menu">
+                <ul class="header-menu-ul">
+                    <li><a href="#">Trouvez un logement</a></li>
+                    <li><a href="#">Devenir propriétaire</a></li>
+                    <li><a href="#">Qui sommes nous</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-contact">
+                <img src="{{ asset('assets/img/static/icone-contact.png') }}" alt="icone contact locataire à propriétaire">
+            </div>
+            
+        </div>
+        
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-first-row">
+                <div class="footer-number">
+                    <p>07 77 84 91 94</p>
+                </div>
+
+                <div class="footer-social">
+                    <p>Nous suivre</p>
+                    <div class="footer-social-link-block">
+                        <div class="footer-social-link-box">
+                            <img src="{{ asset('assets/img/static/facebook.png') }}" alt="réseau facebook locataire à propriétaire">
+                        </div>
+                        <div class="footer-social-link-box">
+                            <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="réseau linkedin locataire à propriétaire">
+                        </div>
+                        <div class="footer-social-link-box">
+                            <img src="{{ asset('assets/img/static/youtube.png') }}" alt="réseau youtube locataire à   propriétaire">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-recruitment">
+                    <p>Nous recrutons</p>
+                    <a href="#">
+                        <div class="footer-recruitment-btn">
+                            Rejoignez notre équipe
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-second-row">
+                <p>Tous droits réservsé Zammit Conseils et Patrimoine 2020</p>
+                <nav>
+                    <ul>
+                        <li><a href="#">Plan du site</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Politique cookie</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>

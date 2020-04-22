@@ -13,8 +13,13 @@ class PageHomeController extends PersonalClass
      */
     public function home()
     {
-        return $this->render('web/home.html.twig');
+        // get message in banner
 
+        return $this->render('web/home.html.twig',[
+            'message' => ''
+        ]);
     }
+
+
 
 }

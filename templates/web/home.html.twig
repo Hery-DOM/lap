@@ -1,13 +1,248 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-test
-</body>
-</html>
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block content %}
+    <section class="homepage-top">
+        <div class="homepage-top-first-block">
+            <div class="homepage-ptz">
+                <a href="#">
+                    <div class="homepage-ptz-btn">
+                        Simulateur <br/> PTZ
+                    </div>
+                </a>
+            </div>
+            {% if message is not empty %}
+                <div class="homepage-banner">
+                    <p>Texte d'exemple</p>
+                </div>
+            {% endif %}
+
+        </div>
+
+        <div class="homepage-pastille-box">
+            <div class="homepage-pastille"><p>TVA <br/> 5,5%</p></div>
+            <div class="homepage-pastille"><p>BBC</p></div>
+            <div class="homepage-pastille"><p class="big">Les bons <br/> plans</p></div>
+            <div class="homepage-pastille"><p class="big">Livraison <br/> immédiate</p></div>
+        </div>
+
+        <div class="homepage-search-text">
+            <h2>Trouver le logement qui me correspond</h2>
+        </div>
+
+        <!-- CONRIMER LES CRITÈRES A METTRE  -->
+        <div class="homepage-search-barre">
+
+        </div>
+    </section>
+
+{# ##################################################################
+  #########################  BENEFITS ###############################
+  ################################################################### #}
+
+    <section class="homepage-benefits">
+        <div class="homepage-benefits-container">
+            <div class="homepage-benefits-block">
+                <div class="homepage-benefits-img-box">
+                    <img src="{{ asset('assets/img/static/icone-a-z.png') }}" alt="icone">
+                </div>
+                <h3>Un accompganement <br> de A à Z</h3>
+            </div>
+            <div class="homepage-benefits-block">
+                <div class="homepage-benefits-img-box">
+                    <img src="{{ asset('assets/img/static/icone-a-z.png') }}" alt="icone">
+                </div>
+                <h3>Propriétaire en moins de <br> trois semaines</h3>
+            </div>
+            <div class="homepage-benefits-block">
+                <div class="homepage-benefits-img-box">
+                    <img src="{{ asset('assets/img/static/icone-a-z.png') }}" alt="icone">
+                </div>
+                <h3>Sans aucun frais <br> supplémentaire d'agent <br> immobilier</h3>
+            </div>
+        </div>
+    </section>
+
+{# ##################################################################
+  #########################  ACCOMPANIMENT ##########################
+  ################################################################### #}
+
+    <section class="homepage-accompaniment-container">
+        <h2>Un accompagnement de <span>A</span> à <span>Z</span></h2>
+
+        <div class="homepage-accompaniment-video-box">
+
+        </div>
+    </section>
+
+
+{# ##################################################################
+  #############################  PREVIEW ############################
+  ################################################################### #}
+
+    <section class="homepage-preview">
+        <div class="homepage-preview-container">
+            <h2>En avant première</h2>
+
+            <div class="homepage-preview-filters-box">
+                <div class="homepage-preview-filter">
+                    <p class="choice">Sélection du mois</p>
+                </div>
+                <div class="homepage-preview-filter">
+                    <p>TVA réduite 5,5%</p>
+                </div>
+                <div class="homepage-preview-filter">
+                    <p>Livraison immédiate</p>
+                </div>
+                <div class="homepage-preview-filter">
+                    <p>Quartier par quartier</p>
+                </div>
+            </div>
+
+            <div class="homepage-preview-result">
+
+            </div>
+        </div>
+
+
+    </section>
+
+{# ##################################################################
+  #############################  SERVICES ###########################
+  ################################################################### #}
+
+    <section class="homepage-services">
+        <div class="homepage-services-container">
+            <h2>Ce dont je bénéficie par un simple coup de fil</h2>
+
+            <div class="homepage-services-box">
+                <div class="homepage-services-block">
+                    <div class="homepage-services-img-box">
+                        <img src="{{ asset('assets/img/static/icon-commission.png') }}" alt="icone commision">
+                    </div>
+                    <h3>0% commision</h3>
+                    <p>
+                        Nous sommes rémunérés par les promoteurs,
+                        les prix sont directs
+                        promoteur, vous n'avez aucun frais
+                    </p>
+                </div>
+
+                <div class="homepage-services-divider">
+                    <div class="homepage-services-divider-img-box">
+                        +
+                    </div>
+                </div>
+
+                <div class="homepage-services-block">
+                    <div class="homepage-services-img-box">
+                        <img src="{{ asset('assets/img/static/icone-global.png') }}" alt="icone offre globale">
+                    </div>
+                    <h3>Une offre globale et exhaustive</h3>
+                    <p>
+                        Nous vous présentons
+                        l'ensemble des biens
+                        disponibles sur le marché
+                        en fonction de vos
+                        critères
+                    </p>
+                </div>
+
+                <div class="homepage-services-divider">
+                    <div class="homepage-services-divider-img-box">
+                        +
+                    </div>
+                </div>
+
+                <div class="homepage-services-block">
+                    <div class="homepage-services-img-box">
+                        <img src="{{ asset('assets/img/static/icone-valid.png') }}" alt="icone financement adapté">
+                    </div>
+                    <h3>Un financement adapté</h3>
+                    <p>
+                       Nous réalisons une étude
+                        financière pour connaître
+                        le montant de vos
+                        mensualités et le montant
+                        maximum du logement
+                    </p>
+                </div>
+
+                <div class="homepage-services-divider">
+                    <div class="homepage-services-divider-img-box">
+                        +
+                    </div>
+                </div>
+
+                <div class="homepage-services-block">
+                    <div class="homepage-services-img-box">
+                        <img src="{{ asset('assets/img/static/icone-user.png') }}" alt="icone interlocuteur unique">
+                    </div>
+                    <h3>Un interlocuteur unique</h3>
+                    <p>
+                        Plus de pertes de temps
+                        et d'énergie avec
+                        les plateformes
+                        immobilières ou différents
+                        commerciaux. Une
+                        information rapide, claire
+                        et précises sur les biens
+                        disponibles
+                    </p>
+                </div>
+
+                <div class="homepage-services-divider">
+                    <div class="homepage-services-divider-img-box">
+                        +
+                    </div>
+                </div>
+
+                <div class="homepage-services-block">
+                    <div class="homepage-services-img-box">
+                        <img src="{{ asset('assets/img/static/icone-home.png') }}" alt="icone service clé en main">
+                    </div>
+                    <h3>Un service clé en main</h3>
+                    <p>
+                        Vou sn'avez rien à faire,
+                        aucun travaux à réaliser,
+                        vous emménagerez le
+                        jour de la livraison du
+                        logement. Il ne rest plus
+                        qu'à imaginer la décoration !
+                    </p>
+                </div>
+
+                <div class="homepage-services-divider">
+                    <div class="homepage-services-divider-img-box">
+                        +
+                    </div>
+                </div>
+
+                <div class="homepage-services-block">
+                    <div class="homepage-services-img-box">
+                        <img src="{{ asset('assets/img/static/icone-engrenage.png') }}" alt="icone service sur-mesure">
+                    </div>
+                    <h3>Un service sur-mesure</h3>
+                    <p>
+                        Une aide pour toutes les démarches,
+                        comparaison des biens
+                        disponibles, conseils et astuces
+                        et prise en charge de la décoration intérieure
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+{% endblock %}

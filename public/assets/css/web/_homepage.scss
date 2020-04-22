@@ -1,0 +1,269 @@
+.homepage-top{
+  height: 90vh;
+  background-image: url("../img/static/homepage-top.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.homepage-top-first-block{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 12vh;
+  .homepage-ptz{
+    min-width: 95px;
+    width: 9%;
+    margin-left: 4%;
+    .homepage-ptz-btn{
+      background-color: $yellow;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+      line-height: 25px;
+      font-size: 1.1em;
+    }
+
+  }
+  .homepage-banner{
+    width: 60%;
+    min-height: 100px;
+    padding: 20px;
+    background-color: $blue2;
+    margin-left: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      color: white;
+    }
+  }
+}
+
+.homepage-pastille-box{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;width: 40%;
+  margin: 30px auto;
+
+  .homepage-pastille{
+    width: 80px;
+    height: 80px;
+    background-color: $ligthblue;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .big{
+      font-size: 0.7em;
+    }
+  }
+}
+
+.homepage-search-text{
+  text-align: center;
+  h2{
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+.homepage-search-barre{
+  width: 60%;
+  margin: 20px auto;
+  height: 10vh;
+  background-color: grey;
+}
+
+
+
+
+/*************************************************************************
+*********************************  BENEFITS  *****************************
+**************************************************************************/
+
+
+.homepage-benefits{
+  height: 30vh;
+  background-color: $blue;
+  padding: 40px 0;
+}
+
+.homepage-benefits-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.homepage-benefits-block{
+  width: 33%;
+  text-align: center;
+  h3{
+    color: white;
+    font-size: 0.9em;
+  }
+
+
+  .homepage-benefits-img-box{
+    background-color: white;
+    margin: 10px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+/*************************************************************************
+******************************  ACCOMPANIMENT  ***************************
+**************************************************************************/
+
+.homepage-accompaniment-container{
+  width: 80%;
+  margin: 50px auto;
+
+  h2{
+    color: $blue;
+    text-transform: uppercase;
+    span{
+      font-size: 1.3em;
+    }
+  }
+}
+
+.homepage-accompaniment-video-box{
+  width: 80%;
+  margin: 50px auto;
+  height: 50vh;
+  background-color: grey;
+}
+
+
+/*************************************************************************
+*********************************  PREVIEW  ******************************
+**************************************************************************/
+
+.homepage-preview{
+  background-color: $ligthblue;
+}
+
+.homepage-preview-container{
+  width: 90%;
+  margin: 0 auto;
+  padding: 50px 0;
+  h2{
+    text-align: center;
+    text-transform: uppercase;
+    color: $blue;
+    font-weight: bold;
+  }
+}
+
+.homepage-preview-filters-box{
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p{
+    text-align: center;
+    text-transform: uppercase;
+    color: $blue;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.1em;
+  }
+  .choice{
+    border: 3px solid $yellow;
+  }
+}
+
+.homepage-preview-result{
+  height: 50vh;
+  width: 100%;
+  background-color: grey;
+}
+
+
+
+/*************************************************************************
+*********************************  SERVICES  *****************************
+**************************************************************************/
+
+
+.homepage-services{
+  //background-color: $ligthblue;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.homepage-services-container{
+  h2{
+    color: $ligthblue;
+    text-align: center;
+    text-decoration: underline $yellow;
+  }
+
+  .homepage-services-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .homepage-services-block{
+      width: 12%;
+
+      .homepage-services-img-box{
+        width: 100%;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+
+    }
+
+    .homepage-services-divider{
+      width: 5%;
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

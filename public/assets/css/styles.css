@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+li {
+  list-style-type: none; }
+
+a {
+  text-decoration: none; }
+
+a:hover, li:hover, button:hover {
+  cursor: pointer; }
+
+/*******************  HEADER  *******************/
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background-color: white;
+  position: fixed;
+  z-index: 99; }
+
+.header-img-box {
+  width: 10%; }
+  .header-img-box img {
+    width: 100%;
+    height: auto; }
+
+.header-menu {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end; }
+  .header-menu .header-menu-ul {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .header-menu .header-menu-ul li a {
+      color: #002849; }
+    .header-menu .header-menu-ul li a:hover {
+      color: #FBB03B; }
+
+.header-contact {
+  width: 3%; }
+  .header-contact img {
+    width: 100%;
+    height: auto; }
+
+/*******************  MAIN  *******************/
+main {
+  min-height: 60vh;
+  padding-top: 10vh; }
+
+/*******************  FOOTER  *******************/
+.footer-container {
+  background-color: #002849;
+  padding-top: 60px;
+  padding-bottom: 50px; }
+
+/**** FIRST ROW ****/
+.footer-first-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; }
+
+.footer-number {
+  width: 20%;
+  padding-top: 40px; }
+  .footer-number p {
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold; }
+
+.footer-social {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+  .footer-social p {
+    font-size: 0.9em;
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .footer-social .footer-social-link-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .footer-social .footer-social-link-block .footer-social-link-box {
+      width: 20%;
+      min-width: 55px; }
+      .footer-social .footer-social-link-block .footer-social-link-box img {
+        width: 100%;
+        height: auto; }
+
+.footer-recruitment {
+  width: 20%; }
+  .footer-recruitment p {
+    font-size: 0.9em;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .footer-recruitment .footer-recruitment-btn {
+    color: #002849;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    width: 90%;
+    text-align: center;
+    padding: 15px 10px;
+    font-weight: bold; }
+
+/**** DIVIDER ****/
+.footer-divider {
+  height: 2px;
+  width: 90%;
+  margin: 40px auto;
+  background-color: white; }
+
+/**** SECOND ROW ****/
+.footer-second-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .footer-second-row p {
+    color: white; }
+  .footer-second-row nav {
+    width: 50%; }
+    .footer-second-row nav ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      .footer-second-row nav ul li a {
+        color: white; }
+
+.homepage-top {
+  height: 90vh;
+  background-image: url("../img/static/homepage-top.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+
+.homepage-top-first-block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 12vh; }
+  .homepage-top-first-block .homepage-ptz {
+    min-width: 95px;
+    width: 9%;
+    margin-left: 4%; }
+    .homepage-top-first-block .homepage-ptz .homepage-ptz-btn {
+      background-color: #FBB03B;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+      line-height: 25px;
+      font-size: 1.1em; }
+  .homepage-top-first-block .homepage-banner {
+    width: 60%;
+    min-height: 100px;
+    padding: 20px;
+    background-color: #002849;
+    margin-left: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .homepage-top-first-block .homepage-banner p {
+      color: white; }
+
+.homepage-pastille-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  margin: 30px auto; }
+  .homepage-pastille-box .homepage-pastille {
+    width: 80px;
+    height: 80px;
+    background-color: #4489C8;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .homepage-pastille-box .homepage-pastille p {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold; }
+    .homepage-pastille-box .homepage-pastille .big {
+      font-size: 0.7em; }
+
+.homepage-search-text {
+  text-align: center; }
+  .homepage-search-text h2 {
+    color: white;
+    text-transform: uppercase; }
+
+.homepage-search-barre {
+  width: 60%;
+  margin: 20px auto;
+  height: 10vh;
+  background-color: grey; }
+
+/*************************************************************************
+*********************************  BENEFITS  *****************************
+**************************************************************************/
+.homepage-benefits {
+  height: 30vh;
+  background-color: #002849;
+  padding: 40px 0; }
+
+.homepage-benefits-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto; }
+
+.homepage-benefits-block {
+  width: 33%;
+  text-align: center; }
+  .homepage-benefits-block h3 {
+    color: white;
+    font-size: 0.9em; }
+  .homepage-benefits-block .homepage-benefits-img-box {
+    background-color: white;
+    margin: 10px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .homepage-benefits-block .homepage-benefits-img-box img {
+      width: 100%;
+      height: auto; }
+
+/*************************************************************************
+******************************  ACCOMPANIMENT  ***************************
+**************************************************************************/
+.homepage-accompaniment-container {
+  width: 80%;
+  margin: 50px auto; }
+  .homepage-accompaniment-container h2 {
+    color: #002849;
+    text-transform: uppercase; }
+    .homepage-accompaniment-container h2 span {
+      font-size: 1.3em; }
+
+.homepage-accompaniment-video-box {
+  width: 80%;
+  margin: 50px auto;
+  height: 50vh;
+  background-color: grey; }
+
+/*************************************************************************
+*********************************  PREVIEW  ******************************
+**************************************************************************/
+.homepage-preview {
+  background-color: #4489C8; }
+
+.homepage-preview-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 50px 0; }
+  .homepage-preview-container h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #002849;
+    font-weight: bold; }
+
+.homepage-preview-filters-box {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .homepage-preview-filters-box p {
+    text-align: center;
+    text-transform: uppercase;
+    color: #002849;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.1em; }
+  .homepage-preview-filters-box .choice {
+    border: 3px solid #FBB03B; }
+
+.homepage-preview-result {
+  height: 50vh;
+  width: 100%;
+  background-color: grey; }
+
+/*************************************************************************
+*********************************  SERVICES  *****************************
+**************************************************************************/
+.homepage-services {
+  width: 90%;
+  margin: 0 auto; }
+
+.homepage-services-container h2 {
+  color: #4489C8;
+  text-align: center;
+  text-decoration: underline #FBB03B; }
+.homepage-services-container .homepage-services-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .homepage-services-container .homepage-services-box .homepage-services-block {
+    width: 12%; }
+    .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box {
+      width: 100%; }
+      .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box img {
+        width: 100%;
+        height: auto; }
+  .homepage-services-container .homepage-services-box .homepage-services-divider {
+    width: 5%; }
+
+/*# sourceMappingURL=styles.css.map */
