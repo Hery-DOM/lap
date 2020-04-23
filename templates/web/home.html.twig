@@ -16,7 +16,7 @@
             </div>
             {% if message is not empty %}
                 <div class="homepage-banner">
-                    <p>Texte d'exemple</p>
+                    <p>{{ message }}</p>
                 </div>
             {% endif %}
 
@@ -47,19 +47,21 @@
         <div class="homepage-benefits-container">
             <div class="homepage-benefits-block">
                 <div class="homepage-benefits-img-box">
-                    <img src="{{ asset('assets/img/static/icone-a-z.png') }}" alt="icone">
+                    <img src="{{ asset('assets/img/static/icone-a-z.png') }}" alt="icone accompagnement de A à 2">
                 </div>
                 <h3>Un accompganement <br> de A à Z</h3>
             </div>
             <div class="homepage-benefits-block">
                 <div class="homepage-benefits-img-box">
-                    <img src="{{ asset('assets/img/static/icone-a-z.png') }}" alt="icone">
+                    <img src="{{ asset('assets/img/static/icone-home-key.png') }}" alt="icone propriétaire en moins
+                    de trois semaines">
                 </div>
                 <h3>Propriétaire en moins de <br> trois semaines</h3>
             </div>
             <div class="homepage-benefits-block">
                 <div class="homepage-benefits-img-box">
-                    <img src="{{ asset('assets/img/static/icone-a-z.png') }}" alt="icone">
+                    <img src="{{ asset('assets/img/static/icone-0.png') }}" alt="icone sans frais supplémentaire
+                    d'agent immobilier">
                 </div>
                 <h3>Sans aucun frais <br> supplémentaire d'agent <br> immobilier</h3>
             </div>
@@ -88,16 +90,16 @@
             <h2>En avant première</h2>
 
             <div class="homepage-preview-filters-box">
-                <div class="homepage-preview-filter">
+                <div class="homepage-preview-filter" onclick="previewClick(this)">
                     <p class="choice">Sélection du mois</p>
                 </div>
-                <div class="homepage-preview-filter">
+                <div class="homepage-preview-filter" onclick="previewClick(this)">
                     <p>TVA réduite 5,5%</p>
                 </div>
-                <div class="homepage-preview-filter">
+                <div class="homepage-preview-filter" onclick="previewClick(this)">
                     <p>Livraison immédiate</p>
                 </div>
-                <div class="homepage-preview-filter">
+                <div class="homepage-preview-filter" onclick="previewClick(this)">
                     <p>Quartier par quartier</p>
                 </div>
             </div>
@@ -133,7 +135,7 @@
 
                 <div class="homepage-services-divider">
                     <div class="homepage-services-divider-img-box">
-                        +
+                        <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
                     </div>
                 </div>
 
@@ -153,7 +155,7 @@
 
                 <div class="homepage-services-divider">
                     <div class="homepage-services-divider-img-box">
-                        +
+                        <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
                     </div>
                 </div>
 
@@ -173,7 +175,7 @@
 
                 <div class="homepage-services-divider">
                     <div class="homepage-services-divider-img-box">
-                        +
+                        <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
                     </div>
                 </div>
 
@@ -196,7 +198,7 @@
 
                 <div class="homepage-services-divider">
                     <div class="homepage-services-divider-img-box">
-                        +
+                        <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
                     </div>
                 </div>
 
@@ -217,7 +219,7 @@
 
                 <div class="homepage-services-divider">
                     <div class="homepage-services-divider-img-box">
-                        +
+                        <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
                     </div>
                 </div>
 
@@ -239,6 +241,115 @@
         </div>
 
     </section>
+
+
+{# ##################################################################
+#############################  REQUEST #############################
+################################################################### #}
+
+
+    <section class="homepage-request">
+        <div class="homepage-request-box">
+            <p>
+                Simple et rapide, <br>
+                faites le tour de 40 promoteurs <br>
+                en moins de 5 min
+            </p>
+            <a href="#">
+                <div class="homepage-request-btn">
+                    Je dépose une demande
+                </div>
+            </a>
+        </div>
+    </section>
+
+
+{# ##################################################################
+#############################  TESTIMONIES ##########################
+################################################################### #}
+
+    <section class="homepage-testimonies">
+        <div class="homepage-testimonies-container">
+            <h2>Témoiganges clients</h2>
+
+            <div class="homepage-testimonies-caroussel">
+
+            </div>
+
+        </div>
+    </section>
+
+{# ##################################################################
+#############################  PROJECT ##############################
+################################################################### #}
+
+
+    <section class="homepage-project">
+        <div class="homepage-project-container">
+
+            <div class="homepage-project-blog">
+                <div class="homepage-project-blog-txt-box">
+                    <p>Votre projet immobilier en continue</p>
+                    <a href="#">
+                        <div class="homepage-project-blog-btn">
+                            Découvrir
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="homepage-project-pdf-box">
+                <div class="homepage-project-find-block">
+                    <p>Guide trouver son bien</p>
+                    <a href="#">
+                        <div class="homepage-project-find-btn">
+                            Découvrir
+                        </div>
+                    </a>
+                </div>
+                <div class="homepage-project-owner-block">
+                    <p>Guide devenir propriétaire</p>
+                    <a href="#">
+                        <div class="homepage-project-owner-btn">
+                            Découvrir
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+{# ##################################################################
+#############################  NEWSLETTER ###########################
+################################################################### #}
+
+    <section class="homepage-newsletter">
+        <h2>Rester informé des meilleurs plans sur Bordeaux Métropole</h2>
+        <form action="#" method="POST">
+            <div class="homepage-newsletter-form-box">
+                <div class="homepage-newsletter-form-block">
+                    <label for="city">VILLE</label>
+                    <input type="text" name="city" id="city">
+                </div>
+                <div class="homepage-newsletter-form-block">
+                    <label for="name">NOM PRENOM</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="homepage-newsletter-form-block">
+                    <label for="email">E-MAIL</label>
+                    <input type="text" name="email" id="email">
+                </div>
+                <input type="image" src="{{ asset('assets/img/static/icone-submit.png') }}" >
+            </div>
+        </form>
+    </section>
+
+
+
+
 
 
 

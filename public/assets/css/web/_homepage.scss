@@ -1,6 +1,6 @@
 .homepage-top{
   height: 90vh;
-  background-image: url("../img/static/homepage-top.jpg");
+  background-image: url("../img/static/homepage-top.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -31,7 +31,7 @@
     width: 60%;
     min-height: 100px;
     padding: 20px;
-    background-color: $blue2;
+    background-color: $bluetransparent;
     margin-left: 7%;
     display: flex;
     justify-content: center;
@@ -101,7 +101,7 @@
 .homepage-benefits-container{
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   width: 50%;
   margin: 0 auto;
 }
@@ -161,7 +161,7 @@
 **************************************************************************/
 
 .homepage-preview{
-  background-color: $ligthblue;
+  background-color: $lightbluetransparent;
 }
 
 .homepage-preview-container{
@@ -200,6 +200,9 @@
   width: 100%;
   background-color: grey;
 }
+.homepage-preview-filter:hover{
+  cursor: pointer;
+}
 
 
 
@@ -212,6 +215,7 @@
   //background-color: $ligthblue;
   width: 90%;
   margin: 0 auto;
+  padding: 50px 0;
 }
 
 .homepage-services-container{
@@ -219,18 +223,33 @@
     color: $ligthblue;
     text-align: center;
     text-decoration: underline $yellow;
+    margin-bottom: 80px;
   }
 
   .homepage-services-box{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 
     .homepage-services-block{
       width: 12%;
+      h3{
+        font-weight: bold;
+        font-size: 0.8em;
+        height: 20px;
+        margin: 40px 0;
+        color: $blue;
+        text-transform: uppercase;
+      }
+      p{
+        font-size: 0.9em;
+        color: $blue;
+      }
 
       .homepage-services-img-box{
-        width: 100%;
+        width: 60%;
+        height: 100px;
+        margin: 0 auto;
         img{
           width: 100%;
           height: auto;
@@ -240,7 +259,18 @@
     }
 
     .homepage-services-divider{
-      width: 5%;
+      width: 2%;
+      height: 18vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .homepage-services-divider-img-box{
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
     }
 
   }
@@ -248,9 +278,205 @@
 
 
 
+/*************************************************************************
+*********************************  REQUEST  *****************************
+**************************************************************************/
+
+.homepage-request{
+  min-height: 50vh;
+  background-image: url("../img/static/request.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 23%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.homepage-request-box{
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p{
+    font-size: 1.9em;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .homepage-request-btn{
+    background-color: $yellow;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-top: 20px;
+  }
+}
+
+
+/*************************************************************************
+*********************************  TESTIMONIES  **************************
+**************************************************************************/
+
+.homepage-testimonies-container{
+  width: 90%;
+  margin: 0 auto;
+  min-height: 50vh;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  h2{
+    text-transform: uppercase;
+    color: $blue;
+  }
+}
+
+.homepage-testimonies-caroussel{
+  height: 50vh;
+  margin-top: 50px;
+  background-color: grey;
+}
+
+
+/*************************************************************************
+*********************************  PROJECT  ******************************
+**************************************************************************/
+
+.homepage-project-container{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.homepage-project-blog{
+  height: 30vh;
+  background-image: url("../img/static/blog.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  margin-bottom: 40px;
+
+  .homepage-project-blog-txt-box{
+    height: 100%;
+    border: 2px solid $yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px 10px 10px;
+
+    p{
+      text-align: center;
+      color: white;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .homepage-project-blog-btn{
+      background-color: $ligthblue;
+    }
+  }
+}
+
+.homepage-project-blog-btn, .homepage-project-owner-btn, .homepage-project-find-btn{
+  background-color: $yellow;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.homepage-project-pdf-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .homepage-project-find-block{
+    background-image: url("../img/static/guid-find.jpg");
+  }
+  .homepage-project-owner-block{
+    background-image: url("../img/static/guid-owner.png");
+  }
+}
+
+.homepage-project-find-block, .homepage-project-owner-block{
+  width: 40%;
+  height: 30vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p{
+    text-align: center;
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
 
 
 
+/*************************************************************************
+*********************************  NEWSLETTER  ***************************
+**************************************************************************/
+
+.homepage-newsletter{
+  padding-top: 40px;
+  padding-bottom: 30px;
+  h2{
+    text-align: center;
+    color: $blue;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+}
+
+.homepage-newsletter-form-box{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 80%;
+  margin: 0 auto;
+
+  input[type="image"]{
+    width: 4%;
+    min-width: 45px;
+  }
+}
+
+.homepage-newsletter-form-block{
+  display: flex;
+  flex-direction: column;
+
+  label{
+    text-transform: uppercase;
+    color: $ligthblue;
+    font-size: 0.8em;
+  }
+
+  input{
+    border: 2px solid $blue;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 5px;
+    width: 120%;
+  }
+
+}
 
 
 

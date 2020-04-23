@@ -12,6 +12,16 @@ a {
 a:hover, li:hover, button:hover {
   cursor: pointer; }
 
+@font-face {
+  font-family: "Gilroy";
+  src: url("../font/Gilroy-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Gilroy";
+  src: url("../font/Gilroy-Bold.ttf") format("truetype");
+  font-weight: bold; }
+h1, h2, h3, a, li, p, label {
+  font-family: "Gilroy", sans-serif; }
+
 /*******************  HEADER  *******************/
 .header-container {
   display: flex;
@@ -139,7 +149,7 @@ main {
 
 .homepage-top {
   height: 90vh;
-  background-image: url("../img/static/homepage-top.jpg");
+  background-image: url("../img/static/homepage-top.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -166,7 +176,7 @@ main {
     width: 60%;
     min-height: 100px;
     padding: 20px;
-    background-color: #002849;
+    background-color: rgba(25, 44, 73, 0.8);
     margin-left: 7%;
     display: flex;
     justify-content: center;
@@ -220,7 +230,7 @@ main {
 .homepage-benefits-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   width: 50%;
   margin: 0 auto; }
 
@@ -265,7 +275,7 @@ main {
 *********************************  PREVIEW  ******************************
 **************************************************************************/
 .homepage-preview {
-  background-color: #4489C8; }
+  background-color: rgba(69, 138, 255, 0.2); }
 
 .homepage-preview-container {
   width: 90%;
@@ -298,29 +308,212 @@ main {
   width: 100%;
   background-color: grey; }
 
+.homepage-preview-filter:hover {
+  cursor: pointer; }
+
 /*************************************************************************
 *********************************  SERVICES  *****************************
 **************************************************************************/
 .homepage-services {
   width: 90%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 50px 0; }
 
 .homepage-services-container h2 {
   color: #4489C8;
   text-align: center;
-  text-decoration: underline #FBB03B; }
+  text-decoration: underline #FBB03B;
+  margin-bottom: 80px; }
 .homepage-services-container .homepage-services-box {
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: flex-start; }
   .homepage-services-container .homepage-services-box .homepage-services-block {
     width: 12%; }
+    .homepage-services-container .homepage-services-box .homepage-services-block h3 {
+      font-weight: bold;
+      font-size: 0.8em;
+      height: 20px;
+      margin: 40px 0;
+      color: #002849;
+      text-transform: uppercase; }
+    .homepage-services-container .homepage-services-box .homepage-services-block p {
+      font-size: 0.9em;
+      color: #002849; }
     .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box {
-      width: 100%; }
+      width: 60%;
+      height: 100px;
+      margin: 0 auto; }
       .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box img {
         width: 100%;
         height: auto; }
   .homepage-services-container .homepage-services-box .homepage-services-divider {
-    width: 5%; }
+    width: 2%;
+    height: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .homepage-services-container .homepage-services-box .homepage-services-divider .homepage-services-divider-img-box img {
+      width: 100%;
+      height: auto; }
+
+/*************************************************************************
+*********************************  REQUEST  *****************************
+**************************************************************************/
+.homepage-request {
+  min-height: 50vh;
+  background-image: url("../img/static/request.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 23%;
+  display: flex;
+  justify-content: flex-start; }
+
+.homepage-request-box {
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .homepage-request-box p {
+    font-size: 1.9em;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+    font-weight: bold; }
+  .homepage-request-box .homepage-request-btn {
+    background-color: #FBB03B;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-top: 20px; }
+
+/*************************************************************************
+*********************************  TESTIMONIES  **************************
+**************************************************************************/
+.homepage-testimonies-container {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 50vh;
+  padding-top: 80px;
+  padding-bottom: 80px; }
+  .homepage-testimonies-container h2 {
+    text-transform: uppercase;
+    color: #002849; }
+
+.homepage-testimonies-caroussel {
+  height: 50vh;
+  margin-top: 50px;
+  background-color: grey; }
+
+/*************************************************************************
+*********************************  PROJECT  ******************************
+**************************************************************************/
+.homepage-project-container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+.homepage-project-blog {
+  height: 30vh;
+  background-image: url("../img/static/blog.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  margin-bottom: 40px; }
+  .homepage-project-blog .homepage-project-blog-txt-box {
+    height: 100%;
+    border: 2px solid #FBB03B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px 10px 10px; }
+    .homepage-project-blog .homepage-project-blog-txt-box p {
+      text-align: center;
+      color: white;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px; }
+    .homepage-project-blog .homepage-project-blog-txt-box .homepage-project-blog-btn {
+      background-color: #4489C8; }
+
+.homepage-project-blog-btn, .homepage-project-owner-btn, .homepage-project-find-btn {
+  background-color: #FBB03B;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1.4em;
+  text-align: center; }
+
+.homepage-project-pdf-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .homepage-project-pdf-box .homepage-project-find-block {
+    background-image: url("../img/static/guid-find.jpg"); }
+  .homepage-project-pdf-box .homepage-project-owner-block {
+    background-image: url("../img/static/guid-owner.png"); }
+
+.homepage-project-find-block, .homepage-project-owner-block {
+  width: 40%;
+  height: 30vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .homepage-project-find-block p, .homepage-project-owner-block p {
+    text-align: center;
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px; }
+
+/*************************************************************************
+*********************************  NEWSLETTER  ***************************
+**************************************************************************/
+.homepage-newsletter {
+  padding-top: 40px;
+  padding-bottom: 30px; }
+  .homepage-newsletter h2 {
+    text-align: center;
+    color: #002849;
+    text-transform: uppercase;
+    margin-bottom: 50px; }
+
+.homepage-newsletter-form-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 80%;
+  margin: 0 auto; }
+  .homepage-newsletter-form-box input[type="image"] {
+    width: 4%;
+    min-width: 45px; }
+
+.homepage-newsletter-form-block {
+  display: flex;
+  flex-direction: column; }
+  .homepage-newsletter-form-block label {
+    text-transform: uppercase;
+    color: #4489C8;
+    font-size: 0.8em; }
+  .homepage-newsletter-form-block input {
+    border: 2px solid #002849;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 5px;
+    width: 120%; }
 
 /*# sourceMappingURL=styles.css.map */
