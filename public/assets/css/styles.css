@@ -516,4 +516,14 @@ main {
     padding: 5px;
     width: 120%; }
 
+.emailSent-block {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .emailSent-block p {
+    text-align: center;
+    color: #002849; }
+
 /*# sourceMappingURL=styles.css.map */

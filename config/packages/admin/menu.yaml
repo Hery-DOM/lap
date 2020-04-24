@@ -2,4 +2,5 @@ easy_admin:
   design:
     menu:
       - {entity: 'User'}
+      - {entity: 'User'}
       - {label: 'Déconnexion', route: 'fos_user_security_logout'}

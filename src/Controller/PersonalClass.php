@@ -7,6 +7,12 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class PersonalClass extends AbstractController
 {
+    private $mailer;
+
+    function __construct(\Swift_Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
 
 
     public function secureInput($data)
@@ -30,6 +36,21 @@ class PersonalClass extends AbstractController
 
         $result = array_slice($array, $pos);
         return $result;
+    }
+
+    // pour envoyer un mail
+    public function sendEmail($subject, $from, $to,$view,$viewParam)
+    {
+        $mail = new \Swift_Message($subject);
+        $mail->setFrom($from)
+                ->setTo($to)
+                ->setBody(
+                    $this->renderView($view,$viewParam),
+                    'text/html'
+                );
+        $send = $this->mailer->send($mail);
+
+        return $send;
     }
 
 

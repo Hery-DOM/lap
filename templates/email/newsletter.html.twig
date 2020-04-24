@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Bonjour {{ name }}</p>
+
+    <p>Merci pour votre inscription à notre newsletter.</p>
+    <p>Afin de confirmer votre inscription et de rester informé des meilleurs plans sur Bordeaux Métropole, merci de
+        cliquer sur le lien suivant :
+    </p>
+    <p><a href="{{ path('newsletter_confirm',{'email': email}) }}">Confirmation d'inscription à la newsletter</a></p>
+
+    <p>L'équipe du site LocataireAPropriétaire</p>
+
+
+
+</body>
+</html>

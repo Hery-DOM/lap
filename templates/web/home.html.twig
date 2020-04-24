@@ -328,21 +328,22 @@
 
     <section class="homepage-newsletter">
         <h2>Rester informé des meilleurs plans sur Bordeaux Métropole</h2>
-        <form action="#" method="POST">
+        <form action="#" method="POST" name="newsletter">
             <div class="homepage-newsletter-form-box">
                 <div class="homepage-newsletter-form-block">
                     <label for="city">VILLE</label>
-                    <input type="text" name="city" id="city">
+                    <input type="text" name="city" id="city" required>
                 </div>
                 <div class="homepage-newsletter-form-block">
                     <label for="name">NOM PRENOM</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" required>
                 </div>
                 <div class="homepage-newsletter-form-block">
                     <label for="email">E-MAIL</label>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" required>
                 </div>
-                <input type="image" src="{{ asset('assets/img/static/icone-submit.png') }}" >
+                <input type="hidden" name="newsletter">
+                <input type="image" src="{{ asset('assets/img/static/icone-submit.png') }}">
             </div>
         </form>
     </section>

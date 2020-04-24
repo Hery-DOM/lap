@@ -1,0 +1,12 @@
+.emailSent-block{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p{
+    text-align: center;
+    color: $blue;
+  }
+}
