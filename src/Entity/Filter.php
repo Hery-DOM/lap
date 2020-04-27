@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MainCriteriaRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\FilterRepository")
  */
-class MainCriteria
+class Filter
 {
     /**
      * @ORM\Id()
@@ -24,7 +24,12 @@ class MainCriteria
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Program", mappedBy="main_criteria")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $filter_option;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Program", mappedBy="filter")
      */
     private $programs;
 
@@ -50,6 +55,18 @@ class MainCriteria
         return $this;
     }
 
+    public function getFilterOption(): ?string
+    {
+        return $this->filter_option;
+    }
+
+    public function setFilterOption(?string $filter_option): self
+    {
+        $this->filter_option = $filter_option;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Program[]
      */
@@ -62,7 +79,7 @@ class MainCriteria
     {
         if (!$this->programs->contains($program)) {
             $this->programs[] = $program;
-            $program->addMainCriterion($this);
+            $program->addFilter($this);
         }
 
         return $this;
@@ -72,7 +89,7 @@ class MainCriteria
     {
         if ($this->programs->contains($program)) {
             $this->programs->removeElement($program);
-            $program->removeMainCriterion($this);
+            $program->removeFilter($this);
         }
 
         return $this;

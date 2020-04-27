@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    ProgramPicture:
+      label: "Image"
+      class: App\Entity\ProgramPicture
+      list:
+        fields:
+          - {property: 'picture', label: "Nom de l'image"}
+          - {property: 'pictureAlt', label: "Texte alternatif"}
+      form:
+        fields:
+          - {property: 'pictureFile', type: 'vich_image', label: 'Image'}
+          - {property: 'pictureAlt'}
+          - {property: 'program'}

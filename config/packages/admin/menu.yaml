@@ -3,4 +3,12 @@ easy_admin:
     menu:
       - {entity: 'User'}
       - {entity: 'Homepage'}
+      - label: 'Les programmes'
+        children:
+          - {entity: 'Program', label: 'Biens'}
+          - {entity: 'MainCriteria'}
+          - {entity: 'Criteria'}
+          - {entity: 'Filter'}
+          - {entity: 'ProgramPicture', label: 'Image des biens'}
+
       - {label: 'Déconnexion', route: 'fos_user_security_logout'}

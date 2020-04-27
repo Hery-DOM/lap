@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProgramPictureRepository")
+ * @Vich\Uploadable()
  */
 class ProgramPicture
 {
@@ -22,9 +24,19 @@ class ProgramPicture
     private $picture;
 
     /**
+     * @Vich\UploadableField(mapping="program", fileNameProperty="picture")
+     */
+    private $pictureFile;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture_alt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Program", inversedBy="program_picture")
+     */
+    private $program;
 
     public function getId(): ?int
     {
@@ -36,7 +48,7 @@ class ProgramPicture
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 
@@ -54,4 +66,40 @@ class ProgramPicture
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param mixed $pictureFile
+     */
+    public function setPictureFile($pictureFile): void
+    {
+        $this->pictureFile = $pictureFile;
+    }
+
+    public function getProgram(): ?Program
+    {
+        return $this->program;
+    }
+
+    public function setProgram(?Program $program): self
+    {
+        $this->program = $program;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->picture;
+
+    }
+
+
 }

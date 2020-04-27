@@ -1,0 +1,16 @@
+easy_admin:
+  entities:
+    Program:
+      label: "Programmes"
+      class: App\Entity\Program
+      list:
+        fields:
+          - {property: 'name'}
+          - {property: 'city'}
+          - {property: 'published'}
+          - {property: 'filter', type: 'array', label: 'Filtres'}
+      form:
+        fields:
+          - {property: 'name', label: 'Nom du bien'}
+          - {property: 'descriptionMore', label: 'Description +'}
+          - {property: 'description', type: 'fos_ckeditor', label: 'Description principale' }

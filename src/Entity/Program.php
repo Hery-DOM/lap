@@ -74,7 +74,7 @@ class Program
     private $surface;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $movie;
 
@@ -93,10 +93,27 @@ class Program
      */
     private $criteria;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProgramPicture", mappedBy="program")
+     */
+    private $program_picture;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $published;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Filter", inversedBy="programs")
+     */
+    private $filter;
+
     public function __construct()
     {
         $this->main_criteria = new ArrayCollection();
         $this->criteria = new ArrayCollection();
+        $this->program_picture = new ArrayCollection();
+        $this->filter = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -307,6 +324,82 @@ class Program
     {
         if ($this->criteria->contains($criterion)) {
             $this->criteria->removeElement($criterion);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProgramPicture[]
+     */
+    public function getProgramPicture(): Collection
+    {
+        return $this->program_picture;
+    }
+
+    public function addProgramPicture(ProgramPicture $programPicture): self
+    {
+        if (!$this->program_picture->contains($programPicture)) {
+            $this->program_picture[] = $programPicture;
+            $programPicture->setProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgramPicture(ProgramPicture $programPicture): self
+    {
+        if ($this->program_picture->contains($programPicture)) {
+            $this->program_picture->removeElement($programPicture);
+            // set the owning side to null (unless already changed)
+            if ($programPicture->getProgram() === $this) {
+                $programPicture->setProgram(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+    public function __toString()
+    {
+        return $this->name;
+
+    }
+
+    public function getPublished(): ?bool
+    {
+        return $this->published;
+    }
+
+    public function setPublished(bool $published): self
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Filter[]
+     */
+    public function getFilter(): Collection
+    {
+        return $this->filter;
+    }
+
+    public function addFilter(Filter $filter): self
+    {
+        if (!$this->filter->contains($filter)) {
+            $this->filter[] = $filter;
+        }
+
+        return $this;
+    }
+
+    public function removeFilter(Filter $filter): self
+    {
+        if ($this->filter->contains($filter)) {
+            $this->filter->removeElement($filter);
         }
 
         return $this;

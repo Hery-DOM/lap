@@ -1,0 +1,5 @@
+easy_admin:
+  entities:
+    Criteria:
+      label: "Critères"
+      class: App\Entity\Criteria

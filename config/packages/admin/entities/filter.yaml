@@ -1,0 +1,8 @@
+easy_admin:
+  entities:
+    Filter:
+      label: "Filtres"
+      class: App\Entity\Filter
+      form:
+        fields:
+          - name
