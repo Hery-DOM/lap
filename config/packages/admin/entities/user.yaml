@@ -1,6 +1,7 @@
 easy_admin:
   entities:
     User:
+      label: "Utilisateurs"
       class: App\Entity\User
       list:
         fields:

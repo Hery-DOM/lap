@@ -2,7 +2,7 @@
   height: 90vh;
   background-image: url("../img/static/homepage-top.png");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0 80%;
   background-size: cover;
   position: relative;
 }
@@ -138,6 +138,7 @@
 .homepage-accompaniment-container{
   width: 80%;
   margin: 50px auto;
+  display: block;
 
   h2{
     color: $blue;
@@ -212,13 +213,13 @@
 
 
 .homepage-services{
-  //background-color: $ligthblue;
-  width: 90%;
-  margin: 0 auto;
+  background-color: $lightbluetransparent;
   padding: 50px 0;
 }
 
 .homepage-services-container{
+  width: 90%;
+  margin: 0 auto;
   h2{
     color: $ligthblue;
     text-align: center;
@@ -240,6 +241,7 @@
         margin: 40px 0;
         color: $blue;
         text-transform: uppercase;
+        text-align: center;
       }
       p{
         font-size: 0.9em;
@@ -488,8 +490,12 @@
 
 
 
+/*************************************************************************
+*********************************  RESPONSIVE  ***************************
+**************************************************************************/
 
-
-
+.homepage-ptz-responsive, .homepage-preview-responsive{
+  display: none;
+}
 
 

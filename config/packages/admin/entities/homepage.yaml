@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Homepage:
+      label: "Page d'accueil"
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\Homepage
+      edit:
+        fields:
+          - { property: 'text' }
+      list:
+        fields:
+          - {property: 'name', label: 'Nom'}
+          - {property: 'text', label: 'Texte' }

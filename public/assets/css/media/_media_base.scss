@@ -1,0 +1,69 @@
+@media screen and(max-width:930px){
+
+  .header-container{
+    display: none;
+  }
+
+  main{
+    padding-top: 0;
+  }
+
+  .header-logo-white-box{
+    display: block;
+    width: 40%;
+    position: absolute;
+    top: 2%;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+
+
+
+
+  /*******************  FOOTER  *******************/
+
+  .footer-number{
+    display: none;
+  }
+
+  .footer-social{
+    width: 45%;
+    p{
+      text-align: center;
+    }
+  }
+
+  .footer-recruitment{
+    width: 45%;
+    p{
+      text-align: center;
+    }
+    .footer-recruitment-btn{
+      padding: 5px 10px;
+      font-size: 0.9em;
+      margin: 0 auto;
+    }
+  }
+
+  .footer-second-row{
+    flex-direction: column;
+    font-size: 0.8em;
+    line-height: 30px;
+
+    nav{
+      width: 100%;
+      ul{
+        flex-direction: column;
+      }
+    }
+  }
+
+
+}
+

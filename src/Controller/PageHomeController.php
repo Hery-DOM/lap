@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\NewsletterTemp;
+use App\Repository\HomepageRepository;
 use App\Repository\NewsletterTempRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,10 +16,11 @@ class PageHomeController extends PersonalClass
     /**
      * @Route("/", name="home")
      */
-    public function home(Request $request, EntityManagerInterface $entityManager, NewsletterTempRepository $newsletterTempRepository)
+    public function home(Request $request, EntityManagerInterface $entityManager, NewsletterTempRepository
+    $newsletterTempRepository, HomepageRepository $homepageRepository)
     {
         // get message in banner
-        $banner = '';
+        $banner = $homepageRepository->findOneBy(['name' => 'Bannière']);
 
         if($request->isMethod('POST')){
             // tretament for a newsletter
@@ -58,7 +60,7 @@ class PageHomeController extends PersonalClass
 
 
         return $this->render('web/home.html.twig',[
-            'message' => $banner
+            'message' => $banner->getText()
         ]);
     }
 

@@ -1,0 +1,305 @@
+@media screen and(max-width:930px){
+
+  .homepage-top{
+    background-position: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .homepage-ptz{
+    display: none;
+  }
+
+  .homepage-ptz-responsive{
+    min-width: 95px;
+    width: 9%;
+    margin-left: 4%;
+    display: block;
+
+    .homepage-ptz-btn{
+    background-color: $yellow;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.9em;
+   }
+  }
+
+  .homepage-pastille-box{
+    width: 100%;
+    .homepage-pastille{
+      width: 50px;
+      height: 50px;
+      p{
+        font-size: 0.7em;
+      }
+      .big{
+        font-size: 0.5em;
+      }
+    }
+  }
+
+
+  /*************************************************************************
+  *********************************  BENEFITS  *****************************
+  **************************************************************************/
+
+  .homepage-benefits{
+    height: 100%;
+  }
+
+  .homepage-benefits-container{
+    width: 100%;
+  }
+
+  .homepage-benefits-block{
+    width: 25%;
+    h3{
+      font-size: 0.7em;
+    }
+    .homepage-benefits-img-box{
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  /*************************************************************************
+  *********************************  ACCOMPANIMENT  *****************************
+  **************************************************************************/
+
+  .homepage-accompaniment-container{
+    width: 100%;
+    text-align: center;
+    h2{
+      font-size: 1.3em;
+      span{
+        font-size: 1.3em;
+      }
+    }
+  }
+
+
+  /*************************************************************************
+  *********************************  PREVIEW  *****************************
+  **************************************************************************/
+  .homepage-preview{
+    display: none;
+  }
+
+  .homepage-preview-responsive{
+    display: block;
+    background-color: $lightbluetransparent;
+    padding-top: 40px;
+    h2{
+      color: $blue;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  .homepage-preview-responsive-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+
+    .homepage-preview-responsive-block{
+      margin-bottom: 50px;
+      background-color: white;
+      .homepage-preview-responsive-img-box{
+        position: relative;
+
+        h3{
+          position: absolute;
+          bottom: 10%;
+          left: 5%;
+          color: white;
+        }
+
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .homepage-preview-responsive-txt-box{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+
+        p{
+          width: 60%;
+          color: $blue;
+          font-size: 0.8em;
+        }
+
+        a{
+          width: 20%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          .homepage-preview-responsive-txt-arrow{
+            width: 50%;
+            margin-right: 20%;
+            img{
+              width: 100%;
+              height: auto;
+            }
+          }
+          .text-light{
+            width: 100%;
+            font-size: 0.7em;
+            color: $ligthblue;
+          }
+        }
+
+
+      }
+
+
+    }
+
+  }
+
+  /*************************************************************************
+  *********************************  SERVICES  *****************************
+  **************************************************************************/
+  .homepage-services{
+    width: 100%;
+  }
+
+  .homepage-services-container{
+    h2{
+      font-size: 0.9em;
+      font-weight: normal;
+    }
+
+    .homepage-services-box{
+      flex-wrap: wrap;
+      padding: 0 5px;
+      .homepage-services-block{
+        width: 30%;
+        p{
+          display: none;
+        }
+        .homepage-services-img-box{
+          height: 100%;
+        }
+      }
+      .homepage-services-divider{
+        width: 5%;
+      }
+      .homepage-services-third-divider{
+        display: none;
+      }
+    }
+  }
+
+  /*************************************************************************
+  *********************************  REQUEST  *****************************
+  **************************************************************************/
+
+  .homepage-request{
+    min-height: 30vh;
+    height: 30vh;
+    background-size: 200%;
+    background-position: 30% 23%;
+  }
+
+  .homepage-request-box{
+    height: 30vh;
+    p{
+      font-size: 1.1em;
+      line-height: 20px;
+    }
+
+    .homepage-request-btn{
+      padding: 5px 10%;
+      text-align: center;
+    }
+  }
+
+
+  /*************************************************************************
+  *********************************  TESTIMONIES  **************************
+  **************************************************************************/
+  .homepage-testimonies-container{
+    h2{
+      text-align: center;
+    }
+  }
+
+
+  /*************************************************************************
+  *********************************  PROJECT  ******************************
+  **************************************************************************/
+
+  .homepage-project-container{
+    width: 95%;
+  }
+  .homepage-project-blog{
+    .homepage-project-blog-txt-box{
+      p{
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  .homepage-project-find-block, .homepage-project-owner-block{
+    width: 48%;
+    p{
+      font-size: 1.3em;
+    }
+  }
+  .homepage-project-blog-btn, .homepage-project-owner-btn, .homepage-project-find-btn{
+    font-size: 1.1em;
+  }
+
+
+  /*************************************************************************
+  *********************************  NEWSLETTER  ***************************
+  **************************************************************************/
+  .homepage-newsletter{
+    h2{
+      font-size: 0.9em;
+    }
+  }
+
+  .homepage-newsletter-form-box{
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .homepage-newsletter-form-block{
+      width: 100%;
+      input{
+        width: 100%;
+      }
+      label{
+        margin-top: 10px;
+      }
+    }
+
+    input[type="image"]{
+      margin-top: 20px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -23,6 +23,9 @@ h1, h2, h3, a, li, p, label {
   font-family: "Gilroy", sans-serif; }
 
 /*******************  HEADER  *******************/
+.header-logo-white-box {
+  display: none; }
+
 .header-container {
   display: flex;
   justify-content: space-around;
@@ -151,7 +154,7 @@ main {
   height: 90vh;
   background-image: url("../img/static/homepage-top.png");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0 80%;
   background-size: cover;
   position: relative; }
 
@@ -258,7 +261,8 @@ main {
 **************************************************************************/
 .homepage-accompaniment-container {
   width: 80%;
-  margin: 50px auto; }
+  margin: 50px auto;
+  display: block; }
   .homepage-accompaniment-container h2 {
     color: #002849;
     text-transform: uppercase; }
@@ -315,48 +319,51 @@ main {
 *********************************  SERVICES  *****************************
 **************************************************************************/
 .homepage-services {
-  width: 90%;
-  margin: 0 auto;
+  background-color: rgba(69, 138, 255, 0.2);
   padding: 50px 0; }
 
-.homepage-services-container h2 {
-  color: #4489C8;
-  text-align: center;
-  text-decoration: underline #FBB03B;
-  margin-bottom: 80px; }
-.homepage-services-container .homepage-services-box {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start; }
-  .homepage-services-container .homepage-services-box .homepage-services-block {
-    width: 12%; }
-    .homepage-services-container .homepage-services-box .homepage-services-block h3 {
-      font-weight: bold;
-      font-size: 0.8em;
-      height: 20px;
-      margin: 40px 0;
-      color: #002849;
-      text-transform: uppercase; }
-    .homepage-services-container .homepage-services-box .homepage-services-block p {
-      font-size: 0.9em;
-      color: #002849; }
-    .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box {
-      width: 60%;
-      height: 100px;
-      margin: 0 auto; }
-      .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box img {
+.homepage-services-container {
+  width: 90%;
+  margin: 0 auto; }
+  .homepage-services-container h2 {
+    color: #4489C8;
+    text-align: center;
+    text-decoration: underline #FBB03B;
+    margin-bottom: 80px; }
+  .homepage-services-container .homepage-services-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; }
+    .homepage-services-container .homepage-services-box .homepage-services-block {
+      width: 12%; }
+      .homepage-services-container .homepage-services-box .homepage-services-block h3 {
+        font-weight: bold;
+        font-size: 0.8em;
+        height: 20px;
+        margin: 40px 0;
+        color: #002849;
+        text-transform: uppercase;
+        text-align: center; }
+      .homepage-services-container .homepage-services-box .homepage-services-block p {
+        font-size: 0.9em;
+        color: #002849; }
+      .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box {
+        width: 60%;
+        height: 100px;
+        margin: 0 auto; }
+        .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box img {
+          width: 100%;
+          height: auto; }
+    .homepage-services-container .homepage-services-box .homepage-services-divider {
+      width: 2%;
+      height: 18vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .homepage-services-container .homepage-services-box .homepage-services-divider .homepage-services-divider-img-box img {
         width: 100%;
         height: auto; }
-  .homepage-services-container .homepage-services-box .homepage-services-divider {
-    width: 2%;
-    height: 18vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-    .homepage-services-container .homepage-services-box .homepage-services-divider .homepage-services-divider-img-box img {
-      width: 100%;
-      height: auto; }
 
 /*************************************************************************
 *********************************  REQUEST  *****************************
@@ -516,6 +523,12 @@ main {
     padding: 5px;
     width: 120%; }
 
+/*************************************************************************
+*********************************  RESPONSIVE  ***************************
+**************************************************************************/
+.homepage-ptz-responsive, .homepage-preview-responsive {
+  display: none; }
+
 .emailSent-block {
   height: 50vh;
   display: flex;
@@ -525,5 +538,257 @@ main {
   .emailSent-block p {
     text-align: center;
     color: #002849; }
+
+@media screen and (max-width: 930px) {
+  .header-container {
+    display: none; }
+
+  main {
+    padding-top: 0; }
+
+  .header-logo-white-box {
+    display: block;
+    width: 40%;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99; }
+    .header-logo-white-box img {
+      width: 100%;
+      height: auto; }
+
+  /*******************  FOOTER  *******************/
+  .footer-number {
+    display: none; }
+
+  .footer-social {
+    width: 45%; }
+    .footer-social p {
+      text-align: center; }
+
+  .footer-recruitment {
+    width: 45%; }
+    .footer-recruitment p {
+      text-align: center; }
+    .footer-recruitment .footer-recruitment-btn {
+      padding: 5px 10px;
+      font-size: 0.9em;
+      margin: 0 auto; }
+
+  .footer-second-row {
+    flex-direction: column;
+    font-size: 0.8em;
+    line-height: 30px; }
+    .footer-second-row nav {
+      width: 100%; }
+      .footer-second-row nav ul {
+        flex-direction: column; } }
+@media screen and (max-width: 930px) {
+  .homepage-top {
+    background-position: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+  .homepage-ptz {
+    display: none; }
+
+  .homepage-ptz-responsive {
+    min-width: 95px;
+    width: 9%;
+    margin-left: 4%;
+    display: block; }
+    .homepage-ptz-responsive .homepage-ptz-btn {
+      background-color: #FBB03B;
+      color: white;
+      font-weight: bold;
+      padding: 5px 10px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 0.9em; }
+
+  .homepage-pastille-box {
+    width: 100%; }
+    .homepage-pastille-box .homepage-pastille {
+      width: 50px;
+      height: 50px; }
+      .homepage-pastille-box .homepage-pastille p {
+        font-size: 0.7em; }
+      .homepage-pastille-box .homepage-pastille .big {
+        font-size: 0.5em; }
+
+  /*************************************************************************
+  *********************************  BENEFITS  *****************************
+  **************************************************************************/
+  .homepage-benefits {
+    height: 100%; }
+
+  .homepage-benefits-container {
+    width: 100%; }
+
+  .homepage-benefits-block {
+    width: 25%; }
+    .homepage-benefits-block h3 {
+      font-size: 0.7em; }
+    .homepage-benefits-block .homepage-benefits-img-box {
+      width: 50px;
+      height: 50px; }
+
+  /*************************************************************************
+  *********************************  ACCOMPANIMENT  *****************************
+  **************************************************************************/
+  .homepage-accompaniment-container {
+    width: 100%;
+    text-align: center; }
+    .homepage-accompaniment-container h2 {
+      font-size: 1.3em; }
+      .homepage-accompaniment-container h2 span {
+        font-size: 1.3em; }
+
+  /*************************************************************************
+  *********************************  PREVIEW  *****************************
+  **************************************************************************/
+  .homepage-preview {
+    display: none; }
+
+  .homepage-preview-responsive {
+    display: block;
+    background-color: rgba(69, 138, 255, 0.2);
+    padding-top: 40px; }
+    .homepage-preview-responsive h2 {
+      color: #002849;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px; }
+
+  .homepage-preview-responsive-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto; }
+    .homepage-preview-responsive-container .homepage-preview-responsive-block {
+      margin-bottom: 50px;
+      background-color: white; }
+      .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-img-box {
+        position: relative; }
+        .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-img-box h3 {
+          position: absolute;
+          bottom: 10%;
+          left: 5%;
+          color: white; }
+        .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-img-box img {
+          width: 100%;
+          height: auto; }
+      .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-txt-box {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0; }
+        .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-txt-box p {
+          width: 60%;
+          color: #002849;
+          font-size: 0.8em; }
+        .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-txt-box a {
+          width: 20%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end; }
+          .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-txt-box a .homepage-preview-responsive-txt-arrow {
+            width: 50%;
+            margin-right: 20%; }
+            .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-txt-box a .homepage-preview-responsive-txt-arrow img {
+              width: 100%;
+              height: auto; }
+          .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-txt-box a .text-light {
+            width: 100%;
+            font-size: 0.7em;
+            color: #4489C8; }
+
+  /*************************************************************************
+  *********************************  SERVICES  *****************************
+  **************************************************************************/
+  .homepage-services {
+    width: 100%; }
+
+  .homepage-services-container h2 {
+    font-size: 0.9em;
+    font-weight: normal; }
+  .homepage-services-container .homepage-services-box {
+    flex-wrap: wrap;
+    padding: 0 5px; }
+    .homepage-services-container .homepage-services-box .homepage-services-block {
+      width: 30%; }
+      .homepage-services-container .homepage-services-box .homepage-services-block p {
+        display: none; }
+      .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box {
+        height: 100%; }
+    .homepage-services-container .homepage-services-box .homepage-services-divider {
+      width: 5%; }
+    .homepage-services-container .homepage-services-box .homepage-services-third-divider {
+      display: none; }
+
+  /*************************************************************************
+  *********************************  REQUEST  *****************************
+  **************************************************************************/
+  .homepage-request {
+    min-height: 30vh;
+    height: 30vh;
+    background-size: 200%;
+    background-position: 30% 23%; }
+
+  .homepage-request-box {
+    height: 30vh; }
+    .homepage-request-box p {
+      font-size: 1.1em;
+      line-height: 20px; }
+    .homepage-request-box .homepage-request-btn {
+      padding: 5px 10%;
+      text-align: center; }
+
+  /*************************************************************************
+  *********************************  TESTIMONIES  **************************
+  **************************************************************************/
+  .homepage-testimonies-container h2 {
+    text-align: center; }
+
+  /*************************************************************************
+  *********************************  PROJECT  ******************************
+  **************************************************************************/
+  .homepage-project-container {
+    width: 95%; }
+
+  .homepage-project-blog .homepage-project-blog-txt-box p {
+    font-size: 1.5em; }
+
+  .homepage-project-find-block, .homepage-project-owner-block {
+    width: 48%; }
+    .homepage-project-find-block p, .homepage-project-owner-block p {
+      font-size: 1.3em; }
+
+  .homepage-project-blog-btn, .homepage-project-owner-btn, .homepage-project-find-btn {
+    font-size: 1.1em; }
+
+  /*************************************************************************
+  *********************************  NEWSLETTER  ***************************
+  **************************************************************************/
+  .homepage-newsletter h2 {
+    font-size: 0.9em; }
+
+  .homepage-newsletter-form-box {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+    .homepage-newsletter-form-box .homepage-newsletter-form-block {
+      width: 100%; }
+      .homepage-newsletter-form-box .homepage-newsletter-form-block input {
+        width: 100%; }
+      .homepage-newsletter-form-box .homepage-newsletter-form-block label {
+        margin-top: 10px; }
+    .homepage-newsletter-form-box input[type="image"] {
+      margin-top: 20px; } }
 
 /*# sourceMappingURL=styles.css.map */
