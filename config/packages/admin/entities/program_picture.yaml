@@ -7,8 +7,15 @@ easy_admin:
         fields:
           - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureAlt', label: "Texte alternatif"}
+        actions:
+          - {name: 'new', label: 'Ajouter une image'}
+      new:
+        title: "Ajout d'une image"
+      edit:
+        title: "Modification d'une image"
       form:
         fields:
+          - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureFile', type: 'vich_image', label: 'Image'}
           - {property: 'pictureAlt'}
           - {property: 'program'}

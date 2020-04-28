@@ -3,3 +3,16 @@ easy_admin:
     MainCriteria:
       label: "Points forts"
       class: App\Entity\MainCriteria
+      list:
+        actions:
+          - {name: 'new', label: 'Créer un point fort'}
+        fields:
+          - {property: 'name', label: 'Nom du point fort'}
+          - {property: 'programs', label: 'Programmes associés'}
+      new:
+        title: "Création d'un point fort"
+      edit:
+        title: "Modification d'un point fort"
+      form:
+        fields:
+          - {property: 'name', label: 'Nom du point fort'}

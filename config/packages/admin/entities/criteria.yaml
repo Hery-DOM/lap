@@ -3,3 +3,19 @@ easy_admin:
     Criteria:
       label: "Critères"
       class: App\Entity\Criteria
+      list:
+        title: 'Liste des critères'
+        actions:
+          - {name: 'new', label: 'Ajouter un critère'}
+        fields:
+          - {property: 'name', label: 'Nom du critère'}
+          - {property: 'criteriaOption', label: 'Option du critère'}
+          - {property: 'programs', label: 'Programmes associés'}
+      new:
+        title: "Création d'un critère"
+      edit:
+        title: "Modification d'un critère"
+      form:
+        fields:
+          - {property: 'name', label: 'Nom du critère'}
+          - {property: 'criteriaOption', label: 'Option du critère'}

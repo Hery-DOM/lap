@@ -9,6 +9,6 @@ easy_admin:
           - {entity: 'MainCriteria'}
           - {entity: 'Criteria'}
           - {entity: 'Filter'}
-          - {entity: 'ProgramPicture', label: 'Image des biens'}
+          - {entity: 'ProgramPicture', label: 'Images des biens'}
 
       - {label: 'Déconnexion', route: 'fos_user_security_logout'}

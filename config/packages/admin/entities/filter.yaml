@@ -3,6 +3,19 @@ easy_admin:
     Filter:
       label: "Filtres"
       class: App\Entity\Filter
+      list:
+        title: 'Liste des filtres'
+        actions:
+          - {name: 'new', label: 'Créer un filtre'}
+        fields:
+          - {property: 'name', label: 'Nom du filtre'}
+          - {property: 'filterOption', label: 'Option du filtre'}
+          - {property: 'programs', label: 'Programmes associés'}
+      new:
+        title: "Création d'un filtre"
+      edit:
+        title: "Modification d'un filtre"
       form:
         fields:
-          - name
+          - {property: 'name', label: 'Nom du filtre'}
+          - {property: 'filterOption', label: 'Option du filtre'}
