@@ -222,8 +222,188 @@ main {
 .homepage-search-barre {
   width: 60%;
   margin: 20px auto;
-  height: 10vh;
-  background-color: grey; }
+  min-height: 6vh;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.homepage-search-first-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px; }
+
+.homepage-search-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-right: 2px solid #002849;
+  padding-right: 3px;
+  margin-right: 3px;
+  width: 15%;
+  position: relative; }
+  .homepage-search-block #city {
+    position: relative; }
+  .homepage-search-block #resultAutocompletion ul {
+    background-color: white;
+    padding: 10px 5%;
+    width: 100%;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    color: #4489C8;
+    max-height: 100px;
+    overflow: scroll; }
+  .homepage-search-block #result, .homepage-search-block #resultTypo {
+    position: absolute;
+    background-color: white;
+    top: 28px;
+    left: 0;
+    width: 100%;
+    padding: 10px 5%;
+    color: #4489C8;
+    display: none;
+    z-index: 999;
+    max-height: 100px;
+    overflow: scroll; }
+  .homepage-search-block input[type='text'], .homepage-search-block p {
+    color: #4489C8;
+    border: none;
+    font-size: 0.8em; }
+  .homepage-search-block input[type='text'] {
+    width: 80%;
+    padding: 5px; }
+  .homepage-search-block input[type='text']::placeholder {
+    color: #4489C8; }
+  .homepage-search-block .img-box {
+    width: 5%; }
+    .homepage-search-block .img-box img {
+      width: 100%;
+      height: auto; }
+  .homepage-search-block .img-box:hover {
+    cursor: pointer; }
+
+.homepage-search-block:hover {
+  cursor: pointer; }
+
+.homepage-seach-block-submit {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .homepage-seach-block-submit input {
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    background-color: #002849;
+    border: 1px solid #002849;
+    border-radius: 20px;
+    padding: 5% 0; }
+  .homepage-seach-block-submit input:hover {
+    cursor: pointer;
+    color: #002849;
+    background-color: white; }
+
+.homepage-search-others-container {
+  display: none; }
+
+.homepage-search-others {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 20px; }
+  .homepage-search-others .homepage-search-others-block {
+    width: 33%; }
+    .homepage-search-others .homepage-search-others-block .homepage-search-others-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+      margin: 20px 0; }
+      .homepage-search-others .homepage-search-others-block .homepage-search-others-box label {
+        color: #4489C8;
+        font-weight: 700; }
+      .homepage-search-others .homepage-search-others-block .homepage-search-others-box input, .homepage-search-others .homepage-search-others-block .homepage-search-others-box p {
+        margin: 10px 0; }
+      .homepage-search-others .homepage-search-others-block .homepage-search-others-box input {
+        border-radius: 10px;
+        border: none;
+        background-color: #4489C8;
+        color: white;
+        padding: 5px; }
+      .homepage-search-others .homepage-search-others-block .homepage-search-others-box input::placeholder {
+        color: white; }
+    .homepage-search-others .homepage-search-others-block .homepage-search-others-flex {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row; }
+      .homepage-search-others .homepage-search-others-block .homepage-search-others-flex label {
+        margin: 0 2%; }
+
+.homepage-search-others .years {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%; }
+  .homepage-search-others .years .form-btn-selection {
+    color: white;
+    font-size: 1.2em;
+    background-color: #4489C8;
+    border-radius: 20px;
+    padding: 5px;
+    width: 30%;
+    margin-right: 10px !important;
+    text-align: center; }
+
+.homepage-search-others-box .immediatly {
+  color: white;
+  font-size: 0.9em;
+  background-color: #4489C8;
+  border-radius: 20px;
+  padding: 5px;
+  margin-right: 10px !important;
+  text-align: center; }
+
+.homepage-search-others-block .rooms {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .homepage-search-others-block .rooms .form-btn-selection {
+    color: white;
+    background-color: #4489C8;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+.homepage-search-others-block .prestations {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap; }
+  .homepage-search-others-block .prestations .form-btn-selection {
+    color: white;
+    background-color: #4489C8;
+    border-radius: 20px;
+    margin-right: 10px !important;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+.homepage-search-others-box .immediatly:hover, .homepage-search-others .years .form-btn-selection:hover, .homepage-search-others-block .rooms .form-btn-selection:hover, .homepage-search-others-block .prestations .form-btn-selection:hover {
+  cursor: pointer; }
+
+#homepage-search-submit-responsive {
+  display: none; }
 
 /*************************************************************************
 *********************************  BENEFITS  *****************************
@@ -534,6 +714,57 @@ main {
 .homepage-ptz-responsive, .homepage-preview-responsive {
   display: none; }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px; }
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 90%;
+  width: 40%;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+input:checked + .slider {
+  background-color: #002849; }
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3; }
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(90%);
+  -ms-transform: translateX(90%);
+  transform: translateX(90%); }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px; }
+
+.slider.round:before {
+  border-radius: 50%; }
+
 .emailSent-block {
   height: 50vh;
   display: flex;
@@ -833,5 +1064,45 @@ main {
         margin-top: 10px; }
     .homepage-newsletter-form-box input[type="image"] {
       margin-top: 20px; } }
+@media screen and (max-width: 1300px) {
+  .homepage-search-barre {
+    background-color: transparent; }
+    .homepage-search-barre .homepage-search-first-row {
+      display: block; }
+      .homepage-search-barre .homepage-search-first-row .homepage-search-block {
+        width: 100%;
+        border: none; }
+        .homepage-search-barre .homepage-search-first-row .homepage-search-block input[type="text"] {
+          padding: 10px;
+          width: 95%;
+          border-radius: 20px;
+          margin: 10px 0; }
+        .homepage-search-barre .homepage-search-first-row .homepage-search-block p {
+          background-color: white;
+          padding: 10px;
+          width: 95%;
+          border-radius: 20px;
+          margin: 10px 0; }
+        .homepage-search-barre .homepage-search-first-row .homepage-search-block #result, .homepage-search-barre .homepage-search-first-row .homepage-search-block #resultTypo, .homepage-search-barre .homepage-search-first-row .homepage-search-block #resultAutocompletion ul {
+          top: 45px;
+          width: 94%;
+          z-index: 9999; }
+
+  .homepage-search-others {
+    background-color: white;
+    border-radius: 20px;
+    display: block; }
+    .homepage-search-others .homepage-search-others-block {
+      width: 100%; }
+
+  #homepage-search-submit-responsive {
+    display: block;
+    width: 100%; }
+    #homepage-search-submit-responsive .homepage-search-btn {
+      padding: 2%;
+      border: 2px solid white; }
+
+  #homepage-search-submit {
+    display: none; } }
 
 /*# sourceMappingURL=styles.css.map */

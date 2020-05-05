@@ -7,8 +7,11 @@ namespace App\Controller;
 use App\Entity\NewsletterTemp;
 use App\Repository\HomepageRepository;
 use App\Repository\NewsletterTempRepository;
+use App\Repository\ProgramRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageHomeController extends PersonalClass
@@ -17,10 +20,28 @@ class PageHomeController extends PersonalClass
      * @Route("/", name="home")
      */
     public function home(Request $request, EntityManagerInterface $entityManager, NewsletterTempRepository
-    $newsletterTempRepository, HomepageRepository $homepageRepository)
+    $newsletterTempRepository, HomepageRepository $homepageRepository, ProgramRepository $programRepository)
     {
         // get message in banner
         $banner = $homepageRepository->findOneBy(['name' => 'Bannière']);
+
+        // get every cities
+        $homes = $programRepository->findBy([],['city' => 'ASC']);
+        $cities = [];
+        foreach($homes as $home){
+            if(!in_array($home->getCity(),$cities)){
+                $cities[] = $home->getCity();
+            }
+        }
+
+        // get every typologies
+        $typo = [];
+        foreach($homes as $home){
+            if(!in_array($home->getTypologie(),$typo)){
+                $typo[] = $home->getTypologie();
+            }
+        }
+
 
         if($request->isMethod('POST')){
             // tretament for a newsletter
@@ -60,7 +81,9 @@ class PageHomeController extends PersonalClass
 
 
         return $this->render('web/home.html.twig',[
-            'message' => $banner->getText()
+            'message' => $banner->getText(),
+            'cities' => $cities,
+            'typologies' => $typo
         ]);
     }
 
@@ -105,6 +128,29 @@ class PageHomeController extends PersonalClass
         return $this->redirectToRoute('home');
 
     }
+
+    /**
+     * @Route("/ajax", name="ajax")
+     * @IsGranted("ROLE_SUPER_ADMIN")
+     * No view
+     */
+    public function ajax(ProgramRepository $programRepository)
+    {
+        // get every cities
+        $homes = $programRepository->findBy([],['city' => 'ASC']);
+        $cities = [];
+        foreach($homes as $home){
+            // don't update if the city is already in array
+            if(!in_array($home->getCity(),$cities)){
+                $cities[] = $home->getCity();
+            }
+
+        }
+
+        return new Response(json_encode($cities));
+
+    }
+
 
 
 

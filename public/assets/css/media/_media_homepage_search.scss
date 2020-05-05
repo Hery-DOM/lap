@@ -1,0 +1,58 @@
+@media screen and(max-width: 1300px){
+
+  .homepage-search-barre{
+    background-color: transparent;
+
+    .homepage-search-first-row{
+      display: block;
+      .homepage-search-block{
+        width: 100%;
+        border: none;
+        input[type="text"]{
+          padding: 10px;
+          width: 95%;
+          border-radius: 20px;
+          margin: 10px 0;
+        }
+        p{
+          background-color: white;
+          padding: 10px;
+          width: 95%;
+          border-radius: 20px;
+          margin: 10px 0;
+        }
+
+        #result,#resultTypo, #resultAutocompletion ul{
+          top: 45px;
+          width: 94%;
+          z-index: 9999;
+        }
+      }
+    }
+  }
+
+  .homepage-search-others{
+    background-color: white;
+    border-radius: 20px;
+    display: block;
+
+    .homepage-search-others-block{
+      width: 100%;
+    }
+  }
+
+
+  #homepage-search-submit-responsive{
+    display: block;
+    width: 100%;
+    .homepage-search-btn{
+      padding: 2%;
+      border: 2px solid white;
+    }
+
+  }
+  #homepage-search-submit{
+    display: none
+  }
+
+}

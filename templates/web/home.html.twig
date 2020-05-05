@@ -42,9 +42,146 @@
             <h2>Trouver le logement qui me correspond</h2>
         </div>
 
-        <!-- CONRIMER LES CRITÈRES A METTRE  -->
         <div class="homepage-search-barre">
+            <form action="#" method="POST">
 
+                <div class="homepage-search-first-row">
+                    <div class="homepage-search-block">
+                        <input type="text" name="city" placeholder="Lieu" id="city" data-path="{{ path('ajax') }}">
+                        <div id="resultAutocompletion"></div>
+                        <div id="result">
+                            <ul>
+                                {% for city in cities %}
+                                    <li onclick="choice('{{ city }}','#city','#result')">{{ city }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="img-box" onclick="slideDown('#result')">
+                            <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
+                        </div>
+                    </div>
+
+                    <div class="homepage-search-block">
+                        <input type="text" name="typologie" placeholder="Type de bien" id="typologie" disabled>
+                        <div id="resultTypo">
+                            <ul>
+                                {% for typo in typologies %}
+                                    <li onclick="choice('{{ typo }}','#typologie','#resultTypo')">{{ typo }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="img-box" onclick="slideDown('#resultTypo')">
+                            <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
+                        </div>
+                    </div>
+
+                    <div class="homepage-search-block">
+                        <input type="text" name="priceMin" placeholder="Budget min">
+                    </div>
+
+                    <div class="homepage-search-block">
+                        <input type="text" name="priceMax" placeholder="Budget max">
+                    </div>
+
+                    <div class="homepage-search-block" onclick="slideDown('.homepage-search-others-container')">
+                        <p>Autres prestations</p>
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
+                        </div>
+                    </div>
+
+                    <div class="homepage-search-block homepage-seach-block-submit" id="homepage-search-submit">
+                        <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+                    </div>
+
+                </div>
+
+
+                <div class="homepage-search-others-container">
+                    <div class="homepage-search-others">
+                        <div class="homepage-search-others-block">
+                            <div class="homepage-search-others-box">
+                                <label for="surface">Surface</label>
+                                <input type="number" name="surfaceMin" id="surface" placeholder="min m2">
+                                <input type="number" name="surfaceMax" placeholder="max m2">
+                            </div>
+
+                            <div class="homepage-search-others-box homepage-search-others-flex">
+                                <label>Accessible handicapé</label>
+                                <label class="switch homepage-search-others-switch">
+                                    <input type="checkbox" name="handicap">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+                        </div>
+
+
+                        <div class="homepage-search-others-block">
+                            <div class="homepage-search-others-box">
+                                <label for="delivery">Délais de livraison</label>
+                                <p class="immediatly" onclick="formSelect(this,'disponibility-immediatly')">Disponible immédiatement</p>
+                                <div class="years">
+                                    {% set now = "now"|date("Y") %}
+                                    <p class="form-btn-selection" onclick="formSelect(this,'disponibility-0')">{{now}}</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'disponibility-1')">{{now+1}}</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'disponibility-2')">+{{now+2}}</p>
+                                </div>
+                            </div>
+                            <div class="homepage-search-others-box">
+                                <label for="rooms">Nombre de pièces</label>
+                                <div class="rooms">
+                                    <p class="form-btn-selection" onclick="formSelect(this,'rooms-1')">1</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'rooms-2')">2</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'rooms-3')">3</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'rooms-4')">4</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'rooms-5')">5</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'rooms-6')">+6</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="homepage-search-others-block">
+                            <div class="homepage-search-others-box">
+                                <label for="prestation">Prestations</label>
+                                <div class="prestations">
+                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-jardin')">Jardin,
+                                        loggia,
+                                        balcon</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-rdc')">RDC</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-cuisine')
+">Cuisine</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-domotique')
+">Domotique</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-parking')
+">Parking</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-cave')">Cave</p>
+                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-cellier')
+">Cellier</p>
+                                </div>
+                            </div>
+
+                            {#<div class="homepage-search-others-close">
+                                <div class="homepage-search-block homepage-seach-block-submit">
+                                    <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+                                </div>
+                                <p>X</p>
+                            </div>#}
+                        </div>
+
+
+
+                        <div class="homepage-search-hidden">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homepage-search-block homepage-seach-block-submit" id="homepage-search-submit-responsive">
+                    <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+                </div>
+            </form>
         </div>
     </section>
 
