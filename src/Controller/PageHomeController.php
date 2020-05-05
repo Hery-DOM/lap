@@ -42,6 +42,9 @@ class PageHomeController extends PersonalClass
             }
         }
 
+        // get progams with filter "Sélection du mois"
+        $programsSelection = $programRepository->findByFilter('Sélection du mois');
+
 
         if($request->isMethod('POST')){
             // tretament for a newsletter
@@ -76,14 +79,16 @@ class PageHomeController extends PersonalClass
             }
 
 
-            // treatment for the search barre
+            // treatment for the search barre => get data in $_POST + redirect to search'page with this data
+            // in parameters
         }
 
 
         return $this->render('web/home.html.twig',[
             'message' => $banner->getText(),
             'cities' => $cities,
-            'typologies' => $typo
+            'typologies' => $typo,
+            'programSelection' => $programsSelection
         ]);
     }
 
@@ -129,6 +134,10 @@ class PageHomeController extends PersonalClass
 
     }
 
+
+
+    /********** AJAX *********/
+
     /**
      * @Route("/ajax", name="ajax")
      * @IsGranted("ROLE_SUPER_ADMIN")
@@ -150,6 +159,28 @@ class PageHomeController extends PersonalClass
         return new Response(json_encode($cities));
 
     }
+
+
+    /**
+     * @Route("/preview/load/{filter}",name="preview_load")
+     */
+    public function previewAjax($filter, ProgramRepository $programRepository)
+    {
+        // secure filter
+        $filter = $this->secureInput($filter);
+
+        // get programs accroding with filter
+        $programs = $programRepository->findByFilter($filter);
+
+        return $this->render('load/preview.html.twig',[
+            'programs' => $programs
+        ]);
+
+
+    }
+
+
+
 
 
 

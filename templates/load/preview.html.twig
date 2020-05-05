@@ -1,0 +1,16 @@
+{% for program in programs|slice(0,3) %}
+    <div class="homepage-preview-block">
+        {% if program.programPicture is not empty %}
+            <div class="img-box">
+                <img src="{{ asset('assets/img/programs/') }}{{ program.programPicture[0].picture }}"alt="{{program.programPicture[0].pictureAlt }}">
+            </div>
+        {% endif %}
+        <div class="name-city">
+            <h3>{{ program.name }}</h3>
+            <p>{{ program.city }}</p>
+        </div>
+        <div class="price">
+            <p>{{ program.price }} €</p>
+        </div>
+    </div>
+{% endfor %}

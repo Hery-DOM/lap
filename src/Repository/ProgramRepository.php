@@ -19,6 +19,23 @@ class ProgramRepository extends ServiceEntityRepository
         parent::__construct($registry, Program::class);
     }
 
+    public function findByFilter($name)
+    {
+        return $this->createQueryBuilder('p')
+                    ->select('p')
+                    ->leftJoin('p.filter', 'f')
+                    ->addSelect('f')
+                    ->leftJoin('p.program_picture', 'pic')
+                    ->addSelect('pic')
+                    ->where('f.name = :name')
+                    ->setParameter('name',$name)
+                    ->andWhere('p.published = :bool')
+                    ->setParameter('bool',true)
+                    ->getQuery()
+                    ->getResult();
+    }
+
+
     // /**
     //  * @return Program[] Returns an array of Program objects
     //  */

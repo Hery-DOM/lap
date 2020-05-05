@@ -16,6 +16,27 @@ easy_admin:
         title: "Création d'un programme"
       edit:
         title: "Modification d'un programme"
+      show:
+        title: "Aperçu du programme"
+        fields:
+          - {property: 'name', label: 'Nom du bien'}
+          - {property: 'description', label: 'Description'}
+          - {property: 'descriptionMore', label: 'Description +'}
+          - {property: 'address', label: 'Adresse'}
+          - {property: 'city', label: 'Ville'}
+          - {property: 'postcode', label: 'Code postal'}
+          - {property: 'region', label: 'Région'}
+          - {property: 'price', label: 'Prix'}
+          - {property: 'typologie', label: 'Typologie'}
+          - {property: 'numberRooms', label: 'Nombre de pièces'}
+          - {property: 'surface', label: 'Surface'}
+          - {property: 'movie', label: 'Vidéo'}
+          - {property: 'dateDelivery', label: 'Date de livraison'}
+          - {property: 'main_criteria', label: 'Points forts'}
+          - {property: 'criteria', label: 'Critères'}
+          - {property: 'program_picture', label: 'Images associées'}
+          - {property: 'filter', label: "Filtres pour la page d'accueil"}
+          - {property: 'published', label: 'Publié ?'}
       form:
         fields:
           - {property: 'name', label: 'Nom du bien'}

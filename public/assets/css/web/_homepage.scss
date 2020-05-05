@@ -415,10 +415,39 @@
 }
 
 .homepage-preview-result{
-  height: 50vh;
-  width: 100%;
-  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.homepage-preview-block{
+  width: 30%;
+
+  .img-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .name-city, .price{
+    color: $blue;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 700;
+    h3{
+      margin-bottom: 5px;
+    }
+  }
+
+}
+
+
+
 .homepage-preview-filter:hover{
   cursor: pointer;
 }

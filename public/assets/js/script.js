@@ -1,6 +1,10 @@
-function previewClick(elm){
+function previewClick(elm, url){
     $('.homepage-preview-filter p').removeClass('choice')
     $(elm).children().addClass('choice')
+
+    $('.homepage-preview-result').html('<img style="margin: 0 auto;" width="50" height="50" class="loadingUser"' +
+        ' src="https://media.giphy.com/media/L05HgB2h6qICDs5Sms/giphy.gif">')
+    $('.homepage-preview-result').load(url)
 
 
 
@@ -14,6 +18,8 @@ function choice(elm,target,down){
     $(target).val(elm)
     $(down).slideUp()
 }
+
+
 
 // input hidden generate (homepage-search)
 function formSelect(elm,name){

@@ -7,6 +7,7 @@ easy_admin:
         fields:
           - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureAlt', label: "Texte alternatif"}
+          - {property: 'program', label: "Programme associé"}
         actions:
           - {name: 'new', label: 'Ajouter une image'}
       new:
