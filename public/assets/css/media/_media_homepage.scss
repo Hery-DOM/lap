@@ -237,6 +237,44 @@
     }
   }
 
+  .homepage-testimonies .owl-item{
+    display: block;
+  }
+
+  .homepage-testimony-responsive-img-box{
+    display: block;
+    width: 40%;
+    margin: 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .homepage-testimony-second-box{
+    width: 100%;
+  }
+
+  .homepage-testimony-second-box .img-box{
+    display: none;
+  }
+
+  .homepage-testimony-second-box p{
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  .homepage-testimony-video-box{
+    width: 100%;
+    iframe{
+      width: 100%;
+    }
+  }
+
+
+
 
   /*************************************************************************
   *********************************  PROJECT  ******************************

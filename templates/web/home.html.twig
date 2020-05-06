@@ -4,7 +4,36 @@
     Accueil
 {% endblock %}
 
+{% block main %}
+    homepage-main
+{% endblock %}
+
 {% block content %}
+    {# ##################################################################
+      #########################  ASIDE ###############################
+      ################################################################### #}
+
+    <aside class="aside">
+        <div class="vertical-line"></div>
+        <div class="square" id="square1"></div>
+        <div class="square" id="square2"></div>
+        <div class="square" id="square3"></div>
+        <div class="square" id="square4"></div>
+        <div class="square" id="square5"></div>
+        <div class="vertical-line"></div>
+    </aside>
+
+
+
+
+
+
+
+
+    {# ##################################################################
+      #########################  SECTION ###############################
+      ################################################################### #}
+
     <section class="homepage-top">
         <div class="homepage-top-first-block">
             <div class="homepage-ptz">
@@ -222,7 +251,8 @@
         <h2>Un accompagnement de <span>A</span> à <span>Z</span></h2>
 
         <div class="homepage-accompaniment-video-box">
-
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/4SLnhA5JbpI" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -504,8 +534,31 @@
         <div class="homepage-testimonies-container">
             <h2>Témoiganges clients</h2>
 
-            <div class="homepage-testimonies-caroussel">
-
+            <div class="owl-carousel owl-theme owl-loaded">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage">
+                        {% for testimony in testimonies %}
+                            <div class="owl-item">
+                                <div class="homepage-testimony-responsive-img-box">
+                                    <img src="{{ asset('assets/img/testimonies/') }}{{ testimony.picture }}"
+                                         alt="{{ testimony.title }}">
+                                </div>
+                                {% if testimony.movie %}
+                                    <div class="homepage-testimony-video-box">
+                                        {{ testimony.movie|raw }}
+                                    </div>
+                                {% endif %}
+                                <div class="homepage-testimony-second-box">
+                                    <div class="img-box">
+                                        <img src="{{ asset('assets/img/testimonies/') }}{{ testimony.picture }}"
+                                             alt="{{ testimony.title }}">
+                                    </div>
+                                    <p>{{ testimony.text|nl2br }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
 
         </div>

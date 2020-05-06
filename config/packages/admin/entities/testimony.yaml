@@ -1,0 +1,26 @@
+easy_admin:
+  entities:
+    Testimony:
+      label: "Témoignages"
+      class: App\Entity\Testimony
+      list:
+        title: 'Liste des témoignages'
+        actions:
+          - {name: 'new', label: 'Ajouter un témoignage'}
+        fields:
+          - {property: 'title', label: 'Titre'}
+          - {property: 'picture', label: 'Image', type: 'boolean'}
+          - {property: 'movie', label: 'Vidéo', type: 'boolean'}
+          - {property: 'published', label: 'Publié'}
+      new:
+        title: "Ajout d'un témoignage"
+      edit:
+        title: "Modification d'un témoignage"
+      form:
+        fields:
+          - {property: 'title', label: 'Titre'}
+          - {property: 'text', label: 'Texte de description'}
+          - {property: 'picture', label: "Nom de l'image"}
+          - {property: 'pictureFile', label: "Image à télécharger", type: "vich_image"}
+          - {property: 'movie', label: 'Iframe de la vidéo'}
+          - {property: 'published', label: 'Publié'}

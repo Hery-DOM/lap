@@ -8,6 +8,7 @@ use App\Entity\NewsletterTemp;
 use App\Repository\HomepageRepository;
 use App\Repository\NewsletterTempRepository;
 use App\Repository\ProgramRepository;
+use App\Repository\TestimonyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +21,8 @@ class PageHomeController extends PersonalClass
      * @Route("/", name="home")
      */
     public function home(Request $request, EntityManagerInterface $entityManager, NewsletterTempRepository
-    $newsletterTempRepository, HomepageRepository $homepageRepository, ProgramRepository $programRepository)
+    $newsletterTempRepository, HomepageRepository $homepageRepository, ProgramRepository $programRepository,
+                         TestimonyRepository $testimonyRepository)
     {
         // get message in banner
         $banner = $homepageRepository->findOneBy(['name' => 'Bannière']);
@@ -44,6 +46,15 @@ class PageHomeController extends PersonalClass
 
         // get progams with filter "Sélection du mois"
         $programsSelection = $programRepository->findByFilter('Sélection du mois');
+
+        // get every testimonies which are published
+        $testimoniesInit = $testimonyRepository->findAll();
+        $testimonies = [];
+        foreach( $testimoniesInit as $value){
+            if($value->getPublished()){
+                $testimonies[] = $value;
+            }
+        }
 
 
         if($request->isMethod('POST')){
@@ -88,7 +99,8 @@ class PageHomeController extends PersonalClass
             'message' => $banner->getText(),
             'cities' => $cities,
             'typologies' => $typo,
-            'programSelection' => $programsSelection
+            'programSelection' => $programsSelection,
+            'testimonies' => $testimonies
         ]);
     }
 

@@ -153,6 +153,9 @@ main {
       .footer-second-row nav ul li a {
         color: white; }
 
+.homepage-main {
+  position: relative; }
+
 .homepage-top {
   height: 90vh;
   background-image: url("../img/static/homepage-top.png");
@@ -454,12 +457,6 @@ main {
     .homepage-accompaniment-container h2 span {
       font-size: 1.3em; }
 
-.homepage-accompaniment-video-box {
-  width: 80%;
-  margin: 50px auto;
-  height: 50vh;
-  background-color: grey; }
-
 /*************************************************************************
 *********************************  PREVIEW  ******************************
 **************************************************************************/
@@ -616,10 +613,30 @@ main {
     text-transform: uppercase;
     color: #002849; }
 
-.homepage-testimonies-caroussel {
-  height: 50vh;
-  margin-top: 50px;
-  background-color: grey; }
+.homepage-testimonies .owl-item {
+  display: flex;
+  justify-content: center; }
+
+.homepage-testimony-video-box {
+  width: 50%; }
+
+.homepage-testimony-second-box {
+  width: 50%;
+  padding: 0 10px; }
+  .homepage-testimony-second-box .img-box {
+    display: block;
+    width: 40%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 50px; }
+    .homepage-testimony-second-box .img-box img {
+      width: 100%;
+      height: auto; }
+  .homepage-testimony-second-box p {
+    color: #4489C8; }
+
+.homepage-testimony-responsive-img-box {
+  display: none; }
 
 /*************************************************************************
 *********************************  PROJECT  ******************************
@@ -783,6 +800,30 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%; }
 
+.aside {
+  position: fixed;
+  top: 10%;
+  right: 2%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh; }
+
+.vertical-line {
+  width: 2px;
+  height: 20vh;
+  background-color: white; }
+
+.square {
+  width: 8px;
+  height: 8px;
+  background-color: white; }
+
+@media screen and (max-width: 930px) {
+  .aside {
+    display: none; } }
 .emailSent-block {
   height: 50vh;
   display: flex;
@@ -1046,6 +1087,34 @@ input:checked + .slider:before {
   **************************************************************************/
   .homepage-testimonies-container h2 {
     text-align: center; }
+
+  .homepage-testimonies .owl-item {
+    display: block; }
+
+  .homepage-testimony-responsive-img-box {
+    display: block;
+    width: 40%;
+    margin: 20px auto;
+    border-radius: 50%;
+    overflow: hidden; }
+    .homepage-testimony-responsive-img-box img {
+      width: 100%;
+      height: auto; }
+
+  .homepage-testimony-second-box {
+    width: 100%; }
+
+  .homepage-testimony-second-box .img-box {
+    display: none; }
+
+  .homepage-testimony-second-box p {
+    text-align: center;
+    margin: 30px 0; }
+
+  .homepage-testimony-video-box {
+    width: 100%; }
+    .homepage-testimony-video-box iframe {
+      width: 100%; }
 
   /*************************************************************************
   *********************************  PROJECT  ******************************

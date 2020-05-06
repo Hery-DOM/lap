@@ -1,0 +1,32 @@
+.aside{
+  position: fixed;
+  top: 10%;
+  right: 2%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+
+}
+
+.vertical-line{
+  width: 2px;
+  height: 20vh;
+  background-color: white;
+}
+
+.square{
+  width: 8px;
+  height: 8px;
+  background-color: white;
+}
+
+@media screen and(max-width:930px) {
+
+  .aside{
+    display: none;
+  }
+
+}

@@ -10,5 +10,6 @@ easy_admin:
           - {entity: 'Criteria'}
           - {entity: 'Filter'}
           - {entity: 'ProgramPicture', label: 'Images des biens'}
+      - {entity: 'Testimony'}
 
       - {label: 'Déconnexion', route: 'fos_user_security_logout'}
