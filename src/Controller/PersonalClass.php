@@ -14,6 +14,11 @@ class PersonalClass extends AbstractController
         $this->mailer = $mailer;
     }
 
+    public function emailAdmin()
+    {
+        return "contact@locataireaproprietaire.fr";
+    }
+
 
     public function secureInput($data)
     {

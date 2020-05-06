@@ -71,7 +71,7 @@ class PageHomeController extends PersonalClass
                   'name' => $name,
                     'email' => $email
                 ];
-                $test = $this->sendEmail('Inscription à la newsletter', 'noreply@lap.fr', 'contact@lap.fr',$view, $viewParam);
+                $test = $this->sendEmail('Inscription à la newsletter', 'noreply@lap.fr', $this->emailAdmin(),$view, $viewParam);
                 if($test){
                     // get every mail in newsletter_temp and check if there isn't already this mail
                     $emailDB = $newsletterTempRepository->findBy(['email' => $email]);
@@ -86,6 +86,28 @@ class PageHomeController extends PersonalClass
                     return $this->render('web/emailSent.html.twig');
                 }
 
+
+            }
+
+            //treatment for a contact by form modal
+            if(isset($_POST['modal-form'])){
+                // secure inputs
+                $name = $this->secureInput($_POST['modal-name']);
+                $email = $this->secureInput($_POST['modal-email']);
+                $phone = $this->secureInput($_POST['modal-phone']);
+                $object = $this->secureInput($_POST['modal-object']);
+                $message = $this->secureInput($_POST['modal-message']);
+
+                $view = "email/contact_modal.html.twig";
+                $viewParam = [
+                    'name' => $name,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'object' => $object,
+                    'message' => $message
+                ];
+                $this->sendEmail('Contact par formulaire', 'no-reply@locataireaproprietaire.fr', $this->emailAdmin(),
+                    $view, $viewParam);
 
             }
 
@@ -122,7 +144,8 @@ class PageHomeController extends PersonalClass
             $viewParam = [
                 'name' => $emailsDB->getName()
             ];
-            $this->sendEmail('Inscription confirmée à la newsletter','noreply@lap.fr',$email,$view,$viewParam);
+            $this->sendEmail('Inscription confirmée à la newsletter','noreply@locataireaproprietaire.fr',$email,$view,
+                $viewParam);
 
             // send a mail to administrator
             $viewAdmin = 'email/adminNewsletter.html.twig';
@@ -131,8 +154,8 @@ class PageHomeController extends PersonalClass
                 'email' => $emailsDB->getEmail(),
                 'city' => $emailsDB->getCity()
             ];
-            $to = 'contact@lap.fr';
-            $this->sendEmail('Nouvelle inscription confirmée à la newsletter', 'noreply@lap.fr',$to,$viewAdmin,
+            $this->sendEmail('Nouvelle inscription confirmée à la newsletter', 'noreply@locataireaproprietaire.fr',$this->emailAdmin(),
+                $viewAdmin,
                 $viewParamAdmin);
 
             // remove the user from newsletter_temp

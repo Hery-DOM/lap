@@ -31,7 +31,9 @@
             </nav>
             
             <div class="header-contact">
-                <img src="{{ asset('assets/img/static/icone-contact.png') }}" alt="icone contact locataire à propriétaire">
+                <a href="#" onclick="contactModal()">
+                    <img src="{{ asset('assets/img/static/icone-contact.png') }}" alt="icone contact locataire à propriétaire">
+                </a>
             </div>
             
         </div>
@@ -68,7 +70,9 @@
                     <li>
                         <a href="#">
                             <div class="header-responsive-img-box-phone">
-                                <img src="{{ asset('assets/img/static/icone-contact.png') }}" alt="icone">
+                                <a href="#" onclick="contactModal()">
+                                    <img src="{{ asset('assets/img/static/icone-contact.png') }}" alt="icone">
+                                </a>
                             </div>
                         </a>
                     </li>
@@ -97,6 +101,87 @@
     <main class="{% block main %}{% endblock %}">
         {% block content %}
         {% endblock %}
+        <div class="contact-modal">
+            <div class="contact-modal-container">
+                <div class="contact-modal-block">
+                    <h2>Vous voulez parler à un conseiller ?</h2>
+                    <div class="contact-modal-number">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/static/icone-contact.png') }}" alt="icone téléphone">
+                        </div>
+                        <div class="text-box">
+                            <p class="number">07 77 84 91 94</p>
+                            <p>Du lundi au samedi de 9h00 à 20h</p>
+                        </div>
+                    </div>
+                    <div class="contact-modal-mail">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/static/icone-mail.png') }}" alt="icone mail">
+                        </div>
+                        <div class="text-box">
+                            <p>contact@locataireaproprietaire.fr</p>
+                            <p>239 rue de Turenne 33000 Bordeaux</p>
+                        </div>
+                    </div>
+                    <div class="contact-modal-social">
+                        <h2>Suivez-nous</h2>
+                        <div class="contact-modal-social-box">
+                            <div class="img-box">
+                                <a target="_blank" href="https://www.facebook.com/zammitconseilsetpatrimoine/?hc_ref=ARTVRjtyFnA2NLrww8BQElgroxBdEzgR_F2CbwEghOtbovEAHhlWHfeJK7ngezUvKqs&fref=nf">
+                                    <img src="{{ asset('assets/img/static/facebook.png') }}" alt="facebook">
+                                </a>
+                            </div>
+                            <div class="img-box">
+                                <a target="_blank" href="https://fr.linkedin.com/company/zammit-conseils-patrimoine">
+                                    <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="linkedin">
+                                </a>
+                            </div>
+                            <div class="img-box">
+                                <a target="_blank" href="https://www.youtube.com/channel/UCz14iF_6CsWZIS9si_13TTQ">
+                                    <img src="{{ asset('assets/img/static/youtube.png') }}" alt="youtube">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-block">
+                    <h2>Contacter un conseiller</h2>
+                    <form action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="modal-name">Nom</label>
+                                <input type="text" name="modal-name" id="modal-name">
+                            </div>
+                            <div class="form-field">
+                                <label for="modal-email">Adresse e-mail</label>
+                                <input type="email" name="modal-email" id="modal-email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="modal-phone">Téléphone</label>
+                                <input type="text" name="modal-phone" id="modal-phone">
+                            </div>
+                            <div class="form-field">
+                                <label for="modal-object">Objet</label>
+                                <input type="text" name="modal-object" id="modal-object">
+                            </div>
+                        </div>
+                        <div class="form-field-message">
+                            <label for="modal-message">Message</label>
+                            <textarea name="modal-message" id="modal-message" cols="50" rows="10"></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" name="modal-form">Envoyer</button>
+                        </div>
+                    </form>
+                    <div class="close" onclick="contactModalClose()">
+                        X
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>

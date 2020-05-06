@@ -69,6 +69,123 @@ main {
   min-height: 60vh;
   padding-top: 10vh; }
 
+/*******************  MAIN - CONTACT MODAL  *******************/
+.contact-modal {
+  display: none;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: white;
+  width: 80%;
+  height: 80%;
+  padding: 80px 60px; }
+
+.contact-modal-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; }
+
+.contact-modal-block {
+  width: 50%; }
+  .contact-modal-block h2 {
+    color: #002849;
+    margin-bottom: 20px; }
+  .contact-modal-block .contact-modal-number, .contact-modal-block .contact-modal-mail, .contact-modal-block .contact-modal-social {
+    margin: 20px 0; }
+  .contact-modal-block .contact-modal-number, .contact-modal-block .contact-modal-mail {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%; }
+    .contact-modal-block .contact-modal-number p, .contact-modal-block .contact-modal-mail p {
+      line-height: 40px; }
+    .contact-modal-block .contact-modal-number .img-box, .contact-modal-block .contact-modal-mail .img-box {
+      width: 10%;
+      margin-right: 5%; }
+      .contact-modal-block .contact-modal-number .img-box img, .contact-modal-block .contact-modal-mail .img-box img {
+        width: 100%;
+        height: auto; }
+    .contact-modal-block .contact-modal-number .text-box, .contact-modal-block .contact-modal-mail .text-box {
+      color: #4489C8; }
+      .contact-modal-block .contact-modal-number .text-box .number, .contact-modal-block .contact-modal-mail .text-box .number {
+        font-size: 1.4em;
+        font-weight: 700; }
+  .contact-modal-block .contact-modal-social {
+    margin-top: 100px; }
+    .contact-modal-block .contact-modal-social h2 {
+      text-align: center; }
+  .contact-modal-block .contact-modal-social-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto; }
+    .contact-modal-block .contact-modal-social-box .img-box {
+      width: 15%; }
+      .contact-modal-block .contact-modal-social-box .img-box img {
+        width: 100%;
+        height: auto; }
+
+.contact-modal-block form label {
+  color: #4489C8; }
+.contact-modal-block form input, .contact-modal-block form textarea {
+  background-color: #e8f0fe;
+  border: none;
+  color: black;
+  padding: 5px; }
+.contact-modal-block form input {
+  width: 100%;
+  height: 30px; }
+.contact-modal-block form .form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .contact-modal-block form .form-row .form-field {
+    width: 45%;
+    margin: 10px 0; }
+.contact-modal-block form .form-field-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start; }
+  .contact-modal-block form .form-field-message textarea {
+    width: 100%; }
+.contact-modal-block form .form-submit {
+  margin: 40px 0;
+  text-align: center; }
+  .contact-modal-block form .form-submit button {
+    background-color: #4489C8;
+    color: white;
+    border: 1px solid #4489C8;
+    padding: 3px 10%;
+    border-radius: 20px;
+    font-size: 1.2em;
+    text-transform: uppercase; }
+  .contact-modal-block form .form-submit button:hover {
+    background-color: #FBB03B;
+    border: 1px solid #FBB03B; }
+
+.contact-modal-block .close {
+  background-color: #002849;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font-size: 1.1em;
+  border: 1px solid #002849;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  float: right; }
+
+.contact-modal-block .close:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #002849; }
+
 /*******************  FOOTER  *******************/
 .footer-container {
   background-color: #002849;
@@ -890,6 +1007,31 @@ input:checked + .slider:before {
     width: 100%;
     border: 3px solid #4489C8;
     border-radius: 50%; }
+
+  /*******************  MAIN - CONTACT MODAL  *******************/
+  .contact-modal {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    overflow-y: scroll; }
+
+  .contact-modal-container {
+    display: block; }
+    .contact-modal-container .contact-modal-block {
+      width: 100%; }
+      .contact-modal-container .contact-modal-block .contact-modal-social, .contact-modal-container .contact-modal-block .contact-modal-number, .contact-modal-container .contact-modal-block .contact-modal-mail {
+        margin: 0; }
+      .contact-modal-container .contact-modal-block .contact-modal-social {
+        margin-top: 20px; }
+
+  .contact-modal-block form .form-row {
+    display: block;
+    width: 100%; }
+    .contact-modal-block form .form-row .form-field {
+      width: 100%; }
 
   /*******************  FOOTER  *******************/
   .footer-number {

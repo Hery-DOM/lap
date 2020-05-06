@@ -47,6 +47,15 @@ function formSelect(elm,name){
 }
 
 
+// contact modal (open)
+function contactModal(){
+    $('.contact-modal').show()
+}
+
+// contact modal (close)
+function contactModalClose(){
+    $('.contact-modal').hide()
+}
 
 
 
@@ -57,7 +66,6 @@ $(document).ready(function(){
     // autocompletion for the field "city"
     $('#city').keyup(function(){
         $('#result').slideUp(function(){
-            console.log($("#city").data('path'))
             $.ajax({
                 type:'POST',
                 url: $("#city").data('path'),
@@ -120,9 +128,8 @@ $(document).ready(function(){
         $('#square5').css({'width':'20px','height':'20px'})
     }
 
-    $(window).scroll(function(e){
+    $(window).scroll(function(){
         var scroll = $(window).scrollTop()
-        console.log(scroll)
         if(scroll >= 715){
             $('.vertical-line').css('background-color','#002849')
             $('.square').css('background-color','#002849')
