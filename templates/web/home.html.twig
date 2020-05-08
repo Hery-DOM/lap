@@ -72,7 +72,7 @@
         </div>
 
         <div class="homepage-search-barre">
-            <form action="#" method="POST">
+            <form action="{{ path('search',{'slug':'bordeaux-metropole'}) }}" data-url="{{ url }}" method="POST">
 
                 <div class="homepage-search-first-row">
                     <div class="homepage-search-block">
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="homepage-search-block">
-                        <input type="text" name="typologie" placeholder="Type de bien" id="typologie" disabled>
+                        <input type="text" name="typologie" placeholder="Type de bien" id="typologie" readonly>
                         <div id="resultTypo">
                             <ul>
                                 {% for typo in typologies %}
@@ -175,19 +175,10 @@
                             <div class="homepage-search-others-box">
                                 <label for="prestation">Prestations</label>
                                 <div class="prestations">
-                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-jardin')">Jardin,
-                                        loggia,
-                                        balcon</p>
-                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-rdc')">RDC</p>
-                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-cuisine')
-">Cuisine</p>
-                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-domotique')
-">Domotique</p>
-                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-parking')
-">Parking</p>
-                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-cave')">Cave</p>
-                                    <p class="form-btn-selection" onclick="formSelect(this,'prestations-cellier')
-">Cellier</p>
+                                    {% for prestation in prestations %}
+                                        <p class="form-btn-selection"
+                                           onclick="formSelect(this,'prestations-{{ prestation.criteriaOption }}')">{{ prestation.criteriaOption }}</p>
+                                    {% endfor %}
                                 </div>
                             </div>
 

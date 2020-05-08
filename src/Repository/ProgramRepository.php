@@ -36,6 +36,50 @@ class ProgramRepository extends ServiceEntityRepository
     }
 
 
+    public function findBySearch($city, $typo, $priceMin, $priceMax, $surfaceMin, $surfaceMax, $handicap)
+    {
+        $search = $this->createQueryBuilder('p')
+                        ->select('p')
+                        ->leftJoin('p.criteria', 'c')
+                        ->addSelect('c')
+                        ->where('p.published = :published')
+                        ->setParameter('published', true);
+
+        // firsts criteria
+        if(!empty($city)){
+            $search->andwhere('p.city = :city')
+                    ->setParameter('city', $city);
+        }
+        if(!empty($typo)){
+            $search->andwhere('p.typologie = :typo')
+                ->setParameter('typo', $typo);
+        }
+        if(!empty($priceMin)){
+            $search->andwhere('p.price >= :priceMin')
+                    ->setParameter('priceMin', $priceMin);
+        }
+        if(!empty($priceMax)){
+            $search->andwhere('p.price <= :priceMax')
+                    ->setParameter('priceMax', $priceMax);
+        }
+        if(!empty($surfaceMin)){
+            $search->andwhere('p.surface >= :surfaceMin')
+                    ->setParameter('surfaceMin', $surfaceMin);
+        }
+        if(!empty($surfaceMax)){
+            $search->andwhere('p.surface >= :surfaceMax')
+                ->setParameter('surfaceMax', $surfaceMax);
+        }
+        if(!empty($handicap) && $handicap === true){
+            $search->andwhere('c.name LIKE :handicap')
+                ->setParameter('handicap', '%handicap%');
+        }
+
+
+        return $search->getQuery()->getResult();
+    }
+
+
     // /**
     //  * @return Program[] Returns an array of Program objects
     //  */

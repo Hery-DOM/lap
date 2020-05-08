@@ -97,6 +97,10 @@ class Criteria
 
     public function __toString()
     {
-        return $this->name;
+        $string = $this->name;
+        if(!empty($this->criteria_option)){
+            $string .= ' - '.$this->criteria_option;
+        }
+        return $string;
     }
 }

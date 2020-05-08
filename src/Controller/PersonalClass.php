@@ -63,7 +63,7 @@ class PersonalClass extends AbstractController
     //pour récupérer le groupe d'articles à afficher sur une page
     public function pageBlog($array, $idNb){
 
-        $idNb = $this->checkInput($idNb);
+        $idNb = $this->secureInput($idNb);
 
         //si l'idNb n'est pas un int
         if($idNb == 0){
@@ -73,10 +73,10 @@ class PersonalClass extends AbstractController
         $idNb--;
 
         //récupération du début de la séquence pour array_slice
-        $nbPage = $idNb*6;
+        $nbPage = $idNb*8;
 
         //récupération de 6 articles selon numéro de page
-        $result = array_slice($array,$nbPage,6);
+        $result = array_slice($array,$nbPage,8);
         return $result;
     }
 
@@ -100,51 +100,30 @@ class PersonalClass extends AbstractController
     }
 
 
-
-    /********** A TESTER *************/
-
-
-    public function pictureTreatment($entity, $picture, $param)
+    public function getUrl(string $directory)
     {
-
-
-        //To update picture
-        /** @var UploadedFile $imageFile */
-        $imageFile = $form[$picture]->getData();
-
-        // if a picture is loaded
-        if ($imageFile) {
-            $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-            $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
-            $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-
-            try {
-                $move = $imageFile->move(
-                    $this->getParameter($param),
-                    $newFilename
-                );
-
-                if(!$move){
-                    throw new FileException('Erreur lors du chargement de l\'image');
+        // secure $_SERVER
+        $host = $this->secureInput($_SERVER['HTTP_HOST']);
+        if($host == 'localhost'){
+            $url = 'http://'.$host.'/'.$directory.'/public';
+        }else{
+            if(isset($_SERVER['HTTPS'])){
+                // security
+                $https = $this->secureInput($_SERVER['HTTPS']);
+                if($https == "on"){
+                    $url = "https://".$host;
+                }else{
+                    $url = "http://".$host;
                 }
-
-            } catch (FileException $e) {
-                // ... catch FileException $e
-                return false.' '.$e->getMessage();
+            }else{
+                $url = "http://".$host;
             }
-
-            // if there is a picture => remove it from directory
-            if(!is_null($entity->getPicture())){
-                unlink("assets/img//".$entity->getPicture());
-            }
-
-            // Met à jour l'image pour stocker le nouveau nom de l'image
-            $entity->setPicture($newFilename);
-
-            return true;
         }
 
-        return null;
+        return $url;
+
     }
+
+
 
 }

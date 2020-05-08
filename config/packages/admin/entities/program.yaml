@@ -48,10 +48,10 @@ easy_admin:
           - {property: 'region', label: 'Région' }
           - {property: 'price', label: 'prix' }
           - {property: 'typologie', label: 'Typologie' }
-          - {property: 'numberRooms', label: 'Nombre de pièces' }
-          - {property: 'surface', label: 'Surface' }
+          - {property: 'numberRooms', label: 'Nombre de pièces', type: 'number' }
+          - {property: 'surface', label: 'Surface', type: 'number' }
           - {property: 'movie', label: "Iframe d'une vidéo" }
-          - {property: 'dateDelivery', label: 'Date de livraison' }
+          - {property: 'dateDelivery', label: 'Date de livraison', type: 'date', type_options:{'widget':'single_text'} }
           - {property: 'main_criteria', label: 'Points forts' }
           - {property: 'criteria', label: 'Critères' }
           - {property: 'filter', label: 'Filtres' }

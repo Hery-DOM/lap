@@ -1,0 +1,278 @@
+.search-main{
+  position: relative;
+}
+
+.search-top{
+  height: 90vh;
+  width: 100%;
+  background-image: url("../img/static/search-top.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+/*************************************************************************
+*********************************  MODAL  ********************************
+**************************************************************************/
+
+
+.search-modal{
+  position: fixed;
+  top: 15%;
+  right: 5%;
+  width: 25%;
+  background-color: white;
+  padding: 10px;
+  border:1px solid $ligthblue;
+}
+
+.search-modal-title{
+  color: $blue;
+  text-align: center;
+  font-weight: 700;
+  line-height: 50px;
+  font-size: 1.4em;
+}
+
+.search-modal-text{
+  text-align: center;
+  color: $blue;
+  font-weight: 700;
+  .search-modal-number{
+    font-size: 1.1em;
+    color: $ligthblue;
+
+  }
+}
+
+.search-modal-or{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: 30px auto 0;
+  .greyLine{
+    height: 2px;
+    width: 100%;
+    background-color: grey;
+  }
+  p{
+    color: grey;
+  }
+}
+
+.search-modal-upload{
+  background-color: $yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: 10px auto;
+  padding: 10px 0;
+  border-radius: 30px;
+  .img-box{
+    width: 15%;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  p{
+    color: white;
+    font-size: 0.7em;
+  }
+}
+.search-modal-upload:hover{
+  background-color: $ligthblue;
+}
+
+.search-modal-dividerGrey{
+  height: 2px;
+  width: 40%;
+  margin: 0 auto 30px;
+  background-color: grey;
+}
+
+.search-modal-form{
+  width: 60%;
+  margin: 0 auto;
+  label,input{
+    display: block;
+  }
+  label{
+    color: $ligthblue;
+  }
+  input{
+    width: 100%;
+    background-color: $colorInput;
+    height: 40px;
+    border: none;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .btn{
+    text-align: center;
+    margin: 30px 0;
+    input[type='submit']{
+      text-align: center;
+      background-color: $ligthblue;
+      color: white;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      width: 70%;
+      border-radius: 30px;
+      font-size: 1em;
+      margin: 0 auto;
+    }
+    input[type='submit']:hover{
+      background-color: $yellow;
+      cursor: pointer;
+    }
+  }
+
+
+}
+
+/*************************************************************************
+*********************************  SEARCH  ********************************
+**************************************************************************/
+
+
+.search-search-barre{
+  .homepage-search-barre{
+    border: 2px solid $blue;
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+}
+
+.search-results{
+  width: 70%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.search-results-program{
+  width: 45%;
+  margin: 40px 0;
+
+  .search-results-program-img-box{
+    margin-bottom: 20px;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  p, h2{
+    color: $blue;
+    text-transform: uppercase;
+  }
+
+  h2{
+    font-weight: 700;
+    font-size: 1.4em;
+  }
+
+  .price{
+    margin-top: 20px;
+  }
+
+}
+
+.empty-white{
+  background-color: white;
+  width: 100%;
+  height: 294px;
+  border: 1px solid $blue;
+}
+
+.search-search-barre .selected{
+  background-color: $yellow!important;
+}
+
+
+
+
+
+/*************************************************************************
+*********************************  PAGINATION  ***************************
+**************************************************************************/
+.search-pagination{
+  width: 70%;
+  margin: 50px 0;
+}
+
+.search-pagination-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    color: $blue;
+  }
+}
+
+.search-pagination-square{
+  width: 15px;
+  height: 15px;
+  background-color: $blue;
+  margin: 0 20px;
+}
+
+.search-pagination-square:hover{
+  cursor: pointer;
+}
+
+
+/*************************************************************************
+*********************************  BOTTOM  *******************************
+**************************************************************************/
+
+.search-bottom-title{
+  text-transform: uppercase;
+  color: $blue;
+  margin-left: 20px;
+}
+
+.search-bottom-link-form{
+  margin: 20px 0 0 20px;
+  background-color: $ligthblue;
+  color: white;
+  padding: 10px;
+  width: 15%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  border-radius: 20px;
+}
+
+.search-bottom-link-form:hover{
+  cursor: pointer;
+  background-color: $yellow;
+
+}
+
+.search-bottom-text{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  width: 60%;
+  border: 1px solid $blue;
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+

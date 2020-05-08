@@ -12,25 +12,32 @@ function previewClick(elm, url){
 
 function slideDown(elm){
     $(elm).slideToggle()
+
 }
 
 function choice(elm,target,down){
     $(target).val(elm)
     $(down).slideUp()
+    if(target === '#city'){
+        //change the attribut action for <form>
+        var url = $('.homepage-search-barre form').data('url')
+        var newValue = url+'/trouvez-un-logement/'+$('#city').val()
+        $('.homepage-search-barre form').attr('action', newValue)
+    }
 }
 
 
 
-// input hidden generate (homepage-search)
+// input hidden generate (homepage-search and page-search)
 function formSelect(elm,name){
     // background => to know if field is selected or not
     // if elm isn't selected => click => selected
-    if($(elm).css('background-color') === "rgb(68, 137, 200)"){
-        // change backrgound-color
-        $(elm).css('background-color','#FBB03B')
+    if(!$(elm).hasClass('selected')){
+        // change background-color
+        $(elm).addClass('selected')
 
         // add an input with value
-        let input = "<input type='hidden' name='"+name+"' value='selected' id='"+name+"'>"
+        let input = "<input type='hidden' name='"+name+"' value='selected' class='"+name+"'>"
         $(input).appendTo('.homepage-search-hidden')
 
 
@@ -38,10 +45,10 @@ function formSelect(elm,name){
 
     }else{ // if elm is selected => click => deselected
         // change background-color
-        $(elm).css('background-color','#4489C8')
+        $(elm).removeClass('selected')
 
         // remove the input hidden
-        document.getElementById(name).remove()
+        $('.'+name).remove()
     }
 
 }
@@ -65,13 +72,13 @@ function contactModalClose(){
 $(document).ready(function(){
     // autocompletion for the field "city"
     $('#city').keyup(function(){
+
         $('#result').slideUp(function(){
             $.ajax({
                 type:'POST',
                 url: $("#city").data('path'),
                 dataType: 'json',
                 success: function(result){
-                    console.log(result)
                     $('#city').autocomplete({
                         source : result,
                         appendTo: "#resultAutocompletion",
@@ -160,6 +167,19 @@ $(document).ready(function(){
 
 })
 
+
+// change URL for search page
+$(document).ready(function(){
+    $('#city').change(function(){
+        // change value in attr action form form (for URL after submit)
+        var url = $('.homepage-search-barre form').data('url')
+        var newValue = url+'/trouvez-un-logement/'+$('#city').val()
+        $('.homepage-search-barre form').attr('action', newValue)
+    })
+
+
+
+})
 
 
 

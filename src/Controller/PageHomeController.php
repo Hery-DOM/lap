@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\NewsletterTemp;
+use App\Repository\CriteriaRepository;
 use App\Repository\HomepageRepository;
 use App\Repository\NewsletterTempRepository;
 use App\Repository\ProgramRepository;
@@ -22,7 +23,7 @@ class PageHomeController extends PersonalClass
      */
     public function home(Request $request, EntityManagerInterface $entityManager, NewsletterTempRepository
     $newsletterTempRepository, HomepageRepository $homepageRepository, ProgramRepository $programRepository,
-                         TestimonyRepository $testimonyRepository)
+                         TestimonyRepository $testimonyRepository, CriteriaRepository $criteriaRepository)
     {
         // get message in banner
         $banner = $homepageRepository->findOneBy(['name' => 'Bannière']);
@@ -55,6 +56,12 @@ class PageHomeController extends PersonalClass
                 $testimonies[] = $value;
             }
         }
+
+        // get every crieteria with the name "prestations"
+        $prestationsInit = $criteriaRepository->findBy(['name' => 'prestations']);
+
+        // get url
+        $url = $this->getUrl('projets-pro/lap');
 
 
         if($request->isMethod('POST')){
@@ -122,7 +129,9 @@ class PageHomeController extends PersonalClass
             'cities' => $cities,
             'typologies' => $typo,
             'programSelection' => $programsSelection,
-            'testimonies' => $testimonies
+            'testimonies' => $testimonies,
+            'url' => $url,
+            'prestations' => $prestationsInit
         ]);
     }
 
