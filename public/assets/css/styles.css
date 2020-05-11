@@ -374,7 +374,7 @@ main {
     left: 0;
     color: #4489C8;
     max-height: 100px;
-    overflow: scroll; }
+    overflow-y: scroll; }
   .homepage-search-block #result, .homepage-search-block #resultTypo {
     position: absolute;
     background-color: white;
@@ -407,12 +407,12 @@ main {
 .homepage-search-block:hover {
   cursor: pointer; }
 
-.homepage-seach-block-submit {
+.homepage-search-block-submit {
   border: none;
   display: flex;
   justify-content: center;
   align-items: center; }
-  .homepage-seach-block-submit input {
+  .homepage-search-block-submit input {
     width: 100%;
     color: white;
     text-transform: uppercase;
@@ -420,7 +420,7 @@ main {
     border: 1px solid #002849;
     border-radius: 20px;
     padding: 5% 0; }
-  .homepage-seach-block-submit input:hover {
+  .homepage-search-block-submit input:hover {
     cursor: pointer;
     color: #002849;
     background-color: white; }
@@ -1114,7 +1114,8 @@ input:checked + .slider:before {
   width: 15px;
   height: 15px;
   background-color: #002849;
-  margin: 0 20px; }
+  margin: 0 20px;
+  border: none; }
 
 .search-pagination-square:hover {
   cursor: pointer; }
@@ -1271,7 +1272,8 @@ input:checked + .slider:before {
 @media screen and (max-width: 930px) {
   .homepage-top {
     background-position: 50%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center; }
@@ -1504,12 +1506,15 @@ input:checked + .slider:before {
       margin-top: 20px; } }
 @media screen and (max-width: 1300px) {
   .homepage-search-barre {
-    background-color: transparent; }
+    background-color: transparent;
+    width: 90%; }
     .homepage-search-barre .homepage-search-first-row {
       display: block; }
       .homepage-search-barre .homepage-search-first-row .homepage-search-block {
         width: 100%;
         border: none; }
+        .homepage-search-barre .homepage-search-first-row .homepage-search-block .img-box {
+          width: 3%; }
         .homepage-search-barre .homepage-search-first-row .homepage-search-block input[type="text"] {
           padding: 10px;
           width: 95%;
@@ -1542,5 +1547,45 @@ input:checked + .slider:before {
 
   #homepage-search-submit {
     display: none; } }
+@media screen and (max-width: 1300px) {
+  .search-modal {
+    display: none; }
+
+  .search-top {
+    display: none; }
+
+  .search-search-barre {
+    min-height: 90vh;
+    width: 100%;
+    background-image: url("../img/static/search-top.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 30px; }
+    .search-search-barre .homepage-search-barre {
+      margin: 0;
+      border: none;
+      width: 100%; }
+      .search-search-barre .homepage-search-barre .homepage-search-block-submit {
+        margin-top: 20px; }
+
+  .search-results {
+    width: 100%; }
+
+  .search-results-program {
+    width: 100%; }
+
+  .search-bottom-link-form {
+    width: 50%; }
+
+  .search-bottom-btn {
+    text-align: center; }
+
+  .search-bottom-text {
+    width: 90%; } }
 
 /*# sourceMappingURL=styles.css.map */

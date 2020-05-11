@@ -1,0 +1,57 @@
+@media screen and(max-width: 1300px) {
+
+  .search-modal{
+    display: none;
+  }
+
+  .search-top{
+    display: none;
+  }
+
+  .search-search-barre{
+    min-height: 90vh;
+    width: 100%;
+    background-image: url("../img/static/search-top.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+
+    .homepage-search-barre{
+      margin: 0;
+      border: none;
+      width: 100%;
+
+      .homepage-search-block-submit{
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .search-results{
+    width: 100%;
+  }
+  .search-results-program{
+    width: 100%;
+  }
+
+  .search-bottom-link-form{
+    width: 50%;
+  }
+
+  .search-bottom-btn{
+    text-align: center;
+  }
+
+  .search-bottom-text{
+    width: 90%;
+  }
+
+
+
+
+}

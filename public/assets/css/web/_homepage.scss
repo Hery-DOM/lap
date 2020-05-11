@@ -120,7 +120,7 @@
     left: 0;
     color: $ligthblue;
     max-height: 100px;
-    overflow: scroll;
+    overflow-y: scroll;
   }
   #result, #resultTypo{
     position: absolute;
@@ -163,7 +163,7 @@
   cursor: pointer;
 }
 
-.homepage-seach-block-submit{
+.homepage-search-block-submit{
   border: none;
   display: flex;
   justify-content: center;

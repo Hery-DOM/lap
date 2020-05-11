@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    SearchPage:
+      label: "Page 'Trouvez un bien'"
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\SearchPage
+      edit:
+        title: "Modification du texte"
+        fields:
+          - { property: 'text', type: 'fos_ckeditor', label: "Texte" }
+      list:
+        fields:
+          - {property: 'name', label: 'Nom'}

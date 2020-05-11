@@ -6,16 +6,33 @@ namespace App\Controller;
 
 use App\Repository\CriteriaRepository;
 use App\Repository\ProgramRepository;
+use App\Repository\SearchPageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageSearchController extends PersonalClass
 {
     /**
+     * @Route("/trouvez-un-logement/", name="search_redirect")
+     * @Route("/trouvez-un-logement", name="search_redirect2")
+     * No view, to redirect if there isn't a slug
+     */
+    public function searchRedirect()
+    {
+        return $this->redirectToRoute('search',[
+            'slug' => 'bordeaux-metropole'
+        ]);
+    }
+
+    /**
      * @Route("/trouvez-un-logement/{slug}", name="search")
      */
-    public function search(ProgramRepository $programRepository, Request $request, CriteriaRepository $criteriaRepository)
+    public function search(ProgramRepository $programRepository, Request $request, CriteriaRepository
+    $criteriaRepository, SearchPageRepository $searchPageRepository)
     {
+
+        // get text
+        $text = $searchPageRepository->findAll();
 
         // get every cities
         $homes = $programRepository->findBy([],['city' => 'ASC']);
@@ -27,10 +44,10 @@ class PageSearchController extends PersonalClass
         }
 
         // get every typologies
-        $typo = [];
+        $typoInit = [];
         foreach($homes as $home){
-            if(!in_array($home->getTypologie(),$typo)){
-                $typo[] = $home->getTypologie();
+            if(!in_array($home->getTypologie(),$typoInit)){
+                $typoInit[] = $home->getTypologie();
             }
         }
 
@@ -239,6 +256,7 @@ class PageSearchController extends PersonalClass
                 foreach($_POST as $key => $post){
                     $key = $this->secureInput($key);
                     if(preg_match('#search-submit-#', $key)){
+
                         $nb = substr($key,14);
                         $programs = $this->pageBlog($programs,$nb);
                     }
@@ -248,13 +266,14 @@ class PageSearchController extends PersonalClass
 
                 return $this->render('web/search.html.twig',[
                     'cities' => $cities,
-                    'typologies' => $typo,
+                    'typologies' => $typoInit,
                     'programs' => $programs,
                     'url' => $url,
                     'pages' => $pages,
                     'form' => $form,
                     'prestations' => $prestationsInit,
-                    'currentPage' => $nb
+                    'currentPage' => $nb,
+                    'text' => $text
                 ]);
             }
 
@@ -263,11 +282,12 @@ class PageSearchController extends PersonalClass
 
         return $this->render('web/search.html.twig',[
             'cities' => $cities,
-            'typologies' => $typo,
+            'typologies' => $typoInit,
             'programs' => $programs,
             'url' => $url,
             'form' => $form,
-            'prestations' => $prestationsInit
+            'prestations' => $prestationsInit,
+            'text' => $text
         ]);
 
     }

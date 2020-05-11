@@ -129,7 +129,7 @@
                         </div>
                     </div>
 
-                    <div class="homepage-search-block homepage-seach-block-submit" id="homepage-search-submit">
+                    <div class="homepage-search-block homepage-search-block-submit" id="homepage-search-submit">
                         <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit-1">
                     </div>
 
@@ -258,8 +258,8 @@
                     </div>
                 </div>
 
-                <div class="homepage-search-block homepage-seach-block-submit" id="homepage-search-submit-responsive">
-                    <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+                <div class="homepage-search-block homepage-search-block-submit" id="homepage-search-submit-responsive">
+                    <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit-1">
                 </div>
             </form>
         </div>
@@ -314,13 +314,16 @@
     <!------------- FORM BOTTOM PAGE ----------->
     <p class="search-bottom-title">Vous ne trouvez pas votre bonheur ? </p>
 
-    <a href="#">
-        <button class="search-bottom-link-form">
-            Être alerté
-        </button>
-    </a>
+    <div class="search-bottom-btn">
+        <a href="#">
+            <button class="search-bottom-link-form">
+                Être alerté
+            </button>
+        </a>
+    </div>
 
-    <div class="search-bottom-text"><p>TEXTE</p></div>
+
+    <div class="search-bottom-text">{{ text[0].text|raw }}</div>
 
 
 

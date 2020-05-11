@@ -3,6 +3,7 @@ easy_admin:
     menu:
       - {entity: 'User'}
       - {entity: 'Homepage'}
+      - {entity: 'SearchPage'}
       - label: 'Les programmes'
         children:
           - {entity: 'Program', label: 'Biens'}
