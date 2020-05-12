@@ -19,7 +19,7 @@ a:hover, li:hover, button:hover {
   font-family: "Gilroy";
   src: url("../font/Gilroy-Bold.ttf") format("truetype");
   font-weight: bold; }
-h1, h2, h3, a, li, p, label {
+h1, h2, h3, a, li, p, label, button {
   font-family: "Gilroy", sans-serif; }
 
 /*******************  HEADER  *******************/
@@ -33,7 +33,7 @@ h1, h2, h3, a, li, p, label {
   height: 10vh;
   background-color: white;
   position: fixed;
-  z-index: 99; }
+  z-index: 9999; }
 
 .header-img-box {
   width: 10%; }
@@ -1150,6 +1150,227 @@ input:checked + .slider:before {
   width: 60%;
   border: 1px solid #002849;
   padding: 20px; }
+
+.program-top {
+  height: 90vh;
+  overflow: hidden; }
+
+.program-modal {
+  z-index: 99999; }
+
+/********************** SECTION TOP ***********************/
+.program-top {
+  position: relative; }
+  .program-top .img-box {
+    overflow: hidden; }
+  .program-top .owl-nav {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+    .program-top .owl-nav button {
+      width: 3%; }
+    .program-top .owl-nav .icon-chevron-left img, .program-top .owl-nav .icon-chevron-right img {
+      width: 100%;
+      height: auto; }
+  .program-top .owl-theme .owl-nav [class*=owl-]:hover {
+    background-color: transparent; }
+  .program-top .owl-dots {
+    position: absolute;
+    top: 65%;
+    left: 45%; }
+    .program-top .owl-dots .owl-dot span {
+      width: 15px;
+      height: 15px;
+      border-radius: 0;
+      border: 1px solid grey; }
+  .program-top .movie-box {
+    width: 100%;
+    height: 90vh; }
+    .program-top .movie-box iframe {
+      width: 100%;
+      height: 100%; }
+
+.program-top .program-back {
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 5px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #4489C8;
+  font-size: 0.9em; }
+  .program-top .program-back img {
+    width: 30%;
+    height: auto; }
+
+/********************** SECTION MAIN CRITERIA ***********************/
+.program-main-criteria {
+  background-color: #002849; }
+
+.program-main-criteria-container {
+  height: 20vh;
+  width: 70%;
+  background-color: #002849;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .program-main-criteria-container .program-elm-box {
+    width: 35%;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .program-main-criteria-container .program-elm-box .verticalDivider {
+      width: 3px;
+      height: 50px;
+      background-color: white; }
+
+/********************** DESCRIPTION ***********************/
+.program-description {
+  width: 70%;
+  padding-left: 3%; }
+  .program-description .title {
+    color: #002849;
+    margin-top: 40px;
+    margin-bottom: 80px; }
+
+.program-view {
+  background-color: rgba(69, 138, 255, 0.2);
+  padding: 20px 30px 20px 50px;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; }
+  .program-view h1 {
+    color: #4489C8;
+    text-transform: uppercase; }
+  .program-view .program-view-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; }
+    .program-view .program-view-container .program-view-text {
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .program-view .program-view-container .program-view-text p {
+        color: #002849; }
+      .program-view .program-view-container .program-view-text .program-price {
+        color: #4489C8;
+        font-size: 1.3em;
+        font-weight: 700; }
+    .program-view .program-view-container .program-view-plan {
+      width: 15%;
+      background-color: #4489C8;
+      border-radius: 50px;
+      padding: 5px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .program-view .program-view-container .program-view-plan a {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      .program-view .program-view-container .program-view-plan .img-box {
+        width: 60%; }
+        .program-view .program-view-container .program-view-plan .img-box img {
+          width: 100%;
+          height: auto; }
+
+.program-description-text {
+  padding: 50px 0; }
+
+.program-description-text-btn {
+  background-color: #4489C8;
+  border: 1px solid #4489C8;
+  color: white;
+  text-align: center;
+  padding: 8px 10px;
+  margin: 40px auto;
+  width: 35%;
+  border-radius: 20px; }
+
+.program-description-text-btn:hover {
+  cursor: pointer;
+  color: #4489C8;
+  background-color: white; }
+
+.program-description-text-container {
+  display: none;
+  color: #002849;
+  font-size: 1.1em; }
+
+.program-map {
+  width: 70%;
+  padding-left: 3%; }
+
+#mapid {
+  width: 100%;
+  height: 100vh;
+  border: 1px solid #002849; }
+
+.program-description-more {
+  width: 70%;
+  margin-left: 3%;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  color: #002849;
+  font-size: 1.1em; }
+
+/********************** OTHERS PROGRAMS ***********************/
+.program-others {
+  width: 70%;
+  margin-left: 3%; }
+  .program-others h2 {
+    color: #002849;
+    text-transform: uppercase; }
+
+.program-others-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap; }
+
+.program-others-block {
+  width: 30%;
+  margin: 20px 0; }
+  .program-others-block a {
+    color: #002849; }
+  .program-others-block .img-box img {
+    width: 100%;
+    height: auto; }
+  .program-others-block .price {
+    margin-top: 30px; }
+
+/********************** ALERT ***********************/
+.program-alert {
+  width: 70%;
+  margin-left: 3%;
+  margin-bottom: 60px; }
+  .program-alert h3 {
+    color: #002849;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 20px; }
+  .program-alert a {
+    color: white;
+    background-color: #4489C8;
+    border: 1px solid #4489C8;
+    border-radius: 20px;
+    padding: 5px 40px;
+    text-transform: uppercase;
+    font-weight: 700; }
+  .program-alert a:hover {
+    color: #4489C8;
+    background-color: white; }
 
 .emailSent-block {
   height: 50vh;

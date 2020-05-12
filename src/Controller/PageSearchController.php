@@ -27,9 +27,11 @@ class PageSearchController extends PersonalClass
     /**
      * @Route("/trouvez-un-logement/{slug}", name="search")
      */
-    public function search(ProgramRepository $programRepository, Request $request, CriteriaRepository
+    public function search($slug, ProgramRepository $programRepository, Request $request, CriteriaRepository
     $criteriaRepository, SearchPageRepository $searchPageRepository)
     {
+        // secure $slug
+        $slug = $this->secureInput($slug);
 
         // get text
         $text = $searchPageRepository->findAll();
@@ -127,7 +129,7 @@ class PageSearchController extends PersonalClass
                 }
                 foreach($_POST as $key => $value){
                     if(preg_match('#^rooms-#',$key)){
-                        $form['rooms'][$key] = [$key => $key];
+                        $form['rooms'][$key] = $key;
                         $rooms[] = substr($key,6);
                     }
 
@@ -211,7 +213,7 @@ class PageSearchController extends PersonalClass
                                         $temp[] = $program;
                                     }
                                     break;
-                            }break;
+                            }
                         }
                     }
                     // reinitialize + save in $programs
@@ -253,6 +255,7 @@ class PageSearchController extends PersonalClass
 
                 // get 8 programs for one page
                 // get the number of page according with submit button's name
+                $nb = 1;
                 foreach($_POST as $key => $post){
                     $key = $this->secureInput($key);
                     if(preg_match('#search-submit-#', $key)){
@@ -273,7 +276,8 @@ class PageSearchController extends PersonalClass
                     'form' => $form,
                     'prestations' => $prestationsInit,
                     'currentPage' => $nb,
-                    'text' => $text
+                    'text' => $text,
+                    'slug' => $slug
                 ]);
             }
 
@@ -287,7 +291,8 @@ class PageSearchController extends PersonalClass
             'url' => $url,
             'form' => $form,
             'prestations' => $prestationsInit,
-            'text' => $text
+            'text' => $text,
+            'slug' => $slug
         ]);
 
     }

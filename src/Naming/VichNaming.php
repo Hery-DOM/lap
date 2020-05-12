@@ -19,7 +19,7 @@ class VichNaming implements NamerInterface
     public function name($object, PropertyMapping $mapping): string
     {
         // get picture's name
-        $name = $mapping->getFileName($object);
+        $name = 'plan';
         $mime = $mapping->getFile($object)->getMimeType();
 
         switch ($mime){

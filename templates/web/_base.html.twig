@@ -9,6 +9,7 @@
     <title>Locataire à propriétaire - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.theme.default.min.css') }}">
+    {% block style %}{% endblock %}
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 </head>
 <body>
@@ -244,6 +245,7 @@
             integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
             crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/owlcarousel/owl.carousel.min.js') }}"></script>
+    {% block script %}{% endblock %}
     <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 </html>

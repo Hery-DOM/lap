@@ -50,6 +50,7 @@ easy_admin:
           - {property: 'typologie', label: 'Typologie' }
           - {property: 'numberRooms', label: 'Nombre de pièces', type: 'number' }
           - {property: 'surface', label: 'Surface', type: 'number' }
+          - {property: 'planFile', label: "Plan du programme", type: 'vich_image' }
           - {property: 'movie', label: "Iframe d'une vidéo" }
           - {property: 'dateDelivery', label: 'Date de livraison', type: 'date', type_options:{'widget':'single_text'} }
           - {property: 'main_criteria', label: 'Points forts' }

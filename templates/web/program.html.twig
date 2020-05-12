@@ -1,0 +1,276 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    {{ program.name }}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+{% endblock %}
+
+
+
+{% block content %}
+
+    {# ##################################################################
+      #########################  ASIDE ###############################
+      ################################################################### #}
+
+    {#<aside class="aside">
+        <div class="vertical-line"></div>
+        <div class="square" id="square1"></div>
+        <div class="square" id="square2"></div>
+        <div class="square" id="square3"></div>
+        <div class="square" id="square4"></div>
+        <div class="square" id="square5"></div>
+        <div class="vertical-line"></div>
+    </aside>#}
+
+    {# ##################################################################
+      #########################  MODAL ###############################
+      ################################################################### #}
+
+    <div class="search-modal program-modal">
+        <p class="search-modal-title">Vous êtes intéressé ?</p>
+        <p class="search-modal-text">Appelez <span class="search-modal-number">07 77 84 91 94</span></p>
+
+        <div class="search-modal-or">
+            <div class="greyLine"></div>
+            <p>Ou</p>
+            <div class="greyLine"></div>
+        </div>
+
+        <a href="#">
+            <div class="search-modal-upload">
+                <div class="img-box">
+                    <img src="{{ asset('assets/img/static/book.png') }}" alt="icone livre">
+                </div>
+                <p>Recevoir la brochure</p>
+            </div>
+        </a>
+
+        <div class="search-modal-dividerGrey"></div>
+
+        <div class="search-modal-form">
+            <form action="#" method="POST">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <label for="phone">Téléphone</label>
+                <input type="text" id="phone" name="phone">
+                <div class="btn">
+                    <input type="submit" name="search-modal" value="Envoyer" id="search-modal-submit">
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+    {# ##################################################################
+      #########################  SECTION ###############################
+      ################################################################### #}
+
+    <section class="program-top">
+        <div class="program-back">
+            <form action="{{ path('search',{'slug':slug|raw}) }}" method="POST">
+                <input type="hidden" name="city" value="{{ form['city'] }}">
+                <input type="hidden" name="typo" value="{{ form['typo'] }}">
+                <input type="hidden" name="priceMin" value="{{ form['priceMin'] }}">
+                <input type="hidden" name="priceMax" value="{{ form['priceMax'] }}">
+                <input type="hidden" name="surfaceMin" value="{{ form['surfaceMin'] }}">
+                <input type="hidden" name="surfaceMax" value="{{ form['surfaceMax'] }}">
+                <input type="hidden" name="handicap" value="{{ form['handicap'] }}">
+                {% for room in form['rooms'] %}
+                    <input type="hidden" name="{{ room }}" value="{{ room }}">
+                {% endfor %}
+                {% for dispo in form['disponibility'] %}
+                    <input type="hidden" name="{{ dispo }}" value="{{ dispo }}">
+                {% endfor %}
+                {% for prestation in form['prestations'] %}
+                    <input type="hidden" name="{{ prestation }}" value="{{ prestation }}">
+                {% endfor %}
+                {% for others in form['othersCriteria'] %}
+                    <input type="hidden" name="{{ others }}" value="{{ others }}">
+                {% endfor %}
+                <button type="submit" class="program-back">
+                        <img src="{{ asset('assets/img/static/arrow.png') }}" alt="icone arrow">
+                    Retour à la recherche </button>
+            </form>
+        </div>
+        <div class="owl-carousel owl-theme">
+            {% for picture in program.programPicture %}
+            <div class="item">
+                <div class="img-box">
+                    <img src="{{ asset('assets/img/programs/') }}{{ picture.picture }}" alt="{{ program.name }}">
+                </div>
+            </div>
+            {% endfor %}
+            {% if program.movie %}
+                <div class="item">
+                    <div class="movie-box">
+                        {{ program.movie|raw }}
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+
+    </section>
+
+    {# ##################################################################
+      #########################  MAIN CRITERIA ############################
+      ################################################################### #}
+
+    <section class="program-main-criteria">
+        <div class="program-main-criteria-container">
+            {% for elm in program.mainCriteria %}
+                <div class="program-elm-box">
+                    <h2>{{ elm.name }}</h2>
+                    <div class="verticalDivider"></div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+    {# ##################################################################
+      #########################  DESCRIPTION ############################
+      ################################################################### #}
+
+    <section class="program-description">
+        <p class="title">Description du program</p>
+
+        <div class="program-view">
+            <h1>{{ program.name }}</h1>
+            <div class="program-view-container">
+                <div class="program-view-text">
+                    <p>{{ program.numberRooms }} pièces</p>
+                    <p>{{ program.surface }} m2</p>
+                    <p class="program-price">{{ program.price }} €</p>
+                </div>
+                <div class="program-view-plan">
+                    <a href="{{ asset('assets/img/programs/') }}{{ program.plan }}" download="{{ program.plan }}">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/static/plan.png') }}" alt="plan {{ program.name }}">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="program-description-text">
+            <div class="program-description-text-btn" onclick="slideDown('.program-description-text-container')">
+                <p>+ d'informations sur le programme</p>
+            </div>
+
+            <div class="program-description-text-container">
+                {{ program.description|raw }}
+            </div>
+        </div>
+    </section>
+
+    <section class="program-map">
+
+        <div id="mapid"></div>
+        <div id="city" data-latitude="{{ latitude }}" data-longitude="{{ longitude }}"></div>
+    </section>
+
+    <section class="program-description-more">
+        {{ program.descriptionMore|raw }}
+    </section>
+
+
+    {# ##################################################################
+      #########################  OTHERS PROGRAMS ############################
+      ################################################################### #}
+
+    <section class="program-others">
+        <h2>D'autres biens qui pourraient vous intéresser</h2>
+        <div class="program-others-container">
+            {% for lastProgram in lastPrograms %}
+                {% if program.id != lastProgram.id %}
+                    <div class="program-others-block">
+                        <a href="{{ path('program',{'id':lastProgram.id,'slug':lastProgram.name|url}) }}">
+                            <div class="img-box">
+                                {% if lastProgram.programPicture[0] is defined %}
+                                    <img src="{{ asset('assets/img/programs/') }}{{ lastProgram.programPicture[0].picture }}"
+                                         alt="{{ lastProgram.name }}">
+                                    {% endif %}
+                            </div>
+                            <h3>{{ lastProgram.name }}</h3>
+                            <p>{{ lastProgram.city }}</p>
+                            <p class="price">{{ lastProgram.price }} €</p>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+
+    {# ##################################################################
+      ##############################  ALERT ############################
+      ################################################################### #}
+
+    <section class="program-alert">
+        <h3>Vous ne trouvez pas votre bonheur ?</h3>
+        <a href="#">Être alerté</a>
+    </section>
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script>
+        // carousel
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav: true,
+                navText:[
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-left.png')
+                    }}'></div>",
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-right.png')
+                    }}'></div>"
+                ],
+                items: 1
+            })
+        })
+
+        // map
+        $(document).ready(function(){
+            console.log('test')
+            let city = document.getElementById('city')
+            let latitude = parseFloat(city.dataset.latitude)
+            let longitude = parseFloat(city.dataset.longitude)
+            let mymap = L.map('mapid').setView([latitude, longitude], 12);
+
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1IjoidHJ5IiwiYSI6IjlTckNZekkifQ.WTCPqZVTTSOoRPOd34nSGg'
+            }).addTo(mymap);
+
+
+            let marker = L.marker([latitude, longitude]).addTo(mymap);
+        })
+
+
+    </script>
+
+
+{% endblock %}

@@ -5,9 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProgramRepository")
+ * @Vich\Uploadable()
  */
 class Program
 {
@@ -108,12 +111,23 @@ class Program
      */
     private $filter;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $plan;
+
+    /**
+     * @Vich\UploadableField(mapping="plan", fileNameProperty="plan")
+     */
+    private $planFile;
+
     public function __construct()
     {
         $this->main_criteria = new ArrayCollection();
         $this->criteria = new ArrayCollection();
         $this->program_picture = new ArrayCollection();
         $this->filter = new ArrayCollection();
+        $this->plan = 'plan';
     }
 
     public function getId(): ?int
@@ -404,4 +418,38 @@ class Program
 
         return $this;
     }
+
+    public function getPlan(): ?string
+    {
+        return $this->plan;
+    }
+
+    public function setPlan(?string $plan): self
+    {
+        $this->plan = $plan;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlanFile()
+    {
+        return $this->planFile;
+    }
+
+    /**
+     * @param mixed $planFile
+     */
+    public function setPlanFile($planFile): void
+    {
+        if(is_null($this->plan)){
+            $name = 'plan';
+            $this->setPlan($name);
+        }
+
+        $this->planFile = $planFile;
+    }
+
+
 }

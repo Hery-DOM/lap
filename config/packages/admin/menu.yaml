@@ -12,5 +12,6 @@ easy_admin:
           - {entity: 'Filter'}
           - {entity: 'ProgramPicture', label: 'Images des biens'}
       - {entity: 'Testimony'}
+      - {entity: 'Brochure'}
 
       - {label: 'Déconnexion', route: 'fos_user_security_logout'}

@@ -4,10 +4,22 @@ vich_uploader:
     mappings:
         program:
             uri_prefix: '%upload_path%'
-            namer: App\Naming\VichNaming
+            namer: Vich\UploaderBundle\Naming\OrignameNamer
             upload_destination: '%kernel.project_dir%/public/%upload_path%'
 
         testimony:
             uri_prefix: '%upload_path_testimony%'
-            namer: App\Naming\VichNaming
+            namer: Vich\UploaderBundle\Naming\OrignameNamer
             upload_destination: '%kernel.project_dir%/public/%upload_path_testimony%'
+
+        plan:
+            uri_prefix: '%upload_path%'
+            namer: App\Naming\VichNaming
+            upload_destination: '%kernel.project_dir%/public/%upload_path%'
+
+        brochure:
+            uri_prefix: '%upload_path_brochure%'
+            namer: App\Naming\VichNaming2
+            upload_destination: '%kernel.project_dir%/public/%upload_path_brochure%'
+
+

@@ -96,14 +96,7 @@ $(document).ready(function(){
 })
 
 
-// carousel
-$(document).ready(function(){
-    $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        items: 1
-    })
-})
+
 
 // aside
 $(document).ready(function(){
@@ -182,7 +175,10 @@ $(document).ready(function(){
 })
 
 
-
+// when click on a program => transmission info about seraching (to back)
+function goToProgram(elm){
+    $('#'+elm).submit()
+}
 
 
 

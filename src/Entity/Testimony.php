@@ -48,6 +48,11 @@ class Testimony
      */
     private $published;
 
+    public function __construct()
+    {
+        $this->picture = 'témoignage';
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,10 @@ class Testimony
      */
     public function setPictureFile($pictureFile): void
     {
+        if(is_null($this->picture)){
+            $name = 'temoignage';
+            $this->setPicture($name);
+        }
         $this->pictureFile = $pictureFile;
     }
 

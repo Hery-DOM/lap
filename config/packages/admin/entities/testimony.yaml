@@ -20,7 +20,6 @@ easy_admin:
         fields:
           - {property: 'title', label: 'Titre'}
           - {property: 'text', label: 'Texte de description'}
-          - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureFile', label: "Image à télécharger", type: "vich_image"}
           - {property: 'movie', label: 'Iframe de la vidéo'}
           - {property: 'published', label: 'Publié'}

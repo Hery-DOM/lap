@@ -1,0 +1,18 @@
+easy_admin:
+  entities:
+    Brochure:
+      label: "Brochure téléchargeable"
+      class: App\Entity\Brochure
+      disabled_actions: ['new', 'delete' ]
+      list:
+        title: 'Brochure téléchargeable'
+        actions:
+          - {name: 'edit', label: 'Editer'}
+        fields:
+          - {property: 'file', label: 'Brochure prête ?', type: 'boolean'}
+      edit:
+        title: "Modification d'un filtre"
+
+      form:
+        fields:
+          - {property: 'fileFile', label: 'Brochure à télécharger', type: 'vich_image', type_options: {required: true}}

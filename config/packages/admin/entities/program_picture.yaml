@@ -5,7 +5,8 @@ easy_admin:
       class: App\Entity\ProgramPicture
       list:
         fields:
-          - {property: 'picture', label: "Nom de l'image"}
+          - {property: 'picture', type: 'image', label: 'Image', base_path: '%upload_path%' }
+#          - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureAlt', label: "Texte alternatif"}
           - {property: 'program', label: "Programme associé"}
         actions:
@@ -16,7 +17,7 @@ easy_admin:
         title: "Modification d'une image"
       form:
         fields:
-          - {property: 'picture', label: "Nom de l'image"}
-          - {property: 'pictureFile', type: 'vich_image', label: 'Image'}
+#          - {property: 'picture', label: "Nom de l'image"}
+          - {property: 'pictureFile', type: 'vich_image', label: 'Image', type_options: { required: true }}
           - {property: 'pictureAlt'}
           - {property: 'program'}

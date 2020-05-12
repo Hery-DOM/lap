@@ -73,7 +73,6 @@
 
     <section class="search-top">
 
-
     </section>
 
     <section class="search-search-barre">
@@ -231,7 +230,7 @@
                             {% endif %}
 
                             {% if form['disponibility'] is iterable %}
-                                {% for prestation in form['disponibility'] %}
+                                {% for disponibility in form['disponibility'] %}
                                     <input type="hidden" name="{{ disponibility }}" value="selected" class="{{
                                     disponibility
                                     }}">
@@ -239,7 +238,7 @@
                             {% endif %}
 
                             {% if form['rooms'] is iterable %}
-                                {% for prestation in form['rooms'] %}
+                                {% for rooms in form['rooms'] %}
                                     <input type="hidden" name="{{ rooms }}" value="selected" class="{{
                                     rooms
                                     }}">
@@ -247,7 +246,7 @@
                             {% endif %}
 
                             {% if form['othersCriteria'] is iterable %}
-                                {% for prestation in form['othersCriteria'] %}
+                                {% for othersCriteria in form['othersCriteria'] %}
                                     <input type="hidden" name="{{ othersCriteria }}" value="selected" class="{{
                                     othersCriteria
                                     }}">
@@ -268,10 +267,35 @@
     <section class="search-results">
         {% if programs is not empty %}
 
+
+
             {% for program in programs %}
+                <form action="{{ path('program',{'id':program.id,'slug':program.name|url}) }}" method="POST"
+                      id="form-{{ program.id }}">
+                    <input type="hidden" name="city" value="{{ form['city'] }}">
+                    <input type="hidden" name="typo" value="{{ form['typo'] }}">
+                    <input type="hidden" name="priceMin" value="{{ form['priceMin'] }}">
+                    <input type="hidden" name="priceMax" value="{{ form['priceMax'] }}">
+                    <input type="hidden" name="surfaceMin" value="{{ form['surfaceMin'] }}">
+                    <input type="hidden" name="surfaceMax" value="{{ form['surfaceMax'] }}">
+                    <input type="hidden" name="handicap" value="{{ form['handicap'] }}">
+                    {% for room in form['rooms'] %}
+                        <input type="hidden" name="{{ room }}" value="{{ room }}">
+                    {% endfor %}
+                    {% for dispo in form['disponibility'] %}
+                        <input type="hidden" name="{{ dispo }}" value="{{ dispo }}">
+                    {% endfor %}
+                    {% for prestation in form['prestations'] %}
+                        <input type="hidden" name="{{ prestation }}" value="{{ prestation }}">
+                    {% endfor %}
+                    {% for others in form['othersCriteria'] %}
+                        <input type="hidden" name="{{ others }}" value="{{ others }}">
+                    {% endfor %}
+                    <input type="hidden" name="slug" value="{{ slug }}">
+                </form>
 
                 <article class="search-results-program">
-                    <a href="#">
+                    <a  onclick="goToProgram('form-{{ program.id }}')">
                         <div class="search-results-program-img-box">
                             {% if program.programPicture[0] is defined %}
                                 <img src="{{ asset('assets/img/programs/') }}{{ program.programPicture[0] }}" alt="{{ program
@@ -292,6 +316,8 @@
         {% endif %}
 
     </section>
+
+
 
 
     <!------------- PAGINATION ----------->
