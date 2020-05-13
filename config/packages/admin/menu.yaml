@@ -4,6 +4,12 @@ easy_admin:
       - {entity: 'User'}
       - {entity: 'Homepage'}
       - {entity: 'SearchPage'}
+      - label: "Page 'Devenir propriétaire'"
+        children:
+          - {entity: 'OwnerHome', label: 'Intro'}
+          - {entity: 'OwnerCategory', label: 'Catégories'}
+          - {entity: 'OwnerSubCategory', label: 'Sous catégories'}
+          - {entity: 'OwnerArticle', label: 'Articles'}
       - label: 'Les programmes'
         children:
           - {entity: 'Program', label: 'Biens'}

@@ -1,0 +1,52 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}{{ slug }}{% endblock %}
+
+
+
+{% block content %}
+    {# ##################################################################
+          #########################  TOP ###############################
+          ################################################################### #}
+
+    <section class="owner-home-top">
+        <div class="owner-sections-container">
+            {% for cat in categories %}
+                <div class="owner-elm-block">
+                    <a href="{{ path('owner_category',{'slug':cat.name,'id':cat.id}) }}">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/owner/') }}{{ cat.picto }}" alt="{{ cat.name }}">
+                        </div>
+                        <h2>{{ cat.name }}</h2>
+                    </a>
+
+
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# ##################################################################
+      #########################  BREADCRUMB ############################
+      ################################################################### #}
+
+    <div class="owner-home-breadcrumb">
+        <p><a href="{{ path('home') }}">Accueil</a>  /
+            <a href="{{ path('owner_home') }}">Devenir propriétaire</a> /
+            <a href="{{ path('owner_category',{'slug':currentCategory.name|url,'id':currentCategory.id}) }}">{{
+                currentCategory }}</a> /
+            <a href="{{ path('owner_subcategory',{'cat':currentCategory.name|url,'idCat':currentCategory.id,
+                'slug':currentSubCategory.name|url,'id':currentSubCategory.id}) }}">{{ currentSubCategory.name }}</a> /
+            {{ slug }}</p>
+    </div>
+
+    {# ##################################################################
+      #########################  DESCRIPTION ############################
+      ################################################################### #}
+
+    <div class="owner-home-description">
+        {{ article.text|raw }}
+    </div>
+
+
+{% endblock %}

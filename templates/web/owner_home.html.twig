@@ -1,0 +1,55 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    Devenir propriétaire
+{% endblock %}
+
+
+
+{% block content %}
+
+    {# ##################################################################
+      #########################  TOP ###############################
+      ################################################################### #}
+
+    <section class="owner-home-top">
+        <div class="owner-sections-container">
+            {% for cat in categories %}
+                <div class="owner-elm-block">
+                    <a href="{{ path('owner_category',{'slug':cat.name,'id':cat.id}) }}">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/owner/') }}{{ cat.picto }}" alt="{{ cat.name }}">
+                        </div>
+                        <h2>{{ cat.name }}</h2>
+                    </a>
+
+
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# ##################################################################
+      #########################  BREADCRUMB ############################
+      ################################################################### #}
+
+    <div class="owner-home-breadcrumb">
+        <p><a href="{{ path('home') }}">Accueil</a>  / Devenir propriétaire</p>
+    </div>
+
+
+
+
+    {# ##################################################################
+      #########################  DESCRIPTION ############################
+      ################################################################### #}
+
+    <div class="owner-home-description">
+        {{ intro.description|raw }}
+    </div>
+
+
+
+
+
+{% endblock %}

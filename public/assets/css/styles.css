@@ -1387,6 +1387,94 @@ input:checked + .slider:before {
     color: #4489C8;
     background-color: white; }
 
+/************************************************************
+**************************  HOME  ***************************
+ ************************************************************/
+.owner-home-top {
+  height: 80vh;
+  width: 100%;
+  background-image: url("../img/static/owner-top.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; }
+  .owner-home-top .owner-sections-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 90%;
+    left: 0; }
+    .owner-home-top .owner-sections-container .owner-elm-block {
+      text-align: center;
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .owner-home-top .owner-sections-container .owner-elm-block h2 {
+        font-size: 1.1em;
+        color: #002849; }
+      .owner-home-top .owner-sections-container .owner-elm-block .img-box {
+        width: 50%;
+        margin: 0 auto; }
+        .owner-home-top .owner-sections-container .owner-elm-block .img-box img {
+          width: 100%; }
+    .owner-home-top .owner-sections-container .owner-elm-block:hover h2 {
+      color: #4489C8; }
+
+/********************** BREADCRUMB *************************/
+.owner-home-breadcrumb {
+  margin-top: 20vh;
+  padding-left: 10%; }
+  .owner-home-breadcrumb a, .owner-home-breadcrumb p {
+    color: #002849;
+    font-family: "Gilroy", sans-serif; }
+  .owner-home-breadcrumb a:hover {
+    color: #4489C8; }
+
+/********************** DESCRIPTION *************************/
+.owner-home-description {
+  margin-top: 5vh;
+  padding: 40px 10%;
+  color: #4489C8; }
+  .owner-home-description strong, .owner-home-description h1, .owner-home-description h2, .owner-home-description h3, .owner-home-description h4 {
+    color: #002849; }
+
+/************************************************************
+**************************  CATEGORY  ***********************
+ ************************************************************/
+.owner-category-list {
+  margin: 40px 0 20px 10%;
+  width: 25%;
+  padding: 10px;
+  -webkit-box-shadow: 2px 2px 8px -2px rgba(0, 0, 0, 0.62);
+  -moz-box-shadow: 2px 2px 8px -2px rgba(0, 0, 0, 0.62);
+  box-shadow: 2px 2px 8px -2px rgba(0, 0, 0, 0.62); }
+  .owner-category-list h3 {
+    text-transform: uppercase;
+    color: #002849;
+    margin-bottom: 40px;
+    font-size: 1.4em; }
+  .owner-category-list a {
+    color: #002849; }
+  .owner-category-list a:hover {
+    color: #4489C8; }
+  .owner-category-list li::before {
+    content: "\25CF";
+    color: #4489C8;
+    font-weight: bold;
+    display: inline-block;
+    height: 30px;
+    width: 20px; }
+  .owner-category-list li:hover {
+    cursor: auto; }
+  .owner-category-list .list-articles {
+    margin-left: 10%; }
+    .owner-category-list .list-articles li::before {
+      height: 40px; }
+
 .emailSent-block {
   height: 50vh;
   display: flex;
@@ -1951,5 +2039,29 @@ input:checked + .slider:before {
     width: 90%;
     margin: 10px auto 50px;
     text-align: center; } }
+@media screen and (max-width: 1300px) {
+  /************************************************************
+**************************  HOME  ***************************
+ ************************************************************/
+  .owner-home-top .owner-sections-container {
+    justify-content: space-around;
+    top: 96%; }
+
+  .owner-home-top .owner-sections-container .owner-elm-block h2 {
+    font-size: 0.6em; }
+
+  .owner-home-breadcrumb {
+    margin-top: 10vh;
+    font-size: 0.7em; }
+
+  .owner-home-description {
+    margin: 0; }
+
+  /************************************************************
+**************************  CATEGORY  ***************************
+************************************************************/
+  .owner-category-list {
+    margin: 40px auto 20px;
+    width: 90%; } }
 
 /*# sourceMappingURL=styles.css.map */

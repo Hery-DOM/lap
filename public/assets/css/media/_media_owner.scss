@@ -1,0 +1,34 @@
+@media screen and(max-width: 1300px) {
+
+  /************************************************************
+**************************  HOME  ***************************
+ ************************************************************/
+
+  .owner-home-top .owner-sections-container{
+    justify-content: space-around;
+    top: 96%;
+  }
+
+  .owner-home-top .owner-sections-container .owner-elm-block h2{
+    font-size: 0.6em;
+  }
+
+  .owner-home-breadcrumb{
+    margin-top: 10vh;
+    font-size: 0.7em;
+  }
+
+  .owner-home-description{
+    margin: 0;
+  }
+
+  /************************************************************
+**************************  CATEGORY  ***************************
+************************************************************/
+
+  .owner-category-list{
+    margin: 40px auto 20px;
+    width: 90%;
+  }
+
+}

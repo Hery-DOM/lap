@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Locataire à propriétaire !!!!!!!!!!!!!!!!!!!!!!!!">
-    <title>Locataire à propriétaire - {% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}Locataire à propriétaire{% endblock %}">
+    <title>{% block title %}{% endblock %} - Locataire à propriétaire</title>
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.theme.default.min.css') }}">
     {% block style %}{% endblock %}
@@ -25,7 +25,7 @@
             <nav class="header-menu">
                 <ul class="header-menu-ul">
                     <li><a href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">Trouvez un logement</a></li>
-                    <li><a href="#">Devenir propriétaire</a></li>
+                    <li><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
                     <li><a href="#">Qui sommes nous</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ path('owner_home') }}">
                             <div class="header-responsive-img-box">
                                 <img src="{{ asset('assets/img/static/icone-home-key.png') }}" alt="icone">
                             </div>

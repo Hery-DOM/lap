@@ -1,0 +1,24 @@
+easy_admin:
+  entities:
+    OwnerArticle:
+      label: "Article"
+      class: App\Entity\OwnerArticle
+      list:
+        actions:
+          - {name: 'new', label: 'Créer un article'}
+        fields:
+          - {property: 'title', label: 'Titre'}
+          - {property: 'ownerSubcategory', label: 'Sous catégorie'}
+          - {property: 'ownerSubcategory.ownerCategory', label: 'Catégorie'}
+      new:
+        title: "Création d'article"
+      edit:
+        title: "Modification d'un article"
+      form:
+        fields:
+          - {property: 'title', label: 'Titre'}
+          - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
+          - {property: 'picture', label: 'Image'}
+          - {property: 'pictureAlt', label: "Texte alternatif à l'image"}
+          - {property: 'ownerSubcategory', label: "Sous catégorie associée"}
+          - {property: 'published', label: "Publié ?"}

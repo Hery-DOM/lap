@@ -1,7 +1,7 @@
 easy_admin:
   entities:
     SearchPage:
-      label: "Page 'Trouvez un bien'"
+      label: "Page 'Trouvez un logement'"
       disabled_actions: ['new', 'delete' ]
       class: App\Entity\SearchPage
       edit:

@@ -1,0 +1,126 @@
+/************************************************************
+**************************  HOME  ***************************
+ ************************************************************/
+
+
+.owner-home-top{
+  height: 80vh;
+  width: 100%;
+  background-image: url("../img/static/owner-top.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+
+  .owner-sections-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 90%;
+    left: 0;
+
+    .owner-elm-block {
+      text-align: center;
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h2{
+        font-size: 1.1em;
+        color: $blue;
+      }
+      .img-box{
+        width: 50%;
+        margin: 0 auto;
+        img{
+          width: 100%;
+        }
+      }
+
+    }
+    .owner-elm-block:hover{
+      h2{
+        color: $ligthblue;
+      }
+    }
+  }
+
+}
+
+/********************** BREADCRUMB *************************/
+.owner-home-breadcrumb{
+  margin-top: 20vh;
+  padding-left: 10%;
+  a,p{
+    color: $blue;
+    font-family: "Gilroy", sans-serif;
+
+  }
+  a:hover{
+    color: $ligthblue;
+  }
+}
+
+
+/********************** DESCRIPTION *************************/
+.owner-home-description{
+  margin-top: 5vh;
+  padding: 40px 10%;
+  color: $ligthblue;
+  strong, h1, h2, h3, h4{
+    color: $blue;
+  }
+}
+
+
+
+
+
+
+
+/************************************************************
+**************************  CATEGORY  ***********************
+ ************************************************************/
+
+.owner-category-list{
+  margin: 40px 0 20px 10%;
+  width: 25%;
+  padding: 10px;
+  -webkit-box-shadow: 2px 2px 8px -2px rgba(0,0,0,0.62);
+  -moz-box-shadow: 2px 2px 8px -2px rgba(0,0,0,0.62);
+  box-shadow: 2px 2px 8px -2px rgba(0,0,0,0.62);
+  h3{
+    text-transform: uppercase;
+    color: $blue;
+    margin-bottom: 40px;
+    font-size: 1.4em;
+  }
+  a{
+    color: $blue;
+  }
+  a:hover{
+    color: $ligthblue;
+  }
+  li::before{
+    content: "\25CF";
+    color: $ligthblue;
+    font-weight: bold;
+    display: inline-block;
+    height: 30px;
+    width: 20px;
+  }
+  li:hover{
+    cursor: auto;
+  }
+  .list-articles{
+    margin-left: 10%;
+    li::before{
+      height: 40px;
+    }
+  }
+}
+
+

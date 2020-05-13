@@ -1,0 +1,70 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}{{ slug }}{% endblock %}
+
+
+
+{% block content %}
+    {# ##################################################################
+          #########################  TOP ###############################
+          ################################################################### #}
+
+    <section class="owner-home-top">
+        <div class="owner-sections-container">
+            {% for cat in categories %}
+                <div class="owner-elm-block">
+                    <a href="{{ path('owner_category',{'slug':cat.name,'id':cat.id}) }}">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/owner/') }}{{ cat.picto }}" alt="{{ cat.name }}">
+                        </div>
+                        <h2>{{ cat.name }}</h2>
+                    </a>
+
+
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# ##################################################################
+      #########################  BREADCRUMB ############################
+      ################################################################### #}
+
+    <div class="owner-home-breadcrumb">
+        <p><a href="{{ path('home') }}">Accueil</a>  /
+            <a href="{{ path('owner_home') }}">Devenir propriétaire</a> /
+            <a href="{{ path('owner_category',{'slug':currentCategory.name|url,'id':currentCategory.id}) }}">{{
+                currentCategory }}</a> /
+            {{ slug }}</p>
+    </div>
+
+    {# ##################################################################
+      #########################  LIST ARTICLES #####################
+      ################################################################### #}
+
+    <div class="owner-category-list">
+        <h3>Sommaire</h3>
+        <ul>
+            {% for article in subcategory.ownerArticles %}
+               <li><a href="{{ path('owner_article',{
+                       'cat':currentCategory.name|url,
+                       'idCat':currentCategory.id,
+                       'subcat':subcategory.name|url,
+                       'idSubcat':subcategory.id,
+                       'slug':article.title|url,
+                       'id':article.id
+                   }) }}">{{ article.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {# ##################################################################
+      #########################  DESCRIPTION ############################
+      ################################################################### #}
+
+    <div class="owner-home-description">
+        {{ subcategory.description|raw }}
+    </div>
+
+
+{% endblock %}

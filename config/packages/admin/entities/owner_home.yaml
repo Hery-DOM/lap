@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    OwnerHome:
+      label: "Intro"
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\OwnerHome
+      list:
+        fields:
+          - {property: 'description', label: 'Texte'}
+      edit:
+        title: "Modification du texte"
+        fields:
+          - {property: 'description', label: 'Texte', type: 'fos_ckeditor'}

@@ -1,0 +1,21 @@
+easy_admin:
+  entities:
+    OwnerCategory:
+      label: "Catégories"
+      class: App\Entity\OwnerCategory
+      list:
+        actions:
+          - {name: 'new', label: 'Créer une catégorie'}
+        fields:
+          - {property: 'name', label: 'Nom'}
+          - {property: 'picto', type: 'image', label: 'Image', base_path: '%upload_path_owner%' }
+          - {property: 'ownerSubcategories', label: 'Sous catégories associées'}
+      new:
+        title: "Création d'une catégorie"
+      edit:
+        title: "Modification d'une catégorie"
+      form:
+        fields:
+          - {property: 'name', label: 'Nom'}
+          - {property: 'description', label: 'Texte', type: 'fos_ckeditor'}
+          - {property: 'pictoFile', label: 'Illustration', type: 'vich_image', type_options: {required: true}}

@@ -1,0 +1,77 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}{{ slug }}{% endblock %}
+
+
+
+{% block content %}
+    {# ##################################################################
+          #########################  TOP ###############################
+          ################################################################### #}
+
+    <section class="owner-home-top">
+        <div class="owner-sections-container">
+            {% for cat in categories %}
+                <div class="owner-elm-block">
+                    <a href="{{ path('owner_category',{'slug':cat.name,'id':cat.id}) }}">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/img/owner/') }}{{ cat.picto }}" alt="{{ cat.name }}">
+                        </div>
+                        <h2>{{ cat.name }}</h2>
+                    </a>
+
+
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# ##################################################################
+      #########################  BREADCRUMB ############################
+      ################################################################### #}
+
+    <div class="owner-home-breadcrumb">
+        <p><a href="{{ path('home') }}">Accueil</a>  /
+            <a href="{{ path('owner_home') }}">Devenir propriétaire</a> /
+            {{ slug }}</p>
+    </div>
+
+    {# ##################################################################
+      #########################  LIST SUBCATEGORIES #####################
+      ################################################################### #}
+
+    <div class="owner-category-list">
+        <h3>Sommaire</h3>
+        <ul>
+            {% for subc in cat.ownerSubcategories %}
+                <li><a href="{{ path('owner_subcategory',{'cat':cat.name|url,'idCat':cat.id,'slug':subc.name|url,'id':subc
+                        .id})
+                    }}">{{ subc
+                        .name }}</a>
+                    <ul class="list-articles">
+                        {% for article in subc.ownerArticles %}
+                            <li><a href="{{ path('owner_article',{
+                                    'cat':cat.name|url,
+                                    'idCat':cat.id,
+                                    'subcat':subc.name|url,
+                                    'idSubcat':subc.id,
+                                    'slug':article.title|url,
+                                    'id':article.id
+                                }) }}">{{ article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {# ##################################################################
+      #########################  DESCRIPTION ############################
+      ################################################################### #}
+
+    <div class="owner-home-description">
+        {{ cat.description|raw }}oui p
+    </div>
+
+
+{% endblock %}
