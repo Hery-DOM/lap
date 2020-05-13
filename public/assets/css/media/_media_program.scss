@@ -1,0 +1,182 @@
+@media screen and(max-width: 1300px) {
+
+
+  /********************** MODAL ***********************/
+
+  .program-modal{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+  }
+
+  .program-modal-close{
+    display: block;
+    color: $blue;
+    font-family: "Gilroy", sans-serif;
+    float: right;
+  }
+
+
+
+
+  /********************** TOP ***********************/
+
+
+
+  .owl-carousel .owl-item img{
+    width: 120%;
+  }
+
+  .program-top{
+    height: 45vh;
+  }
+
+  .program-top .program-back{
+    width: 50px;
+    span{
+      display: none;
+    }
+    img{
+      width: 100%;
+    }
+
+  }
+
+  .program-top .owl-nav{
+    top: 20%;
+  }
+
+  .program-top .owl-dots{
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .program-top .movie-box iframe{
+    height: 42%;
+  }
+
+  .program-top .owl-nav button{
+    width: 8%;
+    z-index: 9999;
+  }
+
+  .program-top .program-form-btn{
+    display: block;
+    position: absolute;
+    bottom: -4%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background-color: $blue;
+    padding: 10px 30px;
+    border-radius: 20px;
+    button{
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+  }
+
+  /********************** SECTION MAIN CRITERIA ***********************/
+
+  .program-main-criteria-container{
+    width: 100%;
+    padding: 5px;
+    .program-elm-box{
+      text-align: center;
+      width: 35%;
+      font-size: 0.7em;
+
+      .verticalDivider{
+        display: none;
+      }
+    }
+  }
+
+
+  /********************** DESCRIPTION ***********************/
+
+  .program-description{
+    width: 100%;
+    text-align: center;
+    padding: 0;
+
+    .title{
+      margin-bottom: 40px;
+    }
+  }
+
+  .program-view .program-view-container{
+    margin-top: 30px;
+  }
+
+  .program-view .program-view-container .program-view-text{
+    width: 70%;
+  }
+
+  .program-view .program-view-container .program-view-plan{
+    padding: 0;
+    width: 20%;
+    .img-box{
+      display: flex;
+      width: 50%;
+    }
+  }
+
+  .program-description-text{
+    padding: 0;
+  }
+
+  .program-description-text-container{
+    text-align: left;
+    padding: 2%;
+  }
+  .program-description-text-btn{
+    width: 80%;
+  }
+
+
+  /********************** MAP ***********************/
+
+  .program-map{
+    padding: 0;
+    width: 90%;
+    margin: 10px auto;
+  }
+  #mapid{
+    height: 50vh;
+  }
+
+  /********************** OTHERS ***********************/
+
+  .program-others{
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px;
+    h2{
+      font-size: 0.9em;
+    }
+  }
+
+  .program-others-container{
+    display: block;
+    .program-others-block{
+      width: 100%;
+    }
+  }
+
+  /********************** ALERT ***********************/
+
+  .program-alert{
+    width: 90%;
+    margin: 10px auto 50px;
+    text-align: center;
+  }
+
+
+
+}

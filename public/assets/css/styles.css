@@ -1158,6 +1158,9 @@ input:checked + .slider:before {
 .program-modal {
   z-index: 99999; }
 
+.program-modal-close {
+  display: none; }
+
 /********************** SECTION TOP ***********************/
 .program-top {
   position: relative; }
@@ -1209,6 +1212,18 @@ input:checked + .slider:before {
   .program-top .program-back img {
     width: 30%;
     height: auto; }
+
+.program-top .program-title {
+  position: absolute;
+  top: 25%;
+  left: 6%;
+  z-index: 9999; }
+  .program-top .program-title h1 {
+    color: #002849;
+    text-transform: uppercase; }
+
+.program-top .program-form-btn {
+  display: none; }
 
 /********************** SECTION MAIN CRITERIA ***********************/
 .program-main-criteria {
@@ -1396,7 +1411,7 @@ input:checked + .slider:before {
     top: 2%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 99; }
+    z-index: 99999; }
     .header-logo-white-box img {
       width: 100%;
       height: auto; }
@@ -1408,7 +1423,7 @@ input:checked + .slider:before {
     left: 0;
     width: 100%;
     height: 20vh;
-    z-index: 99;
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     justify-content: flex-end; }
@@ -1808,5 +1823,133 @@ input:checked + .slider:before {
 
   .search-bottom-text {
     width: 90%; } }
+@media screen and (max-width: 1300px) {
+  /********************** MODAL ***********************/
+  .program-modal {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 99999; }
+
+  .program-modal-close {
+    display: block;
+    color: #002849;
+    font-family: "Gilroy", sans-serif;
+    float: right; }
+
+  /********************** TOP ***********************/
+  .owl-carousel .owl-item img {
+    width: 120%; }
+
+  .program-top {
+    height: 45vh; }
+
+  .program-top .program-back {
+    width: 50px; }
+    .program-top .program-back span {
+      display: none; }
+    .program-top .program-back img {
+      width: 100%; }
+
+  .program-top .owl-nav {
+    top: 20%; }
+
+  .program-top .owl-dots {
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%); }
+
+  .program-top .movie-box iframe {
+    height: 42%; }
+
+  .program-top .owl-nav button {
+    width: 8%;
+    z-index: 9999; }
+
+  .program-top .program-form-btn {
+    display: block;
+    position: absolute;
+    bottom: -4%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background-color: #002849;
+    padding: 10px 30px;
+    border-radius: 20px; }
+    .program-top .program-form-btn button {
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase; }
+
+  /********************** SECTION MAIN CRITERIA ***********************/
+  .program-main-criteria-container {
+    width: 100%;
+    padding: 5px; }
+    .program-main-criteria-container .program-elm-box {
+      text-align: center;
+      width: 35%;
+      font-size: 0.7em; }
+      .program-main-criteria-container .program-elm-box .verticalDivider {
+        display: none; }
+
+  /********************** DESCRIPTION ***********************/
+  .program-description {
+    width: 100%;
+    text-align: center;
+    padding: 0; }
+    .program-description .title {
+      margin-bottom: 40px; }
+
+  .program-view .program-view-container {
+    margin-top: 30px; }
+
+  .program-view .program-view-container .program-view-text {
+    width: 70%; }
+
+  .program-view .program-view-container .program-view-plan {
+    padding: 0;
+    width: 20%; }
+    .program-view .program-view-container .program-view-plan .img-box {
+      display: flex;
+      width: 50%; }
+
+  .program-description-text {
+    padding: 0; }
+
+  .program-description-text-container {
+    text-align: left;
+    padding: 2%; }
+
+  .program-description-text-btn {
+    width: 80%; }
+
+  /********************** MAP ***********************/
+  .program-map {
+    padding: 0;
+    width: 90%;
+    margin: 10px auto; }
+
+  #mapid {
+    height: 50vh; }
+
+  /********************** OTHERS ***********************/
+  .program-others {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px; }
+    .program-others h2 {
+      font-size: 0.9em; }
+
+  .program-others-container {
+    display: block; }
+    .program-others-container .program-others-block {
+      width: 100%; }
+
+  /********************** ALERT ***********************/
+  .program-alert {
+    width: 90%;
+    margin: 10px auto 50px;
+    text-align: center; } }
 
 /*# sourceMappingURL=styles.css.map */

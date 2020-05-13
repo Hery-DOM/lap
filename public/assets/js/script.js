@@ -15,6 +15,7 @@ function slideDown(elm){
 
 }
 
+
 function choice(elm,target,down){
     $(target).val(elm)
     $(down).slideUp()
@@ -53,6 +54,9 @@ function formSelect(elm,name){
 
 }
 
+function showToggle(elm){
+    $(elm).toggle()
+}
 
 // contact modal (open)
 function contactModal(){
