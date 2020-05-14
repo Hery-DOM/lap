@@ -1475,6 +1475,138 @@ input:checked + .slider:before {
     .owner-category-list .list-articles li::before {
       height: 40px; }
 
+.about-who {
+  width: 80%;
+  margin: 20px auto 50px; }
+  .about-who h1 {
+    color: #002849;
+    text-transform: uppercase;
+    line-height: 40px;
+    margin-bottom: 40px; }
+
+.about-who-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .about-who-row .about-who-text-box {
+    width: 50%;
+    color: #4489C8;
+    line-height: 25px;
+    padding-right: 5%; }
+    .about-who-row .about-who-text-box strong {
+      color: #002849; }
+  .about-who-row .about-who-movie-box {
+    width: 50%; }
+    .about-who-row .about-who-movie-box iframe {
+      width: 100%; }
+
+.about-picture {
+  width: 100%;
+  margin: 150px 0;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; }
+  .about-picture img {
+    width: 100%;
+    height: auto; }
+
+.about-why {
+  width: 90%;
+  margin: 60px auto; }
+  .about-why h2 {
+    color: #002849;
+    margin-bottom: 40px; }
+
+.about-why-text-container .about-why-text-block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 30px 0; }
+  .about-why-text-container .about-why-text-block .circle-box {
+    width: 30%; }
+    .about-why-text-container .about-why-text-block .circle-box .circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #4489C8; }
+  .about-why-text-container .about-why-text-block .text-box {
+    color: #4489C8;
+    line-height: 25px; }
+    .about-why-text-container .about-why-text-block .text-box strong {
+      color: #002849; }
+
+.about-banner {
+  height: 30vh;
+  margin: 100px 0;
+  background-color: #002849;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .about-banner .about-banner-text-box {
+    color: white;
+    line-height: 25px;
+    font-weight: 700;
+    font-size: 1.2em;
+    width: 80%; }
+
+.about-communication {
+  margin: 40px auto;
+  width: 90%; }
+  .about-communication h2 {
+    color: #002849;
+    margin-bottom: 40px; }
+  .about-communication .about-communication-text-box {
+    color: #4489C8;
+    line-height: 25px; }
+    .about-communication .about-communication-text-box strong {
+      color: #002849; }
+
+.about-social {
+  margin: 40px auto;
+  width: 90%; }
+  .about-social h2 {
+    color: #002849;
+    margin-bottom: 40px; }
+  .about-social .about-social-text-box {
+    color: #4489C8;
+    line-height: 25px; }
+    .about-social .about-social-text-box strong {
+      color: #002849; }
+
+.about-icon-social {
+  width: 90%;
+  margin: 20px auto; }
+
+.about-icon-social-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .about-icon-social-container .elm-box {
+    width: 30%; }
+    .about-icon-social-container .elm-box img {
+      width: 100%;
+      height: auto; }
+
+.about-bottom-btn-container {
+  width: 90%;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .about-bottom-btn-container a {
+    width: 30%; }
+    .about-bottom-btn-container a .about-bottom-btn-elm {
+      text-align: center;
+      background-color: rgba(69, 138, 255, 0.2);
+      padding: 15px 0;
+      color: #4489C8; }
+  .about-bottom-btn-container a:hover .about-bottom-btn-elm {
+    background-color: #4489C8;
+    color: #002849; }
+
 .emailSent-block {
   height: 50vh;
   display: flex;
@@ -2063,5 +2195,59 @@ input:checked + .slider:before {
   .owner-category-list {
     margin: 40px auto 20px;
     width: 90%; } }
+@media screen and (max-width: 1300px) {
+  .about-who {
+    margin: 0 auto;
+    padding-top: 15vh;
+    background-color: rgba(69, 138, 255, 0.2);
+    width: 100%; }
+    .about-who h1 {
+      margin-left: 5%; }
+
+  .about-who-row {
+    flex-direction: column-reverse; }
+    .about-who-row .about-who-text-box {
+      width: 90%;
+      margin: 30px auto; }
+    .about-who-row .about-who-movie-box {
+      width: 100%; }
+
+  .about-picture {
+    margin: 0; }
+
+  .about-why {
+    width: 70%; }
+
+  .about-why-text-container .about-why-text-block {
+    justify-content: space-around; }
+    .about-why-text-container .about-why-text-block .circle-box {
+      width: 20%; }
+      .about-why-text-container .about-why-text-block .circle-box .circle {
+        width: 20px;
+        height: 20px; }
+    .about-why-text-container .about-why-text-block .text-box {
+      width: 80%; }
+
+  .about-banner {
+    height: 100%;
+    padding: 20px 0; }
+
+  .about-communication h2, .about-social h2 {
+    text-align: center; }
+
+  .about-icon-social-container {
+    width: 100%; }
+    .about-icon-social-container .elm-box {
+      width: 40%;
+      margin: 0 auto; }
+
+  .about-bottom-btn-container {
+    display: block; }
+    .about-bottom-btn-container .about-bottom-btn-elm {
+      margin: 20px 0;
+      font-weight: 700;
+      -webkit-box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75); } }
 
 /*# sourceMappingURL=styles.css.map */

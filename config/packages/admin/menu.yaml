@@ -13,6 +13,7 @@ easy_admin:
       - label: "Page 'Qui sommes nous'"
         children:
           - {entity: 'About', label: 'Sections modifiables'}
+          - {entity: 'AboutWhy', label: 'Liste des raisons pour nous choisir'}
           - {entity: 'AboutPicture', label: 'Photo de groupe'}
       - label: 'Les programmes'
         children:

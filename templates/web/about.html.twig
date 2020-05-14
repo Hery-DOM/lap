@@ -1,0 +1,188 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}Qui sommes nous{% endblock %}
+
+
+{% block content %}
+
+
+    {# ##################################################################
+      #########################  ASIDE ###############################
+      ################################################################### #}
+
+    {#<aside class="aside">
+        <div class="vertical-line"></div>
+        <div class="square" id="square1"></div>
+        <div class="square" id="square2"></div>
+        <div class="square" id="square3"></div>
+        <div class="square" id="square4"></div>
+        <div class="square" id="square5"></div>
+        <div class="vertical-line"></div>
+    </aside>#}
+
+    {# ##################################################################
+      #########################  SECTIONS ###############################
+      ################################################################### #}
+
+    <section class="about-who">
+        <h1>Qui <br/> sommes nous ?</h1>
+        <div class="about-who-row">
+            <div class="about-who-text-box">
+                {{ sections[0].text|raw }}
+            </div>
+            <div class="about-who-movie-box">
+                {{ sections[0].movie|raw }}
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-picture">
+        <img src="{{ asset('assets/img/about/') }}{{ picture.picture }}" alt="{{ picture.pictureAlt }}">
+    </section>
+
+
+
+    <section class="about-why">
+        <h2>Pourquoi nous choisir ?</h2>
+        <div class="about-why-text-container">
+            {% for reason in reasons %}
+                <div class="about-why-text-block">
+                    <div class="circle-box">
+                        <div class="circle"></div>
+                    </div>
+
+                    <div class="text-box">
+                        {{ reason.text|raw }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <section class="about-banner">
+        <div class="about-banner-text-box">
+            {{ sections[1].text|raw }}
+        </div>
+    </section>
+
+
+
+    <section class="about-communication">
+        <h2>Notre communication</h2>
+        <div class="about-communication-text-box">
+            {{ sections[2].text|raw }}
+        </div>
+    </section>
+
+
+    <section class="about-social">
+        <h2>Nos différents réseaux</h2>
+        <div class="about-social-text-box">
+            {{ sections[3].text|raw }}
+        </div>
+    </section>
+
+
+
+    <section class="about-icon-social">
+        <div class="about-icon-social-container">
+            <a href="#">
+                <div class="elm-box">
+                    <img src="{{ asset('assets/img/static/facebook.png') }}" alt="facebook">
+                </div>
+            </a>
+            <a href="#">
+                <div class="elm-box">
+                    <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="linkedin">
+                </div>
+            </a>
+            <a href="#">
+                <div class="elm-box">
+                    <img src="{{ asset('assets/img/static/youtube.png') }}" alt="youtube">
+                </div>
+            </a>
+        </div>
+    </section>
+
+
+
+    {# ##################################################################
+#############################  TESTIMONIES ##########################
+################################################################### #}
+
+    <section class="homepage-testimonies">
+        <div class="homepage-testimonies-container">
+            <h2>Témoiganges clients</h2>
+
+            <div class="owl-carousel owl-theme owl-loaded">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage">
+                        {% for testimony in testimonies %}
+                            <div class="owl-item">
+                                <div class="homepage-testimony-responsive-img-box">
+                                    <img src="{{ asset('assets/img/testimonies/') }}{{ testimony.picture }}"
+                                         alt="{{ testimony.title }}">
+                                </div>
+                                {% if testimony.movie %}
+                                    <div class="homepage-testimony-video-box">
+                                        {{ testimony.movie|raw }}
+                                    </div>
+                                {% endif %}
+                                <div class="homepage-testimony-second-box">
+                                    <div class="img-box">
+                                        <img src="{{ asset('assets/img/testimonies/') }}{{ testimony.picture }}"
+                                             alt="{{ testimony.title }}">
+                                    </div>
+                                    <p>{{ testimony.text|nl2br }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    {# ##################################################################
+#############################  END - TESTIMONIES ##########################
+################################################################### #}
+
+
+
+    <section class="about-bottom-btn-container">
+        <a href="#">
+            <div class="about-bottom-btn-elm">
+                Nos partenaires
+            </div>
+        </a>
+        <a href="#">
+            <div class="about-bottom-btn-elm">
+                Parrainages
+            </div>
+        </a>
+        <a href="#">
+            <div class="about-bottom-btn-elm">
+                Nous recrutons
+            </div>
+        </a>
+    </section>
+
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        // carousel
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                items: 1
+            })
+        })
+    </script>
+{% endblock %}

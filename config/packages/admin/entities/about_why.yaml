@@ -1,0 +1,24 @@
+easy_admin:
+  entities:
+    AboutWhy:
+      label: "Section 'Pourquoi nous choisir'"
+      class: App\Entity\AboutWhy
+      list:
+        sort: ['list_order','ASC']
+        title: 'Liste des raisons'
+        actions:
+          - {name: 'edit', label: 'Editer'}
+          - {name: 'new', label: 'Ajouter une raison'}
+          - {name: 'delete', label: 'Supprimer'}
+        fields:
+          - {property: 'listOrder', label: 'Ordre'}
+          - {property: 'text', label: 'Raison'}
+      edit:
+        title: "Modification d'une raison"
+      new:
+        title: "Ajout d'un raison"
+
+      form:
+        fields:
+          - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
+          - {property: 'listOrder', label: 'Ordre dans la liste', type: 'integer'}

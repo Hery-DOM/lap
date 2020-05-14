@@ -5,7 +5,7 @@ easy_admin:
       class: App\Entity\About
       disabled_actions: ['new', 'delete' ]
       list:
-        sort: ['id','ASC']
+        sort: ['section','ASC']
         title: 'Sections modifiables'
         actions:
           - {name: 'edit', label: 'Editer'}
