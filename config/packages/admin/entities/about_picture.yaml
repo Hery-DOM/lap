@@ -1,0 +1,18 @@
+easy_admin:
+  entities:
+    AboutPicture:
+      label: "Photo d'équipe"
+      class: App\Entity\AboutPicture
+      disabled_actions: ['new', 'delete' ]
+      list:
+        title: 'Photo de groupe'
+        actions:
+          - {name: 'edit', label: 'Editer'}
+        fields:
+          - {property: 'picture', type: 'image', label: 'Photo', base_path: '%upload_path_about%' }
+      edit:
+        title: "Modification de la photo de groupe"
+
+      form:
+        fields:
+          - {property: 'pictureFile', type: 'vich_image', label: 'Photo', type_options:{required: true} }

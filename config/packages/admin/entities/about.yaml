@@ -1,0 +1,20 @@
+easy_admin:
+  entities:
+    About:
+      label: "Page 'Qui sommes nous'"
+      class: App\Entity\About
+      disabled_actions: ['new', 'delete' ]
+      list:
+        sort: ['id','ASC']
+        title: 'Sections modifiables'
+        actions:
+          - {name: 'edit', label: 'Editer'}
+        fields:
+          - {property: 'name', label: 'Sections'}
+      edit:
+        title: "Modification d'une section"
+
+      form:
+        fields:
+          - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
+          - {property: 'movie', label: 'Iframe de la vidéo'}

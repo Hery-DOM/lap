@@ -10,6 +10,10 @@ easy_admin:
           - {entity: 'OwnerCategory', label: 'Catégories'}
           - {entity: 'OwnerSubCategory', label: 'Sous catégories'}
           - {entity: 'OwnerArticle', label: 'Articles'}
+      - label: "Page 'Qui sommes nous'"
+        children:
+          - {entity: 'About', label: 'Sections modifiables'}
+          - {entity: 'AboutPicture', label: 'Photo de groupe'}
       - label: 'Les programmes'
         children:
           - {entity: 'Program', label: 'Biens'}

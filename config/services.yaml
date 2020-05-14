@@ -8,6 +8,7 @@ parameters:
     upload_path_testimony: 'assets/img/testimonies'
     upload_path_brochure: 'assets/img/brochure'
     upload_path_owner: 'assets/img/owner'
+    upload_path_about: 'assets/img/about'
 
 services:
     # default configuration for services in *this* file
@@ -28,6 +29,9 @@ services:
         public: true
 
     App\Naming\VichNaming3:
+        public: true
+
+    App\Naming\VichNaming4:
         public: true
 
     # controllers are imported separately to make sure services can be injected
