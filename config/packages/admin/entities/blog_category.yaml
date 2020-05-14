@@ -1,0 +1,20 @@
+easy_admin:
+  entities:
+    BlogCategory:
+      label: "Catégories du blog"
+      class: App\Entity\BlogCategory
+      list:
+        title: 'Liste des catégories'
+        actions:
+          - {name: 'edit', label: 'Editer'}
+          - {name: 'new', label: 'Créer une catégorie'}
+          - {name: 'delete', label: 'Supprimer une catégorie'}
+        fields:
+          - {property: 'name', label: 'Nom'}
+          - {property: 'blogArticles', label: 'Articles associés'}
+      edit:
+        title: "Modification d'une catégorie"
+
+      form:
+        fields:
+          - {property: 'name', label: 'Nom'}

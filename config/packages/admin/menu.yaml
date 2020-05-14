@@ -22,6 +22,10 @@ easy_admin:
           - {entity: 'Criteria'}
           - {entity: 'Filter'}
           - {entity: 'ProgramPicture', label: 'Images des biens'}
+      - label: 'Blog'
+        children:
+          - {entity: 'BlogCategory', label: 'Catégories'}
+          - {entity: 'BlogArticle', label: 'Articles'}
       - {entity: 'Testimony'}
       - {entity: 'Brochure'}
 
