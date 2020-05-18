@@ -1,0 +1,91 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    Plan du site
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="sitemap-container">
+
+        <h1>Plan du site</h1>
+
+        <nav>
+            <ul>
+                <li><a href="{{ path('home') }}">Accueil</a>
+                    <ul>
+                        <li><a href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">Trouvez un logement</a></li>
+                        <li><a href="{{ path('owner_home') }}">Devenir proproétaire</a>
+                            {% for category in ownerCategories %}
+                                <li class="sitemap-list-2"><a href="{{ path('owner_category',{
+                                                    'slug':category.name,
+                                                    'id':category.id
+                                                }) }}">{{ category.name }}</a>
+                                    <ul>
+                                        {% for subCategory in category.ownerSubcategories %}
+                                            <li class="sitemap-list-3"><a href="{{ path('owner_subcategory',{
+                                                    'cat':category.name|url,
+                                                    'idCat':category.id,
+                                                    'slug':subCategory.name|url,
+                                                    'id':subCategory.id
+                                                })}}">{{ subCategory.name }}</a>
+                                                <ul>
+                                                    {% for article in subCategory.ownerArticles %}
+                                                        {% if article.published %}
+                                                            <li class="sitemap-list-4"><a href="{{ path
+                                                                    ('owner_article',{
+                                                                    'cat':category.name|url,
+                                                                    'idCat':category.id,
+                                                                    'subcat':subCategory.name|url,
+                                                                    'idSubcat':subCategory.id,
+                                                                    'slug':article.title|url,
+                                                                    'id':article.id
+                                                                }) }}">{{ article.title }}</a></li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+
+                            {% endfor %}
+
+                        </li>
+                        <li><a href="{{ path('about') }}">Qui sommes nous</a></li>
+                        <li><a href="{{ path('blog') }}">Blog</a>
+                                <ul>
+                                    {% for category in blogCategories %}
+                                        <li class="sitemap-list-2"><a href="{{ path('blog_param',{
+                                                'cat':category.name|url,
+                                                'id':category.id}) }}">{{ category.name }}</a>
+                                            {% for article in category.blogArticles %}
+                                                <li class="sitemap-list-3"><a href="{{ path('blog_article',{
+                                                        'cat' : article.blogCategory.name|url,
+                                                        'idCat' : article.blogCategory.id,
+                                                        'art' : article.title|url,
+                                                        'id' : article.id
+                                                    }) }}">{{ article.title }}</a></li>
+                                            {% endfor %}
+                                        </li>
+
+                                    {% endfor %}
+
+                                </ul>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li onclick="contactModal()"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+
+    </div>
+
+
+
+{% endblock %}

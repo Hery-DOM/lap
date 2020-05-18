@@ -76,7 +76,7 @@ main {
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: 999999999;
   background-color: white;
   width: 80%;
   height: 80%;
@@ -1793,6 +1793,62 @@ input:checked + .slider:before {
         width: 100%;
         height: auto; }
 
+/****************  SITEMAP  ****************/
+.sitemap-container {
+  width: 90%;
+  margin: 10px auto; }
+  .sitemap-container h1 {
+    color: #002849;
+    text-transform: uppercase;
+    margin-bottom: 30px; }
+  .sitemap-container nav li a, .sitemap-container nav li {
+    color: #4489C8; }
+  .sitemap-container nav li a:hover {
+    color: #002849; }
+  .sitemap-container li {
+    list-style-type: circle; }
+  .sitemap-container li:hover {
+    cursor: auto; }
+
+.sitemap-list-2 {
+  margin-left: 2%; }
+
+.sitemap-list-3 {
+  margin-left: 3%; }
+
+.sitemap-list-4 {
+  margin-left: 4%; }
+
+/****************  SITEMAP  ****************/
+.confidentiality-container {
+  width: 90%;
+  margin: 10px auto;
+  min-height: 100vh; }
+  .confidentiality-container h1 {
+    color: #002849;
+    text-transform: uppercase;
+    margin-bottom: 30px; }
+
+/****************  LEGAL  ****************/
+.legal-container {
+  width: 90%;
+  margin: 10px auto;
+  min-height: 100vh; }
+  .legal-container h1 {
+    color: #002849;
+    text-transform: uppercase;
+    margin-bottom: 30px; }
+
+/****************  TEAM  ****************/
+.team-container {
+  width: 90%;
+  margin: 10px auto;
+  min-height: 100vh; }
+  .team-container h1 {
+    color: #002849;
+    text-transform: uppercase;
+    margin-bottom: 30px; }
+
 .emailSent-block {
   height: 50vh;
   display: flex;
@@ -2516,5 +2572,42 @@ input:checked + .slider:before {
 
   .article-share {
     display: none; } }
+@media screen and (max-width: 1300px) {
+  /****************  SITEMAP  ****************/
+  .sitemap-container {
+    width: 100%;
+    background-color: rgba(69, 138, 255, 0.2);
+    margin: 0;
+    padding: 15vh 5%; }
+
+  .sitemap-list-2 {
+    margin-left: 10%; }
+
+  .sitemap-list-3 {
+    margin-left: 15%; }
+
+  .sitemap-list-4 {
+    margin-left: 20%; }
+
+  /****************  CONFIDENTIALITY  ****************/
+  .confidentiality-container {
+    width: 100%;
+    background-color: rgba(69, 138, 255, 0.2);
+    margin: 0;
+    padding: 15vh 5%; }
+
+  /****************  LEGAL  ****************/
+  .legal-container {
+    width: 100%;
+    background-color: rgba(69, 138, 255, 0.2);
+    margin: 0;
+    padding: 15vh 5%; }
+
+  /****************  TEAM  ****************/
+  .team-container {
+    width: 100%;
+    background-color: rgba(69, 138, 255, 0.2);
+    margin: 0;
+    padding: 15vh 5%; } }
 
 /*# sourceMappingURL=styles.css.map */

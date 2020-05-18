@@ -1,6 +1,8 @@
 {% extends 'web/_base.html.twig' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block description %}{{ article.introduction }}{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"

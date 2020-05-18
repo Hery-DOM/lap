@@ -212,7 +212,7 @@
 
                 <div class="footer-recruitment">
                     <p>Nous recrutons</p>
-                    <a href="#">
+                    <a href="{{ path('team') }}">
                         <div class="footer-recruitment-btn">
                             Rejoignez notre équipe
                         </div>
@@ -226,10 +226,10 @@
                 <p>Tous droits réservés Zammit Conseils et Patrimoine 2020</p>
                 <nav>
                     <ul>
-                        <li><a href="#">Plan du site</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Politique cookie</a></li>
-                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="{{ path('sitemap') }}">Plan du site</a></li>
+                        <li><a href="{{ path('confidentiality') }}">Politique de confidentialité</a></li>
+                        {#<li><a href="#">Politique cookie</a></li>#}
+                        <li><a href="{{ path('legal') }}">Mentions légales</a></li>
                     </ul>
                 </nav>
             </div>

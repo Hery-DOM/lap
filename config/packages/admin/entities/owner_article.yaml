@@ -20,5 +20,5 @@ easy_admin:
           - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
           - {property: 'picture', label: 'Image'}
           - {property: 'pictureAlt', label: "Texte alternatif à l'image"}
-          - {property: 'ownerSubcategory', label: "Sous catégorie associée"}
+          - {property: 'owner_subcategory', label: "Sous catégorie associée"}
           - {property: 'published', label: "Publié ?"}
