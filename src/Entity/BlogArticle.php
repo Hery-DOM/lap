@@ -68,6 +68,11 @@ class BlogArticle
      */
     private $blog_category;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\BlogTag", inversedBy="blogArticles")
+     */
+    private $blog_tag;
+
     public function __toString()
     {
         return $this->title;
@@ -201,6 +206,18 @@ class BlogArticle
     public function setPictureFile($pictureFile): void
     {
         $this->pictureFile = $pictureFile;
+    }
+
+    public function getBlogTag(): ?BlogTag
+    {
+        return $this->blog_tag;
+    }
+
+    public function setBlogTag(?BlogTag $blog_tag): self
+    {
+        $this->blog_tag = $blog_tag;
+
+        return $this;
     }
 
 

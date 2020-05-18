@@ -28,7 +28,7 @@
                     <li><a href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">Trouvez un logement</a></li>
                     <li><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
                     <li><a href="{{ path('about') }}">Qui sommes nous</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="{{ path('blog') }}">Blog</a></li>
                 </ul>
             </nav>
             
@@ -88,7 +88,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ path('blog') }}">
                             <div class="header-responsive-img-box">
                                 <img src="{{ asset('assets/img/static/icone-blog.png') }}" alt="icone">
                             </div>

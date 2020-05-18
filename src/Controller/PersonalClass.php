@@ -24,7 +24,7 @@ class PersonalClass extends AbstractController
     {
         $data = trim($data);
         $data = stripslashes($data);
-        $data = htmlspecialchars($data);
+        $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
         return $data;
     }
 
@@ -58,10 +58,8 @@ class PersonalClass extends AbstractController
         return $send;
     }
 
-
-
     //pour récupérer le groupe d'articles à afficher sur une page
-    public function pageBlog($array, $idNb){
+    public function pageSearch($array, $idNb){
 
         $idNb = $this->secureInput($idNb);
 
@@ -77,6 +75,26 @@ class PersonalClass extends AbstractController
 
         //récupération de 6 articles selon numéro de page
         $result = array_slice($array,$nbPage,8);
+        return $result;
+    }
+
+    //pour récupérer le groupe d'articles à afficher sur une page
+    public function pageBlog($array, $idNb){
+
+        $idNb = $this->secureInput($idNb);
+
+        //si l'idNb n'est pas un int
+        if($idNb == 0){
+            $idNb = 1;
+        }
+        //enlève 1 à l'indice de la page
+        $idNb--;
+
+        //récupération du début de la séquence pour array_slice
+        $nbPage = $idNb*5;
+
+        //récupération de 6 articles selon numéro de page
+        $result = array_slice($array,$nbPage,5);
         return $result;
     }
 

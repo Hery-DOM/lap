@@ -1,0 +1,21 @@
+easy_admin:
+  entities:
+    BlogText:
+      label: "Présentation du blog"
+      class: App\Entity\BlogText
+      disabled_actions: ['new', 'delete' ]
+      list:
+        title: 'Texte de présentation'
+        actions:
+          - {name: 'edit', label: 'Editer'}
+        fields:
+          - {property: 'title', label: 'Titre'}
+          - {property: 'picture', label: 'Image', type: 'image', base_path: '%upload_path_blog%'}
+      edit:
+        title: "Modification de la présentation"
+
+      form:
+        fields:
+          - {property: 'title', label: 'Titre du blog'}
+          - {property: 'text', label: 'Texte de présentation', type: 'fos_ckeditor'}
+          - {property: 'pictureFile', label: 'Image', type: 'vich_image'}

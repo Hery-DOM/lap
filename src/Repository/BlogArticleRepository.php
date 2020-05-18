@@ -19,6 +19,19 @@ class BlogArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, BlogArticle::class);
     }
 
+    public function findByTag(string $name)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->leftJoin('a.blog_tag', 't')
+            ->addSelect('t')
+            ->where('t.name = :name')
+            ->setParameter('name', $name)
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return BlogArticle[] Returns an array of BlogArticle objects
     //  */

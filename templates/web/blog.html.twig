@@ -1,0 +1,207 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="blog-container">
+
+        {# ##################################################################
+        #############################  TITLE ################################
+        ################################################################### #}
+
+        <div class="blog-top-container">
+
+
+            <section class="blog-title">
+                <h1>{{ text.title }}</h1>
+            </section>
+
+
+
+
+
+            {# ##################################################################
+            #################################  AUTHOR ###########################
+            ################################################################### #}
+
+            <section class="blog-author">
+                <div class="blog-author-picture">
+                    <img src="{{ asset('assets/img/blog/') }}{{ text.picture }}" alt="{{ text.pictureAlt }}">
+                </div>
+                <div class="blog-author-text">
+                    {{ text.text|raw }}
+                </div>
+                <div class="blog-author-linkedin">
+                    <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="linkedin">
+                </div>
+            </section>
+
+
+
+
+            {# ##################################################################
+            #############################  CATEGORIES ###########################
+            ################################################################### #}
+
+            <section class="blog-categories">
+                {% for category in categories %}
+                    <a href="{{ path('blog_param',{'cat':category.name|url,'id':category.id}) }}">
+                        <div class="blog-categories-elm">
+                            <h2>{{ category.name }}</h2>
+                        </div>
+                    </a>
+                {% endfor %}
+            </section>
+
+        </div>
+
+
+
+
+        {# ##################################################################
+        #############################  ARTICLES ############################
+        ################################################################### #}
+
+
+        <section class="blog-articles">
+            {% for key, article in articles %}
+                <div class="blog-articles-row {% if key%2 != 0 %}reverse{% endif %}">
+                    <div class="img-box">
+                        <img src="{{ asset('assets/img/blog/') }}{{ article.picture }}" alt="{{ article.pictureAlt }}">
+                    </div>
+                    <div class="text-box">
+                        <h2>{{ article.title }}</h2>
+                        {{ article.introduction|raw }}
+                    </div>
+                </div>
+            {% endfor %}
+
+            {# ##################################################################
+            #############################  ARTICLES - PAGINATION ###############
+            ################################################################### #}
+
+            <div class="blog-articles-pagination">
+                <p>Pages : </p>
+                {% for key, square in 1..pages %}
+                    {% set page = key +1 %}
+                    {% set stylePage = '' %}
+                    {% if currentPage == page %}
+                        {% set stylePage = 'blog-currentPage' %}
+                    {% endif %}
+                    {% if currentCatId != 0 %}
+                        <a href="{{ path('blog_param',{'cat':currentCatName|url,'id':currentCatId,'page':page}) }}">
+                            <div class="blog-square {{ stylePage }}"></div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path('blog',{'page':page}) }}">
+                            <div class="blog-square {{ stylePage }}"></div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </section>
+
+
+
+        {# ##################################################################
+           #############################  TOP VIDEOS  #######################
+           ################################################################### #}
+
+
+        <section class="blog-top-add">
+            <h2>Nos top 3 vidéos</h2>
+            <div class="blog-top-add-row owl-carousel owl-theme">
+                {% for article in topVideos %}
+                    <div class="blog-top-add-block item">
+                        <a href="#">
+                            <img src="{{ asset('assets/img/blog/') }}{{ article.picture }}" alt="{{ article.pictureAlt }}">
+                        </a>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </section>
+
+
+
+        {# ##################################################################
+           #####################  TOP ADDITIONAL ARTICLES ###################
+           ################################################################### #}
+
+        <section class="blog-top-add blog-add">
+            <h2>Articles complémentaires</h2>
+            <div class="blog-top-add-row owl-carousel owl-theme">
+                {% for article in addArticles %}
+                    <div class="blog-top-add-block item">
+                        <a href="#">
+                            <img src="{{ asset('assets/img/blog/') }}{{ article.picture }}" alt="{{ article.pictureAlt }}">
+                        </a>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </section>
+
+
+
+
+
+
+    </div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script>
+        $(document).ready(function(){
+            if(window.innerWidth < 1300){
+                $('.owl-carousel').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    navText:[
+                        "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-left.png')
+                        }}'></div>",
+                        "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-right.png')
+                        }}'></div>"
+                    ],
+                    items: 1
+                })
+            }
+
+
+            $(window).resize(function(){
+                if(window.innerWidth < 1300){
+                    $('.owl-carousel').owlCarousel({
+                        loop: true,
+                        margin: 10,
+                        nav: true,
+                        navText:[
+                            "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-left.png')
+                            }}'></div>",
+                            "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-right.png')
+                            }}'></div>"
+                        ],
+                        items: 1,
+
+                    })
+                }
+            })
+
+
+        })
+    </script>
+
+{% endblock %}

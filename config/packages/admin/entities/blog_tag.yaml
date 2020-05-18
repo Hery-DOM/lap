@@ -1,0 +1,8 @@
+easy_admin:
+  entities:
+    BlogTag:
+      label: "Tags"
+      class: App\Entity\BlogTag
+      disabled_actions: ['new', 'delete', 'edit' ]
+      list:
+        title: 'Tags'

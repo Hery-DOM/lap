@@ -261,7 +261,7 @@ class PageSearchController extends PersonalClass
                     if(preg_match('#search-submit-#', $key)){
 
                         $nb = substr($key,14);
-                        $programs = $this->pageBlog($programs,$nb);
+                        $programs = $this->pageSearch($programs,$nb);
                     }
                 }
 
