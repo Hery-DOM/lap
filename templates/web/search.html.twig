@@ -72,6 +72,9 @@
       ################################################################### #}
 
     <section class="search-top">
+        {% for message in app.flashes('info') %}
+            <p>{{ message }}</p>
+        {% endfor %}
 
     </section>
 
@@ -341,7 +344,7 @@
     <p class="search-bottom-title">Vous ne trouvez pas votre bonheur ? </p>
 
     <div class="search-bottom-btn">
-        <a href="#">
+        <a href="{{ path('alert') }}">
             <button class="search-bottom-link-form">
                 Être alerté
             </button>

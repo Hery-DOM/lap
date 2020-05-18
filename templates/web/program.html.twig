@@ -76,6 +76,9 @@
       ################################################################### #}
 
     <section class="program-top">
+        {% for message in app.flashes('info') %}
+            <p>{{ message }}</p>
+        {% endfor %}
         <div class="program-back">
             <form action="{{ path('search',{'slug':slug|raw}) }}" method="POST">
                 <input type="hidden" name="city" value="{{ form['city'] }}">
@@ -230,7 +233,7 @@
 
     <section class="program-alert">
         <h3>Vous ne trouvez pas votre bonheur ?</h3>
-        <a href="#">Être alerté</a>
+        <a href="{{ path('alert') }}">Être alerté</a>
     </section>
 
 

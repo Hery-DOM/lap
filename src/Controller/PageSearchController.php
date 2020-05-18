@@ -82,7 +82,22 @@ class PageSearchController extends PersonalClass
 
             // if it's the contact form in modal
             if(isset($_POST['search-modal'])){
-                dd('test');
+                // build the mail
+                $subject = "Prospect intéressé par un bien";
+                $email = $this->secureInput($_POST['email']);
+                $name = $this->secureInput($_POST['name']);
+                $phone = $this->secureInput($_POST['phone']);
+                $programMail = '';
+                $view = "email/contact_search.html.twig";
+                $viewParam = [
+                  'name' => $name,
+                  'email' => $email,
+                  'phone' => $phone,
+                  'program' => $programMail
+                ];
+                $message = $this->sendEmail($subject, 'noreply@locataireaproprietaire.fr', $this->emailAdmin(),
+                    $view,$viewParam);
+                $this->addFlash('info', 'Merci, vous serez recontacté prochainement');
             }else{
                 // if it's the search barre
                 // init the variables

@@ -1,0 +1,108 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}Être alerté{% endblock %}
+
+{% block content %}
+
+    <div class="alert-container">
+
+        <h1>Être alerté de mon bien idéal</h1>
+
+        {% for message in app.flashes('info') %}
+            <p class="alert-flash">{{ message }}</p>
+        {% endfor %}
+
+        <form action="#" method="POST">
+
+            <div class="alert-form-field">
+                <label for="name">Nom et prénom</label>
+                <input type="text" name="name" id="name">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="text" name="phone" id="phone">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+
+
+            <div class="alert-form-field">
+                <label for="city">Lieu</label>
+                <input type="text" name="city" id="city">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="typo">Type de bien</label>
+                <input type="text" name="typo" id="typo">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="priceMin">Budget minimum (en euros)</label>
+                <input type="number" name="priceMin" id="priceMin">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="priceMax">Budget maximum (en euros)</label>
+                <input type="number" name="priceMax" id="priceMax">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="surfaceMin">Surface minimum (en m2)</label>
+                <input type="number" name="surfaceMin" id="surfaceMin">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="surfaceMax">Surface maximum (en m2)</label>
+                <input type="number" name="surfaceMax" id="surfaceMax">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="rooms">Nombre de pièces minimum</label>
+                <input type="number" name="rooms" id="rooms">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="handicap">Accès handicapé</label>
+                <select name="handicap" id="handicap">
+                    <option value="nc" selected></option>
+                    <option value="yes">Oui</option>
+                    <option value="no">Non</option>
+                </select>
+            </div>
+
+            <div class="alert-form-field">
+                <label for="delivery">Année de livraison</label>
+                <input type="text" name="delivery" id="delivery">
+            </div>
+
+            <div class="alert-form-field">
+                <label for="prestations">Prestations souhaitées (ex : jardin, parking etc)</label>
+                <textarea name="prestations" id="prestations" cols="30" rows=410"></textarea>
+            </div>
+
+            <div class="alert-form-field">
+                <label for="comment">Remarques supplémentaires : </label>
+                <textarea name="comment" id="comment" cols="30" rows="40"></textarea>
+            </div>
+
+            <div class="alert-form-field">
+                <input type="submit" value="Envoyer">
+            </div>
+            
+            
+
+            
+
+
+
+
+        </form>
+
+    </div>
+
+
+{% endblock %}

@@ -28,11 +28,36 @@ class PageOneProgramController extends PersonalClass
      * @Route("/programme/{id}/{slug}", name="program")
      * $id is program's ID
      */
-    public function oneProgram($id, ProgramRepository $programRepository)
+    public function oneProgram($id, ProgramRepository $programRepository, $slug)
     {
         // secure $id ang get program
         $id = $this->secureInput($id);
         $program = $programRepository->find($id);
+        $slug = $this->secureInput($slug);
+
+        // if user has sent the form modal
+        if(isset($_POST['search-modal'])){
+            // build the mail
+            $subject = "Prospect intéressé par un bien";
+            $email = $this->secureInput($_POST['email']);
+            $name = $this->secureInput($_POST['name']);
+            $phone = $this->secureInput($_POST['phone']);
+            $programMail = $program->getName();
+            $view = "email/contact_search.html.twig";
+            $viewParam = [
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'program' => $programMail
+            ];
+            $message = $this->sendEmail($subject, 'noreply@locataireaproprietaire.fr', $this->emailAdmin(),
+                $view,$viewParam);
+            $this->addFlash('info', 'Merci, vous serez recontacté prochainement');
+            return $this->redirectToRoute('program',[
+                'slug' => $slug,
+                'id' => $id
+            ]);
+        }
 
         // initialize $form
         $form = [
