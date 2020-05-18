@@ -10,112 +10,53 @@
 
 {% block content %}
 
-    <div class="blog-container">
+    <div class="article-container">
 
         {# ##################################################################
-        #############################  TITLE ################################
-        ################################################################### #}
+           #############################  TITLE + MOVIE  #######################
+           ################################################################### #}
 
-        <div class="blog-top-container">
-
-
-            <section class="blog-title">
-                <h1>{{ text.title }}</h1>
-            </section>
-
-
-
-
-
-            {# ##################################################################
-            #################################  AUTHOR ###########################
-            ################################################################### #}
-
-            <section class="blog-author">
-                <div class="blog-author-picture">
-                    <img src="{{ asset('assets/img/blog/') }}{{ text.picture }}" alt="{{ text.pictureAlt }}">
+        <div class="article-title">
+            <h1>{{ article.title }}</h1>
+            {% if article.movie %}
+                <div class="article-title-movie-box">
+                    {{ article.movie|raw }}
                 </div>
-                <div class="blog-author-text">
-                    {{ text.text|raw }}
-                </div>
-                <div class="blog-author-linkedin">
-                    <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="linkedin">
-                </div>
-            </section>
-
-
-
-
-            {# ##################################################################
-            #############################  CATEGORIES ###########################
-            ################################################################### #}
-
-            <section class="blog-categories">
-                {% for category in categories %}
-                    <a href="{{ path('blog_param',{'cat':category.name|url,'id':category.id}) }}">
-                        <div class="blog-categories-elm">
-                            <h2>{{ category.name }}</h2>
-                        </div>
-                    </a>
-                {% endfor %}
-            </section>
-
+            {% endif %}
         </div>
 
 
 
 
         {# ##################################################################
-        #############################  ARTICLES ############################
-        ################################################################### #}
+           #############################  ARTICLE  ##########################
+           ################################################################### #}
+
+        <div class="article-article-container">
+            {{ article.text|raw }}
+        </div>
 
 
-        <section class="blog-articles">
-            {% for key, article in articles %}
-                <a href="{{ path('blog_article',{
-                    'cat' : article.blogCategory.name|url,
-                    'idCat' : article.blogCategory.id,
-                    'art' : article.title|url,
-                    'id' : article.id
-                }) }}">
-                    <div class="blog-articles-row {% if key%2 != 0 %}reverse{% endif %}">
-                        <div class="img-box">
-                            <img src="{{ asset('assets/img/blog/') }}{{ article.picture }}" alt="{{ article.pictureAlt }}">
-                        </div>
-                        <div class="text-box">
-                            <h2>{{ article.title }}</h2>
-                            {{ article.introduction|raw }}
-                        </div>
-                    </div>
-                </a>
+        {# ##################################################################
+           #############################  SHARE  ##########################
+           ################################################################### #}
 
-            {% endfor %}
-
-            {# ##################################################################
-            #############################  ARTICLES - PAGINATION ###############
-            ################################################################### #}
-
-            <div class="blog-articles-pagination">
-                <p>Pages : </p>
-                {% for key, square in 1..pages %}
-                    {% set page = key +1 %}
-                    {% set stylePage = '' %}
-                    {% if currentPage == page %}
-                        {% set stylePage = 'blog-currentPage' %}
-                    {% endif %}
-                    {% if currentCatId != 0 %}
-                        <a href="{{ path('blog_param',{'cat':currentCatName|url,'id':currentCatId,'page':page}) }}">
-                            <div class="blog-square {{ stylePage }}"></div>
-                        </a>
-                    {% else %}
-                        <a href="{{ path('blog',{'page':page}) }}">
-                            <div class="blog-square {{ stylePage }}"></div>
-                        </a>
-                    {% endif %}
-                {% endfor %}
+        <div class="article-share">
+            <p>Si vous avez aimé l'article, partagez-le !</p>
+            <div class="article-share-btn">
+                <div class="img-box">
+                    <a href="#">
+                        <img src="{{ asset('assets/img/static/facebook.png') }}" alt="partager sur facebook">
+                    </a>
+                </div>
+                <div class="img-box">
+                    <a href="#">
+                        <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="partager sur linkedin">
+                    </a>
+                </div>
             </div>
+        </div>
 
-        </section>
 
 
 

@@ -1,0 +1,27 @@
+@media screen and(max-width: 1300px){
+
+  .article-container{
+    width: 100%;
+    padding: 0;
+  }
+
+  .article-title{
+    width: 100%;
+    background-color: $lightbluetransparent;
+    padding-top: 10vh;
+    h1{
+      margin-left: 5%;
+    }
+  }
+
+  .article-article-container{
+    width: 90%;
+    margin: 10vh auto;
+  }
+
+  .article-share{
+    display: none;
+  }
+
+
+}

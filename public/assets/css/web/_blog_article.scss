@@ -1,0 +1,54 @@
+.article-container{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10vh 0;
+}
+
+.article-title{
+  width: 80%;
+  margin: 0 auto;
+  h1{
+    color: $blue;
+    text-transform: uppercase;
+    margin-bottom: 10vh;
+  }
+  .article-title-movie-box{
+    iframe{
+      width: 100%;
+      height: 60vh;
+    }
+  }
+}
+
+
+.article-article-container{
+  margin: 20vh 0;
+  color: grey;
+}
+
+
+.article-share{
+  margin-bottom: 10vh;
+  text-align: center;
+  color: grey;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-weight: 700;
+  p{
+    margin: 5vh 0;
+  }
+  .article-share-btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    margin: 0 auto;
+    .img-box{
+      width: 20%;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

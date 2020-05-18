@@ -77,7 +77,7 @@ class PageBlogController extends PersonalClass
             $articles = $this->pageBlog($articles, $page);
         }
 
-        // get 2 articles with the tag "top 3 vidéos"
+        // get 3 articles with the tag "top 3 vidéos"
         $topVideos = $blogArticleRepository->findByTag('top 3 vidéos');
 
         // get additionnal articles
@@ -96,6 +96,38 @@ class PageBlogController extends PersonalClass
             'addArticles' => $addArticles
         ]);
 
+    }
+
+    /**
+     * @Route("/blog/{cat}/{idCat}/{art}/{id}", name="blog_article")
+     * $cat and $idCat are the category's name and ID
+     * $art and $id are the article's name and ID
+     */
+    public function blogArticle($idCat, $art,$id, BlogArticleRepository $blogArticleRepository)
+    {
+        // secure inputs
+        $idCat = $this->secureInput($idCat);
+        $id = $this->secureInput($id);
+
+        // get the article
+        $article = $blogArticleRepository->find($id);
+
+        // check : if article isn't published => back to blog
+        if(!$article->getPublished()){
+            return $this->redirectToRoute('blog');
+        }
+
+        // get 3 articles with the tag "top 3 vidéos"
+        $topVideos = $blogArticleRepository->findByTag('top 3 vidéos');
+
+        // get additionnal articles
+        $addArticles = $blogArticleRepository->findByTag('articles complémentaires');
+
+        return $this->render('web/blog_article.html.twig',[
+            'article' => $article,
+            'topVideos' => $topVideos,
+            'addArticles' => $addArticles
+        ]);
     }
 
 }
