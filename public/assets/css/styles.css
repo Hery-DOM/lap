@@ -1902,6 +1902,79 @@ input:checked + .slider:before {
 .alert-flash {
   color: #002849; }
 
+.project-title-responsive {
+  display: none; }
+
+.project-container {
+  width: 100%;
+  margin: 0 auto; }
+  .project-container h1 {
+    padding: 30px;
+    color: #002849; }
+
+.project-box {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; }
+  .project-box .project-img {
+    width: 60%; }
+  .project-box .project-form {
+    width: 40%; }
+
+.project-img {
+  min-height: 80vh;
+  background-image: url("../img/static/search-top.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+
+.project-carousel {
+  padding: 20px;
+  color: #002849; }
+  .project-carousel p, .project-carousel label {
+    font-size: 1.2em; }
+  .project-carousel .step {
+    font-size: 1.4em;
+    font-weight: 700; }
+
+.project-form-field {
+  margin: 20px 0; }
+  .project-form-field input[type='text'] {
+    height: 30px;
+    padding: 10px;
+    display: block; }
+  .project-form-field textarea {
+    width: 100%; }
+
+.project-typo-field {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+#project-submit {
+  background-color: #002849;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 10px;
+  border-radius: 20px; }
+
+#project-submit:hover {
+  background-color: #FBB03B; }
+
+.project-carousel .owl-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto; }
+  .project-carousel .owl-nav button {
+    width: 20%; }
+    .project-carousel .owl-nav button img {
+      width: 100%;
+      height: auto; }
+
 .emailSent-block {
   height: 50vh;
   display: flex;
@@ -2662,5 +2735,20 @@ input:checked + .slider:before {
     background-color: rgba(69, 138, 255, 0.2);
     margin: 0;
     padding: 15vh 5%; } }
+@media screen and (max-width: 1300px) {
+  .project-container {
+    background-color: rgba(69, 138, 255, 0.2); }
+
+  .project-img {
+    display: none; }
+
+  .project-box .project-form {
+    width: 100%; }
+
+  .project-title-responsive {
+    display: block; }
+
+  .project-container h1 {
+    padding-top: 10vh; } }
 
 /*# sourceMappingURL=styles.css.map */

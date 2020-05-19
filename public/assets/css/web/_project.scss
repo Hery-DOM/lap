@@ -1,0 +1,92 @@
+.project-title-responsive{
+  display: none;
+}
+
+.project-container{
+  width: 100%;
+  margin: 0 auto;
+  h1{
+    padding: 30px;
+    color: $blue;
+  }
+}
+
+.project-box{
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  .project-img{
+    width: 60%;
+  }
+  .project-form{
+    width: 40%;
+  }
+}
+.project-img{
+  min-height: 80vh;
+  background-image: url("../img/static/search-top.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-carousel{
+  padding: 20px;
+  color: $blue;
+  p,label{
+    font-size: 1.2em;
+  }
+  .step{
+    font-size: 1.4em;
+    font-weight: 700;
+  }
+}
+
+.project-form-field{
+  margin: 20px 0;
+  input[type='text']{
+    height: 30px;
+    padding: 10px;
+    display: block;
+  }
+  textarea{
+    width: 100%;
+  }
+
+
+}
+
+.project-typo-field{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#project-submit{
+  background-color: $blue;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 10px;
+  border-radius: 20px;
+}
+#project-submit:hover{
+  background-color: $yellow;
+}
+
+
+.project-carousel .owl-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  button{
+    width: 20%;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}

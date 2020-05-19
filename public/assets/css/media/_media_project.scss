@@ -1,0 +1,24 @@
+@media screen and(max-width: 1300px) {
+
+  .project-container{
+    background-color: $lightbluetransparent;
+  }
+
+  .project-img{
+    display: none;
+  }
+
+  .project-box .project-form{
+    width: 100%;
+  }
+
+  .project-title-responsive{
+    display: block;
+  }
+  .project-container h1{
+    padding-top: 10vh;
+  }
+
+
+
+}

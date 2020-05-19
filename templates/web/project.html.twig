@@ -1,0 +1,204 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    Votre projet
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="project-container">
+
+        <h1 class="project-title-responsive">Votre projet immobilier</h1>
+
+        <div class="project-box">
+            <div class="project-img">
+                <h1>Votre projet immobilier</h1>
+            </div>
+            <div class="project-form">
+                <form action="#" method="POST">
+                    <div class="project-carousel owl-carousel owl-theme">
+                        {########## STEP 1 ###########}
+                        <div class="project-block item">
+                            <p class="step">Etape 1 / 4</p>
+                            <div class="project-form-field">
+                                <p>Vous êtes : </p>
+                                <label for="locataire">Locataire</label>
+                                <input type="radio" id="locataire" name="situation" value="locataire">
+                                <label for="proprietaire">Propriétaire</label>
+                                <input type="radio" id="proprietaire" name="situation" value="proprietaire">
+                            </div>
+
+                            <div class="project-form-field">
+                                <p>Vous reherchez : </p>
+                                <label for="appartement">Appartement</label>
+                                <input type="radio" id="appartement" name="search" value="appartement">
+                                <label for="maison">Maison</label>
+                                <input type="radio" id="maison" name="search" value="maison">
+                            </div>
+
+                            <div class="project-form-field">
+                                <p>Quelle est la typologie recherchée :</p>
+                                <div class="project-typo-field">
+                                    <div>
+                                        <label for="T1">T1</label>
+                                        <input type="checkbox" name="T1" id="T1">
+                                    </div>
+                                    <div>
+                                        <label for="T2">T2</label>
+                                        <input type="checkbox" name="T2" id="T2">
+                                    </div>
+                                    <div>
+                                        <label for="T3">T3</label>
+                                        <input type="checkbox" name="T3" id="T3">
+                                    </div>
+                                    <div>
+                                        <label for="T4">T4</label>
+                                        <input type="checkbox" name="T4" id="T4">
+                                    </div>
+                                    <div>
+                                        <label for="T5">T5</label>
+                                        <input type="checkbox" name="T5" id="T5">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        {########## STEP 2 ###########}
+                        <div class="project-block item">
+                            <p class="step">Etape 2 / 4</p>
+
+                            <div class="project-form-field">
+                                <label for="budget">Avez-vous simulez votre capacité de financement ?</label>
+                                <select name="budget" id="budget">
+                                    <option value="oui">Oui</option>
+                                    <option value="non">Non</option>
+                                </select>
+                            </div>
+
+                            <div class="project-form-field">
+                                <label for="pro">Quelle est votre situation professionnelle ?</label>
+                                <select name="pro" id="pro">
+                                    <option value="salarie">Salarié</option>
+                                    <option value="independant">Indépendant</option>
+                                    <option value="retraite">Retraité</option>
+                                    <option value="sans-activite">Sans activité</option>
+                                    <option value="etudiant">Étudiant</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="project-form-field">
+                                <label for="buy">Vous souhaitez acheter :</label>
+                                <select name="buy" id="buy">
+                                    <option value="seul">Seul</option>
+                                    <option value="deux">A deux</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+
+                        {########## STEP 3 ###########}
+                        <div class="project-block item">
+                            <p class="step">Etape 3 / 4</p>
+
+                            <div class="project-form-field">
+                                <label for="ville">Dans quelle ville recherchez-vous ?</label>
+                                <input type="text" name="ville" id="ville">
+                            </div>
+
+                            <div class="project-form-field">
+                                <label for="delai">Quel est le délai de réalisation de votre projet ?</label>
+                                <input type="text" name="delai" id="delai">
+                            </div>
+
+                            <div class="project-form-field">
+                                <label for="autres">D'autres choses que l'on devrait absolument savoir ?</label>
+                                <textarea name="autres" id="autres" cols="50" rows="10"></textarea>
+                            </div>
+
+
+
+                        </div>
+
+                        {########## STEP 4 ###########}
+                        <div class="project-block item">
+                            <p class="step">Etape 4 / 4</p>
+
+                            <div class="project-form-field">
+                                <label for="firstname">Votre prénom :</label>
+                                <input type="text" name="firstname" id="firstname">
+                            </div>
+
+                            <div class="project-form-field">
+                                <label for="lastname">Votre nom :</label>
+                                <input type="text" name="lastname" id="lastname">
+                            </div>
+
+                            <div class="project-form-field">
+                                <label for="email">Votre email :</label>
+                                <input type="text" name="email" id="email">
+                            </div>
+
+                            <div class="project-form-field">
+                                <label for="phone">Votre numéro de téléphone :</label>
+                                <input type="text" name="phone" id="phone">
+                            </div>
+
+
+                            <div class="project-form-field">
+                                <label for="contact">Moyen de contact préféré :</label>
+                                <input type="text" name="contact" id="contact">
+                            </div>
+                            <button type="submit" name="project-submit"  id="project-submit">Valider</button>
+
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+
+
+    </div>
+
+{% endblock %}
+
+
+
+{% block script %}
+    <script>
+        // carousel
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                loop:false,
+                margin:10,
+                nav: true,
+                dots: false,
+                navText:[
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-left.png')
+                    }}'></div>",
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-right.png')
+                    }}'></div>"
+                ],
+                items: 1
+            })
+        })
+    </script>
+{% endblock %}

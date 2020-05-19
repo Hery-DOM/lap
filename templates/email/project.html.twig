@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Projet d'un prospect</title>
+</head>
+<body>
+
+    <h1>Projet d'un prospect</h1>
+
+    <h2>Prospect : </h2>
+    <p>Prénom : {{ firstname }}</p>
+    <p>Nom : {{ lastname }}</p>
+    <p>Email : {{ email }}</p>
+    <p>Téléphone : {{ phone }}</p>
+    <p>Situation : {{ situation }}</p>
+    <p>Situation professionnelle : {{ pro }}</p>
+
+    <h2>Autres renseignements : </h2>
+    <p>Recherche : {{ search }}</p>
+    <p>Typologies : </p>
+    <ul>
+        {% if T1 is defined %}
+            <li>T1</li>
+        {% endif %}
+        {% if T2 is defined %}
+            <li>T2</li>
+        {% endif %}
+        {% if T3 is defined %}
+            <li>T3</li>
+        {% endif %}
+        {% if T4 is defined %}
+            <li>T4</li>
+        {% endif %}
+        {% if T5 is defined %}
+            <li>T5</li>
+        {% endif %}
+    </ul>
+    <p>Simulation de budget déjà effectuée : {{ budget }}</p>
+    <p>Achète seul ou à deux : {% if buy == 'deux' %}à deux{% else %}seul{% endif %}</p>
+    <p>Ville désirée : {{ ville }}</p>
+    <p>Délai : {{ delai }}</p>
+    <p>Autres indications : {{ autres }}</p>
+
+</body>
+</html>
