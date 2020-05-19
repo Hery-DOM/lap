@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    HomepageBrochure:
+      label: "Brochures"
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\HomepageBrochure
+      edit:
+        title: 'Modifier la brochure'
+        fields:
+          - { property: 'fileFile', type: 'vich_image', label: 'Brochure' }
+      list:
+        fields:
+          - {property: 'name', label: 'Nom'}

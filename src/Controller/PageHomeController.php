@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\NewsletterTemp;
 use App\Repository\CriteriaRepository;
+use App\Repository\HomepageBrochureRepository;
 use App\Repository\HomepageRepository;
 use App\Repository\NewsletterTempRepository;
 use App\Repository\ProgramRepository;
@@ -23,7 +24,8 @@ class PageHomeController extends PersonalClass
      */
     public function home(Request $request, EntityManagerInterface $entityManager, NewsletterTempRepository
     $newsletterTempRepository, HomepageRepository $homepageRepository, ProgramRepository $programRepository,
-                         TestimonyRepository $testimonyRepository, CriteriaRepository $criteriaRepository)
+                         TestimonyRepository $testimonyRepository, CriteriaRepository $criteriaRepository,
+                         HomepageBrochureRepository $homepageBrochureRepository)
     {
         // get message in banner
         $banner = $homepageRepository->findOneBy(['name' => 'Bannière']);
@@ -119,9 +121,10 @@ class PageHomeController extends PersonalClass
             }
 
 
-            // treatment for the search barre => get data in $_POST + redirect to search'page with this data
-            // in parameters
         }
+
+        // get the brochures
+        $brochures = $homepageBrochureRepository->findBy([], ['id' => 'ASC']);
 
 
         return $this->render('web/home.html.twig',[
@@ -131,7 +134,8 @@ class PageHomeController extends PersonalClass
             'programSelection' => $programsSelection,
             'testimonies' => $testimonies,
             'url' => $url,
-            'prestations' => $prestationsInit
+            'prestations' => $prestationsInit,
+            'brochures' => $brochures
         ]);
     }
 

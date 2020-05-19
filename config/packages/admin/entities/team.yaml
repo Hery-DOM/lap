@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Team:
+      label: 'Page "Recrutement"'
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\Team
+      edit:
+        title: "Modification du texte"
+        fields:
+          - { property: 'text', type: 'fos_ckeditor', label: 'Texte' }
+      list:
+        fields:
+          - {property: 'name', label: ''}

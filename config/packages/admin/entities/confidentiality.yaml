@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Confidentiality:
+      label: "Politique de confidentialité"
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\Confidentiality
+      edit:
+        title: "Modification du texte"
+        fields:
+          - { property: 'text', type: 'fos_ckeditor', label: 'Texte' }
+      list:
+        fields:
+          - {property: 'text', label: 'Politique de confidentialité'}

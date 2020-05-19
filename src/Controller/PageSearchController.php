@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Repository\CriteriaRepository;
 use App\Repository\ProgramRepository;
+use App\Repository\SearchBrochureRepository;
 use App\Repository\SearchPageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,13 +29,16 @@ class PageSearchController extends PersonalClass
      * @Route("/trouvez-un-logement/{slug}", name="search")
      */
     public function search($slug, ProgramRepository $programRepository, Request $request, CriteriaRepository
-    $criteriaRepository, SearchPageRepository $searchPageRepository)
+    $criteriaRepository, SearchPageRepository $searchPageRepository, SearchBrochureRepository $searchBrochureRepository)
     {
         // secure $slug
         $slug = $this->secureInput($slug);
 
         // get text
         $text = $searchPageRepository->findAll();
+
+        // get brochure
+        $brochure = $searchBrochureRepository->findOneBy([]);
 
         // get every cities
         $homes = $programRepository->findBy([],['city' => 'ASC']);
@@ -292,7 +296,8 @@ class PageSearchController extends PersonalClass
                     'prestations' => $prestationsInit,
                     'currentPage' => $nb,
                     'text' => $text,
-                    'slug' => $slug
+                    'slug' => $slug,
+                    'brochure' => $brochure
                 ]);
             }
 
@@ -307,7 +312,8 @@ class PageSearchController extends PersonalClass
             'form' => $form,
             'prestations' => $prestationsInit,
             'text' => $text,
-            'slug' => $slug
+            'slug' => $slug,
+            'brochure' => $brochure
         ]);
 
     }

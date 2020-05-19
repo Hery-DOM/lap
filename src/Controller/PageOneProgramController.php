@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Repository\ProgramRepository;
+use App\Repository\SearchBrochureRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageOneProgramController extends PersonalClass
@@ -28,12 +29,15 @@ class PageOneProgramController extends PersonalClass
      * @Route("/programme/{id}/{slug}", name="program")
      * $id is program's ID
      */
-    public function oneProgram($id, ProgramRepository $programRepository, $slug)
+    public function oneProgram($id, ProgramRepository $programRepository, $slug, SearchBrochureRepository $searchBrochureRepository)
     {
         // secure $id ang get program
         $id = $this->secureInput($id);
         $program = $programRepository->find($id);
         $slug = $this->secureInput($slug);
+
+        // get brochure
+        $brochure = $searchBrochureRepository->findOneBy([]);
 
         // if user has sent the form modal
         if(isset($_POST['search-modal'])){
@@ -256,7 +260,8 @@ class PageOneProgramController extends PersonalClass
             'slug' => $slug,
             'latitude' => $local_latitude,
             'longitude' => $local_longitude,
-            'lastPrograms' => $lastPrograms
+            'lastPrograms' => $lastPrograms,
+            'brochure' => $brochure
         ]);
 
     }

@@ -8,6 +8,9 @@
 
         <h1>Être alerté de mon bien idéal</h1>
 
+        <a class="alert-back" href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">< Retour à la page "Trouvez un
+            logement"</a>
+
         {% for message in app.flashes('info') %}
             <p class="alert-flash">{{ message }}</p>
         {% endfor %}

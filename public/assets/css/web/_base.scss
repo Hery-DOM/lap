@@ -313,8 +313,11 @@ main{
   justify-content: space-around;
   align-items: center;
 
-  p{
+  p,a{
     color: white;
+  }
+  a:hover{
+    text-decoration: underline;
   }
 
   nav{

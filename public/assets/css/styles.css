@@ -259,8 +259,10 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center; }
-  .footer-second-row p {
+  .footer-second-row p, .footer-second-row a {
     color: white; }
+  .footer-second-row a:hover {
+    text-decoration: underline; }
   .footer-second-row nav {
     width: 50%; }
     .footer-second-row nav ul {
@@ -1858,6 +1860,12 @@ input:checked + .slider:before {
     color: #002849;
     text-transform: uppercase;
     margin-bottom: 30px; }
+
+.alert-back {
+  color: #002849; }
+
+.alert-back:hover {
+  text-decoration: underline; }
 
 .alert-container {
   width: 90%;

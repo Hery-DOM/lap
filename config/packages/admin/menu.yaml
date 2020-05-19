@@ -1,11 +1,15 @@
 easy_admin:
   design:
     menu:
-      - {entity: 'User'}
-      - {entity: 'Homepage'}
+#      - {entity: 'User'}
+      - label: "Page d'accueil"
+        children:
+          - {entity: 'Homepage', label: 'Bannière'}
+          - {entity: 'HomepageBrochure'}
       - {entity: 'SearchPage'}
       - label: "Page 'Devenir propriétaire'"
         children:
+          - {entity: 'SearchBrochure', label: 'Brochure'}
           - {entity: 'OwnerHome', label: 'Intro'}
           - {entity: 'OwnerCategory', label: 'Catégories'}
           - {entity: 'OwnerSubCategory', label: 'Sous catégories'}
@@ -15,6 +19,9 @@ easy_admin:
           - {entity: 'About', label: 'Sections modifiables'}
           - {entity: 'AboutWhy', label: 'Liste des raisons pour nous choisir'}
           - {entity: 'AboutPicture', label: 'Photo de groupe'}
+      - {entity: 'Legal'}
+      - {entity: 'Confidentiality'}
+      - {entity: 'Team'}
       - label: 'Les programmes'
         children:
           - {entity: 'Program', label: 'Biens'}

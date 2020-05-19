@@ -277,18 +277,21 @@
             <div class="homepage-preview-result">
                 {% for program in programSelection|slice(0,3) %}
                 <div class="homepage-preview-block">
-                    {% if program.programPicture is not empty %}
-                        <div class="img-box">
-                            <img src="{{ asset('assets/img/programs/') }}{{ program.programPicture[0].picture }}"alt="{{program.programPicture[0].pictureAlt }}">
+                    <a href="{{ path('program',{'slug':program.name|url,'id':program.id}) }}">
+                        {% if program.programPicture is not empty %}
+                            <div class="img-box">
+                                <img src="{{ asset('assets/img/programs/') }}{{ program.programPicture[0].picture }}"
+                                     alt="{{program.programPicture[0].pictureAlt }}">
+                            </div>
+                        {% endif %}
+                        <div class="name-city">
+                            <h3>{{ program.name }}</h3>
+                            <p>{{ program.city }}</p>
                         </div>
-                    {% endif %}
-                    <div class="name-city">
-                        <h3>{{ program.name }}</h3>
-                        <p>{{ program.city }}</p>
-                    </div>
-                    <div class="price">
-                        <p>{{ program.price }} €</p>
-                    </div>
+                        <div class="price">
+                            <p>{{ program.price }} €</p>
+                        </div>
+                    </a>
                 </div>
                 {% endfor %}
             </div>
@@ -566,7 +569,7 @@
             <div class="homepage-project-blog">
                 <div class="homepage-project-blog-txt-box">
                     <p>Votre projet immobilier en continue</p>
-                    <a href="#">
+                    <a href="{{ path('blog') }}">
                         <div class="homepage-project-blog-btn">
                             Découvrir
                         </div>
@@ -577,7 +580,7 @@
             <div class="homepage-project-pdf-box">
                 <div class="homepage-project-find-block">
                     <p>Guide trouver son bien</p>
-                    <a href="#">
+                    <a href="{{ asset('assets/img/brochure/') }}{{ brochures[0].file }}" download>
                         <div class="homepage-project-find-btn">
                             Découvrir
                         </div>
@@ -585,7 +588,7 @@
                 </div>
                 <div class="homepage-project-owner-block">
                     <p>Guide devenir propriétaire</p>
-                    <a href="#">
+                    <a href="{{ asset('assets/img/brochure/') }}{{ brochures[1].file }}" download>
                         <div class="homepage-project-owner-btn">
                             Découvrir
                         </div>

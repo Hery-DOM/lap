@@ -5,7 +5,10 @@ namespace App\Controller;
 
 
 use App\Repository\BlogCategoryRepository;
+use App\Repository\ConfidentialityRepository;
+use App\Repository\LegalRepository;
 use App\Repository\OwnerCategoryRepository;
+use App\Repository\TeamRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageOthersController extends PersonalClass
@@ -34,26 +37,42 @@ class PageOthersController extends PersonalClass
     /**
      * @Route("/politique-de-confidentialite", name="confidentiality")
      */
-    public function confidentiality()
+    public function confidentiality(ConfidentialityRepository $repository)
     {
-        return $this->render('web/confidentiality.html.twig');
+        // get text
+        $text = $repository->findOneBy([]);
+
+        return $this->render('web/confidentiality.html.twig',[
+            'text' => $text
+        ]);
     }
 
 
     /**
      * @Route("/mentions-legales", name="legal")
      */
-    public function legal()
+    public function legal(LegalRepository $legalRepository)
     {
-        return $this->render('web/legal.html.twig');
+        // get text
+        $text = $legalRepository->findOneBy([]);
+
+        return $this->render('web/legal.html.twig',[
+            'text' => $text
+        ]);
     }
 
     /**
      * @Route("/rejoignez-notre-equipe", name="team")
      */
-    public function team()
+    public function team(TeamRepository $teamRepository)
     {
-        return $this->render('web/team.html.twig');
+
+        // get text
+        $text = $teamRepository->findOneBy([]);
+
+        return $this->render('web/team.html.twig',[
+            'text' => $text
+        ]);
     }
 
 }

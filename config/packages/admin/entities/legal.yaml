@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Legal:
+      label: "Mentions légales"
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\Legal
+      edit:
+        title: "Modification du texte"
+        fields:
+          - { property: 'text', type: 'fos_ckeditor', label: 'Texte' }
+      list:
+        fields:
+          - {property: 'text', label: 'Mentions légales'}

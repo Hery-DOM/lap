@@ -34,6 +34,10 @@ class VichNaming2 implements NamerInterface
             case "image/png":
                 $ext = "png";
                 break;
+
+            case "application/pdf":
+                $ext = "pdf";
+                break;
         }
 
         // secure name and add uniq ID

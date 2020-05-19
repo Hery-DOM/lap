@@ -7,11 +7,12 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PageAlertMailController extends PersonalClass
+class PageSendMailController extends PersonalClass
 {
 
     /**
      * @Route("/etre-alerte", name="alert")
+     * It's the alert from the program's page and search's page
      */
     public function alert(Request $request)
     {
@@ -61,6 +62,43 @@ class PageAlertMailController extends PersonalClass
         }
 
         return $this->render('web/alert.html.twig');
+
+    }
+
+    /**
+     * @Route("/contact", name="contact")
+     * To send a mail from contact mail in modal
+     */
+    public function contact()
+    {
+        // check : it isn't from form => redirect to homepage
+        if(!isset($_POST['modal-form'])){
+            return $this->redirectToRoute('home');
+        }
+
+        // secure inputs
+        $name = $this->secureInput($_POST['modal-name']);
+        $email = $this->secureInput($_POST['modal-email']);
+        $phone = $this->secureInput($_POST['modal-phone']);
+        $object = $this->secureInput($_POST['modal-object']);
+        $message = $this->secureInput($_POST['modal-message']);
+
+        $noreply = "noreply@locataireaproprietaire.fr";
+        $view = "email/contact.html.twig";
+        $viewParam = [
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+            'object' => $object,
+            'message' => $message
+        ];
+
+        // send the mail
+        $this->sendEmail($object,$noreply,$this->emailAdmin(),$view,$viewParam);
+        $this->addFlash('info','Merci, votre message a bien été envoyé');
+
+        return $this->redirectToRoute('home');
+
 
     }
 
