@@ -1487,6 +1487,9 @@ input:checked + .slider:before {
     .owner-category-list .list-articles li::before {
       height: 40px; }
 
+.aside-about .square, .aside-about .vertical-line {
+  background-color: #002849 !important; }
+
 .about-who {
   width: 80%;
   margin: 20px auto 50px; }
@@ -1984,6 +1987,45 @@ input:checked + .slider:before {
   .emailSent-block p {
     text-align: center;
     color: #002849; }
+
+.fos-login {
+  height: 50vh;
+  margin-bottom: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .fos-login form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .fos-login input[type='submit'] {
+    background-color: #002849;
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0 auto; }
+  .fos-login input[type='submit']:hover {
+    cursor: pointer;
+    background-color: #FBB03B; }
+
+.fos-field {
+  margin: 10px 0;
+  width: 120%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .fos-field label {
+    color: #002849;
+    font-weight: 700;
+    font-size: 1.2em; }
+  .fos-field input[type='text'], .fos-field input[type='password'] {
+    height: 20px;
+    width: 50%;
+    border: 1px solid #002849;
+    padding: 5px; }
 
 @media screen and (max-width: 930px) {
   .header-container {

@@ -102,67 +102,7 @@ $(document).ready(function(){
 
 
 
-// aside
-$(document).ready(function(){
-    // get initial position
-    var scrollInit = $(window).scrollTop()
-    if(scrollInit >= 715){
-        $('.vertical-line').css('background-color','#002849')
-        $('.square').css('background-color','#002849')
-    }else{
-        $('.vertical-line').css('background-color','white')
-        $('.square').css('background-color','white')
-    }
 
-    if(scrollInit <920){
-        $('.square').css({'width':'8px','height':'8px'})
-        $('#square1').css({'width':'20px','height':'20px'})
-
-    }else if(scrollInit >=920 && scrollInit <1560){
-        $('.square').css({'width':'8px','height':'8px'})
-        $('#square2').css({'width':'20px','height':'20px'})
-    }else if(scrollInit >=1560 && scrollInit <2135){
-        $('.square').css({'width':'8px','height':'8px'})
-        $('#square3').css({'width':'20px','height':'20px'})
-    }else if(scrollInit >=2135 && scrollInit <3125){
-        $('.square').css({'width':'8px','height':'8px'})
-        $('#square4').css({'width':'20px','height':'20px'})
-    }else if(scrollInit >=3125){
-        $('.square').css({'width':'8px','height':'8px'})
-        $('#square5').css({'width':'20px','height':'20px'})
-    }
-
-    $(window).scroll(function(){
-        var scroll = $(window).scrollTop()
-        if(scroll >= 715){
-            $('.vertical-line').css('background-color','#002849')
-            $('.square').css('background-color','#002849')
-        }else{
-            $('.vertical-line').css('background-color','white')
-            $('.square').css('background-color','white')
-        }
-
-        if(scroll <920){
-            $('.square').css({'width':'8px','height':'8px'})
-            $('#square1').css({'width':'20px','height':'20px'})
-        }else if(scroll >=920 && scroll <1560){
-            $('.square').css({'width':'8px','height':'8px'})
-            $('#square2').css({'width':'20px','height':'20px'})
-        }else if(scroll >=1560 && scroll <2135){
-            $('.square').css({'width':'8px','height':'8px'})
-            $('#square3').css({'width':'20px','height':'20px'})
-        }else if(scroll >=2135 && scroll <3125){
-            $('.square').css({'width':'8px','height':'8px'})
-            $('#square4').css({'width':'20px','height':'20px'})
-        }else if(scroll >=3125){
-            $('.square').css({'width':'8px','height':'8px'})
-            $('#square5').css({'width':'20px','height':'20px'})
-        }
-    })
-
-
-
-})
 
 
 // change URL for search page

@@ -1,0 +1,47 @@
+.fos-login{
+  height: 50vh;
+  margin-bottom: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type='submit']{
+    background-color: $blue;
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+  input[type='submit']:hover{
+    cursor: pointer;
+    background-color: $yellow;
+  }
+}
+
+.fos-field{
+  margin: 10px 0;
+  width: 120%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  label{
+    color: $blue;
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+  input[type='text'],input[type='password']{
+    height: 20px;
+    width: 50%;
+    border: 1px solid $blue;
+    padding: 5px;
+  }
+
+}

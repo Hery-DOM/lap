@@ -1,7 +1,7 @@
 easy_admin:
   design:
     menu:
-#      - {entity: 'User'}
+      - {entity: 'User'}
       - label: "Page d'accueil"
         children:
           - {entity: 'Homepage', label: 'Bannière'}
