@@ -6,10 +6,12 @@ easy_admin:
         children:
           - {entity: 'Homepage', label: 'Bannière'}
           - {entity: 'HomepageBrochure'}
-      - {entity: 'SearchPage'}
+      - label : "Page 'Trouvez un logement'"
+        children:
+          - {entity: 'SearchPage', label: "Texte modifiable"}
+          - {entity: 'SearchBrochure', label: 'Brochure'}
       - label: "Page 'Devenir propriétaire'"
         children:
-          - {entity: 'SearchBrochure', label: 'Brochure'}
           - {entity: 'OwnerHome', label: 'Intro'}
           - {entity: 'OwnerCategory', label: 'Catégories'}
           - {entity: 'OwnerSubCategory', label: 'Sous catégories'}
