@@ -21,4 +21,28 @@
 
 
 
+  /**************** AFTER *******************/
+
+  .project-after-container{
+    height: 100%;
+    display: block;
+    padding-bottom: 0;
+  }
+  .project-after-text-block, .project-after-img-box{
+    width: 100%;
+  }
+  .project-after-img-box{
+    height: 80%;
+    .img-full{
+      display: none;
+    }
+    .img-responsive{
+      display: block;
+      width: 200%;
+      height: auto;
+      transform: translateX(-40%);
+    }
+  }
+
+
 }

@@ -1,0 +1,26 @@
+body{
+     background-color: rgba(69,138,301,0.2);
+ }
+
+.main-sidebar{
+    background-color: rgba(69,138,301,0);
+}
+
+.sidebar .header{
+    color: #002849;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#header-logo a{
+    color: #002849!important;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.user-name{
+    color: #FBB03B;
+}
+.fa-user-circle:before{
+    color: #FBB03B;
+}

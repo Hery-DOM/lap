@@ -1,29 +1,33 @@
 easy_admin:
   design:
     menu:
-      - {entity: 'User'}
-      - label: "Page d'accueil"
+      - label: "PAGES"
+      - label: "Accueil"
         children:
           - {entity: 'Homepage', label: 'Bannière'}
           - {entity: 'HomepageBrochure'}
-      - label : "Page 'Trouvez un logement'"
+      - label : "Trouvez un logement"
         children:
           - {entity: 'SearchPage', label: "Texte modifiable"}
           - {entity: 'SearchBrochure', label: 'Brochure'}
-      - label: "Page 'Devenir propriétaire'"
+      - label: "Devenir propriétaire"
         children:
           - {entity: 'OwnerHome', label: 'Intro'}
           - {entity: 'OwnerCategory', label: 'Catégories'}
           - {entity: 'OwnerSubCategory', label: 'Sous catégories'}
           - {entity: 'OwnerArticle', label: 'Articles'}
-      - label: "Page 'Qui sommes nous'"
+      - label: "Qui sommes-nous"
         children:
           - {entity: 'About', label: 'Sections modifiables'}
           - {entity: 'AboutWhy', label: 'Liste des raisons pour nous choisir'}
           - {entity: 'AboutPicture', label: 'Photo de groupe'}
-      - {entity: 'Legal'}
-      - {entity: 'Confidentiality'}
-      - {entity: 'Team'}
+      - label: "Pages du footer"
+        children:
+        - {entity: 'Legal', label: "Mentions légales"}
+        - {entity: 'Confidentiality', label: "Politique de confidentialité" }
+        - {entity: 'Team', label: "Rejoignez-nous"}
+      - label: "GESTION DES ENTITÉS"
+      - {entity: 'User'}
       - label: 'Les programmes'
         children:
           - {entity: 'Program', label: 'Biens'}
@@ -37,6 +41,6 @@ easy_admin:
           - {entity: 'BlogCategory', label: 'Catégories'}
           - {entity: 'BlogArticle', label: 'Articles'}
       - {entity: 'Testimony'}
-      - {entity: 'Brochure'}
+#      - {entity: 'Brochure'}
 
-      - {label: 'Déconnexion', route: 'fos_user_security_logout'}
+#      - {label: 'Déconnexion', route: 'fos_user_security_logout'}

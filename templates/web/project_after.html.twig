@@ -1,0 +1,27 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    Votre projet
+{% endblock %}
+
+{% block content %}
+
+    <div class="project-after-container">
+        <div class="project-after-img-box">
+            <img class="img-full" src="{{ asset('assets/img/static/img-project.jpg') }}" alt="Votre projet">
+            <img class="img-responsive" src="{{ asset('assets/img/static/img-project-filter.png') }}" alt="Votre
+            projet">
+        </div>
+        <div class="project-after-text-block">
+            <div class="project-after-text-box">
+                <p>Grâce à vos informations, nous pourrons commencer
+                    à vous <span class="bold">proposer des logements disponibles</span>.</p>
+                <p>Un chef de projet reviendra vers vous <span class="bold">sous 24h.</span></p>
+                <p><span class="blog">Surveillez votre boîte mail.</span></p>
+                <p>Vous allez avancer, c'est <span class="bold">assuré</span></p>
+            </div>
+
+        </div>
+    </div>
+    
+{% endblock %}
