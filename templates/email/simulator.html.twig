@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simulateur PTZ</title>
+</head>
+<body>
+
+    <h1>Simulateur PTZ</h1>
+
+    <h2>Prospect : </h2>
+    <p>Nom et prénom : {{ name }}</p>
+    <p>Email : {{ email }}</p>
+    <p>Téléphone : {{ phone }}</p>
+
+    <h2>Données du simulateur : </h2>
+    <p>A déjà été propriétaire dans les 2 ans {% if owner == true %}Oui{% else %}Non{% endif %}</p>
+    <p>Ville : {{ city }}</p>
+    <p>Nombre dans le futur foyer : {{ family }}</p>
+    <p>Coût de l'opération : {{ operation }} €</p>
+    <p>Revenu fiscal de référence N-2 : {{ revenue }} €</p>
+    <p>Résultat de la simulation PTZ : {% if result != 'Non éligible' %}{{ result }} €
+                                        {% else %}{{ result }}{% endif %}</p>
+
+</body>
+</html>

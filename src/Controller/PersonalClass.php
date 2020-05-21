@@ -19,6 +19,11 @@ class PersonalClass extends AbstractController
         return "contact@locataireaproprietaire.fr";
     }
 
+    public function noreplyEmail()
+    {
+        return "noreply@locataireaproprietaire.fr";
+    }
+
 
     public function secureInput($data)
     {

@@ -1,0 +1,98 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    Simulateur PTZ
+{% endblock %}
+
+{% block main %}
+    simulator-main
+{% endblock %}
+
+{% block content %}
+
+    <div class="simulator-container">
+
+        {% if check == false %}
+
+            <div class="simulator-form-container">
+
+                <p class="simulator-text">Afin d'accéder à vos résultats de simulation et être recontacté par un de
+                nos conseillers, veuillez saisir vos cooordonnées</p>
+                <form action="#" method="POST">
+                    <div class="form-field">
+                        <label for="name">Votre nom et votre prénom</label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Votre email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone">Votre numéro de téléphone</label>
+                        <input type="text" name="phone" id="phone" required>
+                    </div>
+
+                    <div class="form-submit">
+                        <input type="submit" value="Valider">
+                    </div>
+                </form>
+            </div>
+        {% else %}
+
+            <div class="simulator-form-container">
+                <p class="simulator-text">Merci de votre participation</p>
+
+                <table class="simulator-result-table">
+                    <tr>
+                        <th colspan="2">Rappel de vos renseignements</th>
+                    </tr>
+                    <tr>
+                        <td>Avez-vous été propriétaire sur les 2 dernières années ? </td>
+                        <td>{% if owner == true %}Oui{% else %}Non{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Ville</td>
+                        <td>{{ city }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre dans le futur foyer</td>
+                        <td>{{ family }}</td>
+                    </tr>
+                    <tr>
+                        <td>Coût de l'opération</td>
+                        <td>{{ operation }} €</td>
+                    </tr>
+                    <tr>
+                        <td>Revenu fiscal de référence d'il y a deux ans</td>
+                        <td>{{ revenue }} €</td>
+                    </tr>
+                    <tr>
+                        <td>Résultat de la simulation (au maximum)</td>
+                        <td class="simulator-result-text">
+                            {% if result != 'Non éligible' %}
+                                {{ result }} €
+                            {% else %}
+                                {{ result }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+
+                <p class="simulator-text">Le prêt à taux zéro 2016 est plus généreux : il couvrira jusqu'à 40 % du prix du
+                    logement,
+                contre 26 % maximum pour la version précédente. <br>
+                La durée du prêt et le différé de remboursement sont rallongés : l'emprunt à taux zéro se fait
+                désormais sur 20 ans et le remboursement pourra être initié 5, 10 ou 15 ans après la signature,
+                selon les revenus.</p>
+
+                <p class="simulator-back"><a href="{{ path('simulator') }}">< Refaire une simulation</a></p>
+
+
+            </div>
+
+        {% endif %}
+    </div>
+
+{% endblock %}

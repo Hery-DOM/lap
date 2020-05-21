@@ -1,0 +1,129 @@
+.simulator-main{
+  background-image: url("../img/static/search-top.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 20vh;
+}
+
+.simulator-container{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+
+  .flash{
+    color: $blue;
+    font-style: italic;
+  }
+  h1{
+    color: $blue;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+}
+.simulator-form-container{
+  background-color: rgba(255,255,255,0.7);
+  border: 3px solid $yellow;
+  border-radius: 20px;
+  width: 70%;
+  padding: 30px;
+  margin: 30px auto 0;
+
+  .form-field{
+    margin: 20px 0;
+    input, select{
+      display: block;
+    }
+
+    label{
+      color: $blue;
+      font-weight: 700;
+      font-size: 1.1em;
+    }
+
+    input[type="text"], input[type="number"],input[type='email'],select{
+      width: 30%;
+      height: 30px;
+      padding: 10px;
+    }
+  }
+  .form-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input{
+      background-color: $blue;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      font-size: 1em;
+    }
+    input:hover{
+      cursor: pointer;
+      background-color: $yellow;
+    }
+  }
+}
+
+.simulator-text{
+  text-align: center;
+  color: $blue;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.simulator-result-text{
+  font-weight: 700;
+}
+
+
+
+
+/****************** SIMULATOR - RESULT **********************/
+
+.simulator-result-table{
+  border-collapse: collapse;
+  width: 80%;
+  margin: 10px auto;
+  th{
+    font-size: 1.3em;
+  }
+  td,th{
+    border: 2px solid grey;
+    text-align: center;
+    padding: 5px;
+    color: $blue;
+    font-family: "Gilroy", sans-serif;
+  }
+}
+
+.simulator-back{
+  margin: 30px 0;
+  a{
+    color: $blue;
+
+  }
+}
+.simulator-back a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

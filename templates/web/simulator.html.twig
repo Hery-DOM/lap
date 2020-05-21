@@ -1,0 +1,54 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}
+    Simulateur PTZ
+{% endblock %}
+
+{% block main %}
+    simulator-main
+{% endblock %}
+
+{% block content %}
+
+    <div class="simulator-container">
+
+        <div class="simulator-form-container">
+
+            <h1>Simulateur PTZ pour un logement neuf</h1>
+            <form action="#" method="POST">
+                <div class="form-field">
+                    <label for="owner">Avez-vous été propriétaire durant ces deux dernières années ?</label>
+                    <select name="owner" id="owner">
+                        <option value="true">Oui</option>
+                        <option value="false" selected>Non</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="city">Dans quelle ville se situe votre futur logement ?</label>
+                    <input type="text" name="city" id="city">
+                </div>
+
+                <div class="form-field">
+                    <label for="family">Combien serez-vous dans votre futur logement ?</label>
+                    <input type="number" min="0" name="family" id="family">
+                </div>
+
+                <div class="form-field">
+                    <label for="operation">Quel sera le coût des opérations ?</label>
+                    <input type="number" min="0" name="operation" id="operation">
+                </div>
+
+                <div class="form-field">
+                    <label for="revenue">Quel est votre revenu fiscal de référence d'il y a deux ans ?</label>
+                    <input type="text" name="revenue" id="revenue">
+                </div>
+
+                <div class="form-submit">
+                    <input type="submit" value="Calculer">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
