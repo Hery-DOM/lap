@@ -8,6 +8,7 @@ easy_admin:
           - {name: 'new', label: 'Créer un article'}
         fields:
           - {property: 'title', label: 'Titre'}
+          - {property: 'picture', label: 'Image', type: 'image', base_path: '%upload_path_owner%'}
           - {property: 'ownerSubcategory', label: 'Sous catégorie'}
           - {property: 'ownerSubcategory.ownerCategory', label: 'Catégorie'}
       new:
@@ -18,7 +19,7 @@ easy_admin:
         fields:
           - {property: 'title', label: 'Titre'}
           - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
-          - {property: 'picture', label: 'Image'}
+          - {property: 'pictureFile', label: 'Image', type: 'vich_image'}
           - {property: 'pictureAlt', label: "Texte alternatif à l'image"}
           - {property: 'owner_subcategory', label: "Sous catégorie associée"}
           - {property: 'published', label: "Publié ?"}

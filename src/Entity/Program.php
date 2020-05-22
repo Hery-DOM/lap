@@ -97,7 +97,7 @@ class Program
     private $criteria;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ProgramPicture", mappedBy="program")
+     * @ORM\OneToMany(targetEntity="App\Entity\ProgramPicture", mappedBy="program", cascade={"remove"})
      */
     private $program_picture;
 

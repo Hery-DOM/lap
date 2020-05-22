@@ -8,7 +8,6 @@ easy_admin:
           - {name: 'new', label: 'Créer une sous catégorie'}
         fields:
           - {property: 'name', label: 'Nom'}
-          - {property: 'picto', type: 'image', label: 'Image', base_path: '%upload_path_owner%' }
           - {property: 'ownerCategory', label: 'Catégorie'}
           - {property: 'ownerArticles', label: 'Articles associés'}
       new:
@@ -19,5 +18,4 @@ easy_admin:
         fields:
           - {property: 'name', label: 'Nom'}
           - {property: 'description', label: 'Texte', type: 'fos_ckeditor'}
-          - {property: 'pictoFile', label: 'Illustration', type: 'vich_image', type_options: {required: true}}
           - {property: 'owner_category', label: 'Catégorie associée'}

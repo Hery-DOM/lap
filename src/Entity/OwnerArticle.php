@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OwnerArticleRepository")
+ * @Vich\Uploadable()
  */
 class OwnerArticle
 {
@@ -35,6 +37,11 @@ class OwnerArticle
      * @ORM\Column(type="string", length=255)
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="owner", fileNameProperty="picture")
+     */
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -97,7 +104,7 @@ class OwnerArticle
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 
@@ -127,4 +134,22 @@ class OwnerArticle
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param mixed $pictureFile
+     */
+    public function setPictureFile($pictureFile): void
+    {
+        $this->pictureFile = $pictureFile;
+    }
+
+
 }

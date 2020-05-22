@@ -28,7 +28,7 @@
 
   .owl-nav{
     position: absolute;
-    top: 40%;
+    top: 30%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -52,7 +52,7 @@
 
   .owl-dots{
     position: absolute;
-    top: 65%;
+    top: 90%;
     left: 45%;
     .owl-dot{
       span{
@@ -74,6 +74,13 @@
     }
   }
 
+}
+
+.program-top .owl-stage .img-box{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .program-top .program-back{
@@ -117,7 +124,7 @@
 }
 
 .program-main-criteria-container{
-  height: 20vh;
+  height: 15vh;
   width: 70%;
   background-color: $blue;
   display: flex;

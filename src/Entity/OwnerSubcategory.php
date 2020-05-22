@@ -30,15 +30,6 @@ class OwnerSubcategory
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $picto;
-
-    /**
-     * @Vich\UploadableField(mapping="owner", fileNameProperty="picto")
-     */
-    private $pictoFile;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\OwnerArticle", mappedBy="owner_subcategory", cascade={"remove"})
@@ -89,17 +80,7 @@ class OwnerSubcategory
         return $this;
     }
 
-    public function getPicto(): ?string
-    {
-        return $this->picto;
-    }
 
-    public function setPicto(?string $picto): self
-    {
-        $this->picto = $picto;
-
-        return $this;
-    }
 
     /**
      * @return Collection|OwnerArticle[]
@@ -144,21 +125,6 @@ class OwnerSubcategory
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPictoFile()
-    {
-        return $this->pictoFile;
-    }
-
-    /**
-     * @param mixed $pictoFile
-     */
-    public function setPictoFile($pictoFile): void
-    {
-        $this->pictoFile = $pictoFile;
-    }
 
 
 }

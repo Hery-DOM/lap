@@ -17,4 +17,4 @@ easy_admin:
       form:
         fields:
           - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
-          - {property: 'movie', label: 'Iframe de la vidéo'}
+          - {property: 'movie', label: 'Iframe de la vidéo (pour "Qui sommes nous")'}
