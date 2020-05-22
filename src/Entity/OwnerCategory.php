@@ -41,7 +41,7 @@ class OwnerCategory
     private $pictoFile;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\OwnerSubcategory", mappedBy="owner_category")
+     * @ORM\OneToMany(targetEntity="App\Entity\OwnerSubcategory", mappedBy="owner_category", cascade={"remove"})
      */
     private $ownerSubcategories;
 

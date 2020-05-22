@@ -24,7 +24,7 @@ class BlogCategory
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\BlogArticle", mappedBy="blog_category")
+     * @ORM\OneToMany(targetEntity="App\Entity\BlogArticle", mappedBy="blog_category", cascade={"remove"})
      */
     private $blogArticles;
 
