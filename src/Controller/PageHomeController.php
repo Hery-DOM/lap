@@ -80,7 +80,8 @@ class PageHomeController extends PersonalClass
                   'name' => $name,
                     'email' => $email
                 ];
-                $test = $this->sendEmail('Inscription à la newsletter', 'noreply@lap.fr', $this->emailAdmin(),$view, $viewParam);
+                $test = $this->sendEmail('Inscription à la newsletter', $this->noreplyEmail(), $this->emailAdmin(),$view,
+                    $viewParam);
                 if($test){
                     // get every mail in newsletter_temp and check if there isn't already this mail
                     $emailDB = $newsletterTempRepository->findBy(['email' => $email]);
@@ -115,7 +116,7 @@ class PageHomeController extends PersonalClass
                     'object' => $object,
                     'message' => $message
                 ];
-                $this->sendEmail('Contact par formulaire', 'no-reply@locataireaproprietaire.fr', $this->emailAdmin(),
+                $this->sendEmail('Contact par formulaire', $this->noreplyEmail(), $this->emailAdmin(),
                     $view, $viewParam);
 
             }
@@ -157,7 +158,7 @@ class PageHomeController extends PersonalClass
             $viewParam = [
                 'name' => $emailsDB->getName()
             ];
-            $this->sendEmail('Inscription confirmée à la newsletter','noreply@locataireaproprietaire.fr',$email,$view,
+            $this->sendEmail('Inscription confirmée à la newsletter',$this->noreplyEmail(),$email,$view,
                 $viewParam);
 
             // send a mail to administrator
@@ -167,7 +168,7 @@ class PageHomeController extends PersonalClass
                 'email' => $emailsDB->getEmail(),
                 'city' => $emailsDB->getCity()
             ];
-            $this->sendEmail('Nouvelle inscription confirmée à la newsletter', 'noreply@locataireaproprietaire.fr',$this->emailAdmin(),
+            $this->sendEmail('Nouvelle inscription confirmée à la newsletter', $this->noreplyEmail(),$this->emailAdmin(),
                 $viewAdmin,
                 $viewParamAdmin);
 

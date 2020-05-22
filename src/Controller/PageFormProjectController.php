@@ -40,7 +40,7 @@ class PageFormProjectController extends PersonalClass
             $param['contact'] = $this->secureInput($_POST['contact']);
 
             $subject = "Projet d'un prospect";
-            $from = "noreply@locataireaproprietaire.fr";
+            $from = $this->noreplyEmail();
             $to = $this->emailAdmin();
             $view = "email/project.html.twig";
 

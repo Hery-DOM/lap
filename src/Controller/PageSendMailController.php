@@ -83,7 +83,7 @@ class PageSendMailController extends PersonalClass
         $object = $this->secureInput($_POST['modal-object']);
         $message = $this->secureInput($_POST['modal-message']);
 
-        $noreply = "noreply@locataireaproprietaire.fr";
+        $noreply = $this->noreplyEmail();
         $view = "email/contact.html.twig";
         $viewParam = [
             'name' => $name,

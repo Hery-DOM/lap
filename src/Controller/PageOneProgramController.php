@@ -54,7 +54,7 @@ class PageOneProgramController extends PersonalClass
                 'phone' => $phone,
                 'program' => $programMail
             ];
-            $message = $this->sendEmail($subject, 'noreply@locataireaproprietaire.fr', $this->emailAdmin(),
+            $message = $this->sendEmail($subject, $this->noreplyEmail(), $this->emailAdmin(),
                 $view,$viewParam);
             $this->addFlash('info', 'Merci, vous serez recontacté prochainement');
             return $this->redirectToRoute('program',[
