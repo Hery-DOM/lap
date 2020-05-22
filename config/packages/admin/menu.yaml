@@ -27,7 +27,7 @@ easy_admin:
         - {entity: 'Confidentiality', label: "Politique de confidentialité" }
         - {entity: 'Team', label: "Rejoignez-nous"}
       - label: "GESTION DES ENTITÉS"
-      - {entity: 'User'}
+      - {entity: 'User', default: true}
       - label: 'Les programmes'
         children:
           - {entity: 'Program', label: 'Biens'}
