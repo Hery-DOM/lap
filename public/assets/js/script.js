@@ -119,7 +119,7 @@ $(document).ready(function(){
 })
 
 
-// when click on a program => transmission info about seraching (to back)
+// when click on a program => transmission info about searching (to back)
 function goToProgram(elm){
     $('#'+elm).submit()
 }

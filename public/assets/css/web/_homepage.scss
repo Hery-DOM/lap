@@ -82,7 +82,7 @@
 }
 
 .homepage-search-barre{
-  width: 60%;
+  width: 70%;
   margin: 20px auto;
   min-height: 6vh;
   background-color: white;
@@ -96,7 +96,7 @@
   display: flex;
   justify-content: space-around;
   //align-items: center;
-  padding: 5px;
+  padding: 10px;
 }
 
 .homepage-search-block{
@@ -106,7 +106,7 @@
   border-right: 2px solid $blue ;
   padding-right: 3px;
   margin-right: 3px;
-  width: 15%;
+  width: 16%;
   position: relative;
   #city{
     position: relative;
@@ -158,6 +158,12 @@
     cursor: pointer;
   }
 }
+.homepage-search-block-last{
+  border-right: none;
+}
+.homepage-search-block-last input:hover{
+  cursor: pointer;
+}
 
 .homepage-search-block:hover{
   cursor: pointer;
@@ -168,6 +174,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 11%;
   input{
     width: 100%;
     color: white;
@@ -175,7 +182,7 @@
     background-color: $blue;
     border: 1px solid $blue;
     border-radius: 20px;
-    padding: 5% 0;
+    padding: 10% 0;
   }
   input:hover{
     cursor: pointer;
@@ -192,7 +199,6 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  margin-top: 40px;
   padding: 20px;
   .homepage-search-others-block{
     width: 33%;
@@ -201,7 +207,6 @@
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-start;
-      margin: 20px 0;
       label{
         color: $ligthblue;
         font-weight: 700;
@@ -290,7 +295,7 @@
     background-color: $ligthblue;
     border-radius: 20px;
     margin-right: 10px!important;
-    padding: 5px;
+    padding: 5px 5px 3px 5px;
     text-align: center;
     display: flex;
     flex-direction: column;

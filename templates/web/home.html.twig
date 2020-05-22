@@ -112,8 +112,9 @@
                         <input type="text" name="priceMax" placeholder="Budget max">
                     </div>
 
-                    <div class="homepage-search-block" onclick="slideDown('.homepage-search-others-container')">
-                        <p>Autres prestations</p>
+                    <div class="homepage-search-block homepage-search-block-last" onclick="slideDown('' +
+                     '.homepage-search-others-container')">
+                        <input type="text" value="Autres prestations" readonly>
                         <div class="img-box">
                             <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
                         </div>
@@ -138,7 +139,7 @@
                             <div class="homepage-search-others-box homepage-search-others-flex">
                                 <label>Accessible handicapé</label>
                                 <label class="switch homepage-search-others-switch">
-                                    <input type="checkbox" name="handicap">
+                                    <input type="checkbox" name="handicap" checked>
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -507,8 +508,8 @@
     <section class="homepage-request">
         <div class="homepage-request-box">
             <p>
-                Simple et rapide,
-                faites le tour de 40 promoteurs
+                Simple et rapide,<br/>
+                faites le tour de 40 promoteurs <br/>
                 en moins de 5 min
             </p>
             <a href="{{ path('project') }}">

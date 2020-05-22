@@ -19,7 +19,7 @@ a:hover, li:hover, button:hover {
   font-family: "Gilroy";
   src: url("../font/Gilroy-Bold.ttf") format("truetype");
   font-weight: bold; }
-h1, h2, h3, a, li, p, label, button {
+h1, h2, h3, a, li, p, label, button, input::placeholder {
   font-family: "Gilroy", sans-serif; }
 
 /*******************  HEADER  *******************/
@@ -342,7 +342,7 @@ main {
     text-transform: uppercase; }
 
 .homepage-search-barre {
-  width: 60%;
+  width: 70%;
   margin: 20px auto;
   min-height: 6vh;
   background-color: white;
@@ -354,7 +354,7 @@ main {
 .homepage-search-first-row {
   display: flex;
   justify-content: space-around;
-  padding: 5px; }
+  padding: 10px; }
 
 .homepage-search-block {
   display: flex;
@@ -363,7 +363,7 @@ main {
   border-right: 2px solid #002849;
   padding-right: 3px;
   margin-right: 3px;
-  width: 15%;
+  width: 16%;
   position: relative; }
   .homepage-search-block #city {
     position: relative; }
@@ -406,6 +406,12 @@ main {
   .homepage-search-block .img-box:hover {
     cursor: pointer; }
 
+.homepage-search-block-last {
+  border-right: none; }
+
+.homepage-search-block-last input:hover {
+  cursor: pointer; }
+
 .homepage-search-block:hover {
   cursor: pointer; }
 
@@ -413,7 +419,8 @@ main {
   border: none;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  width: 11%; }
   .homepage-search-block-submit input {
     width: 100%;
     color: white;
@@ -421,7 +428,7 @@ main {
     background-color: #002849;
     border: 1px solid #002849;
     border-radius: 20px;
-    padding: 5% 0; }
+    padding: 10% 0; }
   .homepage-search-block-submit input:hover {
     cursor: pointer;
     color: #002849;
@@ -434,7 +441,6 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  margin-top: 40px;
   padding: 20px; }
   .homepage-search-others .homepage-search-others-block {
     width: 33%; }
@@ -442,8 +448,7 @@ main {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      align-items: flex-start;
-      margin: 20px 0; }
+      align-items: flex-start; }
       .homepage-search-others .homepage-search-others-block .homepage-search-others-box label {
         color: #4489C8;
         font-weight: 700; }
@@ -515,7 +520,7 @@ main {
     background-color: #4489C8;
     border-radius: 20px;
     margin-right: 10px !important;
-    padding: 5px;
+    padding: 5px 5px 3px 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -874,7 +879,7 @@ main {
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
+  width: 35px;
   height: 20px; }
 
 .switch input {
@@ -895,11 +900,12 @@ main {
 
 .slider:before {
   position: absolute;
+  border: 1px solid #002849;
   content: "";
-  height: 90%;
-  width: 40%;
-  left: 4px;
-  bottom: 2px;
+  height: 100%;
+  width: 51%;
+  left: -2px;
+  bottom: -1px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s; }
