@@ -1949,6 +1949,8 @@ input:checked + .slider:before {
     display: block; }
   .project-form-field textarea {
     width: 100%; }
+  .project-form-field select {
+    border: 1px solid black; }
 
 .project-typo-field {
   width: 70%;
@@ -2049,8 +2051,10 @@ input:checked + .slider:before {
       font-size: 1.1em; }
     .simulator-form-container .form-field input[type="text"], .simulator-form-container .form-field input[type="number"], .simulator-form-container .form-field input[type='email'], .simulator-form-container .form-field select {
       width: 30%;
-      height: 30px;
-      padding: 10px; }
+      min-height: 30px;
+      padding: 10px;
+      border: 1px solid #002849;
+      border-radius: 10px; }
   .simulator-form-container .form-submit {
     display: flex;
     justify-content: center;
@@ -2930,5 +2934,13 @@ input:checked + .slider:before {
       width: 200%;
       height: auto;
       transform: translateX(-40%); } }
+@media screen and (max-width: 1300px) {
+  .simulator-form-container {
+    width: 100%; }
+    .simulator-form-container .form-field input[type="text"], .simulator-form-container .form-field input[type="number"], .simulator-form-container .form-field input[type='email'], .simulator-form-container .form-field select {
+      width: 100%; }
+
+  .simulator-result-table {
+    width: 100%; } }
 
 /*# sourceMappingURL=styles.css.map */

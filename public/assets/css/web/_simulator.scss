@@ -44,8 +44,10 @@
 
     input[type="text"], input[type="number"],input[type='email'],select{
       width: 30%;
-      height: 30px;
+      min-height: 30px;
       padding: 10px;
+      border:1px solid $blue;
+      border-radius: 10px;
     }
   }
   .form-submit{

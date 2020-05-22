@@ -1,0 +1,20 @@
+@media screen and(max-width: 1300px){
+
+  .simulator-form-container{
+    width: 100%;
+
+    .form-field{
+      input[type="text"], input[type="number"],input[type='email'],select{
+        width: 100%;
+      }
+    }
+  }
+
+  .simulator-result-table{
+    width: 100%;
+  }
+
+
+
+
+}
