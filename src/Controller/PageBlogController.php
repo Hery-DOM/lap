@@ -93,7 +93,8 @@ class PageBlogController extends PersonalClass
             'currentCatName' => $cat,
             'currentPage' => $page,
             'topVideos' => $topVideos,
-            'addArticles' => $addArticles
+            'addArticles' => $addArticles,
+            'page' => 'blog'
         ]);
 
     }
@@ -126,7 +127,8 @@ class PageBlogController extends PersonalClass
         return $this->render('web/blog_article.html.twig',[
             'article' => $article,
             'topVideos' => $topVideos,
-            'addArticles' => $addArticles
+            'addArticles' => $addArticles,
+            'page' => 'blog'
         ]);
     }
 

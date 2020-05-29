@@ -297,7 +297,8 @@ class PageSearchController extends PersonalClass
                     'currentPage' => $nb,
                     'text' => $text,
                     'slug' => $slug,
-                    'brochure' => $brochure
+                    'brochure' => $brochure,
+                    'page' => 'logement'
                 ]);
             }
 
@@ -313,7 +314,8 @@ class PageSearchController extends PersonalClass
             'prestations' => $prestationsInit,
             'text' => $text,
             'slug' => $slug,
-            'brochure' => $brochure
+            'brochure' => $brochure,
+            'page' => 'logement'
         ]);
 
     }

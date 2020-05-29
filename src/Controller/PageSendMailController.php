@@ -61,7 +61,9 @@ class PageSendMailController extends PersonalClass
 
         }
 
-        return $this->render('web/alert.html.twig');
+        return $this->render('web/alert.html.twig',[
+            'page' => ''
+        ]);
 
     }
 

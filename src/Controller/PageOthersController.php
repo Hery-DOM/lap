@@ -29,7 +29,8 @@ class PageOthersController extends PersonalClass
 
         return $this->render('web/sitemap.html.twig',[
             'ownerCategories' => $ownerCategories,
-            'blogCategories' => $blogCategories
+            'blogCategories' => $blogCategories,
+            'page' => ''
         ]);
 
     }
@@ -43,7 +44,8 @@ class PageOthersController extends PersonalClass
         $text = $repository->findOneBy([]);
 
         return $this->render('web/confidentiality.html.twig',[
-            'text' => $text
+            'text' => $text,
+            'page' => ''
         ]);
     }
 
@@ -57,7 +59,8 @@ class PageOthersController extends PersonalClass
         $text = $legalRepository->findOneBy([]);
 
         return $this->render('web/legal.html.twig',[
-            'text' => $text
+            'text' => $text,
+            'page' => ''
         ]);
     }
 
@@ -71,7 +74,8 @@ class PageOthersController extends PersonalClass
         $text = $teamRepository->findOneBy([]);
 
         return $this->render('web/team.html.twig',[
-            'text' => $text
+            'text' => $text,
+            'page' => ''
         ]);
     }
 

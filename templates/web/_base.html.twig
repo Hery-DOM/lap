@@ -25,10 +25,30 @@
             
             <nav class="header-menu">
                 <ul class="header-menu-ul">
-                    <li><a href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">Trouvez un logement</a></li>
-                    <li><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
-                    <li><a href="{{ path('about') }}">Qui sommes nous</a></li>
-                    <li><a href="{{ path('blog') }}">Blog</a></li>
+                    {% if page == 'logement' %}
+                        <li class="header-selected"><a href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">Trouvez
+                                un logement</a></li>
+                    {% else %}
+                        <li><a href="{{ path('search',{'slug':'bordeaux-metropole'})
+                            }}">Trouvez un logement</a></li>
+                    {% endif %}
+                    {% if page == 'proprietaire' %}
+                        <li class="header-selected"><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
+                    {% else %}
+                        <li><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
+                    {% endif %}
+                    {% if page == 'nous' %}
+                        <li class="header-selected"><a href="{{ path('about') }}">Qui sommes nous</a></li>
+                    {% else %}
+                        <li><a href="{{ path('about') }}">Qui sommes nous</a></li>
+                    {% endif %}
+                    {% if page == 'blog' %}
+                        <li class="header-selected"><a href="{{ path('blog') }}">Blog</a></li>
+                    {% else %}
+                        <li><a href="{{ path('blog') }}">Blog</a></li>
+                    {% endif %}
+
+
                 </ul>
             </nav>
             

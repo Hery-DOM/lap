@@ -61,7 +61,9 @@ class PageFormProjectController extends PersonalClass
      */
     public function projectAfter()
     {
-        return $this->render('web/project_after.html.twig');
+        return $this->render('web/project_after.html.twig',[
+            'page' => ''
+        ]);
     }
 
 }

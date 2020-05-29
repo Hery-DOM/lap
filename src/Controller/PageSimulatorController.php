@@ -323,7 +323,9 @@ class PageSimulatorController extends PersonalClass
         }
 
 
-        return $this->render('web/simulator.html.twig');
+        return $this->render('web/simulator.html.twig',[
+            'page' => ''
+        ]);
 
     }
 
@@ -388,7 +390,8 @@ class PageSimulatorController extends PersonalClass
                 "result" => $result,
                 "name" => $nameOld,
                 "email" => $emailOld,
-                "phone" => $phoneOld
+                "phone" => $phoneOld,
+                'page' => ''
             ]);
         }
 
@@ -449,7 +452,8 @@ class PageSimulatorController extends PersonalClass
                         "result" => $result,
                         "name" => $name,
                         "email" => $email,
-                        "phone" => $phone
+                        "phone" => $phone,
+                        'page' => ''
                     ]);
 
 
@@ -462,7 +466,8 @@ class PageSimulatorController extends PersonalClass
 
 
         return $this->render('web/simulator_result.html.twig',[
-            'check' => $check
+            'check' => $check,
+            'page' => ''
         ]);
     }
 

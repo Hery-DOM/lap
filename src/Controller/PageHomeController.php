@@ -128,6 +128,7 @@ class PageHomeController extends PersonalClass
         $brochures = $homepageBrochureRepository->findBy([], ['id' => 'ASC']);
 
 
+
         return $this->render('web/home.html.twig',[
             'message' => $banner->getText(),
             'cities' => $cities,
@@ -136,7 +137,8 @@ class PageHomeController extends PersonalClass
             'testimonies' => $testimonies,
             'url' => $url,
             'prestations' => $prestationsInit,
-            'brochures' => $brochures
+            'brochures' => $brochures,
+            'page' => ''
         ]);
     }
 
@@ -176,7 +178,9 @@ class PageHomeController extends PersonalClass
             $entityManager->remove($emailsDB);
             $entityManager->flush();
 
-            return $this->render('web/emailSentConfirm.html.twig');
+            return $this->render('web/emailSentConfirm.html.twig',[
+                'page' => ''
+            ]);
         }
 
         return $this->redirectToRoute('home');

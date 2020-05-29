@@ -261,7 +261,8 @@ class PageOneProgramController extends PersonalClass
             'latitude' => $local_latitude,
             'longitude' => $local_longitude,
             'lastPrograms' => $lastPrograms,
-            'brochure' => $brochure
+            'brochure' => $brochure,
+            'page' => 'logement'
         ]);
 
     }

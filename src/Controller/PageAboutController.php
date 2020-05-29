@@ -36,7 +36,8 @@ class PageAboutController extends PersonalClass
             'sections' => $sections,
             'picture' => $picture,
             'reasons' => $reasons,
-            'testimonies' => $testimonies
+            'testimonies' => $testimonies,
+            'page' => 'nous'
         ]);
 
 

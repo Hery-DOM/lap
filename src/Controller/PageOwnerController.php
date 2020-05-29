@@ -25,7 +25,8 @@ class PageOwnerController extends PersonalClass
 
         return $this->render('web/owner_home.html.twig',[
             'categories' => $cat,
-            'intro' => $intro
+            'intro' => $intro,
+            'page' => 'proprietaire'
         ]);
 
     }
@@ -50,7 +51,8 @@ class PageOwnerController extends PersonalClass
         return $this->render('web/owner_category.html.twig',[
             'slug' => $slug,
             'cat' => $cat,
-            'categories' => $categories
+            'categories' => $categories,
+            'page' => 'proprietaire'
         ]);
 
     }
@@ -83,7 +85,8 @@ class PageOwnerController extends PersonalClass
             'categories' => $categories,
             'idCat' => $idCat,
             'slug' => $slug,
-            'subcategory' => $subc
+            'subcategory' => $subc,
+            'page' => 'proprietaire'
         ]);
 
     }
@@ -121,7 +124,8 @@ class PageOwnerController extends PersonalClass
             'currentCategory' => $currentCategory,
             'currentSubCategory' => $currentSubCategory,
             'slug' => $slug,
-            'categories' => $categories
+            'categories' => $categories,
+            'page' => 'proprietaire'
         ]);
 
     }

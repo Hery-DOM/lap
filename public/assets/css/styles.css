@@ -64,6 +64,10 @@ h1, h2, h3, a, li, p, label, button, input::placeholder {
 .header-responsive-menu {
   display: none; }
 
+.header-selected {
+  border: 2px solid #FBB03B;
+  padding: 5px; }
+
 /*******************  MAIN  *******************/
 main {
   min-height: 60vh;
