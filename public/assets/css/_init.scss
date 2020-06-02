@@ -30,3 +30,7 @@ a:hover, li:hover, button:hover{
 h1,h2,h3,a,li,p,label, button, input::placeholder{
   font-family: "Gilroy", sans-serif;
 }
+
+button{
+  border: none;
+}

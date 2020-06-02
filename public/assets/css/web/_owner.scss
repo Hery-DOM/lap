@@ -12,6 +12,17 @@
   background-position: center;
   position: relative;
 
+  .owner-h1{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    h1{
+      font-size: 4em;
+      text-transform: uppercase;
+      color: $blue;
+    }
+  }
+
   .owner-sections-container{
     display: flex;
     justify-content: center;

@@ -5,21 +5,29 @@
   }
 
   .search-top{
-    display: none;
+    .search-top-h1{
+      top: 15%;
+      h1{
+        font-size: 2em;
+      }
+    }
+  }
+
+  .search-top .search-top-discover{
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
   }
 
   .search-search-barre{
-    min-height: 90vh;
+    min-height: 0;
     width: 100%;
-    background-image: url("../img/static/search-top.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 50px;
     padding-bottom: 30px;
+    top: 30%;
 
     .homepage-search-barre{
       margin: 0;
@@ -37,6 +45,11 @@
   }
   .search-results-program{
     width: 100%;
+  }
+
+  .search-bottom-container{
+    width: 100%;
+    margin-left: 0;
   }
 
   .search-bottom-link-form{

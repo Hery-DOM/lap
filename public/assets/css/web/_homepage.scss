@@ -82,7 +82,7 @@
 }
 
 .homepage-search-barre{
-  width: 70%;
+  width: 67%;
   margin: 20px auto;
   min-height: 6vh;
   background-color: white;
@@ -174,19 +174,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 11%;
+  width: 12%;
   input{
     width: 100%;
     color: white;
     text-transform: uppercase;
-    background-color: $blue;
-    border: 1px solid $blue;
+    background-color: $yellow;
+    border: 1px solid $yellow;
     border-radius: 20px;
     padding: 10% 0;
   }
   input:hover{
     cursor: pointer;
-    color: $blue;
+    color: $yellow;
     background-color: white;
   }
 }
@@ -282,6 +282,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
 }
 
@@ -379,6 +380,10 @@
       font-size: 1.3em;
     }
   }
+}
+
+.homepage-accompaniment-video-box{
+  border: 20px solid white;
 }
 
 .homepage-accompaniment-video-box{
@@ -589,6 +594,30 @@
   min-height: 50vh;
   padding-top: 80px;
   padding-bottom: 80px;
+  position: relative;
+
+  .owl-nav{
+    position: absolute;
+    top: 5%;
+    left: 65%;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    button{
+      width: 10%;
+    }
+    button:hover{
+      cursor: pointer;
+      background-color: transparent!important;
+    }
+    .icon-chevron-left,.icon-chevron-rigth{
+      width: 100%;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 
   h2{
     text-transform: uppercase;
@@ -610,13 +639,24 @@
   padding: 0 10px;
 
   .img-box{
-    display: block;
-    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 50px;
+    position: relative;
+    .before{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: auto;
+    }
     img{
-      width: 100%;
+      width: 150%;
       height: auto;
     }
   }
@@ -696,7 +736,7 @@
 }
 
 .homepage-project-find-block, .homepage-project-owner-block{
-  width: 40%;
+  width: 49.5%;
   height: 30vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -781,6 +821,10 @@
 
 .homepage-ptz-responsive, .homepage-preview-responsive{
   display: none;
+}
+
+.homepage-search-price-responsive{
+  display: none!important;
 }
 
 

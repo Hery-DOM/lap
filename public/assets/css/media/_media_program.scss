@@ -22,7 +22,9 @@
 
 
   /********************** TOP ***********************/
-
+  .program-top .owl-stage .img-box{
+    height: 100%;
+  }
 
 
   .owl-carousel .owl-item img{
@@ -69,11 +71,11 @@
     background-color: $blue;
     padding: 10px 30px;
     border-radius: 20px;
-    button{
-      color: white;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
+    color: white;
+    font-weight: 700;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-family: "Gilroy", sans-serif;
 
   }
 
@@ -104,6 +106,10 @@
     .title{
       margin-bottom: 40px;
     }
+  }
+
+  .program-description-more{
+    margin: 50px auto;
   }
 
   .program-view .program-view-container{

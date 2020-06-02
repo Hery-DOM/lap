@@ -60,12 +60,12 @@ function showToggle(elm){
 
 // contact modal (open)
 function contactModal(){
-    $('.contact-modal').show()
+    $('.contact-modal-back').show()
 }
 
 // contact modal (close)
 function contactModalClose(){
-    $('.contact-modal').hide()
+    $('.contact-modal-back').hide()
 }
 
 

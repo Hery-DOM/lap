@@ -72,200 +72,222 @@
       ################################################################### #}
 
     <section class="search-top">
+        <div class="search-top-h1">
+            <h1>Trouvez le logement neuf <br> de vos rêves</h1>
+        </div>
         {% for message in app.flashes('info') %}
             <p>{{ message }}</p>
         {% endfor %}
+        <div class="search-search-barre">
 
-    </section>
+            {# search barre from homepage #}
+            <div class="homepage-search-barre">
+                <form action="{{ path('search',{'slug':'bordeaux-metropole'}) }}" data-url="{{ url }}" method="POST" id="search-form">
 
-    <section class="search-search-barre">
-
-        {# search barre from homepage #}
-        <div class="homepage-search-barre">
-            <form action="{{ path('search',{'slug':'bordeaux-metropole'}) }}" data-url="{{ url }}" method="POST" id="search-form">
-
-                <div class="homepage-search-first-row">
-                    <div class="homepage-search-block">
-                        <input type="text" value="{{ form['city'] }}" name="city" placeholder="Lieu" id="city"
-                               data-path="{{ path('ajax') }}">
-                        <div id="resultAutocompletion"></div>
-                        <div id="result">
-                            <ul>
-                                {% for city in cities %}
-                                    <li onclick="choice('{{ city }}','#city','#result')">{{ city }}</li>
-                                {% endfor %}
-                            </ul>
+                    <div class="homepage-search-first-row">
+                        <div class="homepage-search-block">
+                            <input type="text" value="{{ form['city'] }}" name="city" placeholder="Lieu" id="city"
+                                   data-path="{{ path('ajax') }}">
+                            <div id="resultAutocompletion"></div>
+                            <div id="result">
+                                <ul>
+                                    {% for city in cities %}
+                                        <li onclick="choice('{{ city }}','#city','#result')">{{ city }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="img-box" onclick="slideDown('#result')">
+                                <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
+                            </div>
                         </div>
-                        <div class="img-box" onclick="slideDown('#result')">
-                            <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
+
+                        <div class="homepage-search-block">
+                            <input type="text" name="typologie" placeholder="Type de bien" id="typologie"
+                                   value="{{ form['typo'] }}" readonly>
+                            <div id="resultTypo">
+                                <ul>
+                                    {% for typo in typologies %}
+                                        <li onclick="choice('{{ typo }}','#typologie','#resultTypo')">{{ typo }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="img-box" onclick="slideDown('#resultTypo')">
+                                <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
+                            </div>
+                        </div>
+
+                        <div class="homepage-search-block homepage-search-price">
+                            <input type="text" name="priceMin" placeholder="Budget min">
+                        </div>
+
+                        <div class="homepage-search-block homepage-search-price">
+                            <input type="text" name="priceMax" placeholder="Budget max">
+                        </div>
+
+                        <div class="homepage-search-block homepage-search-price-responsive ">
+                            <input type="text" name="priceMin" placeholder="Budget min">
+                            <input type="text" name="priceMax" placeholder="Budget max">
+                            <div onclick="slideDown('.homepage-search-others-container')" class="img-box-responsive">
+                                <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
+                            </div>
+                            <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+                        </div>
+
+                        <div class="homepage-search-block homepage-search-block-last"
+                             onclick="slideDown('.homepage-search-others-container')">
+                            <input type="text" value="Autres prestations" readonly>
+                            <div class="img-box">
+                                <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
+                            </div>
+                        </div>
+
+                        <div class="homepage-search-block homepage-search-block-submit" id="homepage-search-submit">
+                            <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit-1">
+                        </div>
+
+                    </div>
+
+
+                    <div class="homepage-search-others-container">
+                        <div class="homepage-search-others">
+                            <div class="homepage-search-others-block">
+                                <div class="homepage-search-others-box">
+                                    <label for="surface">Surface</label>
+                                    <input type="number" name="surfaceMin" id="surface" placeholder="min m2"
+                                           value="{{ form['surfaceMin'] }}">
+                                    <input type="number" name="surfaceMax" placeholder="max m2"
+                                           value="{{ form['surfaceMax'] }}">
+                                </div>
+
+                                <div class="homepage-search-others-box homepage-search-others-flex">
+                                    <label>Accessible handicapé</label>
+                                    <label class="switch homepage-search-others-switch">
+                                        <input type="checkbox" name="handicap"
+                                               {% if form['handicap'] is not empty %}checked{% endif %} >
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+
+                            <div class="homepage-search-others-block">
+                                <div class="homepage-search-others-box">
+                                    <label for="delivery">Délais de livraison</label>
+                                    <p class="immediatly
+                                    {% if form['disponibility']['disponibility-immediatly'] is defined %}selected{% endif %}" onclick="formSelect(this,'disponibility-immediatly')">Disponible immédiatement</p>
+                                    <div class="years">
+                                        {% set now = "now"|date("Y") %}
+                                        <p class="form-btn-selection
+                                        {% if form['disponibility']['disponibility-0'] is defined %}selected{% endif %}"
+                                           onclick="formSelect(this,'disponibility-0')">{{now}}</p>
+                                        <p class="form-btn-selection {% if form['disponibility']['disponibility-1'] is
+                                            defined %}selected{% endif %}" onclick="formSelect(this,'disponibility-1')">{{now+1}}</p>
+                                        <p class="form-btn-selection {% if form['disponibility']['disponibility-2'] is
+                                            defined %}selected{% endif %}" onclick="formSelect(this,'disponibility-2')
+">+{{now+2}}</p>
+                                    </div>
+                                </div>
+                                <div class="homepage-search-others-box">
+                                    <label for="rooms">Nombre de pièces</label>
+                                    <div class="rooms">
+                                        <p class="form-btn-selection
+                                    {% if form['rooms']['rooms-1'] is defined %}selected{% endif %}"
+                                           onclick="formSelect(this,'rooms-1')">1</p>
+                                        <p class="form-btn-selection
+                                    {% if form['rooms']['rooms-2'] is defined %}selected{% endif %}"
+                                           onclick="formSelect(this,'rooms-2')">2</p>
+                                        <p class="form-btn-selection
+                                    {% if form['rooms']['rooms-3'] is defined %}selected{% endif %}"
+                                           onclick="formSelect(this,'rooms-3')">3</p>
+                                        <p class="form-btn-selection
+                                    {% if form['rooms']['rooms-4'] is defined %}selected{% endif %}"
+                                           onclick="formSelect(this,'rooms-4')">4</p>
+                                        <p class="form-btn-selection
+                                    {% if form['rooms']['rooms-5'] is defined %}selected{% endif %}"
+                                           onclick="formSelect(this,'rooms-5')">5</p>
+                                        <p class="form-btn-selection
+                                    {% if form['rooms']['rooms-6'] is defined %}selected{% endif %}"
+                                           onclick="formSelect(this,'rooms-6')">+6</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="homepage-search-others-block">
+                                <div class="homepage-search-others-box">
+                                    <label for="prestation">Prestations</label>
+                                    <div class="prestations">
+                                        {% for prestation in prestations %}
+                                            <p class="form-btn-selection
+                                            {% if form['prestations']['prestations-'~prestation.criteriaOption] is
+                                                defined %}selected{% endif %}"
+                                               onclick="formSelect(this,'prestations-{{ prestation.criteriaOption }}')">{{
+                                                prestation.criteriaOption }}</p>
+
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="homepage-search-hidden">
+                                {% if form['prestations'] is iterable %}
+                                    {% for prestation in form['prestations'] %}
+                                        <input type="hidden" name="{{ prestation }}" value="selected" class="{{
+                                        prestation }}">
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if form['disponibility'] is iterable %}
+                                    {% for disponibility in form['disponibility'] %}
+                                        <input type="hidden" name="{{ disponibility }}" value="selected" class="{{
+                                        disponibility
+                                        }}">
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if form['rooms'] is iterable %}
+                                    {% for rooms in form['rooms'] %}
+                                        <input type="hidden" name="{{ rooms }}" value="selected" class="{{
+                                        rooms
+                                        }}">
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if form['othersCriteria'] is iterable %}
+                                    {% for othersCriteria in form['othersCriteria'] %}
+                                        <input type="hidden" name="{{ othersCriteria }}" value="selected" class="{{
+                                        othersCriteria
+                                        }}">
+                                    {% endfor %}
+                                {% endif %}
+
+                            </div>
                         </div>
                     </div>
 
-                    <div class="homepage-search-block">
-                        <input type="text" name="typologie" placeholder="Type de bien" id="typologie"
-                               value="{{ form['typo'] }}" readonly>
-                        <div id="resultTypo">
-                            <ul>
-                                {% for typo in typologies %}
-                                    <li onclick="choice('{{ typo }}','#typologie','#resultTypo')">{{ typo }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="img-box" onclick="slideDown('#resultTypo')">
-                            <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
-                        </div>
-                    </div>
-
-                    <div class="homepage-search-block">
-                        <input type="text" name="priceMin" placeholder="Budget min" value="{{ form['priceMin'] }}">
-                    </div>
-
-                    <div class="homepage-search-block">
-                        <input type="text" name="priceMax" placeholder="Budget max" value="{{ form['priceMax'] }}">
-                    </div>
-
-                    <div class="homepage-search-block" onclick="slideDown('.homepage-search-others-container')">
-                        <p>Autres prestations</p>
-                        <div class="img-box">
-                            <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
-                        </div>
-                    </div>
-
-                    <div class="homepage-search-block homepage-search-block-submit" id="homepage-search-submit">
+                    <div class="homepage-search-block homepage-search-block-submit" id="homepage-search-submit-responsive">
                         <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit-1">
                     </div>
-
-                </div>
-
-
-                <div class="homepage-search-others-container">
-                    <div class="homepage-search-others">
-                        <div class="homepage-search-others-block">
-                            <div class="homepage-search-others-box">
-                                <label for="surface">Surface</label>
-                                <input type="number" name="surfaceMin" id="surface" placeholder="min m2"
-                                       value="{{ form['surfaceMin'] }}">
-                                <input type="number" name="surfaceMax" placeholder="max m2"
-                                       value="{{ form['surfaceMax'] }}">
-                            </div>
-
-                            <div class="homepage-search-others-box homepage-search-others-flex">
-                                <label>Accessible handicapé</label>
-                                <label class="switch homepage-search-others-switch">
-                                    <input type="checkbox" name="handicap"
-                                    {% if form['handicap'] is not empty %}checked{% endif %} >
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-
-                        </div>
-
-
-                        <div class="homepage-search-others-block">
-                            <div class="homepage-search-others-box">
-                                <label for="delivery">Délais de livraison</label>
-                                <p class="immediatly
-                                    {% if form['disponibility']['disponibility-immediatly'] is defined %}selected{% endif %}" onclick="formSelect(this,'disponibility-immediatly')">Disponible immédiatement</p>
-                                <div class="years">
-                                    {% set now = "now"|date("Y") %}
-                                    <p class="form-btn-selection
-                                        {% if form['disponibility']['disponibility-0'] is defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'disponibility-0')">{{now}}</p>
-                                    <p class="form-btn-selection {% if form['disponibility']['disponibility-1'] is
-                                        defined %}selected{% endif %}" onclick="formSelect(this,'disponibility-1')">{{now+1}}</p>
-                                    <p class="form-btn-selection {% if form['disponibility']['disponibility-2'] is
-                                        defined %}selected{% endif %}" onclick="formSelect(this,'disponibility-2')
-">+{{now+2}}</p>
-                                </div>
-                            </div>
-                            <div class="homepage-search-others-box">
-                                <label for="rooms">Nombre de pièces</label>
-                                <div class="rooms">
-                                    <p class="form-btn-selection
-                                    {% if form['rooms']['rooms-1'] is defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'rooms-1')">1</p>
-                                    <p class="form-btn-selection
-                                    {% if form['rooms']['rooms-2'] is defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'rooms-2')">2</p>
-                                    <p class="form-btn-selection
-                                    {% if form['rooms']['rooms-3'] is defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'rooms-3')">3</p>
-                                    <p class="form-btn-selection
-                                    {% if form['rooms']['rooms-4'] is defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'rooms-4')">4</p>
-                                    <p class="form-btn-selection
-                                    {% if form['rooms']['rooms-5'] is defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'rooms-5')">5</p>
-                                    <p class="form-btn-selection
-                                    {% if form['rooms']['rooms-6'] is defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'rooms-6')">+6</p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="homepage-search-others-block">
-                            <div class="homepage-search-others-box">
-                                <label for="prestation">Prestations</label>
-                                <div class="prestations">
-                                    {% for prestation in prestations %}
-                                    <p class="form-btn-selection
-                                            {% if form['prestations']['prestations-'~prestation.criteriaOption] is
-                                        defined %}selected{% endif %}"
-                                       onclick="formSelect(this,'prestations-{{ prestation.criteriaOption }}')">{{
-                                        prestation.criteriaOption }}</p>
-
-                                    {% endfor %}
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-
-                        <div class="homepage-search-hidden">
-                            {% if form['prestations'] is iterable %}
-                                {% for prestation in form['prestations'] %}
-                                    <input type="hidden" name="{{ prestation }}" value="selected" class="{{
-                                    prestation }}">
-                                {% endfor %}
-                            {% endif %}
-
-                            {% if form['disponibility'] is iterable %}
-                                {% for disponibility in form['disponibility'] %}
-                                    <input type="hidden" name="{{ disponibility }}" value="selected" class="{{
-                                    disponibility
-                                    }}">
-                                {% endfor %}
-                            {% endif %}
-
-                            {% if form['rooms'] is iterable %}
-                                {% for rooms in form['rooms'] %}
-                                    <input type="hidden" name="{{ rooms }}" value="selected" class="{{
-                                    rooms
-                                    }}">
-                                {% endfor %}
-                            {% endif %}
-
-                            {% if form['othersCriteria'] is iterable %}
-                                {% for othersCriteria in form['othersCriteria'] %}
-                                    <input type="hidden" name="{{ othersCriteria }}" value="selected" class="{{
-                                    othersCriteria
-                                    }}">
-                                {% endfor %}
-                            {% endif %}
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="homepage-search-block homepage-search-block-submit" id="homepage-search-submit-responsive">
-                    <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit-1">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
+
+
+        <div class="search-top-discover">
+            <p class="text">Découvrez les programmes neufs</p>
+            <div class="img-box">
+                <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="flèche découvrir les biens">
+            </div>
+        </div>
+
     </section>
+
+
 
     <section class="search-results">
         {% if programs is not empty %}
@@ -341,15 +363,18 @@
 
 
     <!------------- FORM BOTTOM PAGE ----------->
-    <p class="search-bottom-title">Vous ne trouvez pas votre bonheur ? </p>
+    <div class="search-bottom-container">
+        <p class="search-bottom-title">Vous ne trouvez pas votre bonheur ? </p>
 
-    <div class="search-bottom-btn">
-        <a href="{{ path('alert') }}">
-            <button class="search-bottom-link-form">
-                Être alerté
-            </button>
-        </a>
+        <div class="search-bottom-btn">
+            <a href="{{ path('alert') }}">
+                <button class="search-bottom-link-form">
+                    Être alerté
+                </button>
+            </a>
+        </div>
     </div>
+
 
 
     <div class="search-bottom-text">{{ text[0].text|raw }}</div>
@@ -357,4 +382,16 @@
 
 
 
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $('.search-top-discover').click(function(){
+                $('html').animate({
+                    scrollTop: 700
+                }, 'slow')
+            })
+        })
+    </script>
 {% endblock %}

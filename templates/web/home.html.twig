@@ -104,16 +104,25 @@
                         </div>
                     </div>
 
-                    <div class="homepage-search-block">
+                    <div class="homepage-search-block homepage-search-price">
                         <input type="text" name="priceMin" placeholder="Budget min">
                     </div>
 
-                    <div class="homepage-search-block">
+                    <div class="homepage-search-block homepage-search-price">
                         <input type="text" name="priceMax" placeholder="Budget max">
                     </div>
 
-                    <div class="homepage-search-block homepage-search-block-last" onclick="slideDown('' +
-                     '.homepage-search-others-container')">
+                    <div class="homepage-search-block homepage-search-price-responsive ">
+                        <input type="text" name="priceMin" placeholder="Budget min">
+                        <input type="text" name="priceMax" placeholder="Budget max">
+                        <div onclick="slideDown('.homepage-search-others-container')" class="img-box-responsive">
+                            <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
+                        </div>
+                        <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+                    </div>
+
+                    <div class="homepage-search-block homepage-search-block-last"
+                         onclick="slideDown('.homepage-search-others-container')">
                         <input type="text" value="Autres prestations" readonly>
                         <div class="img-box">
                             <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
@@ -139,7 +148,7 @@
                             <div class="homepage-search-others-box homepage-search-others-flex">
                                 <label>Accessible handicapé</label>
                                 <label class="switch homepage-search-others-switch">
-                                    <input type="checkbox" name="handicap" checked>
+                                    <input type="checkbox" name="handicap">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -535,17 +544,21 @@
                         {% for testimony in testimonies %}
                             <div class="owl-item">
                                 <div class="homepage-testimony-responsive-img-box">
-                                    <img src="{{ asset('assets/img/testimonies/') }}{{ testimony.picture }}"
+                                    <img src="{{ asset('assets/img/testimonies/') }}{{ testimony.picture
+                                    }}"
                                          alt="{{ testimony.title }}">
                                 </div>
-                                {% if testimony.movie %}
-                                    <div class="homepage-testimony-video-box">
+                                <div class="homepage-testimony-video-box">
+                                    {% if testimony.movie %}
                                         {{ testimony.movie|raw }}
-                                    </div>
-                                {% endif %}
+                                    {% endif %}
+                                </div>
+
+
                                 <div class="homepage-testimony-second-box">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/img/testimonies/') }}{{ testimony.picture }}"
+                                        <img src="{{ asset('assets/img/testimonies/') }}{{ testimony
+                                        .picture }}"
                                              alt="{{ testimony.title }}">
                                     </div>
                                     <p>{{ testimony.text|nl2br }}</p>
@@ -646,7 +659,14 @@
             $('.owl-carousel').owlCarousel({
                 loop:true,
                 margin:10,
-                items: 1
+                items: 1,
+                nav: true,
+                navText:[
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-left.png')
+                    }}'></div>",
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-right.png')
+                    }}'></div>"
+                ],
             })
         })
 

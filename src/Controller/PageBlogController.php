@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Repository\BlogArticleRepository;
 use App\Repository\BlogCategoryRepository;
 use App\Repository\BlogTextRepository;
+use App\Repository\SearchBrochureRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -104,7 +105,8 @@ class PageBlogController extends PersonalClass
      * $cat and $idCat are the category's name and ID
      * $art and $id are the article's name and ID
      */
-    public function blogArticle($idCat, $art,$id, BlogArticleRepository $blogArticleRepository)
+    public function blogArticle($idCat, $art,$id, BlogArticleRepository $blogArticleRepository,
+                                SearchBrochureRepository $searchBrochureRepository)
     {
         // secure inputs
         $idCat = $this->secureInput($idCat);
@@ -124,11 +126,15 @@ class PageBlogController extends PersonalClass
         // get additionnal articles
         $addArticles = $blogArticleRepository->findByTag('articles complémentaires');
 
+        // get brochure
+        $brochure = $searchBrochureRepository->findOneBy([]);
+
         return $this->render('web/blog_article.html.twig',[
             'article' => $article,
             'topVideos' => $topVideos,
             'addArticles' => $addArticles,
-            'page' => 'blog'
+            'page' => 'blog',
+            'brochure' => $brochure
         ]);
     }
 
