@@ -36,6 +36,7 @@ easy_admin:
       - {entity: 'User', default: true}
       - label: 'Les programmes'
         children:
+          - {entity: 'ProgramCategory', label: 'Programmes (catégories)'}
           - {entity: 'Program', label: 'Biens'}
           - {entity: 'MainCriteria'}
           - {entity: 'Criteria'}

@@ -8,7 +8,7 @@ easy_admin:
           - {property: 'picture', type: 'image', label: 'Image', base_path: '%upload_path%' }
 #          - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureAlt', label: "Texte alternatif"}
-          - {property: 'program', label: "Programme associé"}
+          - {property: 'program', label: "Bien associé"}
         actions:
           - {name: 'new', label: 'Ajouter une image'}
       new:

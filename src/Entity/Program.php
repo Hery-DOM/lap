@@ -136,6 +136,11 @@ class Program
      */
     private $metadescription;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ProgramCategory", inversedBy="program")
+     */
+    private $programCategory;
+
     public function __construct()
     {
         $this->main_criteria = new ArrayCollection();
@@ -498,6 +503,18 @@ class Program
     public function setMetadescription(?string $metadescription): self
     {
         $this->metadescription = $metadescription;
+
+        return $this;
+    }
+
+    public function getProgramCategory(): ?ProgramCategory
+    {
+        return $this->programCategory;
+    }
+
+    public function setProgramCategory(?ProgramCategory $programCategory): self
+    {
+        $this->programCategory = $programCategory;
 
         return $this;
     }

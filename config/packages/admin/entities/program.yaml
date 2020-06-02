@@ -6,18 +6,19 @@ easy_admin:
       list:
         title: 'Liste des programmes'
         actions:
-          - { name: 'new', label: 'Ajouter un programme'}
+          - { name: 'new', label: 'Ajouter un bien'}
         fields:
           - {property: 'name', label: 'Nom du bien'}
+          - {property: 'programCAtegory', label: 'Programme associé'}
           - {property: 'city', label: 'Ville'}
           - {property: 'published', label: 'Publié ?'}
           - {property: 'filter', type: 'array', label: 'Filtres'}
       new:
-        title: "Création d'un programme"
+        title: "Création d'un bien"
       edit:
-        title: "Modification d'un programme"
+        title: "Modification d'un bien"
       show:
-        title: "Aperçu du programme"
+        title: "Aperçu du bien"
         fields:
           - {property: 'name', label: 'Nom du bien'}
           - {property: 'description', label: 'Description'}
@@ -39,6 +40,7 @@ easy_admin:
           - {property: 'published', label: 'Publié ?'}
       form:
         fields:
+          - {property: 'programCategory', label: 'Programme associé'}
           - {property: 'name', label: 'Nom du bien'}
           - {property: 'descriptionMore', label: 'Description +'}
           - {property: 'description', type: 'fos_ckeditor', label: 'Description principale' }
