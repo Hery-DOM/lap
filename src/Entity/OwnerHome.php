@@ -21,6 +21,16 @@ class OwnerHome
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $listorder;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +44,30 @@ class OwnerHome
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getListorder(): ?int
+    {
+        return $this->listorder;
+    }
+
+    public function setListorder(int $listorder): self
+    {
+        $this->listorder = $listorder;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }

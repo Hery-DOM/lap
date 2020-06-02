@@ -8,6 +8,8 @@ easy_admin:
         fields:
           - { property: 'text' }
       list:
+        sort: ['listorder', 'ASC']
         fields:
+          - {property: 'listorder', label: 'Ordre'}
           - {property: 'name', label: 'Nom'}
           - {property: 'text', label: 'Texte' }

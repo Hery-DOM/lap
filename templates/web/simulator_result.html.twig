@@ -1,8 +1,7 @@
 {% extends 'web/_base.html.twig' %}
 
-{% block title %}
-    Simulateur PTZ
-{% endblock %}
+{% block title %}{{ title|striptags|raw }}{% endblock %}
+{% block description %}{{ description|striptags|raw }}{% endblock %}
 
 {% block main %}
     simulator-main
@@ -15,6 +14,8 @@
         {% if check == false %}
 
             <div class="simulator-form-container">
+
+                <h1>{{ h1|striptags|raw|nl2br }}</h1>
 
                 <p class="simulator-text">Afin d'accéder à vos résultats de simulation et être recontacté par un de
                 nos conseillers, veuillez saisir vos cooordonnées</p>
@@ -42,6 +43,7 @@
         {% else %}
 
             <div class="simulator-form-container">
+                <h1>{{ h1|striptags|raw|nl2br }}</h1>
                 <p class="simulator-text">Merci de votre participation</p>
 
                 <table class="simulator-result-table">

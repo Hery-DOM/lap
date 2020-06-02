@@ -1,8 +1,8 @@
 {% extends 'web/_base.html.twig' %}
 
-{% block title %}
-    Trouvez un logement
-{% endblock %}
+{% block title %}{{ title|striptags|raw }}{% endblock %}
+
+{% block description %}{{ text|striptags|raw }}{% endblock %}
 
 {% block main %}
     search-main
@@ -73,7 +73,7 @@
 
     <section class="search-top">
         <div class="search-top-h1">
-            <h1>Trouvez le logement neuf <br> de vos rêves</h1>
+            <h1>{{ h1|striptags|raw }}</h1>
         </div>
         {% for message in app.flashes('info') %}
             <p>{{ message }}</p>
@@ -377,7 +377,7 @@
 
 
 
-    <div class="search-bottom-text">{{ text[0].text|raw }}</div>
+    <div class="search-bottom-text"><p>{{ text|raw }}</p></div>
 
 
 

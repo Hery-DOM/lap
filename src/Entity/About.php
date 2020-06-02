@@ -31,10 +31,11 @@ class About
      */
     private $movie;
 
+
     /**
      * @ORM\Column(type="integer")
      */
-    private $section;
+    private $listorder;
 
     public function getId(): ?int
     {
@@ -77,14 +78,16 @@ class About
         return $this;
     }
 
-    public function getSection(): ?int
+
+
+    public function getListorder(): ?int
     {
-        return $this->section;
+        return $this->listorder;
     }
 
-    public function setSection(int $section): self
+    public function setListorder(int $listorder): self
     {
-        $this->section = $section;
+        $this->listorder = $listorder;
 
         return $this;
     }

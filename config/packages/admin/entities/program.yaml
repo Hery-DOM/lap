@@ -57,3 +57,6 @@ easy_admin:
           - {property: 'criteria', label: 'Critères' }
           - {property: 'filter', label: 'Filtres' }
           - {property: 'published', label: 'Publié ?' }
+          - {property: 'pagetitle', label: 'Titre de la page' }
+          - {property: 'metatitle', label: 'Meta title' }
+          - {property: 'metadescription', label: 'Meta description' }

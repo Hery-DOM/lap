@@ -36,6 +36,12 @@ class Homepage
      */
     private $picture_alt;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $listorder;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,6 +94,19 @@ class Homepage
 
         return $this;
     }
+
+    public function getListorder(): ?int
+    {
+        return $this->listorder;
+    }
+
+    public function setListorder(int $listorder): self
+    {
+        $this->listorder = $listorder;
+
+        return $this;
+    }
+
 
 
 }

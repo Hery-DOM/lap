@@ -4,23 +4,29 @@ easy_admin:
       - label: "PAGES"
       - label: "Accueil"
         children:
-          - {entity: 'Homepage', label: 'Bannière'}
+          - {entity: 'Homepage', label: 'Gestion de la page'}
           - {entity: 'HomepageBrochure'}
       - label : "Trouvez un logement"
         children:
-          - {entity: 'SearchPage', label: "Texte modifiable"}
+          - {entity: 'SearchPage', label: "Gestion de la page"}
           - {entity: 'SearchBrochure', label: 'Brochure'}
       - label: "Devenir propriétaire"
         children:
-          - {entity: 'OwnerHome', label: 'Intro'}
+          - {entity: 'OwnerHome', label: 'Gestion de la page'}
           - {entity: 'OwnerCategory', label: 'Catégories'}
           - {entity: 'OwnerSubCategory', label: 'Sous catégories'}
           - {entity: 'OwnerArticle', label: 'Articles'}
       - label: "Qui sommes-nous"
         children:
-          - {entity: 'About', label: 'Sections modifiables'}
+          - {entity: 'About', label: 'Gestion de la page'}
           - {entity: 'AboutWhy', label: 'Liste des raisons pour nous choisir'}
           - {entity: 'AboutPicture', label: 'Photo de groupe'}
+      - label: "Simulateur PTZ"
+        children:
+          - {entity: 'SimulatorPtz', label: 'Gestion de la page'}
+      - label: "Projet immobilier"
+        children:
+          - {entity: 'ImmoProject', label: 'Gestion de la page'}
       - label: "Pages du footer"
         children:
         - {entity: 'Legal', label: "Mentions légales"}
@@ -37,7 +43,7 @@ easy_admin:
           - {entity: 'ProgramPicture', label: 'Images des biens'}
       - label: 'Blog'
         children:
-          - {entity: 'BlogText', label: 'Présentation'}
+          - {entity: 'BlogText', label: 'Gestion de la page'}
           - {entity: 'BlogCategory', label: 'Catégories'}
           - {entity: 'BlogArticle', label: 'Articles'}
       - {entity: 'Testimony'}

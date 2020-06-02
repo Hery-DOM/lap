@@ -7,7 +7,9 @@ easy_admin:
       edit:
         title: "Modification du texte"
         fields:
-          - { property: 'text', type: 'fos_ckeditor', label: "Texte" }
+          - { property: 'text', label: "Texte", type: 'fos_ckeditor' }
       list:
+        sort: ['listorder', 'ASC']
         fields:
+          - {property: 'listorder', label: 'Ordre'}
           - {property: 'name', label: 'Nom'}

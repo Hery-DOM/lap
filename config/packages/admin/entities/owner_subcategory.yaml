@@ -19,3 +19,6 @@ easy_admin:
           - {property: 'name', label: 'Nom'}
           - {property: 'description', label: 'Texte', type: 'fos_ckeditor'}
           - {property: 'owner_category', label: 'Catégorie associée'}
+          - {property: 'pagetitle', label: 'Titre de la page'}
+          - {property: 'metatitle', label: 'Meta title'}
+          - {property: 'metadescription', label: 'Meta description'}

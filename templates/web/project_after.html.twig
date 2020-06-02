@@ -1,8 +1,7 @@
 {% extends 'web/_base.html.twig' %}
 
-{% block title %}
-    Votre projet
-{% endblock %}
+{% block title %}{{ title|striptags|raw }}{% endblock %}
+{% block description %}{{ description|striptags|raw }}{% endblock %}
 
 {% block content %}
 

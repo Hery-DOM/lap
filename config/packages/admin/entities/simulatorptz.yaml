@@ -1,0 +1,18 @@
+easy_admin:
+  entities:
+    SimulatorPtz:
+      label: "Simulateur PTZ"
+      class: App\Entity\SimulatorPtz
+      disabled_actions: ['new', 'delete' ]
+      list:
+        title: 'Textes modifiables'
+        actions:
+          - {name: 'edit', label: 'Editer'}
+        fields:
+          - {property: 'name', label: 'Titre'}
+      edit:
+        title: "Edition du texte"
+        fields:
+          - {property: 'pagetitle', label: 'Titre de la page'}
+          - {property: 'metatitle', label: 'Meta title'}
+          - {property: 'metadescription', label: 'Meta description'}

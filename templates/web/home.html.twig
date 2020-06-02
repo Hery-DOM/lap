@@ -1,8 +1,8 @@
 {% extends 'web/_base.html.twig' %}
 
-{% block title %}
-    Accueil
-{% endblock %}
+{% block title %}{{ title|striptags|raw }}{% endblock %}
+
+{% block description %}{{ description|striptags|raw }}{% endblock %}
 
 {% block main %}
     homepage-main

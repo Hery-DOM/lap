@@ -30,6 +30,11 @@ class PageHomeController extends PersonalClass
         // get message in banner
         $banner = $homepageRepository->findOneBy(['name' => 'Bannière']);
 
+        // get meta title, description and h1
+        $h1 = $homepageRepository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $metaTitle = $homepageRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaDescription = $homepageRepository->findOneBy(['name' => 'Meta description'])->getText();
+
         // get every cities
         $homes = $programRepository->findBy([],['city' => 'ASC']);
         $cities = [];
@@ -138,7 +143,10 @@ class PageHomeController extends PersonalClass
             'url' => $url,
             'prestations' => $prestationsInit,
             'brochures' => $brochures,
-            'page' => ''
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
     }
 

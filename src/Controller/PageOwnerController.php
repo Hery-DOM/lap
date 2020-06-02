@@ -20,13 +20,19 @@ class PageOwnerController extends PersonalClass
         // get categories
         $cat = $ownerCategoryRepository->findAll();
 
-        // get intro
-        $intro = $ownerHomeRepository->findOneBy([]);
+        // get intro ans others texts
+        $intro = $ownerHomeRepository->findOneBy(['name' => 'Introduction'])->getDescription();
+        $h1 = $ownerHomeRepository->findOneBy(['name' => 'Titre de la page'])->getDescription();
+        $metaTitle = $ownerHomeRepository->findOneBy(['name' => 'Meta title'])->getDescription();
+        $metaDescription = $ownerHomeRepository->findOneBy(['name' => 'Meta description'])->getDescription();
 
         return $this->render('web/owner_home.html.twig',[
             'categories' => $cat,
             'intro' => $intro,
-            'page' => 'proprietaire'
+            'page' => 'proprietaire',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
     }
@@ -48,11 +54,19 @@ class PageOwnerController extends PersonalClass
         // get the category according with $id
         $cat = $ownerCategoryRepository->find($id);
 
+        // get texts
+        $h1 = $cat->getPagetitle();
+        $metaTitle = $cat->getMetatitle();
+        $metaDescription = $cat->getMetadescription();
+
         return $this->render('web/owner_category.html.twig',[
             'slug' => $slug,
             'cat' => $cat,
             'categories' => $categories,
-            'page' => 'proprietaire'
+            'page' => 'proprietaire',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
     }
@@ -80,13 +94,21 @@ class PageOwnerController extends PersonalClass
         // get the subcategory
         $subc = $ownerSubcategoryRepository->find($id);
 
+        // get texts
+        $h1 = $subc->getPagetitle();
+        $metaTitle = $subc->getMetatitle();
+        $metaDescription = $subc->getMetadescription();
+
         return $this->render('web/owner_subcategory.html.twig',[
             'currentCategory' => $cat,
             'categories' => $categories,
             'idCat' => $idCat,
             'slug' => $slug,
             'subcategory' => $subc,
-            'page' => 'proprietaire'
+            'page' => 'proprietaire',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
     }
@@ -119,13 +141,21 @@ class PageOwnerController extends PersonalClass
         // get the article
         $article = $ownerArticleRepository->find($id);
 
+        // get texts
+        $h1 = $article->getPagetitle();
+        $metaTitle = $article->getMetatitle();
+        $metaDescription = $article->getMetadescription();
+
         return $this->render('web/owner_article.html.twig',[
             'article' => $article,
             'currentCategory' => $currentCategory,
             'currentSubCategory' => $currentSubCategory,
             'slug' => $slug,
             'categories' => $categories,
-            'page' => 'proprietaire'
+            'page' => 'proprietaire',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
     }

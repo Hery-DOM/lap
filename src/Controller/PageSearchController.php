@@ -34,8 +34,11 @@ class PageSearchController extends PersonalClass
         // secure $slug
         $slug = $this->secureInput($slug);
 
-        // get text
-        $text = $searchPageRepository->findAll();
+        // get texts
+        $text = $searchPageRepository->findOneBy(['name' => 'Texte en bas de page'])->getText();
+        $h1 = $searchPageRepository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $metaTitle = $searchPageRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaDescription = $searchPageRepository->findOneBy(['name' => 'Meta description'])->getText();
 
         // get brochure
         $brochure = $searchBrochureRepository->findOneBy([]);
@@ -298,7 +301,10 @@ class PageSearchController extends PersonalClass
                     'text' => $text,
                     'slug' => $slug,
                     'brochure' => $brochure,
-                    'page' => 'logement'
+                    'page' => 'logement',
+                    'h1' => $h1,
+                    'title' => $metaTitle,
+                    'description' => $metaDescription
                 ]);
             }
 
@@ -315,7 +321,10 @@ class PageSearchController extends PersonalClass
             'text' => $text,
             'slug' => $slug,
             'brochure' => $brochure,
-            'page' => 'logement'
+            'page' => 'logement',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
     }

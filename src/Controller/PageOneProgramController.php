@@ -254,6 +254,11 @@ class PageOneProgramController extends PersonalClass
         // get 3 last programs (in twig, to escape the current with a condition in twig)
         $lastPrograms = $this->theLastest($lastPrograms, 3);
 
+        // get texts
+        $h1 = $program->getPagetitle();
+        $metaTitle = $program->getMetatitle();
+        $metaDescription = $program->getMetadescription();
+
         return $this->render('web/program.html.twig',[
             'program' => $program,
             'form' => $form,
@@ -262,7 +267,10 @@ class PageOneProgramController extends PersonalClass
             'longitude' => $local_longitude,
             'lastPrograms' => $lastPrograms,
             'brochure' => $brochure,
-            'page' => 'logement'
+            'page' => 'logement',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
     }

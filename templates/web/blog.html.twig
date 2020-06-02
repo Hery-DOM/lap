@@ -1,6 +1,7 @@
 {% extends 'web/_base.html.twig' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}{{ text.metatitle|striptags|raw }}{% endblock %}
+{% block description %}{{ text.metadescription|striptags|raw }}{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -20,7 +21,7 @@
 
 
             <section class="blog-title">
-                <h1>{{ text.title }}</h1>
+                <h1>{{ text.pagetitle|striptags|raw|nl2br }}</h1>
             </section>
 
 

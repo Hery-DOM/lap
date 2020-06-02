@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Repository\ImmoProjectRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,8 +13,14 @@ class PageFormProjectController extends PersonalClass
     /**
      * @Route("/projet", name="project")
      */
-    public function project(Request $request)
+    public function project(Request $request, ImmoProjectRepository $repository)
     {
+
+        // get texts
+        $text = $repository->findOneBy(['name'=>'Textes']);
+        $h1 = $text->getPagetitle();
+        $metaTitle = $text->getMetatitle();
+        $metaDescription = $text->getMetadescription();
 
         // if form is submitted
         if($request->isMethod('POST')){
@@ -52,17 +59,30 @@ class PageFormProjectController extends PersonalClass
 
         }
 
-        return $this->render('web/project.html.twig');
+        return $this->render('web/project.html.twig',[
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
+        ]);
     }
 
 
     /**
      * @Route("/merci", name="project_after")
      */
-    public function projectAfter()
+    public function projectAfter(ImmoProjectRepository $repository)
     {
+        // get texts
+        $text = $repository->findOneBy(['name'=>'Textes']);
+        $h1 = $text->getPagetitle();
+        $metaTitle = $text->getMetatitle();
+        $metaDescription = $text->getMetadescription();
+
         return $this->render('web/project_after.html.twig',[
-            'page' => ''
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
     }
 

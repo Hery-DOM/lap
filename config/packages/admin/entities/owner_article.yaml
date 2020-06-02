@@ -23,3 +23,6 @@ easy_admin:
           - {property: 'pictureAlt', label: "Texte alternatif à l'image"}
           - {property: 'owner_subcategory', label: "Sous catégorie associée"}
           - {property: 'published', label: "Publié ?"}
+          - {property: 'pagetitle', label: "Titre de la page"}
+          - {property: 'metatitle', label: "Meta title"}
+          - {property: 'metadescription', label: "Meta description"}

@@ -18,4 +18,7 @@ easy_admin:
         fields:
           - {property: 'name', label: 'Nom'}
           - {property: 'description', label: 'Texte', type: 'fos_ckeditor'}
-          - {property: 'pictoFile', label: 'Illustration', type: 'vich_image', type_options: {required: true}}
+          - {property: 'pictoFile', label: 'Illustration', type: 'vich_image'}
+          - {property: 'pagetitle', label: 'Titre de la page'}
+          - {property: 'metatitle', label: 'Meta title'}
+          - {property: 'metadescription', label: 'Meta description'}

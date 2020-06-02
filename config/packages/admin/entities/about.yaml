@@ -5,11 +5,12 @@ easy_admin:
       class: App\Entity\About
       disabled_actions: ['new', 'delete' ]
       list:
-        sort: ['section','ASC']
+        sort: ['listorder','ASC']
         title: 'Sections modifiables'
         actions:
           - {name: 'edit', label: 'Editer'}
         fields:
+          - {property: 'listorder', label: 'Ordre'}
           - {property: 'name', label: 'Sections'}
       edit:
         title: "Modification d'une section"

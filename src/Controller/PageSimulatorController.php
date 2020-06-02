@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Repository\SimulatorPtzRepository;
 use App\Repository\ZoneRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -238,8 +239,14 @@ class PageSimulatorController extends PersonalClass
     /**
      * @Route("/simulateur-ptz", name="simulator")
      */
-    public function simulator(Request $request, ZoneRepository $zoneRepository)
+    public function simulator(Request $request, ZoneRepository $zoneRepository, SimulatorPtzRepository $simulatorPtzRepository)
     {
+
+        // get texts
+        $text = $simulatorPtzRepository->findOneBy(['name'=>'Textes']);
+        $h1 = $text->getPagetitle();
+        $metaTitle = $text->getMetatitle();
+        $metaDescription = $text->getMetadescription();
 
         // is form is submitted
         if($request->isMethod('POST')){
@@ -324,7 +331,10 @@ class PageSimulatorController extends PersonalClass
 
 
         return $this->render('web/simulator.html.twig',[
-            'page' => ''
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
     }
@@ -333,9 +343,16 @@ class PageSimulatorController extends PersonalClass
     /**
      * @Route("/simulateur-ptz-resultat", name="simulator_result")
      */
-    public function simulatorResult(Request $request)
+    public function simulatorResult(Request $request, SimulatorPtzRepository $simulatorPtzRepository)
     {
         $check = false;
+
+        // get texts
+        $text = $simulatorPtzRepository->findOneBy(['name'=>'Textes']);
+        $h1 = $text->getPagetitle();
+        $metaTitle = $text->getMetatitle();
+        $metaDescription = $text->getMetadescription();
+
 
         // if there is already a session with name, email and phone
         $sessionOld = new Session();
@@ -391,7 +408,10 @@ class PageSimulatorController extends PersonalClass
                 "name" => $nameOld,
                 "email" => $emailOld,
                 "phone" => $phoneOld,
-                'page' => ''
+                'page' => '',
+                'h1' => $h1,
+                'title' => $metaTitle,
+                'description' => $metaDescription
             ]);
         }
 
@@ -453,7 +473,10 @@ class PageSimulatorController extends PersonalClass
                         "name" => $name,
                         "email" => $email,
                         "phone" => $phone,
-                        'page' => ''
+                        'page' => '',
+                        'h1' => $h1,
+                        'title' => $metaTitle,
+                        'description' => $metaDescription
                     ]);
 
 
@@ -467,7 +490,10 @@ class PageSimulatorController extends PersonalClass
 
         return $this->render('web/simulator_result.html.twig',[
             'check' => $check,
-            'page' => ''
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
     }
 

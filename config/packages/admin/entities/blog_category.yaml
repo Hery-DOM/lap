@@ -18,3 +18,6 @@ easy_admin:
       form:
         fields:
           - {property: 'name', label: 'Nom'}
+#          - {property: 'pagetitle', label: 'Titre de la page'}
+#          - {property: 'metatitle', label: 'Meta title'}
+#          - {property: 'metadescription', label: 'Meta description'}

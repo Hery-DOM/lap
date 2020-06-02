@@ -40,12 +40,19 @@ class PageOthersController extends PersonalClass
      */
     public function confidentiality(ConfidentialityRepository $repository)
     {
-        // get text
-        $text = $repository->findOneBy([]);
+        // get texts
+        $text = $repository->findOneBy(['name'=>'Contenu']);
+        $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $metaTitle = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaDescription = $repository->findOneBy(['name' => 'Meta description'])->getText();
+
 
         return $this->render('web/confidentiality.html.twig',[
             'text' => $text,
-            'page' => ''
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
     }
 
@@ -55,12 +62,18 @@ class PageOthersController extends PersonalClass
      */
     public function legal(LegalRepository $legalRepository)
     {
-        // get text
-        $text = $legalRepository->findOneBy([]);
+        // get texts
+        $text = $legalRepository->findOneBy(['name' => 'Contenu']);
+        $h1 = $legalRepository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $metaTitle = $legalRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaDescription = $legalRepository->findOneBy(['name' => 'Meta description'])->getText();
 
         return $this->render('web/legal.html.twig',[
             'text' => $text,
-            'page' => ''
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
     }
 

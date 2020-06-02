@@ -19,9 +19,16 @@ class PageAboutController extends PersonalClass
                           AboutWhyRepository $aboutWhyRepository, TestimonyRepository $testimonyRepository)
     {
         // get the sections for text and movie + get the picture + get the reasons
-        $sections = $aboutRepository->findBy([],['section' => 'ASC']);
         $picture = $aboutPictureRepository->findOneBy([]);
         $reasons = $aboutWhyRepository->findBy([],['list_order'=>'ASC']);
+        $sections['Qui sommes nous'] = $aboutRepository->findOneBy(['name' => 'Qui sommes nous']);
+        $sections['Phrase dans bandeau'] = $aboutRepository->findOneBy(['name' => 'Phrase dans bandeau']);
+        $sections['Notre communication'] = $aboutRepository->findOneBy(['name' => 'Notre communication']);
+        $sections['Nos différents réseaux'] = $aboutRepository->findOneBy(['name' => 'Nos différents réseaux']);
+        // get meta title, description and h1
+        $h1 = $aboutRepository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $metaTitle = $aboutRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaDescription = $aboutRepository->findOneBy(['name' => 'Meta description'])->getText();
 
         // get every testimonies which are published
         $testimoniesInit = $testimonyRepository->findAll();
@@ -37,7 +44,10 @@ class PageAboutController extends PersonalClass
             'picture' => $picture,
             'reasons' => $reasons,
             'testimonies' => $testimonies,
-            'page' => 'nous'
+            'page' => 'nous',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
 
 
