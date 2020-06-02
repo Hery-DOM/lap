@@ -188,6 +188,21 @@ main{
       margin: 10px 0;
     }
   }
+  .form-row-radio{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .form-field-radio{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 10px;
+      input{
+        width: auto;
+        margin-left: 5px;
+      }
+    }
+  }
   .form-field-message{
     display: flex;
     flex-direction: column;

@@ -172,24 +172,23 @@
                             </div>
                             <div class="text-box">
                                 <p>contact@locataireaproprietaire.fr</p>
-                                <p>239 rue de Turenne 33000 Bordeaux</p>
                             </div>
                         </div>
                         <div class="contact-modal-social">
                             <h2>Suivez-nous</h2>
                             <div class="contact-modal-social-box">
                                 <div class="img-box">
-                                    <a target="_blank" href="https://www.facebook.com/zammitconseilsetpatrimoine/?hc_ref=ARTVRjtyFnA2NLrww8BQElgroxBdEzgR_F2CbwEghOtbovEAHhlWHfeJK7ngezUvKqs&fref=nf">
+                                    <a target="_blank" href="https://www.facebook.com/zammitconseilsetpatrimoine">
                                         <img src="{{ asset('assets/img/static/facebook.png') }}" alt="facebook">
                                     </a>
                                 </div>
                                 <div class="img-box">
-                                    <a target="_blank" href="https://fr.linkedin.com/company/zammit-conseils-patrimoine">
+                                    <a target="_blank" href="https://fr.linkedin.com/feed">
                                         <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="linkedin">
                                     </a>
                                 </div>
                                 <div class="img-box">
-                                    <a target="_blank" href="https://www.youtube.com/channel/UCz14iF_6CsWZIS9si_13TTQ">
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCz14iF_6CsWZIS9si_13TTQ?view_as=subscriber">
                                         <img src="{{ asset('assets/img/static/youtube.png') }}" alt="youtube">
                                     </a>
                                 </div>
@@ -201,6 +200,16 @@
                         <h2>Contacter un conseiller</h2>
 
                         <form action="{{ path('contact') }}" method="POST">
+                            <div class="form-row-radio">
+                                <div class="form-field-radio">
+                                    <label for="modal-mister">Monsieur</label>
+                                    <input type="radio" name="modal-gender" id="modal-mister" value="monsieur">
+                                </div>
+                                <div class="form-field-radio">
+                                    <label for="modal-miss">Madame</label>
+                                    <input type="radio" name="modal-gender" id="modal-miss" value="madame">
+                                </div>
+                            </div>
                             <div class="form-row">
                                 <div class="form-field">
                                     <label for="modal-name">Nom*</label>
@@ -248,17 +257,17 @@
                     <p>Nous suivre</p>
                     <div class="footer-social-link-block">
                         <div class="footer-social-link-box">
-                            <a href="#">
+                            <a href="https://www.facebook.com/zammitconseilsetpatrimoine/">
                                 <img src="{{ asset('assets/img/static/facebook.png') }}" alt="réseau facebook locataire à propriétaire">
                             </a>
                         </div>
                         <div class="footer-social-link-box">
-                            <a href="#">
+                            <a href="https://www.linkedin.com/feed/">
                                 <img src="{{ asset('assets/img/static/linkedin.png') }}" alt="réseau linkedin locataire à propriétaire">
                             </a>
                         </div>
                         <div class="footer-social-link-box">
-                            <a href="#">
+                            <a href="https://www.youtube.com/channel/UCz14iF_6CsWZIS9si_13TTQ?view_as=subscriber">
                                 <img src="{{ asset('assets/img/static/youtube.png') }}" alt="réseau youtube locataire à   propriétaire">
                             </a>
                         </div>

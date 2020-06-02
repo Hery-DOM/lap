@@ -46,13 +46,19 @@
                 <h1>{{ h1|striptags|raw|nl2br }}</h1>
                 <p class="simulator-text">Merci de votre participation</p>
 
+                {% if result != 'Non éligible' %}
+                    <h2 class="simulator-text">Vous êtes éligible au PTZ</h2>
+                {% else %}
+                    <h2 class="simulator-text">Vous n'êtes pas éligible au PTZ</h2>
+                {% endif %}
+
                 <table class="simulator-result-table">
                     <tr>
                         <th colspan="2">Rappel de vos renseignements</th>
                     </tr>
                     <tr>
                         <td>Avez-vous été propriétaire sur les 2 dernières années ? </td>
-                        <td>{% if owner == true %}Oui{% else %}Non{% endif %}</td>
+                        <td>{% if owner == 'true' %}Oui{% else %}Non{% endif %}</td>
                     </tr>
                     <tr>
                         <td>Ville</td>
@@ -69,6 +75,10 @@
                     <tr>
                         <td>Revenu fiscal de référence d'il y a deux ans</td>
                         <td>{{ revenue }} €</td>
+                    </tr>
+                    <tr>
+                        <td>Apport personnel</td>
+                        <td>{{ apport }} €</td>
                     </tr>
                     <tr>
                         <td>Résultat de la simulation (au maximum)</td>
@@ -90,6 +100,11 @@
                 selon les revenus.</p>
 
                 <p class="simulator-back"><a href="{{ path('simulator') }}">< Refaire une simulation</a></p>
+
+                <p class="simulator-indication">*Ce simulateur est à titre indicateur et prend en compte
+                    la simulation PTZ seulement dans le cas d'un achat dans le neuf. <br>
+                    Il est également possible de bénéficier du PTZ pour un achat dans l'ancien avec travaux ou
+                    pour logement existant acquis auprès d'un organosme HLM.</p>
 
 
             </div>

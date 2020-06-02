@@ -167,6 +167,18 @@ main {
   .contact-modal-block form .form-row .form-field {
     width: 45%;
     margin: 10px 0; }
+.contact-modal-block form .form-row-radio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .contact-modal-block form .form-row-radio .form-field-radio {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px; }
+    .contact-modal-block form .form-row-radio .form-field-radio input {
+      width: auto;
+      margin-left: 5px; }
 .contact-modal-block form .form-field-message {
   display: flex;
   flex-direction: column;
@@ -298,10 +310,10 @@ main {
   position: relative; }
 
 .homepage-top {
-  height: 90vh;
+  height: 60vh;
   background-image: url("../img/static/homepage-top.png");
   background-repeat: no-repeat;
-  background-position: 0 80%;
+  background-position: 0 50%;
   background-size: cover;
   position: relative; }
 
@@ -924,6 +936,14 @@ main {
     padding: 5px;
     width: 120%; }
 
+.homepage-newsletter-radio {
+  display: flex;
+  justify-content: flex-start; }
+  .homepage-newsletter-radio input {
+    width: auto;
+    margin: 0 0 0 10px;
+    padding: 0; }
+
 /*************************************************************************
 *********************************  RESPONSIVE  ***************************
 **************************************************************************/
@@ -1147,6 +1167,19 @@ input:checked + .slider:before {
     .search-modal-form .btn input[type='submit']:hover {
       background-color: #FBB03B;
       cursor: pointer; }
+
+.search-modal-radio-row {
+  display: flex;
+  justify-content: space-around; }
+
+.search-modal-form-radio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .search-modal-form-radio input {
+    width: auto;
+    margin: 0 0 0 10px;
+    padding: 0; }
 
 /*************************************************************************
 *********************************  SEARCH  ********************************
@@ -2028,6 +2061,14 @@ input:checked + .slider:before {
 .alert-flash {
   color: #002849; }
 
+.alert-form-field-radio-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .alert-form-field-radio-row .alert-form-field-radio {
+    margin: 30px 0 10px 10px;
+    color: #002849; }
+
 .project-title-responsive {
   display: none; }
 
@@ -2223,6 +2264,11 @@ input:checked + .slider:before {
 
 .simulator-back a:hover {
   text-decoration: underline; }
+
+.simulator-indication {
+  color: #002849;
+  font-style: italic;
+  margin: 10px; }
 
 .emailSent-block {
   height: 50vh;

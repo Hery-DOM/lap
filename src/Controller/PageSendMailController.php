@@ -19,6 +19,7 @@ class PageSendMailController extends PersonalClass
         // when form is submitted
         if($request->isMethod('POST')){
             // secure inputs
+            $gender = $this->secureInput($_POST['gender']);
             $name = $this->secureInput($_POST['name']);
             $phone = $this->secureInput($_POST['phone']);
             $email = $this->secureInput($_POST['email']);
@@ -38,6 +39,7 @@ class PageSendMailController extends PersonalClass
             $from = 'noreply@locataireaproprietaire.fr';
             $view = 'email/alert.html.twig';
             $viewParam = [
+              'gender' => $gender,
               'name' => $name,
               'phone' => $phone,
               'email' => $email,
@@ -79,6 +81,7 @@ class PageSendMailController extends PersonalClass
         }
 
         // secure inputs
+        $gender = $this->secureInput($_POST['modal-gender']);
         $name = $this->secureInput($_POST['modal-name']);
         $email = $this->secureInput($_POST['modal-email']);
         $phone = $this->secureInput($_POST['modal-phone']);
@@ -88,6 +91,7 @@ class PageSendMailController extends PersonalClass
         $noreply = $this->noreplyEmail();
         $view = "email/contact.html.twig";
         $viewParam = [
+            'gender' => $gender,
             'name' => $name,
             'email' => $email,
             'phone' => $phone,

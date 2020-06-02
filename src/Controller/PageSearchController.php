@@ -94,13 +94,15 @@ class PageSearchController extends PersonalClass
                 $email = $this->secureInput($_POST['email']);
                 $name = $this->secureInput($_POST['name']);
                 $phone = $this->secureInput($_POST['phone']);
+                $gender = $this->secureInput($_POST['gender']);
                 $programMail = '';
                 $view = "email/contact_search.html.twig";
                 $viewParam = [
                   'name' => $name,
                   'email' => $email,
                   'phone' => $phone,
-                  'program' => $programMail
+                  'program' => $programMail,
+                    'gender' => $gender
                 ];
                 $message = $this->sendEmail($subject, $this->noreplyEmail(), $this->emailAdmin(),
                     $view,$viewParam);

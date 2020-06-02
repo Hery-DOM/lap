@@ -176,6 +176,22 @@
 
 }
 
+.search-modal-radio-row{
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-modal-form-radio{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  input{
+    width: auto;
+    margin: 0 0 0 10px;
+    padding: 0;
+  }
+}
+
 /*************************************************************************
 *********************************  SEARCH  ********************************
 **************************************************************************/

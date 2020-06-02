@@ -78,12 +78,14 @@ class PageHomeController extends PersonalClass
                 $city = $this->secureInput($_POST['city']);
                 $name = $this->secureInput($_POST['name']);
                 $email = $this->secureInput($_POST['email']);
+                $gender = $this->secureInput($_POST['gender']);
 
                 $view = 'email/newsletter.html.twig';
                 $viewParam = [
                   'city' => $city,
                   'name' => $name,
-                    'email' => $email
+                    'email' => $email,
+                    'gender' => $gender
                 ];
                 $test = $this->sendEmail('Inscription à la newsletter', $this->noreplyEmail(), $this->emailAdmin(),$view,
                     $viewParam);
@@ -101,28 +103,6 @@ class PageHomeController extends PersonalClass
                     return $this->render('web/emailSent.html.twig');
                 }
 
-
-            }
-
-            //treatment for a contact by form modal
-            if(isset($_POST['modal-form'])){
-                // secure inputs
-                $name = $this->secureInput($_POST['modal-name']);
-                $email = $this->secureInput($_POST['modal-email']);
-                $phone = $this->secureInput($_POST['modal-phone']);
-                $object = $this->secureInput($_POST['modal-object']);
-                $message = $this->secureInput($_POST['modal-message']);
-
-                $view = "email/contact_modal.html.twig";
-                $viewParam = [
-                    'name' => $name,
-                    'email' => $email,
-                    'phone' => $phone,
-                    'object' => $object,
-                    'message' => $message
-                ];
-                $this->sendEmail('Contact par formulaire', $this->noreplyEmail(), $this->emailAdmin(),
-                    $view, $viewParam);
 
             }
 

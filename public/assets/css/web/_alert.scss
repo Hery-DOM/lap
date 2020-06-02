@@ -53,3 +53,13 @@
 .alert-flash{
   color: $blue;
 }
+
+.alert-form-field-radio-row{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .alert-form-field-radio{
+    margin: 30px 0 10px 10px;
+    color: $blue;
+  }
+}

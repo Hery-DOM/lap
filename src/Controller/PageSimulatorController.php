@@ -256,6 +256,7 @@ class PageSimulatorController extends PersonalClass
             $family = $this->secureInput($_POST['family']);
             $operation = $this->secureInput($_POST['operation']);
             $revenue = $this->secureInput($_POST['revenue']);
+            $apport = $this->secureInput($_POST['apport']);
 
             // check if user has been owner => not eligible
             if($owner == "true"){
@@ -268,6 +269,7 @@ class PageSimulatorController extends PersonalClass
                 $session->set('family',$family);
                 $session->set('operation',$operation);
                 $session->set('revenue',$revenue);
+                $session->set('apport',$apport);
                return $this->redirectToRoute('simulator_result');
             }
 
@@ -294,6 +296,7 @@ class PageSimulatorController extends PersonalClass
                 $session->set('family',$family);
                 $session->set('operation',$operation);
                 $session->set('revenue',$revenue);
+                $session->set('apport',$apport);
                 return $this->redirectToRoute('simulator_result');
             }
 
@@ -321,6 +324,7 @@ class PageSimulatorController extends PersonalClass
             $session->set('family',$family);
             $session->set('operation',$operation);
             $session->set('revenue',$revenue);
+            $session->set('apport',$apport);
 
 
             return $this->redirectToRoute('simulator_result');
@@ -382,6 +386,7 @@ class PageSimulatorController extends PersonalClass
             $operation = $this->secureInput($session->get('operation'));
             $revenue = $this->secureInput($session->get('revenue'));
             $result = $this->secureInput($session->get('result'));
+            $apport = $this->secureInput($session->get('apport'));
 
 
             $viewParam = [
@@ -393,7 +398,8 @@ class PageSimulatorController extends PersonalClass
                 "result" => $result,
                 "name" => $nameOld,
                 "email" => $emailOld,
-                "phone" => $phoneOld
+                "phone" => $phoneOld,
+                'apport' => $apport
             ];
 
             $this->sendEmail($subject,$from,$to,$view,$viewParam);
@@ -411,7 +417,8 @@ class PageSimulatorController extends PersonalClass
                 'page' => '',
                 'h1' => $h1,
                 'title' => $metaTitle,
-                'description' => $metaDescription
+                'description' => $metaDescription,
+                'apport' => $apport
             ]);
         }
 
@@ -447,6 +454,7 @@ class PageSimulatorController extends PersonalClass
                     $operation = $this->secureInput($session->get('operation'));
                     $revenue = $this->secureInput($session->get('revenue'));
                     $result = $this->secureInput($session->get('result'));
+                    $apport = $this->secureInput($session->get('apport'));
 
 
                     $viewParam = [
@@ -458,7 +466,8 @@ class PageSimulatorController extends PersonalClass
                         "result" => $result,
                         "name" => $name,
                         "email" => $email,
-                        "phone" => $phone
+                        "phone" => $phone,
+                        'apport' => $apport
                     ];
 
                     $this->sendEmail($subject,$from,$to,$view,$viewParam);
@@ -476,7 +485,8 @@ class PageSimulatorController extends PersonalClass
                         'page' => '',
                         'h1' => $h1,
                         'title' => $metaTitle,
-                        'description' => $metaDescription
+                        'description' => $metaDescription,
+                        'apport' => $apport
                     ]);
 
 

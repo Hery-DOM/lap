@@ -17,11 +17,12 @@
     <p>Téléphone : {{ phone }}</p>
 
     <h2>Données du simulateur : </h2>
-    <p>A déjà été propriétaire dans les 2 ans {% if owner == true %}Oui{% else %}Non{% endif %}</p>
+    <p>A déjà été propriétaire dans les 2 ans {% if owner == 'true' %}Oui{% else %}Non{% endif %}</p>
     <p>Ville : {{ city }}</p>
     <p>Nombre dans le futur foyer : {{ family }}</p>
     <p>Coût de l'opération : {{ operation }} €</p>
     <p>Revenu fiscal de référence N-2 : {{ revenue }} €</p>
+    <p>Apport personnel : {{ apport }} €</p>
     <p>Résultat de la simulation PTZ : {% if result != 'Non éligible' %}{{ result }} €
                                         {% else %}{{ result }}{% endif %}</p>
 
