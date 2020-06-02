@@ -1072,11 +1072,19 @@ input:checked + .slider:before {
 /*************************************************************************
 *********************************  MODAL  ********************************
 **************************************************************************/
+.search-modal-container {
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 30%;
+  float: right;
+  height: 100%; }
+
 .search-modal {
-  position: fixed;
+  position: sticky;
   top: 15%;
-  right: 5%;
-  width: 25%;
+  left: 70%;
+  width: 85%;
   background-color: white;
   padding: 10px;
   border: 1px solid #4489C8;
@@ -1313,7 +1321,7 @@ input:checked + .slider:before {
     overflow: hidden; }
   .program-top .owl-nav {
     position: absolute;
-    top: 30%;
+    top: 45%;
     width: 100%;
     display: flex;
     justify-content: space-between; }
