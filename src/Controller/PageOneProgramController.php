@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Repository\ProgramPictureRepository;
 use App\Repository\ProgramRepository;
 use App\Repository\SearchBrochureRepository;
 use Symfony\Component\Routing\Annotation\Route;
@@ -275,6 +276,41 @@ class PageOneProgramController extends PersonalClass
             'description' => $metaDescription
         ]);
 
+    }
+
+
+    /**
+     * @Route("/programme-photo/{id}", name="program_picture")
+     * It's for a load page
+     * $id is picture's ID
+     */
+    public function loadProgramPicture($id, ProgramPictureRepository $repository)
+    {
+        // secure $id
+        $id = $this->secureInput($id);
+
+        $picture = $repository->find($id);
+
+        return $this->render('load/program_picture.html.twig',[
+            'picture' => $picture
+        ]);
+    }
+
+    /**
+     * @Route("/programme-video/{id}", name="program_movie")
+     * It's for a load page
+     * $id is program's ID
+     */
+    public function loadProgramMovie($id, ProgramRepository $repository)
+    {
+        // secure $id
+        $id = $this->secureInput($id);
+
+        $program = $repository->find($id);
+
+        return $this->render('load/program_movie.html.twig',[
+            'program' => $program
+        ]);
     }
 
 }

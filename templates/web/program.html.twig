@@ -30,6 +30,13 @@
     </aside>#}
 
     {# ##################################################################
+      #########################  PICTURE MODAL ##########################
+      ################################################################### #}
+    <div class="program-picture-modal">
+
+    </div>
+
+    {# ##################################################################
       #########################  MODAL ###############################
       ################################################################### #}
 
@@ -129,24 +136,25 @@
 
 
         <div class="owl-carousel owl-theme">
-            {% for picture in program.programPicture %}
-            <div class="item">
+            {% for key, picture in program.programPicture %}
+            <div class="item" id="item-{{ key }}" data-url="{{ path('program_picture',{'id':picture.id}) }}">
                 <div class="img-box">
                     <img src="{{ asset('assets/img/programs/') }}{{ picture.picture }}" alt="{{ program.name }}">
                 </div>
             </div>
             {% endfor %}
-            {% if program.movie %}
-                <div class="item">
-                    <div class="movie-box">
-                        {{ program.movie|raw }}
-                    </div>
-                </div>
-            {% endif %}
-
         </div>
+        {% if program.movie %}
+            <button class='program-movie-button' onclick="showMovie('{{ path('program_movie',{'id':program.id}) }}')">
+                <img src='{{ asset('assets/img/static/icone-video.png')}}' alt="vidéo">
+            </button>
+        {% endif %}
 
     </section>
+
+
+
+
 
     {# ##################################################################
       #########################  MAIN CRITERIA ############################
@@ -259,6 +267,12 @@
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
     <script>
+
+
+
+
+
+
         // carousel
         $(document).ready(function(){
             $('.owl-carousel').owlCarousel({
@@ -274,6 +288,45 @@
                 items: 1
             })
         })
+
+
+
+        // update button from dots
+        $(document).ready(function(){
+            var dots = $('button.owl-dot')
+            for(var i=0; i<dots.length; i++){
+                var url = $('#item-'+i).data('url')
+                dots.eq(i).attr('onclick','showPicture("'+url+'")')
+            }
+        })
+
+
+        // to see a modal with picture
+        function showPicture(url){
+            $('.program-picture-modal').css('display','flex')
+            $('.program-picture-modal').html('<img style="margin: 0 auto;" width="50" height="50" ' +
+                'class="loadingUser"' +
+                ' src="https://media.giphy.com/media/L05HgB2h6qICDs5Sms/giphy.gif">')
+            $('.program-picture-modal').load(url)
+        }
+
+        // to see a modal with movie
+        function showMovie(url){
+            $('.program-picture-modal').css('display','flex')
+            $('.program-picture-modal').html('<img style="margin: 0 auto;" width="50" height="50" ' +
+                'class="loadingUser"' +
+                ' src="https://media.giphy.com/media/L05HgB2h6qICDs5Sms/giphy.gif">')
+            $('.program-picture-modal').load(url)
+        }
+
+
+
+        // to close modal
+        function loadProgramClose(){
+            $('.program-picture-modal').css('display','none')
+        }
+
+
 
         // map
         $(document).ready(function(){

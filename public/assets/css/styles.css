@@ -1335,7 +1335,8 @@ input:checked + .slider:before {
   .program-top .owl-dots {
     position: absolute;
     top: 90%;
-    left: 45%; }
+    left: 45%;
+    transform: translateX(-100%); }
     .program-top .owl-dots .owl-dot span {
       width: 15px;
       height: 15px;
@@ -1344,9 +1345,9 @@ input:checked + .slider:before {
   .program-top .movie-box {
     width: 100%;
     height: 90vh; }
-    .program-top .movie-box iframe {
+    .program-top .movie-box img {
       width: 100%;
-      height: 100%; }
+      height: auto; }
 
 .program-top .owl-stage .img-box {
   height: 90vh;
@@ -1383,6 +1384,62 @@ input:checked + .slider:before {
 
 .program-top .program-form-btn {
   display: none; }
+
+.program-movie-button {
+  position: absolute;
+  top: 90%;
+  left: 45%;
+  z-index: 99;
+  width: 50px;
+  height: 30px;
+  overflow: hidden; }
+  .program-movie-button img {
+    width: 100%;
+    height: auto; }
+
+/********************** SECTION PICTURE MODAL ***********************/
+.program-picture-modal {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 999999999; }
+
+.load-program-picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .load-program-picture-container .img-box {
+    width: 60%;
+    margin: 20px auto; }
+    .load-program-picture-container .img-box img {
+      width: 100%;
+      height: auto; }
+
+.load-program-picture-close {
+  position: absolute;
+  top: 5%;
+  right: 15%;
+  background-color: #002849;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font-size: 1.1em;
+  border: 1px solid #002849;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif; }
+
+.load-program-picture-close:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #002849; }
 
 /********************** SECTION MAIN CRITERIA ***********************/
 .program-main-criteria {
