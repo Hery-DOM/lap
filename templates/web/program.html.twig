@@ -51,37 +51,44 @@
                 <div class="greyLine"></div>
             </div>
 
-            <a href="{{ asset('assets/img/brochure/') }}{{ brochure.file }}" download>
+
                 <div class="search-modal-upload">
                     <div class="img-box">
                         <img src="{{ asset('assets/img/static/book.png') }}" alt="icone livre">
                     </div>
                     <p>Recevoir la brochure</p>
                 </div>
-            </a>
+            {#{% if searchModalFormSend %}
+                <a href="{{ asset('assets/img/brochure/') }}{{ brochure.file }}" download id="brochure">ee</a>
+            {% endif %}#}
 
-            <div class="search-modal-dividerGrey"></div>
 
             <div class="search-modal-form">
-                <form action="#" method="POST">
+                <form action="#" target="_blank" method="POST">
                     <div class="search-modal-radio-row">
                         <div class="search-modal-form-radio">
                             <label for="mister">Monsieur</label>
-                            <input type="radio" id="mister" name="gender" value="monsieur">
+                            <input type="radio" id="mister" name="gender" value="monsieur" required>
                         </div>
                         <div class="search-modal-form-radio">
                             <label for="miss">Madame</label>
-                            <input type="radio" id="miss" name="gender" value="madame">
+                            <input type="radio" id="miss" name="gender" value="madame" required>
                         </div>
                     </div>
                     <label for="name">Nom</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required>
                     <label for="phone">Téléphone</label>
-                    <input type="text" id="phone" name="phone">
+                    <input type="text" id="phone" name="phone" required>
+                    <div class="search-modal-form-check">
+                        <input type="checkbox" id="check" required>
+                        <label for="check">Recevoir des biens similaires de Locataire A Proprietaire par mail</label>
+                    </div>
+
                     <div class="btn">
-                        <input type="submit" name="search-modal" value="Envoyer" id="search-modal-submit">
+                        <input type="submit" name="search-modal" value="Recevoir la brochure"
+                               id="search-modal-submit">
                     </div>
                 </form>
             </div>
@@ -161,10 +168,11 @@
       ################################################################### #}
 
     <section class="program-main-criteria">
+        <h2 class="program-main-criteria-h2">LES + du programme</h2>
         <div class="program-main-criteria-container">
             {% for key, elm in program.mainCriteria %}
                 <div class="program-elm-box">
-                    <h2>{{ elm.name }}</h2>
+                    <h3>{{ elm.name }}</h3>
                     <div class="verticalDivider"></div>
                 </div>
             {% endfor %}
@@ -267,11 +275,6 @@
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
     <script>
-
-
-
-
-
 
         // carousel
         $(document).ready(function(){

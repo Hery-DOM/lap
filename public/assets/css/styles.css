@@ -1136,9 +1136,6 @@ input:checked + .slider:before {
     color: white;
     font-size: 0.7em; }
 
-.search-modal-upload:hover {
-  background-color: #4489C8; }
-
 .search-modal-dividerGrey {
   height: 2px;
   width: 40%;
@@ -1168,13 +1165,21 @@ input:checked + .slider:before {
       color: white;
       text-transform: uppercase;
       padding: 5px 10px;
-      width: 70%;
       border-radius: 30px;
-      font-size: 1em;
       margin: 0 auto; }
     .search-modal-form .btn input[type='submit']:hover {
       background-color: #FBB03B;
       cursor: pointer; }
+
+.search-modal-form-check {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; }
+  .search-modal-form-check input {
+    width: 20%;
+    height: auto; }
+  .search-modal-form-check label {
+    font-size: 0.9em; }
 
 .search-modal-radio-row {
   display: flex;
@@ -1444,6 +1449,12 @@ input:checked + .slider:before {
 /********************** SECTION MAIN CRITERIA ***********************/
 .program-main-criteria {
   background-color: #002849; }
+
+.program-main-criteria-h2 {
+  color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 1em; }
 
 .program-main-criteria-container {
   height: 15vh;

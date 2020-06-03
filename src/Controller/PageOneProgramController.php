@@ -7,6 +7,9 @@ namespace App\Controller;
 use App\Repository\ProgramPictureRepository;
 use App\Repository\ProgramRepository;
 use App\Repository\SearchBrochureRepository;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageOneProgramController extends PersonalClass
@@ -26,6 +29,8 @@ class PageOneProgramController extends PersonalClass
         return $string;
 
     }
+
+
     /**
      * @Route("/programme/{id}/{slug}", name="program")
      * $id is program's ID
@@ -60,10 +65,19 @@ class PageOneProgramController extends PersonalClass
             $message = $this->sendEmail($subject, $this->noreplyEmail(), $this->emailAdmin(),
                 $view,$viewParam);
             $this->addFlash('info', 'Merci, vous serez recontacté prochainement');
+
+            // to send the PDF
+            $path = dirname(__DIR__,2).'/public/assets/img/brochure/';
+            $file = $path.$brochure->getFile();
+
+            $response = new BinaryFileResponse($file);
+
+            return $response;
+            /*$this->downloadFile($brochure->getFile());
             return $this->redirectToRoute('program',[
                 'slug' => $slug,
                 'id' => $id
-            ]);
+            ]);*/
         }
 
         // initialize $form
