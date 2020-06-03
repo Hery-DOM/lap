@@ -32,6 +32,8 @@ easy_admin:
         - {entity: 'Legal', label: "Mentions légales"}
         - {entity: 'Confidentiality', label: "Politique de confidentialité" }
         - {entity: 'Team', label: "Rejoignez-nous"}
+        - {entity: 'Lexique', label: "Lexique"}
+        - {entity: 'Faq', label: "FAQ"}
       - label: "GESTION DES ENTITÉS"
       - {entity: 'User', default: true}
       - label: 'Les programmes'

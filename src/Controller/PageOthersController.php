@@ -6,7 +6,9 @@ namespace App\Controller;
 
 use App\Repository\BlogCategoryRepository;
 use App\Repository\ConfidentialityRepository;
+use App\Repository\FaqRepository;
 use App\Repository\LegalRepository;
+use App\Repository\LexiqueRepository;
 use App\Repository\OwnerCategoryRepository;
 use App\Repository\TeamRepository;
 use Symfony\Component\Routing\Annotation\Route;
@@ -89,6 +91,44 @@ class PageOthersController extends PersonalClass
         return $this->render('web/team.html.twig',[
             'text' => $text,
             'page' => ''
+        ]);
+    }
+
+    /**
+     * @Route("/lexique", name="lexique")
+     */
+    public function lexique(LexiqueRepository $repository)
+    {
+        // get texts
+        $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $title = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $description = $repository->findOneBy(['name' => 'Meta description'])->getText();
+        $text = $repository->findOneBy(['name' => 'Contenu'])->getText();
+
+        return $this->render('web/lexique.html.twig',[
+            'h1' => $h1,
+            'title' => $title,
+            'description' => $description,
+            'text' => $text
+        ]);
+    }
+
+    /**
+     * @Route("/faq", name="faq")
+     */
+    public function faq(FaqRepository $repository)
+    {
+        // get texts
+        $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $title = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $description = $repository->findOneBy(['name' => 'Meta description'])->getText();
+        $text = $repository->findOneBy(['name' => 'Contenu'])->getText();
+
+        return $this->render('web/faq.html.twig',[
+            'h1' => $h1,
+            'title' => $title,
+            'description' => $description,
+            'text' => $text
         ]);
     }
 

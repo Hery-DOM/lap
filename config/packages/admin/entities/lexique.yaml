@@ -1,0 +1,15 @@
+easy_admin:
+  entities:
+    Lexique:
+      label: "Lexique"
+      disabled_actions: ['new', 'delete' ]
+      class: App\Entity\Lexique
+      edit:
+        title: "Modification du texte"
+        fields:
+          - { property: 'text', type: 'fos_ckeditor', label: 'Texte' }
+      list:
+        sort: ['listorder','ASC']
+        fields:
+          - {property: 'listorder', label: 'Ordre'}
+          - {property: 'name', label: 'Nom'}
