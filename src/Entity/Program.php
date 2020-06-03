@@ -141,6 +141,11 @@ class Program
      */
     private $programCategory;
 
+    /**
+     * @ORM\Column(type="text",  nullable=true)
+     */
+    private $url;
+
     public function __construct()
     {
         $this->main_criteria = new ArrayCollection();
@@ -515,6 +520,18 @@ class Program
     public function setProgramCategory(?ProgramCategory $programCategory): self
     {
         $this->programCategory = $programCategory;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
 
         return $this;
     }

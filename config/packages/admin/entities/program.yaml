@@ -38,6 +38,11 @@ easy_admin:
           - {property: 'program_picture', label: 'Images associées'}
           - {property: 'filter', label: "Filtres pour la page d'accueil"}
           - {property: 'published', label: 'Publié ?'}
+          - {property: 'url', label: 'URL absolue vers blog' }
+          - {property: 'published', label: 'Publié ?' }
+          - {property: 'pagetitle', label: 'Titre de la page' }
+          - {property: 'metatitle', label: 'Meta title' }
+          - {property: 'metadescription', label: 'Meta description' }
       form:
         fields:
           - {property: 'programCategory', label: 'Programme associé'}
@@ -58,6 +63,7 @@ easy_admin:
           - {property: 'main_criteria', label: 'Points forts' }
           - {property: 'criteria', label: 'Critères' }
           - {property: 'filter', label: 'Filtres' }
+          - {property: 'url', label: 'URL absolue vers blog' }
           - {property: 'published', label: 'Publié ?' }
           - {property: 'pagetitle', label: 'Titre de la page' }
           - {property: 'metatitle', label: 'Meta title' }

@@ -16,43 +16,54 @@
       #########################  MODAL ###############################
       ################################################################### #}
 
-    <div class="search-modal program-modal">
-        <div class="program-modal-close" onclick="showToggle('.program-modal')">Fermer</div>
-        <p class="search-modal-title">Vous êtes intéressé ?</p>
-        <p class="search-modal-text">Appelez <span class="search-modal-number">07 77 84 91 94</span></p>
+    <div class="search-modal-container">
+        <div class="search-modal">
+            <p class="search-modal-title">Vous êtes intéressé ?</p>
+            <p class="search-modal-text">Appelez <span class="search-modal-number">07 77 84 91 94</span></p>
 
-        <div class="search-modal-or">
-            <div class="greyLine"></div>
-            <p>Ou</p>
-            <div class="greyLine"></div>
-        </div>
-
-        <a href="{{ asset('assets/img/brochure/') }}{{ brochure.file }}" download>
-            <div class="search-modal-upload">
-                <div class="img-box">
-                    <img src="{{ asset('assets/img/static/book.png') }}" alt="icone livre">
-                </div>
-                <p>Recevoir la brochure</p>
+            <div class="search-modal-or">
+                <div class="greyLine"></div>
+                <p>Ou</p>
+                <div class="greyLine"></div>
             </div>
-        </a>
 
-        <div class="search-modal-dividerGrey"></div>
-
-        <div class="search-modal-form">
-            <form action="#" method="POST">
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
-                <label for="phone">Téléphone</label>
-                <input type="text" id="phone" name="phone">
-                <div class="btn">
-                    <input type="submit" name="search-modal" value="Envoyer" id="search-modal-submit">
+            <a href="{{ asset('assets/img/brochure/') }}{{ brochure.file }}" download>
+                <div class="search-modal-upload">
+                    <div class="img-box">
+                        <img src="{{ asset('assets/img/static/book.png') }}" alt="icone livre">
+                    </div>
+                    <p>Recevoir la brochure</p>
                 </div>
-            </form>
+            </a>
+
+            <div class="search-modal-dividerGrey"></div>
+
+            <div class="search-modal-form">
+                <form action="#" method="POST">
+                    <div class="search-modal-radio-row">
+                        <div class="search-modal-form-radio">
+                            <label for="mister">Monsieur</label>
+                            <input type="radio" id="mister" name="gender" value="monsieur">
+                        </div>
+                        <div class="search-modal-form-radio">
+                            <label for="miss">Madame</label>
+                            <input type="radio" id="miss" name="gender" value="madame">
+                        </div>
+                    </div>
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                    <label for="phone">Téléphone</label>
+                    <input type="text" id="phone" name="phone">
+                    <div class="btn">
+                        <input type="submit" name="search-modal" value="Envoyer" id="search-modal-submit">
+                    </div>
+                </form>
+            </div>
+
+
         </div>
-
-
     </div>
 
         {# ##################################################################
@@ -108,7 +119,7 @@
            ################################################################### #}
 
 
-        <section class="blog-top-add article-blog-top-add">
+        {#<section class="blog-top-add article-blog-top-add">
             <h2>Nos top 3 vidéos</h2>
             <div class="blog-top-add-row owl-carousel owl-theme">
                 {% for article in topVideos %}
@@ -125,7 +136,7 @@
 
                 {% endfor %}
             </div>
-        </section>
+        </section>#}
 
 
 

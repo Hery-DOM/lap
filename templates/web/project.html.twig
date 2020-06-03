@@ -28,11 +28,8 @@
                         <div class="project-block item">
                             <p class="step">Etape 1 / 4</p>
                             <div class="project-form-field">
-                                <p>Vous êtes : </p>
-                                <label for="locataire">Locataire</label>
-                                <input type="radio" id="locataire" name="situation" value="locataire">
-                                <label for="proprietaire">Propriétaire</label>
-                                <input type="radio" id="proprietaire" name="situation" value="proprietaire">
+                                <label for="ville">Dans quelle ville recherchez-vous ?</label>
+                                <input type="text" name="ville" id="ville">
                             </div>
 
                             <div class="project-form-field">
@@ -115,8 +112,11 @@
                             <p class="step">Etape 3 / 4</p>
 
                             <div class="project-form-field">
-                                <label for="ville">Dans quelle ville recherchez-vous ?</label>
-                                <input type="text" name="ville" id="ville">
+                                <p>Vous êtes : </p>
+                                <label for="locataire">Locataire</label>
+                                <input type="radio" id="locataire" name="situation" value="locataire">
+                                <label for="proprietaire">Propriétaire</label>
+                                <input type="radio" id="proprietaire" name="situation" value="proprietaire">
                             </div>
 
                             <div class="project-form-field">
@@ -125,8 +125,9 @@
                             </div>
 
                             <div class="project-form-field">
-                                <label for="autres">D'autres choses que l'on devrait absolument savoir ?</label>
-                                <textarea name="autres" id="autres" cols="50" rows="10"></textarea>
+                                <label for="autres">D'autres choses que l'on devrait absolument savoir ? <br>(ex :
+                                    si vous achetez à deux, la situation professionnelle de la 2ème personne)</label>
+                                <textarea name="autres" id="autres" cols="50" rows="5"></textarea>
                             </div>
 
 

@@ -1,5 +1,10 @@
 @media screen and(max-width: 1300px) {
 
+  .search-modal-container{
+    width: 100%;
+    left: 0;
+  }
+
   .search-modal{
     display: none;
   }

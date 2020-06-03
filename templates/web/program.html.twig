@@ -41,7 +41,8 @@
       ################################################################### #}
 
     <div class="search-modal-container">
-        <div class="search-modal">
+        <div class="search-modal program-modal">
+            <div class="program-modal-close" onclick="showToggle('.program-modal')">Fermer</div>
             <p class="search-modal-title">Vous êtes intéressé ?</p>
             <p class="search-modal-text">Appelez <span class="search-modal-number">07 77 84 91 94</span></p>
 
@@ -193,7 +194,7 @@
                 <div class="program-view-text">
                     <p>{{ program.numberRooms }} pièces</p>
                     <p>{{ program.surface }} m2</p>
-                    <p class="program-price">{{ program.price }} €</p>
+                    <p class="program-price">A partir de {{ program.price }} €</p>
                 </div>
                 <div class="program-view-plan">
                     <a href="{{ asset('assets/img/programs/') }}{{ program.plan }}" download="{{ program.plan }}">
@@ -207,7 +208,7 @@
 
         <a href="#" class="program-description-text">
             <div class="program-description-text-btn">
-                <p>+ d'informations sur le programme</p>
+                <a  href="{{ program.url }}">+ d'informations sur le programme</a>
             </div>
 
             <div class="program-description-text-container">
@@ -246,7 +247,7 @@
                             </div>
                             <h3>{{ lastProgram.name }}</h3>
                             <p>{{ lastProgram.city }}</p>
-                            <p class="price">{{ lastProgram.price }} €</p>
+                            <p class="price">A partir de {{ lastProgram.price }} €</p>
                         </a>
                     </div>
                 {% endif %}

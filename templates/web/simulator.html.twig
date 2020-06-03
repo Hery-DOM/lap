@@ -18,7 +18,7 @@
                 <div class="form-field">
                     <label for="owner">Avez-vous été propriétaire durant ces deux dernières années ?</label>
                     <select name="owner" id="owner">
-                        <option value="true">Oui</option>
+                        <option value="true" id="yes">Oui</option>
                         <option value="false" selected>Non</option>
                     </select>
                 </div>
@@ -59,4 +59,18 @@
         </div>
     </div>
 
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $('#owner').change(function(){
+                if($('#yes').is(':selected')){
+                    alert('Attention, vous risquez de ne pas être éligible au PTZ')
+                }
+            })
+
+        })
+    </script>
 {% endblock %}

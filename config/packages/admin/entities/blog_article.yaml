@@ -1,14 +1,14 @@
 easy_admin:
   entities:
     BlogArticle:
-      label: "Articles du blog"
+      label: "Partenaires"
       class: App\Entity\BlogArticle
       list:
-        title: 'Liste des articles'
+        title: 'Liste des partenaires'
         actions:
           - {name: 'edit', label: 'Editer'}
-          - {name: 'new', label: 'Écrire un article'}
-          - {name: 'delete', label: 'Supprimer un article'}
+          - {name: 'new', label: 'Ajouter un partenaire'}
+          - {name: 'delete', label: 'Supprimer'}
         fields:
           - {property: 'title', label: 'titre'}
           - {property: 'picture', label: 'image', type: 'image', base_path: '%upload_path_blog%'}
@@ -16,17 +16,17 @@ easy_admin:
           - {property: 'blog_category', label: 'Catégorie'}
           - {property: 'blog_tag', label: 'Tag'}
       edit:
-        title: "Modification d'un article"
+        title: "Modification"
 
       form:
         fields:
           - {property: 'title', label: 'Titre'}
-          - {property: 'introduction', label: 'Introduction'}
+#          - {property: 'introduction', label: 'Introduction'}
           - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
           - {property: 'published', label: 'Publié ?'}
-          - {property: 'date', label: 'Date', type: 'date', type_options:{'widget':'single_text'} }
+#          - {property: 'date', label: 'Date', type: 'date', type_options:{'widget':'single_text'} }
           - {property: 'pictureFile', label: 'Image', type: 'vich_image' }
           - {property: 'pictureAlt', label: "Texte alternatif de l'image" }
           - {property: 'movie', label: "Iframe de la vidéo" }
           - {property: 'blog_category', label: "Catégorie" }
-          - {property: 'blog_tag', label: "Tag" }
+#          - {property: 'blog_tag', label: "Tag" }

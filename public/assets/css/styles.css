@@ -2420,14 +2420,14 @@ input:checked + .slider:before {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 20vh;
+    height: 12vh;
     z-index: 9999;
     display: flex;
     flex-direction: column;
     justify-content: flex-end; }
 
   .header-responsive-menu-container {
-    height: 50%;
+    height: 76%;
     width: 100%;
     background-color: #4489C8;
     display: flex;
@@ -2535,12 +2535,15 @@ input:checked + .slider:before {
     width: 85%;
     justify-content: space-between; }
     .homepage-pastille-box .homepage-pastille {
-      width: 50px;
-      height: 50px; }
-      .homepage-pastille-box .homepage-pastille p {
-        font-size: 0.7em; }
-      .homepage-pastille-box .homepage-pastille .big {
-        font-size: 0.5em; }
+      display: none;
+      /*width: 50px;
+      height: 50px;
+      p{
+        font-size: 0.7em;
+      }
+      .big{
+        font-size: 0.5em;
+      }*/ }
 
   /*************************************************************************
   *********************************  BENEFITS  *****************************
@@ -2827,6 +2830,10 @@ input:checked + .slider:before {
       display: none
     }*/ }
 @media screen and (max-width: 1300px) {
+  .search-modal-container {
+    width: 100%;
+    left: 0; }
+
   .search-modal {
     display: none; }
 
@@ -2933,6 +2940,12 @@ input:checked + .slider:before {
     font-size: 0.9em;
     text-transform: uppercase;
     font-family: "Gilroy", sans-serif; }
+
+  .program-movie-button {
+    top: 80%; }
+
+  .load-program-picture-container .img-box {
+    width: 100%; }
 
   /********************** SECTION MAIN CRITERIA ***********************/
   .program-main-criteria-container {
@@ -3219,7 +3232,11 @@ input:checked + .slider:before {
     display: block; }
 
   .project-container h1 {
-    padding-top: 10vh; }
+    padding: 10vh 0 0 0;
+    text-align: center; }
+
+  .project-box {
+    padding: 0; }
 
   /**************** AFTER *******************/
   .project-after-container {

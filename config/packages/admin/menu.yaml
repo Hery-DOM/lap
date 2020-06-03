@@ -42,11 +42,11 @@ easy_admin:
           - {entity: 'Criteria'}
           - {entity: 'Filter'}
           - {entity: 'ProgramPicture', label: 'Images des biens'}
-      - label: 'Blog'
+      - label: 'Partenaires'
         children:
           - {entity: 'BlogText', label: 'Gestion de la page'}
           - {entity: 'BlogCategory', label: 'Catégories'}
-          - {entity: 'BlogArticle', label: 'Articles'}
+          - {entity: 'BlogArticle', label: 'Partenaire'}
       - {entity: 'Testimony'}
 #      - {entity: 'Brochure'}
 
