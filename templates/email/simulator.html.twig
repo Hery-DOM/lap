@@ -12,12 +12,13 @@
     <h1>Simulateur PTZ</h1>
 
     <h2>Prospect : </h2>
+    <p>Genre : {{ gender }}</p>
     <p>Nom et prénom : {{ name }}</p>
     <p>Email : {{ email }}</p>
     <p>Téléphone : {{ phone }}</p>
 
     <h2>Données du simulateur : </h2>
-    <p>A déjà été propriétaire dans les 2 ans {% if owner == 'true' %}Oui{% else %}Non{% endif %}</p>
+    <p>A déjà été propriétaire dans les 2 ans ? {% if owner == 'true' %}Oui{% else %}Non{% endif %}</p>
     <p>Ville : {{ city }}</p>
     <p>Nombre dans le futur foyer : {{ family }}</p>
     <p>Coût de l'opération : {{ operation }} €</p>

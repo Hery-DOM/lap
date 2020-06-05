@@ -1,0 +1,62 @@
+{% extends 'web/_base.html.twig' %}
+
+{% block title %}{{ title|striptags|raw }}{% endblock %}
+{% block description %}{{ description|striptags|raw }}{% endblock %}
+
+{% block main %}
+    simulator-main
+{% endblock %}
+
+{% block content %}
+
+    <div class="simulator-container">
+
+        <div class="simulator-form-container">
+
+            <h1>{{ h1|striptags|raw|nl2br }}</h1>
+
+            {% for message in app.flashes('info-simulator') %}
+                <p class="alert-flash">{{ message }}</p>
+            {% endfor %}
+
+            <p class="simulator-text">Afin d'avoir des informations supplémentaires concernant vos résultats, merci
+                de remplir le formulaire suivant pour être recontacté</p>
+            <form action="#" method="POST">
+                <div class="form-field form-field-radio-container">
+                    <div class="form-field-radio">
+                        <label for="miss">Madame</label>
+                        <input type="radio" value="madame" name="gender" id="miss">
+                    </div>
+                    <div class="form-field-radio">
+                        <label for="mister">Monsieur</label>
+                        <input type="radio" value="monsieur" name="gender" id="mister">
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="name">Votre nom et votre prénom *</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Votre email *</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="phone">Votre numéro de téléphone *</label>
+                    <input type="text" name="phone" id="phone" required>
+                </div>
+
+                <div class="form-submit">
+                    <input type="submit" value="Valider">
+                </div>
+            </form>
+            <p class="simulator-indication">* champs obligatoires</p>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}

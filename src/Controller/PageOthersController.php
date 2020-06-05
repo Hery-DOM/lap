@@ -10,6 +10,7 @@ use App\Repository\FaqRepository;
 use App\Repository\LegalRepository;
 use App\Repository\LexiqueRepository;
 use App\Repository\OwnerCategoryRepository;
+use App\Repository\SponsorRepository;
 use App\Repository\TeamRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -125,6 +126,25 @@ class PageOthersController extends PersonalClass
         $text = $repository->findOneBy(['name' => 'Contenu'])->getText();
 
         return $this->render('web/faq.html.twig',[
+            'h1' => $h1,
+            'title' => $title,
+            'description' => $description,
+            'text' => $text
+        ]);
+    }
+
+    /**
+     * @Route("/parrainage", name="sponsor")
+     */
+    public function sponsor(SponsorRepository $repository)
+    {
+        // get texts
+        $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $title = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $description = $repository->findOneBy(['name' => 'Meta description'])->getText();
+        $text = $repository->findOneBy(['name' => 'Contenu'])->getText();
+
+        return $this->render('web/sponsor.html.twig',[
             'h1' => $h1,
             'title' => $title,
             'description' => $description,

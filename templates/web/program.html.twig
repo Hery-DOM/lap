@@ -106,7 +106,7 @@
         {% for message in app.flashes('info') %}
             <p>{{ message }}</p>
         {% endfor %}
-        <div class="program-back">
+        <div class="program-back-box">
             <form action="{{ path('search',{'slug':slug|raw}) }}" method="POST">
                 <input type="hidden" name="city" value="{{ form['city'] }}">
                 <input type="hidden" name="typo" value="{{ form['typo'] }}">
@@ -128,7 +128,7 @@
                     <input type="hidden" name="{{ others }}" value="{{ others }}">
                 {% endfor %}
                 <button type="submit" class="program-back">
-                        <img src="{{ asset('assets/img/static/arrow.png') }}" alt="icone arrow">
+                        <img src="{{ asset('assets/img/static/arrow-left-white.png') }}" alt="icone arrow">
                     <span>Retour à la recherche</span> </button>
             </form>
         </div>

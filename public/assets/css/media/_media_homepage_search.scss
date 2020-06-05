@@ -16,9 +16,6 @@
       .homepage-search-block{
         width: 100%;
         border: none;
-        .img-box{
-          display: none;
-        }
         input[type="text"]{
           padding: 10px;
           width: 100%;
@@ -58,12 +55,12 @@
 
   .homepage-search-price-responsive{
     display: flex!important;
-    justify-content: flex-start;
+    margin-top: 20px;
+    /*justify-content: flex-start;
     align-items: center;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 20px;*/
     input{
-      width: 30%!important;
       margin: 0!important;
     }
     .img-box-responsive{
@@ -74,7 +71,7 @@
       }
     }
     input[type="submit"]{
-      width: 10%;
+      width: 100%;
       color: white;
       text-transform: uppercase;
       background-color: $yellow;

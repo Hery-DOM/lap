@@ -14,8 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageBlogController extends PersonalClass
 {
     /**
-     * @Route("/blog/{cat}/{id}", name="blog_param")
-     * @Route("/blog", name="blog")
+     * @Route("/partenaires/{cat}/{id}", name="blog_param")
+     * @Route("/partenaires", name="blog")
      *
      * $cat is a parameter to know the category's name
      * $id is category's ID
@@ -101,7 +101,7 @@ class PageBlogController extends PersonalClass
     }
 
     /**
-     * @Route("/blog/{cat}/{idCat}/{art}/{id}", name="blog_article")
+     * @Route("/partenaires/{cat}/{idCat}/{art}/{id}", name="blog_article")
      * $cat and $idCat are the category's name and ID
      * $art and $id are the article's name and ID
      */

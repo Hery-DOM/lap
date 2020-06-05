@@ -54,10 +54,10 @@ class ProgramRepository extends ServiceEntityRepository
             $search->andwhere('p.typologie = :typo')
                 ->setParameter('typo', $typo);
         }
-        if(!empty($priceMin)){
-            $search->andwhere('p.price >= :priceMin')
-                    ->setParameter('priceMin', $priceMin);
-        }
+//        if(!empty($priceMin)){
+//            $search->andwhere('p.price >= :priceMin')
+//                    ->setParameter('priceMin', $priceMin);
+//        }
         if(!empty($priceMax)){
             $search->andwhere('p.price <= :priceMax')
                     ->setParameter('priceMax', $priceMax);

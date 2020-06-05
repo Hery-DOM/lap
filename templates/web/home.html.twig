@@ -78,16 +78,13 @@
                     <div class="homepage-search-block">
                         <input type="text" name="city" placeholder="Lieu" id="city" data-path="{{ path('ajax') }}">
                         <div id="resultAutocompletion"></div>
-                        <div id="result">
-                            <ul>
+                        {#<div id="result">
+                            #}{#<ul>
                                 {% for city in cities %}
                                     <li onclick="choice('{{ city }}','#city','#result')">{{ city }}</li>
                                 {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="img-box" onclick="slideDown('#result')">
-                            <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
-                        </div>
+                            </ul>#}{#
+                        </div>#}
                     </div>
 
                     <div class="homepage-search-block">
@@ -104,26 +101,33 @@
                         </div>
                     </div>
 
-                    <div class="homepage-search-block homepage-search-price">
+                    {#<div class="homepage-search-block homepage-search-price">
                         <input type="text" name="priceMin" placeholder="Budget min">
-                    </div>
+                    </div>#}
 
                     <div class="homepage-search-block homepage-search-price">
                         <input type="text" name="priceMax" placeholder="Budget max">
                     </div>
 
                     <div class="homepage-search-block homepage-search-price-responsive ">
-                        <input type="text" name="priceMin" placeholder="Budget min">
+                        {#<input type="text" name="priceMin" placeholder="Budget min">#}
                         <input type="text" name="priceMax" placeholder="Budget max">
+
+                    </div>
+                    <div class="homepage-search-block homepage-search-price-responsive">
+                        <input type="text" readonly="readonly" value="Recherche avancée">
                         <div onclick="slideDown('.homepage-search-others-container')" class="img-box-responsive">
                             <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
                         </div>
+                    </div>
+                    <div class="homepage-search-block homepage-search-price-responsive">
                         <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+
                     </div>
 
                     <div class="homepage-search-block homepage-search-block-last"
                          onclick="slideDown('.homepage-search-others-container')">
-                        <input type="text" value="Autres prestations" readonly>
+                        <input type="text" value="Recherche avancée" readonly>
                         <div class="img-box">
                             <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
                         </div>
@@ -145,13 +149,13 @@
                                 <input type="number" name="surfaceMax" placeholder="max m2">
                             </div>
 
-                            <div class="homepage-search-others-box homepage-search-others-flex">
+                            {#<div class="homepage-search-others-box homepage-search-others-flex">
                                 <label>Accessible handicapé</label>
                                 <label class="switch homepage-search-others-switch">
                                     <input type="checkbox" name="handicap">
                                     <span class="slider round"></span>
                                 </label>
-                            </div>
+                            </div>#}
 
                         </div>
 
@@ -280,7 +284,7 @@
                 </div>
                 <div class="homepage-preview-filter"
                      onclick="previewClick(this, '{{ path('preview_load',{'filter':'Quartier par quartier'}) }}')">
-                    <p>Quartier par quartier</p>
+                    <p>Coûts maîtrisés</p>
                 </div>
             </div>
 
@@ -672,9 +676,9 @@
                 items: 1,
                 nav: true,
                 navText:[
-                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-left.png')
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/arrow-left-blue.png')
                     }}'></div>",
-                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/chevron-right.png')
+                    "<div class='icon-chevron-left'><img src='{{ asset('assets/img/static/arrow-right-blue.png')
                     }}'></div>"
                 ],
             })

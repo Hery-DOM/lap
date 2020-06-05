@@ -16,46 +16,50 @@
             <h1>{{ h1|striptags|raw|nl2br }}</h1>
             <form action="#" method="POST">
                 <div class="form-field">
-                    <label for="owner">Avez-vous été propriétaire durant ces deux dernières années ?</label>
-                    <select name="owner" id="owner">
+                    <label for="owner">Avez-vous été propriétaire durant ces deux dernières années ? *</label>
+                    <select name="owner" id="owner" required>
                         <option value="true" id="yes">Oui</option>
                         <option value="false" selected>Non</option>
                     </select>
                 </div>
 
                 <div class="form-field">
-                    <label for="city">Dans quelle ville se situe votre futur logement ?</label>
-                    <input type="text" name="city" id="city">
+                    <label for="city">Dans quelle ville se situe votre futur logement ? *</label>
+                    <input type="text" name="city" id="city" required>
                 </div>
 
                 <div class="form-field">
-                    <label for="family">Combien serez-vous dans votre futur logement ?</label>
-                    <input type="number" min="0" name="family" id="family">
+                    <label for="family">Combien serez-vous dans votre futur logement ? *</label>
+                    <input type="number" min="0" name="family" id="family" required>
                 </div>
 
                 <div class="form-field">
-                    <label for="operation">Quel sera le coût des opérations ?</label>
-                    <input type="number" min="0" name="operation" id="operation">
+                    <label for="operation">Quel sera le coût des opérations ? *</label>
+                    <input type="number" min="0" name="operation" id="operation" required>
                 </div>
 
                 <div class="form-field">
-                    <label for="revenue">Quel est votre revenu fiscal de référence d'il y a deux ans ?</label>
-                    <input type="text" name="revenue" id="revenue">
+                    <label for="revenue">Quel est votre revenu fiscal de référence d'il y a deux ans ? *</label>
+                    <input type="text" name="revenue" id="revenue" required>
                 </div>
 
                 <div class="form-field">
-                    <label for="apport">Quel est votre apport personnel ?</label>
-                    <input type="text" name="apport" id="apport">
+                    <label for="apport">Quel est votre apport personnel ? *</label>
+                    <input type="text" name="apport" id="apport" required>
                 </div>
 
                 <div class="form-submit">
                     <input type="submit" value="Calculer">
                 </div>
             </form>
-            <p class="simulator-indication">*Ce simulateur est à titre indicateur et prend en compte
-            la simulation PTZ seulement dans le cas d'un achat dans le neuf. <br>
+            <p class="simulator-indication">* champs obligatoires </p>
+            <p class="simulator-indication">Ce simulateur est à titre indicateur et prend en
+            compte la simulation PTZ seulement dans le cas d'un achat dans le neuf. <br>
             Il est également possible de bénéficier du PTZ pour un achat dans l'ancien avec travaux ou
-            pour logement existant acquis auprès d'un organosme HLM.</p>
+            pour logement existant acquis auprès d'un organosme HLM.
+            Notez qu'aucune information ne sera commuiquée à une tierce personne ou un tiers service en dehors de
+                l'équipe de Locataire A Propriétaire.
+            </p>
         </div>
     </div>
 

@@ -30,8 +30,21 @@
   padding: 30px;
   margin: 30px auto 0;
 
+  .form-field-radio-container{
+    display: flex;
+    input[type="radio"]{
+      margin-left: 5px;
+    }
+  }
   .form-field{
     margin: 20px 0;
+    .form-field-radio{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 10px;
+    }
+
     input, select{
       display: block;
     }
@@ -72,8 +85,15 @@
 .simulator-text{
   text-align: center;
   color: $blue;
-  font-weight: 700;
   margin: 20px 0;
+  a{
+    color: $blue;
+    font-style: italic;
+    font-weight: 700;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
 }
 
 .simulator-result-text{
@@ -116,6 +136,7 @@
   color: $blue;
   font-style: italic;
   margin: 10px;
+  font-size: 0.8em;
 }
 
 

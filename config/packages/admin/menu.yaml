@@ -34,6 +34,7 @@ easy_admin:
         - {entity: 'Team', label: "Rejoignez-nous"}
         - {entity: 'Lexique', label: "Lexique"}
         - {entity: 'Faq', label: "FAQ"}
+        - {entity: 'Sponsor', label: "Parrainage"}
       - label: "GESTION DES ENTITÉS"
       - {entity: 'User', default: true}
       - label: 'Les programmes'

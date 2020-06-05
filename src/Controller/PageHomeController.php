@@ -181,7 +181,6 @@ class PageHomeController extends PersonalClass
 
     /**
      * @Route("/ajax", name="ajax")
-     * @IsGranted("ROLE_SUPER_ADMIN")
      * No view
      */
     public function ajax(ProgramRepository $programRepository)

@@ -131,10 +131,10 @@ class PageSearchController extends PersonalClass
                     $typo = $this->secureInput($_POST['typologie']);
                     $form['typo'] = $typo;
                 }
-                if(isset($_POST['priceMin'])){
+                /*if(isset($_POST['priceMin'])){
                     $priceMin = $this->secureInput($_POST['priceMin']);
                     $form['priceMin'] = $priceMin;
-                }
+                }*/
                 if(isset($_POST['priceMax'])){
                     $priceMax = $this->secureInput($_POST['priceMax']);
                     $form['priceMax'] = $priceMax;

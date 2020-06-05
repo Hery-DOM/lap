@@ -349,7 +349,6 @@ class PageSimulatorController extends PersonalClass
      */
     public function simulatorResult(Request $request, SimulatorPtzRepository $simulatorPtzRepository)
     {
-        $check = false;
 
         // get texts
         $text = $simulatorPtzRepository->findOneBy(['name'=>'Textes']);
@@ -357,92 +356,61 @@ class PageSimulatorController extends PersonalClass
         $metaTitle = $text->getMetatitle();
         $metaDescription = $text->getMetadescription();
 
+        $session = new Session();
 
-        // if there is already a session with name, email and phone
-        $sessionOld = new Session();
         // secure the inputs from session
-        $nameOld = $this->secureInput($sessionOld->get('name'));
-        $emailOld = $this->secureInput($sessionOld->get('email'));
-        $phoneOld = $this->secureInput($sessionOld->get('phone'));
-        if($nameOld && $emailOld && $phoneOld){
-            $check = true;
-            $session = new Session();
+        $owner = $this->secureInput($session->get('owner'));
+        $city = $this->secureInput($session->get('city'));
+        $family = $this->secureInput($session->get('family'));
+        $operation = $this->secureInput($session->get('operation'));
+        $revenue = $this->secureInput($session->get('revenue'));
+        $result = $this->secureInput($session->get('result'));
+        $apport = $this->secureInput($session->get('apport'));
 
-            // create a session for name, email and phone
-            $session->set('name',$nameOld);
-            $session->set('email',$emailOld);
-            $session->set('phone',$phoneOld);
-
-            // prepare mail to admin
-            $subject = "Simulateur PTZ";
-            $from = $this->noreplyEmail();
-            $to = $this->emailAdmin();
-            $view = "email/simulator.html.twig";
-
-            // secure the inputs from session
-            $owner = $this->secureInput($session->get('owner'));
-            $city = $this->secureInput($session->get('city'));
-            $family = $this->secureInput($session->get('family'));
-            $operation = $this->secureInput($session->get('operation'));
-            $revenue = $this->secureInput($session->get('revenue'));
-            $result = $this->secureInput($session->get('result'));
-            $apport = $this->secureInput($session->get('apport'));
+        return $this->render('web/simulator_result.html.twig',[
+            "owner" => $owner,
+            "city" => $city,
+            "family" => $family,
+            "operation" => $operation,
+            "revenue" => $revenue,
+            "result" => $result,
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription,
+            'apport' => $apport
+        ]);
 
 
-            $viewParam = [
-                "owner" => $owner,
-                "city" => $city,
-                "family" => $family,
-                "operation" => $operation,
-                "revenue" => $revenue,
-                "result" => $result,
-                "name" => $nameOld,
-                "email" => $emailOld,
-                "phone" => $phoneOld,
-                'apport' => $apport
-            ];
-
-            $this->sendEmail($subject,$from,$to,$view,$viewParam);
-            return $this->render('web/simulator_result.html.twig',[
-                'check' => $check,
-                "owner" => $owner,
-                "city" => $city,
-                "family" => $family,
-                "operation" => $operation,
-                "revenue" => $revenue,
-                "result" => $result,
-                "name" => $nameOld,
-                "email" => $emailOld,
-                "phone" => $phoneOld,
-                'page' => '',
-                'h1' => $h1,
-                'title' => $metaTitle,
-                'description' => $metaDescription,
-                'apport' => $apport
-            ]);
-        }
+    }
 
 
+    /**
+     * @Route("/simulateur-ptz-contact",name="simulator_contact")
+     */
+    public function simulatorContact(Request $request, SimulatorPtzRepository $simulatorPtzRepository)
+    {
+
+        // get texts
+        $text = $simulatorPtzRepository->findOneBy(['name'=>'Textes']);
+        $h1 = $text->getPagetitle();
+        $metaTitle = $text->getMetatitle();
+        $metaDescription = $text->getMetadescription();
 
         if($request->isMethod('POST')){
             if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone'])){
                 // secure inputs
+                $gender = $this->secureInput($_POST['gender']);
                 $name = $this->secureInput($_POST['name']);
                 $email = $this->secureInput($_POST['email']);
                 $phone = $this->secureInput($_POST['phone']);
 
                 if(!empty($name) && !empty($email) && !empty($phone)){
 
-                    $check = true;
                     $session = new Session();
 
-                    // create a session for name, email and phone
-                    $session->set('name',$name);
-                    $session->set('email',$email);
-                    $session->set('phone',$phone);
-
                     // prepare mail to admin
-                    $subject = "Simulateur PTZ";
+                    $subject = "Formulaire de contact via le Simulateur PTZ";
                     $from = $this->noreplyEmail();
                     $to = $this->emailAdmin();
                     $view = "email/simulator.html.twig";
@@ -467,26 +435,17 @@ class PageSimulatorController extends PersonalClass
                         "name" => $name,
                         "email" => $email,
                         "phone" => $phone,
-                        'apport' => $apport
+                        'apport' => $apport,
+                        'gender' => $gender
                     ];
 
                     $this->sendEmail($subject,$from,$to,$view,$viewParam);
-                    return $this->render('web/simulator_result.html.twig',[
-                        'check' => $check,
-                        "owner" => $owner,
-                        "city" => $city,
-                        "family" => $family,
-                        "operation" => $operation,
-                        "revenue" => $revenue,
-                        "result" => $result,
-                        "name" => $name,
-                        "email" => $email,
-                        "phone" => $phone,
+                    $this->addFlash('info-simulator','Merci, vous serez prochainement recontacté par un de nos conseillers');
+                    return $this->render('web/simulator_contact.html.twig',[
                         'page' => '',
                         'h1' => $h1,
                         'title' => $metaTitle,
-                        'description' => $metaDescription,
-                        'apport' => $apport
+                        'description' => $metaDescription
                     ]);
 
 
@@ -498,9 +457,7 @@ class PageSimulatorController extends PersonalClass
         }
 
 
-        return $this->render('web/simulator_result.html.twig',[
-            'check' => $check,
-            'page' => '',
+        return $this->render('web/simulator_contact.html.twig',[
             'h1' => $h1,
             'title' => $metaTitle,
             'description' => $metaDescription

@@ -101,13 +101,13 @@
                             <input type="text" value="{{ form['city'] }}" name="city" placeholder="Lieu" id="city"
                                    data-path="{{ path('ajax') }}">
                             <div id="resultAutocompletion"></div>
-                            <div id="result">
+                            {#<div id="result">
                                 <ul>
                                     {% for city in cities %}
                                         <li onclick="choice('{{ city }}','#city','#result')">{{ city }}</li>
                                     {% endfor %}
                                 </ul>
-                            </div>
+                            </div>#}
                             <div class="img-box" onclick="slideDown('#result')">
                                 <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
                             </div>
@@ -128,16 +128,16 @@
                             </div>
                         </div>
 
-                        <div class="homepage-search-block homepage-search-price">
+                        {#<div class="homepage-search-block homepage-search-price">
                             <input type="text" name="priceMin" placeholder="Budget min">
-                        </div>
+                        </div>#}
 
                         <div class="homepage-search-block homepage-search-price">
                             <input type="text" name="priceMax" placeholder="Budget max">
                         </div>
 
                         <div class="homepage-search-block homepage-search-price-responsive ">
-                            <input type="text" name="priceMin" placeholder="Budget min">
+                            {#<input type="text" name="priceMin" placeholder="Budget min">#}
                             <input type="text" name="priceMax" placeholder="Budget max">
                             <div onclick="slideDown('.homepage-search-others-container')" class="img-box-responsive">
                                 <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
@@ -147,7 +147,7 @@
 
                         <div class="homepage-search-block homepage-search-block-last"
                              onclick="slideDown('.homepage-search-others-container')">
-                            <input type="text" value="Autres prestations" readonly>
+                            <input type="text" value="Recherche avancée" readonly>
                             <div class="img-box">
                                 <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="icone">
                             </div>
@@ -171,14 +171,14 @@
                                            value="{{ form['surfaceMax'] }}">
                                 </div>
 
-                                <div class="homepage-search-others-box homepage-search-others-flex">
+                                {#<div class="homepage-search-others-box homepage-search-others-flex">
                                     <label>Accessible handicapé</label>
                                     <label class="switch homepage-search-others-switch">
                                         <input type="checkbox" name="handicap"
                                                {% if form['handicap'] is not empty %}checked{% endif %} >
                                         <span class="slider round"></span>
                                     </label>
-                                </div>
+                                </div>#}
 
                             </div>
 
@@ -231,17 +231,18 @@
                                     <label for="prestation">Prestations</label>
                                     <div class="prestations">
                                         {% for prestation in prestations %}
-                                            <p class="form-btn-selection
-                                            {% if form['prestations']['prestations-'~prestation.criteriaOption] is
-                                                defined %}selected{% endif %}"
-                                               onclick="formSelect(this,'prestations-{{ prestation.criteriaOption }}')">{{
-                                                prestation.criteriaOption }}</p>
-
+                                            <p class="form-btn-selection"
+                                               onclick="formSelect(this,'prestations-{{ prestation.criteriaOption }}')">{{ prestation.criteriaOption }}</p>
                                         {% endfor %}
                                     </div>
                                 </div>
 
-
+                                {#<div class="homepage-search-others-close">
+                                    <div class="homepage-search-block homepage-search-block-submit">
+                                        <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+                                    </div>
+                                    <p>X</p>
+                                </div>#}
                             </div>
 
 
@@ -293,7 +294,7 @@
         <div class="search-top-discover">
             <p class="text">Découvrez les programmes neufs</p>
             <div class="img-box">
-                <img src="{{ asset('assets/img/static/arrow-down.png') }}" alt="flèche découvrir les biens">
+                <img src="{{ asset('assets/img/static/arrow-down-white.png') }}" alt="flèche découvrir les biens">
             </div>
         </div>
 
@@ -334,6 +335,13 @@
                 <article class="search-results-program">
                     <a  onclick="goToProgram('form-{{ program.id }}')">
                         <div class="search-results-program-img-box">
+                            {% if program.filter is not empty %}
+                                <div class="search-result-program-filter">
+                                    {% for filter in program.filter %}
+                                        <p>{{ filter.name }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                             {% if program.programPicture[0] is defined %}
                                 <img src="{{ asset('assets/img/programs/') }}{{ program.programPicture[0] }}" alt="{{ program
                                 .name }}">

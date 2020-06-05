@@ -76,24 +76,22 @@ function contactModalClose(){
 $(document).ready(function(){
     // autocompletion for the field "city"
     $('#city').keyup(function(){
-
-        $('#result').slideUp(function(){
-            $.ajax({
-                type:'POST',
-                url: $("#city").data('path'),
-                dataType: 'json',
-                success: function(result){
-                    $('#city').autocomplete({
-                        source : result,
-                        appendTo: "#resultAutocompletion",
-                        messages: {
-                            noResults: '',
-                            results: ''
-                        }
-                    })
-                }
-            })
+        $.ajax({
+            type:'POST',
+            url: $("#city").data('path'),
+            dataType: 'json',
+            success: function(result){
+                $('#city').autocomplete({
+                    source : result,
+                    appendTo: "#resultAutocompletion",
+                    messages: {
+                        noResults: '',
+                        results: ''
+                    }
+                })
+            }
         })
+
 
     })
 
