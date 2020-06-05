@@ -124,7 +124,21 @@ function goToProgram(elm){
 
 
 
+// to open the caontact modal by text with class "contactModal"
+$(document).ready(function(){
+    $('.team-container .contactModal').click(function(){
+        $('.contact-modal-back').show()
+    })
+})
 
+
+
+// on program'page : to remove the filter
+$(document).ready(function(){
+    $('.program-map-filter').click(function(){
+        $(this).hide()
+    })
+})
 
 
 
