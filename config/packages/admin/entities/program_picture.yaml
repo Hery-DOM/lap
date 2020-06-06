@@ -5,6 +5,7 @@ easy_admin:
       class: App\Entity\ProgramPicture
       list:
         fields:
+          - {property: 'listorder'}
           - {property: 'picture', type: 'image', label: 'Image', base_path: '%upload_path%' }
 #          - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureAlt', label: "Texte alternatif"}
@@ -19,5 +20,6 @@ easy_admin:
         fields:
 #          - {property: 'picture', label: "Nom de l'image"}
           - {property: 'pictureFile', type: 'vich_image', label: 'Image', type_options: { required: true }}
-          - {property: 'pictureAlt'}
+#          - {property: 'pictureAlt'}
           - {property: 'program'}
+          - {property: 'listorder'}

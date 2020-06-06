@@ -1,0 +1,87 @@
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
+
+
+{% block main %}
+
+    <h2>Gestion des images du programme "{{ program.name }}"</h2>
+
+    <h3>Ajouter une image</h3>
+    <div class="easyadmin-picture-form">
+        {{ form(form) }}
+    </div>
+
+    {# list of pictures#}
+    <h3>Liste des images</h3>
+    <div class="easyadmin-picture-container">
+        <div class="easyadmin-picture-table">
+            <div class="easyadmin-picture-row">
+                <div class="easy-admin-picture-block">
+                    <p>Image</p>
+                </div>
+                <div class="easy-admin-picture-block">
+                    <p>Action</p>
+                </div>
+            </div>
+            <div id="sortable" data-path="{{ path('easyadmin_ajax') }}">
+                {% for picture in pictures|sort((a,b) => a.listorder <=> b.listorder) %}
+                    <div class="easyadmin-picture-row ui-state-default"
+                         data-id="{{ picture.id }}"
+                         data-position="{{ picture.listorder }}">
+                        <div class="easy-admin-picture-block">
+                            <div class="img-box">
+                                <img src="{{ asset('assets/img/programs/') }}{{ picture.picture }}" alt="{{ picture.pictureAlt }}">
+                            </div>
+                        </div>
+                        <div class="easy-admin-picture-block">
+                            <p><a href="{{ path('easyadmin_picture_delete',{'id':picture.id}) }}">Supprimer</a></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {# ##### SCRIPTS ##### #}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $( "#sortable" ).sortable({
+                placeholder: "ui-state-highlight"
+            })
+            $( "#sortable" ).disableSelection();
+
+
+            /****** SORT FOR SECTIONS ********/
+            $('#sortable').on("sortstop",function(){
+                // get the elements + push in array
+                let childs = $(this).children()
+                let datas = {}
+                for(var i = 0; i<childs.length; i++){
+                    var index = i+1
+                    $(childs[i]).attr('data-position',index)
+                    var id = $(childs[i]).data('id')
+                    datas[id] = index
+                }
+
+                var url = $(this).data('path')
+                // ajax
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: datas,
+                    dataType: 'JSON',
+                    success: function(result){
+                    }
+                })
+            })
+
+        })
+    </script>
+
+    
+{% endblock %}

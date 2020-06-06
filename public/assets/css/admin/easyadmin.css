@@ -24,3 +24,59 @@ body{
 .fa-user-circle:before{
     color: #FBB03B;
 }
+
+
+/*********  FOR admin/program_pictures.html.twig ********/
+.easyadmin-picture-form{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 5px 20px;
+    padding: 5px;
+}
+
+.easyadmin-picture-form label, .easyadmin-picture-form input{
+    display: block;
+}
+
+.easyadmin-picture-form #program_picture>div{
+    margin: 10px 0;
+}
+
+
+.easyadmin-picture-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 30vh;
+}
+
+
+.easyadmin-picture-table{
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.easyadmin-picture-row{
+    display: flex;
+    align-items: center;
+}
+
+.easy-admin-picture-block{
+    width: 50%;
+    height: 120px;
+    border:1px solid black;
+    padding: 10px;
+}
+
+.easy-admin-picture-block .img-box{
+    height: 100px;
+}
+
+.easy-admin-picture-block .img-box img{
+    height: 100%;
+    width: auto;
+}
+
+

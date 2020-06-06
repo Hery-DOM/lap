@@ -39,12 +39,11 @@ easy_admin:
       - {entity: 'User', default: true}
       - label: 'Les programmes'
         children:
-          - {entity: 'ProgramCategory', label: 'Programmes (catégories)'}
-          - {entity: 'Program', label: 'Biens'}
+          - {entity: 'Program', label: 'Programmes'}
           - {entity: 'MainCriteria'}
           - {entity: 'Criteria'}
           - {entity: 'Filter'}
-          - {entity: 'ProgramPicture', label: 'Images des biens'}
+          - {entity: 'ProgramPicture', label: 'Images des programmes'}
       - label: 'Partenaires'
         children:
           - {entity: 'BlogText', label: 'Gestion de la page'}

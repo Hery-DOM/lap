@@ -134,17 +134,13 @@
         </div>
 
 
-        <div class="program-title">
-            <h1>{{ h1|striptags|raw|nl2br }}</h1>
-        </div>
-
         <div class="program-form-btn" onclick="showToggle(('.program-modal'))">
             Formulaire
         </div>
 
 
         <div class="owl-carousel owl-theme">
-            {% for key, picture in program.programPicture %}
+            {% for key, picture in program.programPicture|sort((a,b) => a.listorder <=> b.listorder) %}
             <div class="item" id="item-{{ key }}" data-url="{{ path('program_picture',{'id':picture.id}) }}">
                 <div class="img-box">
                     <img src="{{ asset('assets/img/programs/') }}{{ picture.picture }}" alt="{{ program.name }}">
@@ -186,6 +182,9 @@
       ################################################################### #}
 
     <section class="program-description">
+        <div class=" program-title">
+            <h1>{{ h1|striptags|raw|nl2br }}</h1>
+        </div>
         <p class="title">Description du program</p>
 
         <div class="program-view">
@@ -207,9 +206,11 @@
         </div>
 
         <a href="#" class="program-description-text">
-            <div class="program-description-text-btn">
-                <a  href="{{ program.url }}">+ d'informations sur le programme</a>
-            </div>
+            {% if program.url is not empty %}
+                <div class="program-description-text-btn">
+                    <a  href="{{ program.url }}">+ d'informations sur le programme</a>
+                </div>
+            {% endif %}
 
             <div class="program-description-text-container">
                 {{ program.description|raw }}
@@ -353,6 +354,24 @@
 
 
             let marker = L.marker([latitude, longitude]).addTo(mymap);
+        })
+
+
+        // scroll and form
+        $(document).ready(function(){
+            var scrollInitForm = $(window).scrollTop()
+            if(scrollInitForm > 0){
+                $('.search-modal').css('top','12%')
+            }
+
+            $(window).scroll(function(){
+
+                if($(window).scrollTop() > 0){
+                    $('.search-modal').css('top','12%')
+                }else{
+                    $('.search-modal').css('top','93%')
+                }
+            })
         })
 
 

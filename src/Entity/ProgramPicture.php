@@ -38,6 +38,11 @@ class ProgramPicture
      */
     private $program;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $listorder;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -99,6 +104,18 @@ class ProgramPicture
     {
         return $this->picture;
 
+    }
+
+    public function getListorder(): ?int
+    {
+        return $this->listorder;
+    }
+
+    public function setListorder(int $listorder): self
+    {
+        $this->listorder = $listorder;
+
+        return $this;
     }
 
 

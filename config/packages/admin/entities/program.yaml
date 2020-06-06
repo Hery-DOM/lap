@@ -7,9 +7,9 @@ easy_admin:
         title: 'Liste des programmes'
         actions:
           - { name: 'new', label: 'Ajouter un bien'}
+          - { name: 'managePictures', label: 'Gérer les images'}
         fields:
           - {property: 'name', label: 'Nom du bien'}
-          - {property: 'programCAtegory', label: 'Programme associé'}
           - {property: 'city', label: 'Ville'}
           - {property: 'published', label: 'Publié ?'}
           - {property: 'filter', type: 'array', label: 'Filtres'}
@@ -45,7 +45,6 @@ easy_admin:
           - {property: 'metadescription', label: 'Meta description' }
       form:
         fields:
-          - {property: 'programCategory', label: 'Programme associé'}
           - {property: 'name', label: 'Nom du bien'}
           - {property: 'descriptionMore', label: 'Description +'}
           - {property: 'description', type: 'fos_ckeditor', label: 'Description principale' }
@@ -66,5 +65,5 @@ easy_admin:
           - {property: 'url', label: 'URL absolue vers blog' }
           - {property: 'published', label: 'Publié ?' }
           - {property: 'pagetitle', label: 'Titre de la page' }
-          - {property: 'metatitle', label: 'Meta title' }
+          - {property: 'metatitle', label: 'Balise Title' }
           - {property: 'metadescription', label: 'Meta description' }

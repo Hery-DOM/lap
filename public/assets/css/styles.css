@@ -1082,13 +1082,14 @@ input:checked + .slider:before {
 
 .search-modal {
   position: sticky;
-  top: 15%;
-  left: 70%;
+  top: 93%;
+  left: 71%;
   width: 85%;
   background-color: white;
   padding: 10px;
   border: 1px solid #4489C8;
-  z-index: 999; }
+  z-index: 999;
+  transition: ease 1s all; }
 
 .search-modal-title {
   color: #002849;
@@ -1379,8 +1380,8 @@ input:checked + .slider:before {
   border-radius: 30px;
   padding: 5px;
   position: absolute;
-  top: 5%;
-  left: 5%;
+  top: 1%;
+  left: 1%;
   z-index: 999;
   display: flex;
   justify-content: space-around;
@@ -1391,15 +1392,12 @@ input:checked + .slider:before {
     width: auto;
     height: 80%; }
 
-.program-top .program-title {
-  position: absolute;
-  top: 25%;
-  left: 6%;
-  z-index: 9999; }
-  .program-top .program-title h1 {
+.program-title {
+  margin-top: 20px; }
+  .program-title h1 {
     color: #002849;
     text-transform: uppercase;
-    font-size: 3em; }
+    font-size: 2em; }
 
 .program-top .program-form-btn {
   display: none; }
@@ -1553,11 +1551,15 @@ input:checked + .slider:before {
   margin: 40px auto;
   width: 35%;
   border-radius: 20px; }
+  .program-description-text-btn a {
+    color: white; }
 
 .program-description-text-btn:hover {
   cursor: pointer;
   color: #4489C8;
   background-color: white; }
+  .program-description-text-btn:hover a {
+    color: #4489C8; }
 
 .program-description-text-container {
   display: none;
@@ -1565,6 +1567,7 @@ input:checked + .slider:before {
   font-size: 1.1em; }
 
 .program-map {
+  margin: 20px 0;
   width: 70%;
   padding-left: 3%;
   position: relative; }
