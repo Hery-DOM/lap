@@ -189,20 +189,22 @@
 
         <div class="program-view">
             <h1>{{ program.name }}</h1>
-            <div class="program-view-container">
-                <div class="program-view-text">
-                    <p>{{ program.numberRooms }} pièces</p>
-                    <p>{{ program.surface }} m2</p>
-                    <p class="program-price">A partir de {{ program.price }} €</p>
-                </div>
-                <div class="program-view-plan">
-                    <a href="{{ asset('assets/img/programs/') }}{{ program.plan }}" download="{{ program.plan }}">
-                        <div class="img-box">
-                            <img src="{{ asset('assets/img/static/plan.png') }}" alt="plan {{ program.name }}">
+
+                {% for property in program.ProgramProperties %}
+                    <div class="program-view-container">
+                        <div class="program-view-text">
+                            <p>{{ property.typo }}</p>
+                            <p>{{ program.surface }} m2</p>
+                            <p class="program-price"> {{ program.price }} €</p>
                         </div>
-                    </a>
-                </div>
-            </div>
+                        <div class="program-view-plan">
+                                <div class="img-box">
+                                    <img src="{{ asset('assets/img/static/plan.png') }}" alt="plan {{ program.name }}">
+                                </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
         </div>
 
         <a href="#" class="program-description-text">
@@ -361,15 +363,15 @@
         $(document).ready(function(){
             var scrollInitForm = $(window).scrollTop()
             if(scrollInitForm > 0){
-                $('.search-modal').css('top','12%')
+                $('.program-modal').css('top','12%')
             }
 
             $(window).scroll(function(){
 
                 if($(window).scrollTop() > 0){
-                    $('.search-modal').css('top','12%')
+                    $('.program-modal').css('top','12%')
                 }else{
-                    $('.search-modal').css('top','93%')
+                    $('.program-modal').css('top','93%')
                 }
             })
         })

@@ -5,8 +5,11 @@ namespace App\Controller;
 
 use App\Entity\Program;
 use App\Entity\ProgramPicture;
+use App\Entity\ProgramProperty;
 use App\Form\ProgramPictureType;
+use App\Form\ProgramPropertyType;
 use App\Repository\ProgramPictureRepository;
+use App\Repository\ProgramPropertyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -189,6 +192,77 @@ class AdminController extends EasyAdminController
 
         return $this->redirectToRoute('easyadmin',[
             'action' => 'managePictures',
+            'entity' => 'Program',
+            'id' => $program
+        ]);
+
+    }
+
+
+    public function managePropertyAction()
+    {
+        $request = $this->request;
+        $idProgram = $request->query->get('id');
+        $program = $this->getDoctrine()->getRepository(Program::class)->find($idProgram);
+        $property = new ProgramProperty();
+        $properties = $program->getProgramProperties();
+
+        $form = $this->createForm(ProgramPropertyType::class, $property);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $property->setListorder(0);
+            $property->setProgram($program);
+            $this->em->persist($property);
+            $this->em->flush();
+        }
+
+        return $this->render('admin/program_properties.html.twig',[
+            'form' => $form->createView(),
+            'properties' => $properties,
+            'program' => $program
+        ]);
+
+    }
+
+    /**
+     * @Route("/easyadmin-property-ajax", name="easyadmin_property_ajax")
+     * No view - AJAX
+     */
+    public function easyadminPropertyAjax(ProgramPropertyRepository $repository, EntityManagerInterface $entityManager)
+    {
+        // secure input
+        $post = $this->getFormHTML($_POST);
+        foreach($post as $key => $value){
+            $property = $repository->find($key);
+            if($property) {
+                $property->setListorder($value);
+                $entityManager->persist($property);
+                $entityManager->flush();
+            }
+
+        }
+
+        return new Response(json_encode('ok'));
+    }
+
+    /**
+     * @Route("/easyadmin-property-delete/{id}", name="easyadmin_property_delete")
+     * No view
+     */
+    public function easyadminPropertyDelete($id, ProgramPropertyRepository $programPropertyRepository,
+                                            EntityManagerInterface $entityManager)
+    {
+        // secure $id
+        $id = $this->secureInput($id);
+
+        $property = $programPropertyRepository->find($id);
+        $program = $property->getProgram()->getId();
+        $entityManager->remove($property);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('easyadmin',[
+            'action' => 'manageProperty',
             'entity' => 'Program',
             'id' => $program
         ]);

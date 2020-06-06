@@ -8,6 +8,7 @@ easy_admin:
         actions:
           - { name: 'new', label: 'Ajouter un bien'}
           - { name: 'managePictures', label: 'Gérer les images'}
+          - { name: 'manageProperty', label: 'Gérer les biens'}
         fields:
           - {property: 'name', label: 'Nom du bien'}
           - {property: 'city', label: 'Ville'}

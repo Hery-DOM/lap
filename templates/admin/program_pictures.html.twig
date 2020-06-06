@@ -15,10 +15,10 @@
     <div class="easyadmin-picture-container">
         <div class="easyadmin-picture-table">
             <div class="easyadmin-picture-row">
-                <div class="easy-admin-picture-block">
+                <div class="easyadmin-picture-block">
                     <p>Image</p>
                 </div>
-                <div class="easy-admin-picture-block">
+                <div class="easyadmin-picture-block">
                     <p>Action</p>
                 </div>
             </div>
@@ -27,12 +27,12 @@
                     <div class="easyadmin-picture-row ui-state-default"
                          data-id="{{ picture.id }}"
                          data-position="{{ picture.listorder }}">
-                        <div class="easy-admin-picture-block">
+                        <div class="easyadmin-picture-block">
                             <div class="img-box">
                                 <img src="{{ asset('assets/img/programs/') }}{{ picture.picture }}" alt="{{ picture.pictureAlt }}">
                             </div>
                         </div>
-                        <div class="easy-admin-picture-block">
+                        <div class="easyadmin-picture-block">
                             <p><a href="{{ path('easyadmin_picture_delete',{'id':picture.id}) }}">Supprimer</a></p>
                         </div>
                     </div>

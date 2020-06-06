@@ -146,6 +146,11 @@ class Program
      */
     private $url;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProgramProperty", mappedBy="program", cascade={"remove"})
+     */
+    private $programProperties;
+
     public function __construct()
     {
         $this->main_criteria = new ArrayCollection();
@@ -153,6 +158,7 @@ class Program
         $this->program_picture = new ArrayCollection();
         $this->filter = new ArrayCollection();
         $this->plan = 'plan';
+        $this->programProperties = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -532,6 +538,37 @@ class Program
     public function setUrl(?string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProgramProperty[]
+     */
+    public function getProgramProperties(): Collection
+    {
+        return $this->programProperties;
+    }
+
+    public function addProgramProperty(ProgramProperty $programProperty): self
+    {
+        if (!$this->programProperties->contains($programProperty)) {
+            $this->programProperties[] = $programProperty;
+            $programProperty->setProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgramProperty(ProgramProperty $programProperty): self
+    {
+        if ($this->programProperties->contains($programProperty)) {
+            $this->programProperties->removeElement($programProperty);
+            // set the owning side to null (unless already changed)
+            if ($programProperty->getProgram() === $this) {
+                $programProperty->setProgram(null);
+            }
+        }
 
         return $this;
     }

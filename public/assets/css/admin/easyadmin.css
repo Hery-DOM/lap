@@ -63,20 +63,48 @@ body{
     align-items: center;
 }
 
-.easy-admin-picture-block{
+.easyadmin-picture-block{
     width: 50%;
     height: 120px;
     border:1px solid black;
     padding: 10px;
 }
 
-.easy-admin-picture-block .img-box{
+.easyadmin-picture-block .img-box{
     height: 100px;
 }
 
-.easy-admin-picture-block .img-box img{
+.easyadmin-picture-block .img-box img{
     height: 100%;
     width: auto;
 }
 
 
+
+/*********  FOR admin/program_properties.html.twig ********/
+.easyadmin-property-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 30vh;
+}
+
+
+.easyadmin-property-table{
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.easyadmin-property-row{
+    display: flex;
+    align-items: center;
+}
+
+.easyadmin-property-block{
+    width: 50%;
+    height: 120px;
+    border:1px solid black;
+    padding: 10px;
+}

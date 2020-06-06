@@ -1,0 +1,104 @@
+
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
+
+
+{% block main %}
+
+    <h2>Gestion des biens du programme "{{ program.name }}"</h2>
+
+    <h3>Ajouter un bien</h3>
+    <div class="easyadmin-picture-form">
+        {{ form(form) }}
+    </div>
+
+    {# list of properties #}
+    <h3>Liste des biens</h3>
+    <div class="easyadmin-property-container">
+        <div class="easyadmin-property-table">
+            <div class="easyadmin-property-row">
+                <div class="easyadmin-property-block">
+                    <p>Nom</p>
+                </div>
+                <div class="easyadmin-property-block">
+                    <p>Typologie</p>
+                </div>
+                <div class="easyadmin-property-block">
+                    <p>Surface</p>
+                </div>
+                <div class="easyadmin-property-block">
+                    <p>Prix</p>
+                </div>
+                <div class="easyadmin-property-block">
+                    <p>Action</p>
+                </div>
+            </div>
+            <div id="sortable" data-path="{{ path('easyadmin_property_ajax') }}">
+                {% for property in properties|sort((a,b) => a.listorder <=> b.listorder) %}
+                    <div class="easyadmin-property-row ui-state-default"
+                         data-id="{{ property.id }}"
+                         data-position="{{ property.listorder }}">
+                        <div class="easyadmin-property-block">
+                            <p>{{ property.name }}</p>
+                        </div>
+                        <div class="easyadmin-property-block">
+                            <p>{{ property.typo }}</p>
+                        </div>
+                        <div class="easyadmin-property-block">
+                            <p>{{ property.surface }}</p>
+                        </div>
+                        <div class="easyadmin-property-block">
+                            <p>{{ property.price }}</p>
+                        </div>
+                        <div class="easyadmin-property-block">
+                            <p><a href="{{ path('easyadmin_property_delete',{'id':property.id}) }}">Supprimer</a></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {# ##### SCRIPTS ##### #}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $( "#sortable" ).sortable({
+                placeholder: "ui-state-highlight"
+            })
+            $( "#sortable" ).disableSelection();
+
+
+            /****** SORT FOR SECTIONS ********/
+            $('#sortable').on("sortstop",function(){
+                // get the elements + push in array
+                let childs = $(this).children()
+                let datas = {}
+                for(var i = 0; i<childs.length; i++){
+                    var index = i+1
+                    $(childs[i]).attr('data-position',index)
+                    var id = $(childs[i]).data('id')
+                    datas[id] = index
+                }
+
+                var url = $(this).data('path')
+                // ajax
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: datas,
+                    dataType: 'JSON',
+                    success: function(result){
+                    }
+                })
+            })
+
+        })
+    </script>
+
+
+{% endblock %}
