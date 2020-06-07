@@ -255,9 +255,59 @@
     <section class="homepage-accompaniment-container">
         <h2>Un accompagnement de <span>A</span> à <span>Z</span></h2>
 
-        <div class="homepage-accompaniment-video-box">
+        {#<div class="homepage-accompaniment-video-box">
             <iframe width="100%" height="500" src="https://www.youtube.com/embed/4SLnhA5JbpI" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>#}
+
+        <div class="homepage-accompaniment-video-box">
+
+            <div class="container">
+                <div class="allvideo">
+                    <video src="{{ asset('movie/video.mp4') }}" class="video"></video>
+                    <div class="controls">
+                        <div class="buttons">
+                            <button id="play-pause" class="play"></button>
+                            <button id="mute">Couper le son</button>
+                            <input type="range" id="volumeSlider" min="0" max="100" value="50" step="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="blue-bar">
+                    <div class="blue-bar-circle-box circle-1">
+                        <div class="blue-bar-circle "></div>
+                        <div class="blue-bar-text">
+                            <p>Définition de votre projet immobilier</p>
+                        </div>
+                    </div>
+                    <div class="blue-bar-circle-box circle-2">
+                        <div class="blue-bar-circle "></div>
+                        <div class="blue-bar-text">
+                            <p>Présentation des biens en fonction de vos critères</p>
+                        </div>
+                    </div>
+                    <div class="blue-bar-circle-box circle-3">
+                        <div class="blue-bar-circle "></div>
+                        <div class="blue-bar-text">
+                            <p>Signature du contrat de réservation</p>
+                        </div>
+                    </div>
+                    <div class="blue-bar-circle-box circle-4">
+                        <div class="blue-bar-circle "></div>
+                        <div class="blue-bar-text">
+                            <p>Signature de l'acte authentique chez le notaire</p>
+                        </div>
+                    </div>
+                    <div class="blue-bar-circle-box circle-5">
+                        <div class="blue-bar-circle "></div>
+                        <div class="blue-bar-text">
+                            <p>Livraison de votre logement neuf</p>
+                        </div>
+                    </div>
+                    <div class="blue-juice"></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -733,6 +783,74 @@
             })
 
 
+
+        })
+
+
+
+        // for the movie
+        $(document).ready(function(){
+            let video = document.querySelector('.video')
+            let juice = $('.blue-juice')
+            let btn = $('#play-pause')
+            let muteBtn = $('#mute')
+            let volumeslider = $('#volumeSlider')
+            let blueBar = $('.blue-bar')
+
+            function togglePlayPause(){
+                if(video.paused){
+                    btn.toggleClass("pause")
+                    btn.toggleClass("play")
+                    video.play()
+                }else{
+                    btn.toggleClass("play")
+                    btn.toggleClass("pause")
+                    video.pause()
+                }
+            }
+
+            btn.click(function(){
+                togglePlayPause()
+            })
+
+            // to manage the progress
+            video.addEventListener('timeupdate',function(){
+                let juicePosition = video.currentTime/video.duration
+                juice.css('width',juicePosition*100+'%')
+
+                if(video.ended){
+                    btn.toggleClass("play")
+                    btn.toggleClass("pause")
+                }
+            })
+
+            // to mute the video
+            muteBtn.click(function(){
+                if(video.muted){
+                    video.muted = false
+                    muteBtn[0].innerHTML = "Couper le son"
+                }else{
+                    video.muted = true
+                    muteBtn[0].innerHTML = "Activer le son"
+                }
+            })
+
+            // slider volume
+            volumeslider.change(function(){
+                video.volume = volumeslider[0].value/100
+            })
+
+            // blue-barre
+            let rect = blueBar[0].getBoundingClientRect()
+            let blueBarWidth = rect.width
+
+            blueBar.click(function(e){
+                // get value on X on the bluebar
+                let x = e.clientX - rect.left
+                let widthPercent = x*100/blueBarWidth
+                let currentTimeTrue = widthPercent * video.duration / 100
+                video.currentTime = currentTimeTrue
+            })
 
         })
     </script>
