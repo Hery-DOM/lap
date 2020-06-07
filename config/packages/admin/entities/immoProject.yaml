@@ -14,5 +14,5 @@ easy_admin:
         title: "Edition du texte"
         fields:
           - {property: 'pagetitle', label: 'Titre de la page'}
-          - {property: 'metatitle', label: 'Meta title'}
+          - {property: 'metatitle', label: 'Balise title'}
           - {property: 'metadescription', label: 'Meta description'}

@@ -24,5 +24,5 @@ easy_admin:
           - {property: 'owner_subcategory', label: "Sous catégorie associée"}
           - {property: 'published', label: "Publié ?"}
           - {property: 'pagetitle', label: "Titre de la page"}
-          - {property: 'metatitle', label: "Meta title"}
+          - {property: 'metatitle', label: "Balise title"}
           - {property: 'metadescription', label: "Meta description"}

@@ -30,9 +30,9 @@ class PageHomeController extends PersonalClass
         // get message in banner
         $banner = $homepageRepository->findOneBy(['name' => 'Bannière']);
 
-        // get meta title, description and h1
+        // get Balise title, description and h1
         $h1 = $homepageRepository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $metaTitle = $homepageRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaTitle = $homepageRepository->findOneBy(['name' => 'Balise title'])->getText();
         $metaDescription = $homepageRepository->findOneBy(['name' => 'Meta description'])->getText();
 
         // get every cities
@@ -78,14 +78,12 @@ class PageHomeController extends PersonalClass
                 $city = $this->secureInput($_POST['city']);
                 $name = $this->secureInput($_POST['name']);
                 $email = $this->secureInput($_POST['email']);
-                $gender = $this->secureInput($_POST['gender']);
 
                 $view = 'email/newsletter.html.twig';
                 $viewParam = [
                   'city' => $city,
                   'name' => $name,
-                    'email' => $email,
-                    'gender' => $gender
+                    'email' => $email
                 ];
                 $test = $this->sendEmail('Inscription à la newsletter', $this->noreplyEmail(), $this->emailAdmin(),$view,
                     $viewParam);

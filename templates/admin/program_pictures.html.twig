@@ -5,6 +5,11 @@
 
     <h2>Gestion des images du programme "{{ program.name }}"</h2>
 
+    <a href="{{ path('easyadmin',{
+        'entity' : 'Program',
+        'action' : 'list'
+    }) }}">Retour</a>
+
     <h3>Ajouter une image</h3>
     <div class="easyadmin-picture-form">
         {{ form(form) }}
@@ -29,7 +34,7 @@
                          data-position="{{ picture.listorder }}">
                         <div class="easyadmin-picture-block">
                             <div class="img-box">
-                                <img src="{{ asset('assets/img/programs/') }}{{ picture.picture }}" alt="{{ picture.pictureAlt }}">
+                                <img src="{{ asset('assets/img/programs/') }}{{ picture.picture }}">
                             </div>
                         </div>
                         <div class="easyadmin-picture-block">

@@ -55,7 +55,8 @@
 
                         </li>
                         <li><a href="{{ path('about') }}">Qui sommes nous</a></li>
-                        <li><a href="{{ path('blog') }}">Blog</a>
+                        <li>Blog</li>
+                        <li><a href="{{ path('blog') }}">Partenaires</a>
                                 <ul>
                                     {% for category in blogCategories %}
                                         <li class="sitemap-list-2"><a href="{{ path('blog_param',{

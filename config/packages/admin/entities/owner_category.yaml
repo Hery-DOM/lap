@@ -20,5 +20,5 @@ easy_admin:
           - {property: 'description', label: 'Texte', type: 'fos_ckeditor'}
           - {property: 'pictoFile', label: 'Illustration', type: 'vich_image'}
           - {property: 'pagetitle', label: 'Titre de la page'}
-          - {property: 'metatitle', label: 'Meta title'}
+          - {property: 'metatitle', label: 'Balise title'}
           - {property: 'metadescription', label: 'Meta description'}

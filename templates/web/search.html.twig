@@ -39,14 +39,12 @@
                 <div class="greyLine"></div>
             </div>
 
-            <a href="{{ asset('assets/img/brochure/') }}{{ brochure.file }}" download>
-                <div class="search-modal-upload">
-                    <div class="img-box">
-                        <img src="{{ asset('assets/img/static/book.png') }}" alt="icone livre">
-                    </div>
-                    <p>Recevoir la brochure</p>
+            <div class="search-modal-upload">
+                <div class="img-box">
+                    <img src="{{ asset('assets/img/static/book.png') }}" alt="icone livre">
                 </div>
-            </a>
+                <p>Recevoir la brochure</p>
+            </div>
 
 
             <div class="search-modal-form">
@@ -135,10 +133,17 @@
                         <div class="homepage-search-block homepage-search-price-responsive ">
                             {#<input type="text" name="priceMin" placeholder="Budget min">#}
                             <input type="text" name="priceMax" placeholder="Budget max">
+
+                        </div>
+                        <div class="homepage-search-block homepage-search-price-responsive">
+                            <input type="text" readonly="readonly" value="Recherche avancée">
                             <div onclick="slideDown('.homepage-search-others-container')" class="img-box-responsive">
                                 <img src="{{ asset('assets/img/static/icone-plus.png') }}" alt="icone plus">
                             </div>
+                        </div>
+                        <div class="homepage-search-block homepage-search-price-responsive">
                             <input type="submit" value="Rechercher" class="homepage-search-btn" name="search-submit">
+
                         </div>
 
                         <div class="homepage-search-block homepage-search-block-last"
@@ -383,7 +388,7 @@
         <p class="search-bottom-title">Vous ne trouvez pas votre bonheur ? </p>
 
         <div class="search-bottom-btn">
-            <a href="{{ path('alert') }}">
+            <a href="{{ path('project') }}">
                 <button class="search-bottom-link-form">
                     Être alerté
                 </button>

@@ -2659,7 +2659,8 @@ input:checked + .slider:before {
 
   /*******************  FOOTER  *******************/
   .footer-container {
-    padding-bottom: 100px; }
+    padding-bottom: 100px;
+    height: 80vh; }
 
   .footer-number {
     display: none; }
@@ -2892,6 +2893,10 @@ input:checked + .slider:before {
     .homepage-testimony-video-box iframe {
       width: 100%; }
 
+  .homepage-testimonies-container .owl-nav {
+    width: 100%;
+    left: 0; }
+
   /*************************************************************************
   *********************************  PROJECT  ******************************
   **************************************************************************/
@@ -3086,14 +3091,12 @@ input:checked + .slider:before {
     width: 120%; }
 
   .program-top {
-    height: 45vh; }
+    height: 35vh; }
 
   .program-top .program-back {
     width: 50px; }
     .program-top .program-back span {
       display: none; }
-    .program-top .program-back img {
-      width: 100%; }
 
   .program-top .owl-dots {
     top: 40%;
@@ -3208,6 +3211,17 @@ input:checked + .slider:before {
   /************************************************************
 **************************  HOME  ***************************
  ************************************************************/
+  .owner-home-top .owner-h1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; }
+    .owner-home-top .owner-h1 h1 {
+      font-size: 2em; }
+
+  .owner-home-top .owner-sections-container .owner-elm-block {
+    width: 25%; }
+
   .owner-home-top .owner-sections-container {
     justify-content: space-around;
     top: 96%; }
@@ -3442,6 +3456,9 @@ input:checked + .slider:before {
       height: auto;
       transform: translateX(-40%); } }
 @media screen and (max-width: 1300px) {
+  .simulator-container {
+    padding-top: 120px; }
+
   .simulator-form-container {
     width: 100%; }
     .simulator-form-container .form-field input[type="text"], .simulator-form-container .form-field input[type="number"], .simulator-form-container .form-field input[type='email'], .simulator-form-container .form-field select {

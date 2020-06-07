@@ -129,11 +129,31 @@ class PageBlogController extends PersonalClass
         // get brochure
         $brochure = $searchBrochureRepository->findOneBy([]);
 
+        // if form is submitted
+        if(isset($_POST['search-modal'])){
+            // build the mail
+            $subject = "Contact d'un prospect via la page 'partenaires' ";
+            $email = $this->secureInput($_POST['email']);
+            $name = $this->secureInput($_POST['name']);
+            $phone = $this->secureInput($_POST['phone']);
+            $gender = $this->secureInput($_POST['gender']);
+            $view = "email/contact_partenaraires.html.twig";
+            $viewParam = [
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'gender' => $gender
+            ];
+            $message = $this->sendEmail($subject, $this->noreplyEmail(), $this->emailAdmin(),
+                $view,$viewParam);
+            $this->addFlash('info', 'Merci, vous serez recontacté prochainement');
+        }
+
         return $this->render('web/blog_article.html.twig',[
             'article' => $article,
             'topVideos' => $topVideos,
             'addArticles' => $addArticles,
-            'page' => 'blog',
+            'page' => '',
             'brochure' => $brochure
         ]);
     }

@@ -9,5 +9,7 @@ easy_admin:
         fields:
           - { property: 'text', type: 'fos_ckeditor', label: 'Texte' }
       list:
+        sort: ['listorder','ASC']
         fields:
+          - {property: 'listorder', label: 'Ordre'}
           - {property: 'name', label: ''}

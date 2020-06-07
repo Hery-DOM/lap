@@ -46,7 +46,7 @@ class PageOthersController extends PersonalClass
         // get texts
         $text = $repository->findOneBy(['name'=>'Contenu']);
         $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $metaTitle = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaTitle = $repository->findOneBy(['name' => 'Balise title'])->getText();
         $metaDescription = $repository->findOneBy(['name' => 'Meta description'])->getText();
 
 
@@ -68,7 +68,7 @@ class PageOthersController extends PersonalClass
         // get texts
         $text = $legalRepository->findOneBy(['name' => 'Contenu']);
         $h1 = $legalRepository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $metaTitle = $legalRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaTitle = $legalRepository->findOneBy(['name' => 'Balise title'])->getText();
         $metaDescription = $legalRepository->findOneBy(['name' => 'Meta description'])->getText();
 
         return $this->render('web/legal.html.twig',[
@@ -86,12 +86,19 @@ class PageOthersController extends PersonalClass
     public function team(TeamRepository $teamRepository)
     {
 
-        // get text
-        $text = $teamRepository->findOneBy([]);
+        // get texts
+        $text = $teamRepository->findOneBy(['name' => 'Contenu'])->getText();
+        $h1 = $teamRepository->findOneBy(['name' => 'Titre de la page'])->getText();
+        $metaTitle = $teamRepository->findOneBy(['name' => 'Balise title'])->getText();
+        $metaDescription = $teamRepository->findOneBy(['name' => 'Meta description'])->getText();
+
 
         return $this->render('web/team.html.twig',[
             'text' => $text,
-            'page' => ''
+            'page' => '',
+            'h1' => $h1,
+            'title' => $metaTitle,
+            'description' => $metaDescription
         ]);
     }
 
@@ -102,7 +109,7 @@ class PageOthersController extends PersonalClass
     {
         // get texts
         $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $title = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $title = $repository->findOneBy(['name' => 'Balise title'])->getText();
         $description = $repository->findOneBy(['name' => 'Meta description'])->getText();
         $text = $repository->findOneBy(['name' => 'Contenu'])->getText();
 
@@ -121,7 +128,7 @@ class PageOthersController extends PersonalClass
     {
         // get texts
         $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $title = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $title = $repository->findOneBy(['name' => 'Balise title'])->getText();
         $description = $repository->findOneBy(['name' => 'Meta description'])->getText();
         $text = $repository->findOneBy(['name' => 'Contenu'])->getText();
 
@@ -140,7 +147,7 @@ class PageOthersController extends PersonalClass
     {
         // get texts
         $h1 = $repository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $title = $repository->findOneBy(['name' => 'Meta title'])->getText();
+        $title = $repository->findOneBy(['name' => 'Balise title'])->getText();
         $description = $repository->findOneBy(['name' => 'Meta description'])->getText();
         $text = $repository->findOneBy(['name' => 'Contenu'])->getText();
 

@@ -9,7 +9,6 @@ easy_admin:
       - label : "Trouvez un logement"
         children:
           - {entity: 'SearchPage', label: "Gestion de la page"}
-          - {entity: 'SearchBrochure', label: 'Brochure'}
       - label: "Devenir propriétaire"
         children:
           - {entity: 'OwnerHome', label: 'Gestion de la page'}
@@ -43,7 +42,6 @@ easy_admin:
           - {entity: 'MainCriteria'}
           - {entity: 'Criteria'}
           - {entity: 'Filter'}
-          - {entity: 'ProgramPicture', label: 'Images des programmes'}
           - {entity: 'ProgramCity', label: 'Villes'}
       - label: 'Partenaires'
         children:

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <p>Bonjour {{ gender }} {{ name }}</p>
+    <p>Bonjour {{ name }}</p>
 
     <p>Découvrez les meilleurs bien du marché ! Nos chefs de projets concoctent la meilleure des recettes au quotidien
         pour vous :<br/>
@@ -17,7 +17,8 @@
     <p>Afin de confirmer votre inscription et de rester informé des meilleurs plans sur Bordeaux Métropole, merci de
         cliquer sur le lien suivant :
     </p>
-    <p><a href="{{ path('newsletter_confirm',{'email': email}) }}">Confirmation d'inscription à la newsletter</a></p>
+    <p><a href="{{ path('newsletter_confirm',{'email': email}) }}">Confirmation de votre inscription à la
+            newsletter</a></p>
 
     <p>L'équipe du site LocataireAPropriétaire</p>
 

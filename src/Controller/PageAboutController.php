@@ -25,9 +25,9 @@ class PageAboutController extends PersonalClass
         $sections['Phrase dans bandeau'] = $aboutRepository->findOneBy(['name' => 'Phrase dans bandeau']);
         $sections['Notre communication'] = $aboutRepository->findOneBy(['name' => 'Notre communication']);
         $sections['Nos différents réseaux'] = $aboutRepository->findOneBy(['name' => 'Nos différents réseaux']);
-        // get meta title, description and h1
+        // get Balise title, description and h1
         $h1 = $aboutRepository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $metaTitle = $aboutRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaTitle = $aboutRepository->findOneBy(['name' => 'Balise title'])->getText();
         $metaDescription = $aboutRepository->findOneBy(['name' => 'Meta description'])->getText();
 
         // get every testimonies which are published

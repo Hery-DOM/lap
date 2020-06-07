@@ -26,6 +26,11 @@ class Team
      */
     private $text;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $listorder;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Team
     public function setText(?string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getListorder(): ?int
+    {
+        return $this->listorder;
+    }
+
+    public function setListorder(int $listorder): self
+    {
+        $this->listorder = $listorder;
 
         return $this;
     }

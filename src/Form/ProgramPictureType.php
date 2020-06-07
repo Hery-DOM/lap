@@ -31,9 +31,6 @@ class ProgramPictureType extends AbstractType
                     ])
                 ]
             ])
-            ->add('picture_alt', TextType::class,[
-                'label' => 'Texte alternatif'
-            ])
             ->add('Valider', SubmitType::class)
         ;
     }

@@ -6,6 +6,11 @@
 
     <h2>Gestion des biens du programme "{{ program.name }}"</h2>
 
+    <a href="{{ path('easyadmin',{
+    'entity' : 'Program',
+    'action' : 'list'
+        }) }}">Retour</a>
+
     <h3>Ajouter un bien</h3>
     <div class="easyadmin-picture-form">
         {{ form(form) }}

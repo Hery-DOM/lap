@@ -24,7 +24,7 @@ class AdminController extends EasyAdminController
     /**
      * @Route("/adminu6vbu7388", name="easyadmin")
      */
-    public function createNewUserEntity()
+    /*public function createNewUserEntity()
     {
         return $this->get('fos_user.user_manager')->createUser();
     }
@@ -39,7 +39,7 @@ class AdminController extends EasyAdminController
     {
         $this->get('fos_user.user_manager')->updateUser($user, false);
         parent::updateEntity($user);
-    }
+    }*/
 
     public function managePicturesAction()
     {

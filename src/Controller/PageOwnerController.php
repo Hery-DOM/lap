@@ -23,7 +23,7 @@ class PageOwnerController extends PersonalClass
         // get intro ans others texts
         $intro = $ownerHomeRepository->findOneBy(['name' => 'Introduction'])->getDescription();
         $h1 = $ownerHomeRepository->findOneBy(['name' => 'Titre de la page'])->getDescription();
-        $metaTitle = $ownerHomeRepository->findOneBy(['name' => 'Meta title'])->getDescription();
+        $metaTitle = $ownerHomeRepository->findOneBy(['name' => 'Balise title'])->getDescription();
         $metaDescription = $ownerHomeRepository->findOneBy(['name' => 'Meta description'])->getDescription();
 
         return $this->render('web/owner_home.html.twig',[
