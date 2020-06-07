@@ -1,0 +1,18 @@
+easy_admin:
+  entities:
+    ProgramCity:
+      label: "Villes"
+      class: App\Entity\ProgramCity
+      list:
+        actions:
+          - {name: 'new', label: 'Ajouter une ville'}
+        fields:
+          - {property: 'name', label: 'Nom'}
+      new:
+        title: "Ajout d'une ville"
+      edit:
+        title: "Modification d'une ville"
+      form:
+        fields:
+          - {property: 'name', label: 'Nom'}
+          - {property: 'description', label: 'Texte', type: 'fos_ckeditor'}

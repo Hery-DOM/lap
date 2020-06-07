@@ -44,6 +44,7 @@ easy_admin:
           - {entity: 'Criteria'}
           - {entity: 'Filter'}
           - {entity: 'ProgramPicture', label: 'Images des programmes'}
+          - {entity: 'ProgramCity', label: 'Villes'}
       - label: 'Partenaires'
         children:
           - {entity: 'BlogText', label: 'Gestion de la page'}

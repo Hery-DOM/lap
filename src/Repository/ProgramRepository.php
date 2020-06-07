@@ -42,13 +42,15 @@ class ProgramRepository extends ServiceEntityRepository
                         ->select('p')
                         ->leftJoin('p.criteria', 'c')
                         ->addSelect('c')
+                        ->leftJoin('p.city','city')
+                        ->addSelect('city')
                         ->where('p.published = :published')
                         ->setParameter('published', true);
 
         // firsts criteria
         if(!empty($city)){
-            $search->andwhere('p.city = :city')
-                    ->setParameter('city', $city);
+            $search->andwhere('city.name LIKE :city')
+                    ->setParameter('city', '%'.$city.'%');
         }
         if(!empty($typo)){
             $search->andwhere('p.typologie = :typo')

@@ -42,7 +42,7 @@ class Program
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\ProgramCity", inversedBy="program")
      */
     private $city;
 
@@ -151,6 +151,7 @@ class Program
      */
     private $programProperties;
 
+
     public function __construct()
     {
         $this->main_criteria = new ArrayCollection();
@@ -214,17 +215,23 @@ class Program
         return $this;
     }
 
-    public function getCity(): ?string
+    /**
+     * @return mixed
+     */
+    public function getCity()
     {
         return $this->city;
     }
 
-    public function setCity(?string $city): self
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city): void
     {
         $this->city = $city;
-
-        return $this;
     }
+
+
 
     public function getPostcode(): ?int
     {
@@ -572,6 +579,8 @@ class Program
 
         return $this;
     }
+
+
 
 
 }

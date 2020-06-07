@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Repository\CriteriaRepository;
+use App\Repository\ProgramCityRepository;
 use App\Repository\ProgramRepository;
 use App\Repository\SearchBrochureRepository;
 use App\Repository\SearchPageRepository;
@@ -29,7 +30,8 @@ class PageSearchController extends PersonalClass
      * @Route("/trouvez-un-logement/{slug}", name="search")
      */
     public function search($slug, ProgramRepository $programRepository, Request $request, CriteriaRepository
-    $criteriaRepository, SearchPageRepository $searchPageRepository, SearchBrochureRepository $searchBrochureRepository)
+    $criteriaRepository, SearchPageRepository $searchPageRepository, SearchBrochureRepository
+    $searchBrochureRepository, ProgramCityRepository $programCityRepository)
     {
         // secure $slug
         $slug = $this->secureInput($slug);
@@ -289,6 +291,8 @@ class PageSearchController extends PersonalClass
                     }
                 }
 
+                // get the entity ProgramCity
+                $programCity = $programCityRepository->findOneBy(['name' => $city]);
 
 
                 return $this->render('web/search.html.twig',[
@@ -306,7 +310,8 @@ class PageSearchController extends PersonalClass
                     'page' => 'logement',
                     'h1' => $h1,
                     'title' => $metaTitle,
-                    'description' => $metaDescription
+                    'description' => $metaDescription,
+                    'currentCity' => $programCity
                 ]);
             }
 
