@@ -42,7 +42,7 @@
 
     <div class="search-modal-container">
         <div class="search-modal program-modal">
-            <div class="program-modal-close" onclick="showToggle('.program-modal')">Fermer</div>
+            <div class="program-modal-close" onclick="closeModalForm()">Fermer</div>
             <p class="search-modal-title">Vous êtes intéressé ?</p>
             <p class="search-modal-text">Appelez <span class="search-modal-number">07 77 84 91 94</span></p>
 
@@ -99,6 +99,49 @@
     </div>
 
     {# ##################################################################
+      #########################  MODAL FORM PLAN ########################
+      ################################################################### #}
+
+    <div class="program-plan">
+        <div class="program-plan-container">
+            <div class="load-program-picture-close" onclick="closePlan()">
+                X
+            </div>
+            <p>Pour recevoir le plan et plus d'informations sur ce programme,
+            merci de remplir ce formulaire de contact</p>
+           <div class="program-plan-form">
+               <form action="#" method="POST">
+                   <div class="program-plan-form-row">
+                       <label for="plan-miss">Madame</label>
+                       <input type="radio" name="gender" id="plan-miss" value="madame">
+                       <label for="plan-mister">Monsieur</label>
+                       <input type="radio" name="gender" id="plan-mister" value="monsieur">
+                   </div>
+                   <label for="name">Nom</label>
+                   <input type="text" id="name" name="name">
+                   <label for="email">Email</label>
+                   <input type="email" name="email" id="email">
+                   <label for="phone">Téléphone</label>
+                   <input type="text" name="phone" id="phone">
+                   <div class="program-plan-form-row">
+                       <input type="checkbox" id="plan-check" required>
+                       <label for="plan-check">
+                           Recevoir des biens similaires de Locataire A Proprietaire par mail
+                       </label>
+                   </div>
+                   <div class="program-plan-submit">
+                       <input type="submit" name="submit-plan" value="Envoyer">
+                   </div>
+               </form>
+           </div>
+
+        </div>
+    </div>
+
+
+
+
+    {# ##################################################################
       #########################  SECTION ###############################
       ################################################################### #}
 
@@ -134,7 +177,7 @@
         </div>
 
 
-        <div class="program-form-btn" onclick="showToggle(('.program-modal'))">
+        <div class="program-form-btn" onclick="openModalForm()">
             Formulaire
         </div>
 
@@ -330,10 +373,34 @@
         }
 
 
+        // to open modal form
+        function openModalForm(){
+            $('.search-modal-container').css('z-index','9999999')
+            $('.program-modal').show()
+        }
+
+        // to close modal form
+        function closeModalForm(){
+            $('.search-modal-container').css('z-index','-1')
+            $('.program-modal').hide()
+        }
 
         // to close modal
         function loadProgramClose(){
             $('.program-picture-modal').css('display','none')
+        }
+
+
+        // to open plan's modal
+        $(document).ready(function(){
+            $('.program-view-plan').click(function(){
+                $('.program-plan').css('display','flex')
+            })
+        })
+
+        // to close plan's modal
+        function closePlan(){
+            $('.program-plan').css('display','none')
         }
 
 

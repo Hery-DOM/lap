@@ -6,7 +6,7 @@
   .program-modal{
     width: 100%;
     height: 100vh;
-    top: 0;
+    top: 0!important;
     right: 0;
     z-index: 99999;
   }
@@ -151,6 +151,10 @@
 
 
   /********************** MAP ***********************/
+
+  .program-map-filter{
+    height: 50vh;
+  }
 
   .program-map{
     padding: 0;

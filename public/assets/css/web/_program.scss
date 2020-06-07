@@ -5,11 +5,71 @@
 
 .program-modal{
   z-index: 99999;
-  top: 93%
+  top: 93%;
+  display: block;
 }
 
 .program-modal-close{
   display: none;
+}
+
+/******** PROGRAM PLAN *******/
+
+.program-plan{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.9);
+  width: 100%;
+  height: 100vh;
+  z-index: 99999999;
+  justify-content: center;
+  align-items: center;
+}
+
+.program-plan-container{
+  border: 2px solid $blue;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: white;
+  p{
+    color: $blue;
+    font-weight: 700;
+  }
+}
+
+.program-plan-form{
+  padding: 10px;
+  input, label{
+    display: block;
+    color: $ligthblue;
+    margin: 10px 0;
+  }
+}
+
+.program-plan-form-row{
+  display: flex;
+  label,input{
+    margin: 0 10px;
+  }
+}
+
+.program-plan-submit{
+  input{
+    text-transform: uppercase;
+    color: white;
+    background-color: $ligthblue;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px auto;
+    border: none;
+    font-size: 1.3em;
+  }
+  input:hover{
+    background-color: $yellow;
+    cursor: pointer;
+  }
 }
 
 
@@ -347,7 +407,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9990;
   text-align: center;
   p{
     font-size: 2em;

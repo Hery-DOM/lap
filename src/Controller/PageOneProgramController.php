@@ -48,7 +48,7 @@ class PageOneProgramController extends PersonalClass
         // if user has sent the form modal
         if(isset($_POST['search-modal'])){
             // build the mail
-            $subject = "Prospect intéressé par un bien";
+            $subject = "Formulaire d'un programme ";
             $email = $this->secureInput($_POST['email']);
             $name = $this->secureInput($_POST['name']);
             $phone = $this->secureInput($_POST['phone']);
@@ -275,6 +275,37 @@ class PageOneProgramController extends PersonalClass
         $h1 = $program->getPagetitle();
         $metaTitle = $program->getMetatitle();
         $metaDescription = $program->getMetadescription();
+
+
+        // if form modal "plan" is submitted
+        if(isset($_POST['submit-plan'])){
+            // secure inputs
+            $name = $this->secureInput($_POST['name']);
+            $gender = $this->secureInput($_POST['gender']);
+            $email = $this->secureInput($_POST['email']);
+            $phone = $this->secureInput($_POST['phone']);
+            $progPlan = $program->getName();
+            $subject = "Formulaire d'un programme";
+            $from = $this->noreplyEmail();
+            $to = $this->emailAdmin();
+            $view = "email/program_plan.html.twig";
+            $viewParam = [
+                'gender' => $gender,
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'program' => $progPlan
+            ];
+            $this->sendEmail($subject,$from,$to,$view,$viewParam);
+            $this->addFlash('info','Merci, vous serez recontacté prochainement');
+            return $this->redirectToRoute('program',[
+                'slug' => $slug,
+                'id' => $id
+            ]);
+
+
+
+        }
 
         return $this->render('web/program.html.twig',[
             'program' => $program,
