@@ -12,6 +12,7 @@ use App\Repository\ProgramPictureRepository;
 use App\Repository\ProgramPropertyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,7 @@ class AdminController extends EasyAdminController
 
     /**
      * @Route("/adminu6vbu7388", name="easyadmin")
+     * @IsGranted("ROLE_ADMIN")
      */
     /*public function createNewUserEntity()
     {

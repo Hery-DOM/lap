@@ -10,6 +10,47 @@
 
 {% block content %}
     {# ##################################################################
+      #########################  MODAL FORM BROCHURE #####################
+      ################################################################### #}
+
+    <div class="program-plan">
+        <div class="program-plan-container">
+            <div class="load-program-picture-close" onclick="closePlan()">
+                X
+            </div>
+            <p>Pour recevoir le plan et plus d'informations sur ce programme,
+                merci de remplir ce formulaire de contact</p>
+            <div class="program-plan-form">
+                <form action="#" method="POST" class="form-guide">
+                    <div class="program-plan-form-row">
+                        <label for="plan-miss">Madame</label>
+                        <input type="radio" name="gender" id="plan-miss" value="madame">
+                        <label for="plan-mister">Monsieur</label>
+                        <input type="radio" name="gender" id="plan-mister" value="monsieur">
+                    </div>
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                    <label for="phone">Téléphone</label>
+                    <input type="text" name="phone" id="phone">
+                    <div class="program-plan-form-row">
+                        <input type="checkbox" id="plan-check" required>
+                        <label for="plan-check">
+                            Recevoir des biens similaires de Locataire A Proprietaire par mail
+                        </label>
+                    </div>
+                    <div class="program-plan-submit">
+                        <input type="submit" name="submit-brochure" value="Envoyer">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    {# ##################################################################
       #########################  ASIDE ###############################
       ################################################################### #}
 
@@ -54,7 +95,7 @@
         <div class="homepage-pastille-box">
             <!------- RESPONSIVE ------->
             <div class="homepage-ptz-responsive">
-                <a href="#">
+                <a href="{{ path('simulator') }}">
                     <div class="homepage-ptz-btn">
                         Simulateur <br/> PTZ
                     </div>
@@ -648,19 +689,19 @@
             <div class="homepage-project-pdf-box">
                 <div class="homepage-project-find-block">
                     <p>Guide trouver son bien</p>
-                    <a href="{{ asset('assets/img/brochure/') }}{{ brochures[0].file }}" download>
-                        <div class="homepage-project-find-btn">
+                    {#<a href="{{ asset('assets/img/brochure/') }}{{ brochures[0].file }}" download>#}
+                        <div class="homepage-project-find-btn" data-url="{{ asset('assets/img/brochure/') }}{{ brochures[0].file }}">
                             Découvrir
                         </div>
-                    </a>
+                    {#</a>#}
                 </div>
                 <div class="homepage-project-owner-block">
                     <p>Guide devenir propriétaire</p>
-                    <a href="{{ asset('assets/img/brochure/') }}{{ brochures[1].file }}" download>
-                        <div class="homepage-project-owner-btn">
+                    {#<a href="{{ asset('assets/img/brochure/') }}{{ brochures[1].file }}" download>#}
+                        <div class="homepage-project-owner-btn" data-url="{{ asset('assets/img/brochure/') }}{{ brochures[1].file }}">
                             Découvrir
                         </div>
-                    </a>
+                    {#</a>#}
                 </div>
             </div>
 
@@ -678,15 +719,15 @@
         <form action="#" method="POST" name="newsletter">
             <div class="homepage-newsletter-form-box">
                 <div class="homepage-newsletter-form-block">
-                    <label for="newsletter-city">VILLE</label>
-                    <input type="text" name="city" id="newsletter-city" required>
-                </div>
-                <div class="homepage-newsletter-form-block">
-                    <label for="newsletter-name">NOM PRENOM</label>
+                    <label for="newsletter-name">Nom</label>
                     <input type="text" name="name" id="newsletter-name" required>
                 </div>
                 <div class="homepage-newsletter-form-block">
-                    <label for="newsletter-email">E-MAIL</label>
+                    <label for="newsletter-city">Ville</label>
+                    <input type="text" name="city" id="newsletter-city" required>
+                </div>
+                <div class="homepage-newsletter-form-block">
+                    <label for="newsletter-email">E-mail</label>
                     <input type="text" name="email" id="newsletter-email" required>
                 </div>
                 <input type="hidden" name="newsletter">
@@ -853,5 +894,26 @@
             })
 
         })
+
+        // brochure
+        $(document).ready(function(){
+            $('.homepage-project-find-btn, .homepage-project-owner-btn').click(function(){
+                let thisClass = this
+                $('.program-plan').show()
+                $('.form-guide').submit(function(){
+                    let url = $(thisClass).data('url')
+                    window.open(url,"_blank",null)
+                })
+
+
+
+
+            })
+        })
+
+        // to close brochure's modal
+        function closePlan(){
+            $('.program-plan').css('display','none')
+        }
     </script>
 {% endblock %}

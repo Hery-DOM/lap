@@ -208,11 +208,11 @@
       ################################################################### #}
 
     <section class="program-main-criteria">
-        <h2 class="program-main-criteria-h2">LES + du programme</h2>
+        <p class="program-main-criteria-h2">LES + du programme</p>
         <div class="program-main-criteria-container">
             {% for key, elm in program.mainCriteria %}
                 <div class="program-elm-box">
-                    <h3>{{ elm.name }}</h3>
+                    <p>{{ elm.name }}</p>
                     <div class="verticalDivider"></div>
                 </div>
             {% endfor %}
@@ -231,18 +231,18 @@
         <p class="title">Description du program</p>
 
         <div class="program-view">
-            <h1>{{ program.name }}</h1>
+            <h2>{{ program.name }}</h2>
 
                 {% for property in program.ProgramProperties %}
                     <div class="program-view-container">
                         <div class="program-view-text">
                             <p>{{ property.typo }}</p>
-                            <p>{{ program.surface }} m2</p>
-                            <p class="program-price"> {{ program.price }} €</p>
+                            <p>{{ property.surface }} m2</p>
+                            <p class="program-price"> {{ property.price }} €</p>
                         </div>
                         <div class="program-view-plan">
                                 <div class="img-box">
-                                    <img src="{{ asset('assets/img/static/plan.png') }}" alt="plan {{ program.name }}">
+                                    <img src="{{ asset('assets/img/static/plan.png') }}" alt="plan {{ property.name }}">
                                 </div>
                         </div>
                     </div>
@@ -265,11 +265,14 @@
 
     <section class="program-map">
 
-        <div class="program-map-filter">
-            <p>Cliquez pour intéragir avec la carte</p>
-        </div>
-        <div id="mapid"></div>
-        <div id="city" data-latitude="{{ latitude }}" data-longitude="{{ longitude }}"></div>
+        {% if latitude is not empty and longitude is not empty  %}
+
+            <div class="program-map-filter">
+                <p>Cliquez pour intéragir avec la carte</p>
+            </div>
+            <div id="mapid"></div>
+            <div id="city" data-latitude="{{ latitude }}" data-longitude="{{ longitude }}"></div>
+        {% endif %}
     </section>
 
     <section class="program-description-more">
@@ -282,7 +285,7 @@
       ################################################################### #}
 
     <section class="program-others">
-        <h2>D'autres biens qui pourraient vous intéresser</h2>
+        <p>D'autres biens qui pourraient vous intéresser</p>
         <div class="program-others-container">
             {% for lastProgram in lastPrograms %}
                 {% if program.id != lastProgram.id %}
@@ -294,7 +297,7 @@
                                          alt="{{ lastProgram.name }}">
                                     {% endif %}
                             </div>
-                            <h3>{{ lastProgram.name }}</h3>
+                            <p>{{ lastProgram.name }}</p>
                             <p>{{ lastProgram.city }}</p>
                             <p class="price">A partir de {{ lastProgram.price }} €</p>
                         </a>
@@ -310,7 +313,7 @@
       ################################################################### #}
 
     <section class="program-alert">
-        <h3>Vous ne trouvez pas votre bonheur ?</h3>
+        <p>Vous ne trouvez pas votre bonheur ?</p>
         <a href="{{ path('project') }}">Être alerté</a>
     </section>
 

@@ -34,3 +34,12 @@ h1,h2,h3,a,li,p,label, button, input::placeholder{
 button{
   border: none;
 }
+
+
+.owl-theme .owl-dots .owl-dot span{
+  background-color: $ligthblue;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+  background-color: $blue;
+}

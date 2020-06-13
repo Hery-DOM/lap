@@ -11,6 +11,7 @@
   background-color: white;
   position: fixed;
   z-index: 99999;
+  width: 100%;
 }
 
 .header-img-box{
@@ -306,7 +307,7 @@ main{
 
     .footer-social-link-box{
       width: 20%;
-      min-width: 55px;
+      min-width: 40px;
       img{
         width: 100%;
         height: auto;
@@ -320,7 +321,7 @@ main{
   p{
     font-size: 0.9em;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
     text-transform: uppercase;
     font-weight: bold;
   }

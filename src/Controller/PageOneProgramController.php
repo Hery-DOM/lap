@@ -162,12 +162,22 @@ class PageOneProgramController extends PersonalClass
         $fullAddress = $this->escapeAccents($fullAddress);
         $fullAddress = str_replace(' ','+',$fullAddress);
 
-        $geocoder = "https://api-adresse.data.gouv.fr/search/?q=".$fullAddress;
+        if(is_null($fullAddress) || empty($fullAddress)){
+            $local_latitude = '';
+            $local_longitude = '';
+        }else{
+            $geocoder = "https://api-adresse.data.gouv.fr/search/?q=".$fullAddress;
 
-        $result = json_decode(file_get_contents($geocoder));
+            $result = json_decode(file_get_contents($geocoder));
 
-        $local_latitude = $result->features[0]->geometry->coordinates[1];
-        $local_longitude = $result->features[0]->geometry->coordinates[0];
+            $local_latitude = $result->features[0]->geometry->coordinates[1];
+            $local_longitude = $result->features[0]->geometry->coordinates[0];
+
+        }
+
+
+
+
 
 
 

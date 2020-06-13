@@ -162,7 +162,7 @@
   color: white;
   font-size: 0.9em;
   img{
-    width: auto;
+    width: 15%;
     height: 80%;
   }
 }
@@ -253,6 +253,7 @@
 /********************** SECTION MAIN CRITERIA ***********************/
 .program-main-criteria{
   background-color: $blue;
+  height: 11vh;
 }
 
 .program-main-criteria-h2{
@@ -263,7 +264,7 @@
 }
 
 .program-main-criteria-container{
-  height: 15vh;
+  height: 5vh;
   width: 70%;
   background-color: $blue;
   display: flex;
@@ -292,6 +293,8 @@
   padding-left: 3%;
   .title{
     color: $blue;
+    font-size: 1.2em;
+    font-weight: 700;
     margin-top: 40px;
     margin-bottom: 80px;
 
@@ -315,6 +318,8 @@
     justify-content: space-between;
     align-items: flex-end;
     margin: 5px 0;
+    width: 60%;
+    height: 50px;
     .program-view-text{
       width: 60%;
       display: flex;
@@ -333,6 +338,7 @@
 
     .program-view-plan{
       width: 11%;
+      height: 100%;
       background-color: $ligthblue;
       border-radius: 50px;
       padding: 5px 20px;
@@ -346,6 +352,7 @@
       }
       .img-box{
         width: 60%;
+        height: 100%;
         img{
           width: 100%;
           height: auto;
@@ -358,6 +365,10 @@
     }
   }
 
+}
+
+.program-description-more{
+  font-family: "Gilroy", sans-serif;
 }
 
 .program-description-text{
@@ -441,8 +452,9 @@
 .program-others{
   width: 70%;
   margin-left: 3%;
-  h2{
+  p{
     color: $blue;
+    font-weight: 700;
     text-transform: uppercase;
   }
 }
@@ -478,8 +490,9 @@
   margin-left: 23%;
   margin-bottom: 60px;
   text-align: center;
-  h3{
+  p{
     color: $blue;
+    font-weight: 700;
     text-transform: uppercase;
     margin-top: 40px;
     margin-bottom: 20px;

@@ -398,9 +398,11 @@
 
 
 
-    <div class="search-bottom-text"><p>{{ text|raw }}</p></div>
+
     {% if currentCity is defined and currentCity is not null %}
         <div class="search-bottom-text"><p>{{ currentCity.description|raw }}</p></div>
+    {% else %}
+        <div class="search-bottom-text"><p>{{ text|raw }}</p></div>
     {% endif %}
 
 

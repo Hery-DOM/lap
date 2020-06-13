@@ -223,13 +223,13 @@
 
   .homepage-request-box{
     height: 30vh;
+    width: 70%;
     p{
       font-size: 1.1em;
       line-height: 20px;
     }
 
     .homepage-request-btn{
-      padding: 5px 10%;
       text-align: center;
     }
   }
@@ -249,8 +249,9 @@
   }
 
   .homepage-testimony-responsive-img-box{
-    display: block;
-    width: 40%;
+    display: flex;
+    width: 70px;
+    height: 70px;
     margin: 20px auto;
     border-radius: 50%;
     overflow: hidden;
@@ -281,8 +282,10 @@
   }
 
   .homepage-testimonies-container .owl-nav{
-    width: 100%;
-    left: 0;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4%;
   }
 
 
@@ -296,18 +299,33 @@
     width: 95%;
   }
   .homepage-project-blog{
+    height: 15vh;
+    margin-bottom: 10px;
     .homepage-project-blog-txt-box{
+      padding: 0;
+      justify-content: flex-end;
       p{
-        font-size: 1.5em;
+        font-size: 1.1em;
+        margin-bottom: 0;
+      }
+      .homepage-project-blog-btn{
+        padding: 2px;
+        margin-bottom: 2px;
       }
     }
   }
 
   .homepage-project-find-block, .homepage-project-owner-block{
-    width: 48%;
+    width: 49%;
+    height: 12vh;
+    justify-content: flex-end;
     p{
-      font-size: 1.3em;
+      font-size: 1em;
     }
+  }
+  .homepage-project-find-btn, .homepage-project-owner-btn{
+    padding: 2px;
+    margin-bottom: 2px;
   }
   .homepage-project-blog-btn, .homepage-project-owner-btn, .homepage-project-find-btn{
     font-size: 1.1em;
@@ -318,8 +336,10 @@
   *********************************  NEWSLETTER  ***************************
   **************************************************************************/
   .homepage-newsletter{
+    padding-top: 0;
     h2{
-      font-size: 0.9em;
+      font-size: 0.7em;
+      margin-bottom: 10px;
     }
   }
 
@@ -327,6 +347,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    width: 90%;
     .homepage-newsletter-form-block{
       width: 100%;
       input{

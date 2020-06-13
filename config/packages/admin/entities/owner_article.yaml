@@ -19,6 +19,7 @@ easy_admin:
         fields:
           - {property: 'title', label: 'Titre'}
           - {property: 'text', label: 'Texte', type: 'fos_ckeditor'}
+          - {property: 'essential', label: "Ce qu'il faut retenir", type: 'fos_ckeditor'}
           - {property: 'pictureFile', label: 'Image', type: 'vich_image'}
           - {property: 'pictureAlt', label: "Texte alternatif à l'image"}
           - {property: 'owner_subcategory', label: "Sous catégorie associée"}

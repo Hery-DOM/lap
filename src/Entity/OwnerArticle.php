@@ -68,6 +68,11 @@ class OwnerArticle
      */
     private $metadescription;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $essential;
+
     public function __toString()
     {
         return $this->title;
@@ -198,6 +203,18 @@ class OwnerArticle
     public function setMetadescription(string $metadescription): self
     {
         $this->metadescription = $metadescription;
+
+        return $this;
+    }
+
+    public function getEssential(): ?string
+    {
+        return $this->essential;
+    }
+
+    public function setEssential(?string $essential): self
+    {
+        $this->essential = $essential;
 
         return $this;
     }

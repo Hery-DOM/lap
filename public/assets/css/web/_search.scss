@@ -220,7 +220,6 @@
   left: 0;
   z-index: 999;
   .homepage-search-barre{
-    border: 2px solid $blue;
     margin-top: 40px;
     margin-left: 30px;
   }
@@ -234,6 +233,9 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 50px;
+  form{
+    display: none;
+  }
 }
 
 .search-results-program{

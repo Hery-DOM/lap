@@ -39,7 +39,7 @@ class PageSearchController extends PersonalClass
         // get texts
         $text = $searchPageRepository->findOneBy(['name' => 'Texte en bas de page'])->getText();
         $h1 = $searchPageRepository->findOneBy(['name' => 'Titre de la page'])->getText();
-        $metaTitle = $searchPageRepository->findOneBy(['name' => 'Meta title'])->getText();
+        $metaTitle = $searchPageRepository->findOneBy(['name' => 'Balise title'])->getText();
         $metaDescription = $searchPageRepository->findOneBy(['name' => 'Meta description'])->getText();
 
         // get brochure
@@ -67,7 +67,7 @@ class PageSearchController extends PersonalClass
 
 
         // initialize $programs and $form ($form is to save choices from the form in search's page)
-        $programs = '';
+        $programs = $programRepository->findAll();
         $form = [
             'city' => '',
             'typo' => '',

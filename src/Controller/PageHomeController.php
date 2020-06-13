@@ -104,6 +104,31 @@ class PageHomeController extends PersonalClass
 
             }
 
+            // if form modal "brochure" is submitted
+            if(isset($_POST['submit-brochure'])){
+                // secure inputs
+                $name = $this->secureInput($_POST['name']);
+                $gender = $this->secureInput($_POST['gender']);
+                $email = $this->secureInput($_POST['email']);
+                $phone = $this->secureInput($_POST['phone']);
+                $subject = "Formulaire pour télécharger un guide";
+                $from = $this->noreplyEmail();
+                $to = $this->emailAdmin();
+                $view = "email/homepage_brochure.html.twig";
+                $viewParam = [
+                    'gender' => $gender,
+                    'name' => $name,
+                    'email' => $email,
+                    'phone' => $phone
+                ];
+                $this->sendEmail($subject,$from,$to,$view,$viewParam);
+                return $this->redirectToRoute('home');
+
+
+
+            }
+
+
 
         }
 

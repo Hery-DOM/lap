@@ -446,6 +446,7 @@
     .blue-bar-circle-box{
       position: absolute;
       top: -50%;
+      transform: translateX(-50%);
       .blue-bar-circle{
         width: 20px;
         height: 20px;
@@ -463,28 +464,28 @@
     }
 
     .circle-1{
-      left: -10%;
+      left: 0;
     }
 
     .circle-2{
-      left: 18%;
+      left: 32%;
     }
 
     .circle-3{
-      left: 39%;
+      left: 50%;
       .blue-bar-text{
         width: 60%;
       }
     }
 
     .circle-4{
-      left: 50%;
+      left: 64%;
       .blue-bar-text{
         width: 55%;
       }
     }
     .circle-5{
-      left: 73%;
+      left: 83%;
       .blue-bar-text{
         width: 60%;
       }
