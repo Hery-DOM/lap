@@ -32,7 +32,7 @@ class PageOneProgramController extends PersonalClass
 
 
     /**
-     * @Route("/programme/{id}/{slug}", name="program")
+     * @Route("/trouvez-un-logement/{id}/{slug}", name="program")
      * $id is program's ID
      */
     public function oneProgram($id, ProgramRepository $programRepository, $slug, SearchBrochureRepository $searchBrochureRepository)
@@ -335,7 +335,7 @@ class PageOneProgramController extends PersonalClass
 
 
     /**
-     * @Route("/programme-photo/{id}", name="program_picture")
+     * @Route("/trouvez-un-logement/programme-photo/{id}", name="program_picture")
      * It's for a load page
      * $id is picture's ID
      */
@@ -352,7 +352,7 @@ class PageOneProgramController extends PersonalClass
     }
 
     /**
-     * @Route("/programme-video/{id}", name="program_movie")
+     * @Route("/trouvez-un-logement/programme-video/{id}", name="program_movie")
      * It's for a load page
      * $id is program's ID
      */

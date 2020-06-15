@@ -1657,7 +1657,7 @@ input:checked + .slider:before {
         font-size: 1.3em;
         font-weight: 700; }
     .program-view .program-view-container .program-view-plan {
-      width: 11%;
+      width: 14%;
       height: 100%;
       background-color: #4489C8;
       border-radius: 50px;
@@ -1670,7 +1670,7 @@ input:checked + .slider:before {
         justify-content: center;
         align-items: center; }
       .program-view .program-view-container .program-view-plan .img-box {
-        width: 60%;
+        width: 100%;
         height: 100%; }
         .program-view .program-view-container .program-view-plan .img-box img {
           width: 100%;
