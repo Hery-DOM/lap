@@ -59,10 +59,18 @@ class PageFormProjectController extends PersonalClass
 
         }
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/project.html.twig',[
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
     }
 
@@ -70,7 +78,7 @@ class PageFormProjectController extends PersonalClass
     /**
      * @Route("/merci", name="project_after")
      */
-    public function projectAfter(ImmoProjectRepository $repository)
+    public function projectAfter(ImmoProjectRepository $repository, Request $request)
     {
         // get texts
         $text = $repository->findOneBy(['name'=>'Textes']);
@@ -78,11 +86,19 @@ class PageFormProjectController extends PersonalClass
         $metaTitle = $text->getMetatitle();
         $metaDescription = $text->getMetadescription();
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/project_after.html.twig',[
             'page' => '',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
     }
 

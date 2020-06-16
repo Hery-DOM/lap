@@ -294,6 +294,13 @@ class PageSearchController extends PersonalClass
                 // get the entity ProgramCity
                 $programCity = $programCityRepository->findOneBy(['name' => $city]);
 
+                // get if cookies accepted
+                $cookie = $request->cookies->get('cookieTime');
+                $cookieBanner = true;
+                if($cookie){
+                    $cookieBanner = false;
+                }
+
 
                 return $this->render('web/search.html.twig',[
                     'cities' => $cities,
@@ -311,11 +318,19 @@ class PageSearchController extends PersonalClass
                     'h1' => $h1,
                     'title' => $metaTitle,
                     'description' => $metaDescription,
-                    'currentCity' => $programCity
+                    'currentCity' => $programCity,
+                    'cookieBanner' => $cookieBanner
                 ]);
             }
 
 
+        }
+
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
         }
 
         return $this->render('web/search.html.twig',[
@@ -331,7 +346,8 @@ class PageSearchController extends PersonalClass
             'page' => 'logement',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
     }

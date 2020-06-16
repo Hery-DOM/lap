@@ -228,7 +228,7 @@
         <div class=" program-title">
             <h1>{{ h1|striptags|raw|nl2br }}</h1>
         </div>
-        <p class="title">Description du program</p>
+        <p class="title">Description du programme</p>
 
         <div class="program-view">
             <h2>{{ program.name }}</h2>
@@ -257,9 +257,6 @@
                 </div>
             {% endif %}
 
-            <div class="program-description-text-container">
-                {{ program.description|raw }}
-            </div>
         </a>
     </section>
 
@@ -276,7 +273,7 @@
     </section>
 
     <section class="program-description-more">
-        {{ program.descriptionMore|raw }}
+        {{ program.description|raw }}
     </section>
 
 

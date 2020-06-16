@@ -8,6 +8,7 @@ use App\Repository\AboutPictureRepository;
 use App\Repository\AboutRepository;
 use App\Repository\AboutWhyRepository;
 use App\Repository\TestimonyRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageAboutController extends PersonalClass
@@ -16,7 +17,7 @@ class PageAboutController extends PersonalClass
      * @Route("/qui-sommes-nous", name="about")
      */
     public function about(AboutRepository $aboutRepository, AboutPictureRepository $aboutPictureRepository,
-                          AboutWhyRepository $aboutWhyRepository, TestimonyRepository $testimonyRepository)
+                          AboutWhyRepository $aboutWhyRepository, TestimonyRepository $testimonyRepository, Request $request)
     {
         // get the sections for text and movie + get the picture + get the reasons
         $picture = $aboutPictureRepository->findOneBy([]);
@@ -39,6 +40,13 @@ class PageAboutController extends PersonalClass
             }
         }
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/about.html.twig',[
             'sections' => $sections,
             'picture' => $picture,
@@ -47,7 +55,8 @@ class PageAboutController extends PersonalClass
             'page' => 'nous',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
 

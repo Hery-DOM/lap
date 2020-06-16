@@ -13,6 +13,7 @@ use App\Repository\ProgramRepository;
 use App\Repository\TestimonyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -136,6 +137,13 @@ class PageHomeController extends PersonalClass
         $brochures = $homepageBrochureRepository->findBy([], ['id' => 'ASC']);
 
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
 
         return $this->render('web/home.html.twig',[
             'message' => $banner->getText(),
@@ -149,7 +157,8 @@ class PageHomeController extends PersonalClass
             'page' => '',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
     }
 
@@ -240,6 +249,22 @@ class PageHomeController extends PersonalClass
         ]);
 
 
+    }
+
+
+    /**
+     * @Route("/cookie-ajax", name="cookie_ajax")
+     * No view - AJAX
+     */
+    public function cookieAjax(Request $request)
+    {
+        // create a cookie
+        $response = new Response();
+        $response->headers->setCookie(Cookie::create('cookieTime','true',time()+3600*24*30));
+        $response->prepare($request);
+        $response->send();
+
+        return new Response("true");
     }
 
 

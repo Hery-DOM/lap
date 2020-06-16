@@ -63,8 +63,16 @@ class PageSendMailController extends PersonalClass
 
         }
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/alert.html.twig',[
-            'page' => ''
+            'page' => '',
+            'cookieBanner' => $cookieBanner
         ]);
 
     }

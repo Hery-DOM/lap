@@ -2577,6 +2577,37 @@ input:checked + .slider:before {
   margin: 10px;
   font-size: 0.8em; }
 
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 10vh;
+  background-color: rgba(0, 0, 0, 0.7); }
+
+.cookie-banner-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto; }
+
+.cookie-banner-text {
+  width: 80%; }
+  .cookie-banner-text p {
+    color: white; }
+
+.cookie-banner-btn {
+  width: 20%; }
+  .cookie-banner-btn button {
+    font-size: 1em;
+    text-transform: uppercase;
+    background-color: #FBB03B;
+    color: white;
+    padding: 10px;
+    border-radius: 20px; }
+
 .emailSent-block {
   height: 50vh;
   display: flex;

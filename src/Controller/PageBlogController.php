@@ -84,6 +84,12 @@ class PageBlogController extends PersonalClass
         // get additionnal articles
         $addArticles = $blogArticleRepository->findByTag('articles complémentaires');
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
 
         return $this->render('web/blog.html.twig',[
             'categories' => $categories,
@@ -95,7 +101,8 @@ class PageBlogController extends PersonalClass
             'currentPage' => $page,
             'topVideos' => $topVideos,
             'addArticles' => $addArticles,
-            'page' => 'blog'
+            'page' => 'blog',
+            'cookieBanner' => $cookieBanner
         ]);
 
     }
@@ -106,7 +113,7 @@ class PageBlogController extends PersonalClass
      * $art and $id are the article's name and ID
      */
     public function blogArticle($idCat, $art,$id, BlogArticleRepository $blogArticleRepository,
-                                SearchBrochureRepository $searchBrochureRepository)
+                                SearchBrochureRepository $searchBrochureRepository, Request $request)
     {
         // secure inputs
         $idCat = $this->secureInput($idCat);
@@ -149,12 +156,20 @@ class PageBlogController extends PersonalClass
             $this->addFlash('info', 'Merci, vous serez recontacté prochainement');
         }
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/blog_article.html.twig',[
             'article' => $article,
             'topVideos' => $topVideos,
             'addArticles' => $addArticles,
             'page' => '',
-            'brochure' => $brochure
+            'brochure' => $brochure,
+            'cookieBanner' => $cookieBanner
         ]);
     }
 

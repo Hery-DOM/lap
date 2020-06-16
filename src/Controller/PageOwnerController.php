@@ -8,6 +8,7 @@ use App\Repository\OwnerArticleRepository;
 use App\Repository\OwnerCategoryRepository;
 use App\Repository\OwnerHomeRepository;
 use App\Repository\OwnerSubcategoryRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageOwnerController extends PersonalClass
@@ -15,7 +16,8 @@ class PageOwnerController extends PersonalClass
     /**
      * @Route("/devenir-proprietaire", name="owner_home")
      */
-    public function ownerHome(OwnerCategoryRepository $ownerCategoryRepository, OwnerHomeRepository $ownerHomeRepository)
+    public function ownerHome(OwnerCategoryRepository $ownerCategoryRepository, OwnerHomeRepository
+    $ownerHomeRepository, Request $request)
     {
         // get categories
         $cat = $ownerCategoryRepository->findAll();
@@ -26,13 +28,21 @@ class PageOwnerController extends PersonalClass
         $metaTitle = $ownerHomeRepository->findOneBy(['name' => 'Balise title'])->getDescription();
         $metaDescription = $ownerHomeRepository->findOneBy(['name' => 'Meta description'])->getDescription();
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/owner_home.html.twig',[
             'categories' => $cat,
             'intro' => $intro,
             'page' => 'proprietaire',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
     }
@@ -42,7 +52,7 @@ class PageOwnerController extends PersonalClass
      * $slug is the category's name
      * $id is the category's ID
      */
-    public function ownerCategory($id, $slug, OwnerCategoryRepository $ownerCategoryRepository)
+    public function ownerCategory($id, $slug, OwnerCategoryRepository $ownerCategoryRepository, Request $request)
     {
         // secure the inputs
         $slug = $this->secureInput($slug);
@@ -59,6 +69,13 @@ class PageOwnerController extends PersonalClass
         $metaTitle = $cat->getMetatitle();
         $metaDescription = $cat->getMetadescription();
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/owner_category.html.twig',[
             'slug' => $slug,
             'cat' => $cat,
@@ -66,7 +83,8 @@ class PageOwnerController extends PersonalClass
             'page' => 'proprietaire',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
     }
@@ -78,7 +96,7 @@ class PageOwnerController extends PersonalClass
      * $cat and $idCat are the category's name and category's ID
      */
     public function ownerSubCategory( $idCat, $slug, $id, OwnerSubcategoryRepository
-    $ownerSubcategoryRepository, OwnerCategoryRepository $ownerCategoryRepository)
+    $ownerSubcategoryRepository, OwnerCategoryRepository $ownerCategoryRepository, Request $request)
     {
         // secure the inputs
         $idCat = $this->secureInput($idCat);
@@ -99,6 +117,13 @@ class PageOwnerController extends PersonalClass
         $metaTitle = $subc->getMetatitle();
         $metaDescription = $subc->getMetadescription();
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/owner_subcategory.html.twig',[
             'currentCategory' => $cat,
             'categories' => $categories,
@@ -108,7 +133,8 @@ class PageOwnerController extends PersonalClass
             'page' => 'proprietaire',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
     }
@@ -121,7 +147,8 @@ class PageOwnerController extends PersonalClass
      * $subcat and $idSubcat are the subcategory's name and ID
      */
     public function ownerArticle($id, $idCat, $idSubcat, $slug, OwnerCategoryRepository $ownerCategoryRepository,
-                                 OwnerSubcategoryRepository $ownerSubcategoryRepository, OwnerArticleRepository $ownerArticleRepository)
+                                 OwnerSubcategoryRepository $ownerSubcategoryRepository, OwnerArticleRepository
+                                 $ownerArticleRepository, Request $request)
     {
         // secure the inputs
         $id = $this->secureInput($id);
@@ -146,6 +173,13 @@ class PageOwnerController extends PersonalClass
         $metaTitle = $article->getMetatitle();
         $metaDescription = $article->getMetadescription();
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/owner_article.html.twig',[
             'article' => $article,
             'currentCategory' => $currentCategory,
@@ -155,7 +189,8 @@ class PageOwnerController extends PersonalClass
             'page' => 'proprietaire',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
     }

@@ -9,6 +9,7 @@ use App\Repository\ProgramRepository;
 use App\Repository\SearchBrochureRepository;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -35,7 +36,8 @@ class PageOneProgramController extends PersonalClass
      * @Route("/programmes-neufs/{id}/{city}/{slug}", name="program")
      * $id is program's ID
      */
-    public function oneProgram($id, ProgramRepository $programRepository, $slug, SearchBrochureRepository $searchBrochureRepository)
+    public function oneProgram($id, ProgramRepository $programRepository, $slug, SearchBrochureRepository
+    $searchBrochureRepository, Request $request)
     {
         // secure $id ang get program
         $id = $this->secureInput($id);
@@ -317,6 +319,13 @@ class PageOneProgramController extends PersonalClass
 
         }
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/program.html.twig',[
             'program' => $program,
             'form' => $form,
@@ -328,7 +337,8 @@ class PageOneProgramController extends PersonalClass
             'page' => 'logement',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
     }

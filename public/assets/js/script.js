@@ -1,3 +1,18 @@
+
+function cookieBtn(elm){
+    $.ajax({
+        type: 'POST',
+        url: $(elm).data('url'),
+        dataType: 'json',
+        success: function(result){
+            $('.cookie-banner').css('display','none')
+
+        }
+    })
+}
+
+
+
 function previewClick(elm, url){
     $('.homepage-preview-filter p').removeClass('choice')
     $(elm).children().addClass('choice')

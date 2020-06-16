@@ -1,17 +1,25 @@
 <!doctype html>
 <html lang="fr">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src=“https://www.googletagmanager.com/gtag/js?id=UA-157617197-1”></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-157617197-1');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="{% block description %}Locataire à propriétaire{% endblock %}">
-    <title>{% block title %}{% endblock %} - Locataire à propriétaire</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="icon" href="{{ asset('assets/img/static/logo.png') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.theme.default.min.css') }}">
     {% block style %}{% endblock %}
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/styles2.css') }}">
 </head>
 <body>
 
@@ -243,6 +251,24 @@
                 </div>
             </div>
         </div>
+
+
+        <!------------ COOKIE BANNER ----------->
+
+        {% if cookieBanner is defined and cookieBanner %}
+            <div class="cookie-banner">
+                <div class="cookie-banner-row">
+                    <div class="cookie-banner-text">
+                        <p>Ce site utilise des cookies pour son bon fonctionnement.</p>
+                    </div>
+                    <div class="cookie-banner-btn">
+                        <button onclick="cookieBtn(this)"
+                            data-url="{{ path('cookie_ajax') }}"
+                        >J'accepte</button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
 
     </main>
 

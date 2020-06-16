@@ -333,12 +333,20 @@ class PageSimulatorController extends PersonalClass
 
         }
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
 
         return $this->render('web/simulator.html.twig',[
             'page' => '',
             'h1' => $h1,
             'title' => $metaTitle,
-            'description' => $metaDescription
+            'description' => $metaDescription,
+            'cookieBanner' => $cookieBanner
         ]);
 
     }
@@ -367,6 +375,13 @@ class PageSimulatorController extends PersonalClass
         $result = $this->secureInput($session->get('result'));
         $apport = $this->secureInput($session->get('apport'));
 
+        // get if cookies accepted
+        $cookie = $request->cookies->get('cookieTime');
+        $cookieBanner = true;
+        if($cookie){
+            $cookieBanner = false;
+        }
+
         return $this->render('web/simulator_result.html.twig',[
             "owner" => $owner,
             "city" => $city,
@@ -378,7 +393,8 @@ class PageSimulatorController extends PersonalClass
             'h1' => $h1,
             'title' => $metaTitle,
             'description' => $metaDescription,
-            'apport' => $apport
+            'apport' => $apport,
+            'cookie' => $cookieBanner
         ]);
 
 

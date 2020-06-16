@@ -160,9 +160,11 @@ main {
 
 .contact-modal-block {
     width: 50%; }
-.contact-modal-block h2 {
+.contact-modal-block .title {
     color: #002849;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.5em; }
 .contact-modal-block .contact-modal-number, .contact-modal-block .contact-modal-mail, .contact-modal-block .contact-modal-social {
     margin: 20px 0; }
 .contact-modal-block .contact-modal-number, .contact-modal-block .contact-modal-mail {
@@ -191,8 +193,12 @@ main {
     font-weight: 700; }
 .contact-modal-block .contact-modal-social {
     margin-top: 100px; }
-.contact-modal-block .contact-modal-social h2 {
-    text-align: center; }
+.contact-modal-block .contact-modal-social .title {
+    text-align: center;
+    color: #002849;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.5em; }
 .contact-modal-block .contact-modal-social-box {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -513,7 +519,7 @@ main {
 
 .homepage-search-text {
     text-align: center; }
-.homepage-search-text h2 {
+.homepage-search-text h1 {
     color: white;
     text-transform: uppercase; }
 
@@ -975,11 +981,12 @@ main {
     width: 90%;
     margin: 0 auto;
     padding: 50px 0; }
-.homepage-preview-container h2 {
+.homepage-preview-container h3 {
     text-align: center;
     text-transform: uppercase;
     color: #002849;
-    font-weight: bold; }
+    font-weight: bold;
+    font-size: 1.5em; }
 
 .homepage-preview-filters-box {
     width: 80%;
@@ -1050,12 +1057,13 @@ main {
 .homepage-services-container {
     width: 90%;
     margin: 0 auto; }
-.homepage-services-container h2 {
+.homepage-services-container .title {
     color: #4489C8;
     text-align: center;
     -webkit-text-decoration: underline #FBB03B;
     text-decoration: underline #FBB03B;
-    margin-bottom: 80px; }
+    margin-bottom: 80px;
+    font-size: 1.5em; }
 .homepage-services-container .homepage-services-box {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1067,7 +1075,7 @@ main {
     align-items: flex-start; }
 .homepage-services-container .homepage-services-box .homepage-services-block {
     width: 12%; }
-.homepage-services-container .homepage-services-box .homepage-services-block h3 {
+.homepage-services-container .homepage-services-box .homepage-services-block .title {
     font-weight: bold;
     font-size: 0.8em;
     height: 20px;
@@ -1184,7 +1192,7 @@ main {
 .homepage-testimonies-container .owl-nav .icon-chevron-left img, .homepage-testimonies-container .owl-nav .icon-chevron-rigth img {
     width: 100%;
     height: auto; }
-.homepage-testimonies-container h2 {
+.homepage-testimonies-container h4 {
     text-transform: uppercase;
     color: #002849; }
 
@@ -1335,11 +1343,13 @@ main {
 .homepage-newsletter {
     padding-top: 40px;
     padding-bottom: 30px; }
-.homepage-newsletter h2 {
+.homepage-newsletter .title {
     text-align: center;
     color: #002849;
     text-transform: uppercase;
-    margin-bottom: 50px; }
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 1.2em; }
 
 .homepage-newsletter-form-box {
     display: -webkit-box;
@@ -1725,10 +1735,10 @@ input:checked + .slider:before {
 .search-results-program .search-results-program-img-box .search-result-program-filter p {
     color: white;
     font-weight: 700; }
-.search-results-program p, .search-results-program h2 {
+.search-results-program p, .search-results-program .title {
     color: #002849;
     text-transform: uppercase; }
-.search-results-program h2 {
+.search-results-program .title {
     font-weight: 700;
     font-size: 1.4em; }
 .search-results-program .price {
@@ -2350,15 +2360,17 @@ input:checked + .slider:before {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
-.owner-home-top .owner-sections-container .owner-elm-block h2 {
+.owner-home-top .owner-sections-container .owner-elm-block .title {
     font-size: 1.1em;
-    color: #002849; }
+    color: #002849;
+    font-weight: 700;
+    font-size: 1.3em; }
 .owner-home-top .owner-sections-container .owner-elm-block .img-box {
     width: 50%;
     margin: 0 auto; }
 .owner-home-top .owner-sections-container .owner-elm-block .img-box img {
     width: 100%; }
-.owner-home-top .owner-sections-container .owner-elm-block:hover h2 {
+.owner-home-top .owner-sections-container .owner-elm-block:hover .title {
     color: #4489C8; }
 
 /********************** BREADCRUMB *************************/
@@ -2541,8 +2553,9 @@ input:checked + .slider:before {
 .about-social {
     margin: 40px auto;
     width: 90%; }
-.about-social h2 {
+.about-social h3 {
     color: #002849;
+    font-size: 1.5em;
     margin-bottom: 40px; }
 .about-social .about-social-text-box {
     color: #4489C8;
@@ -3226,6 +3239,42 @@ input:checked + .slider:before {
     margin: 10px;
     font-size: 0.8em; }
 
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.7); }
+
+.cookie-banner-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto; }
+
+.cookie-banner-text {
+    width: 80%; }
+.cookie-banner-text p {
+    color: white; }
+
+.cookie-banner-btn {
+    width: 20%; }
+.cookie-banner-btn button {
+    font-size: 1em;
+    text-transform: uppercase;
+    background-color: #FBB03B;
+    color: white;
+    padding: 10px;
+    border-radius: 20px; }
+
 .emailSent-block {
     height: 50vh;
     display: -webkit-box;
@@ -3537,7 +3586,7 @@ input:checked + .slider:before {
         display: block;
         background-color: rgba(69, 138, 255, 0.2);
         padding-top: 40px; }
-    .homepage-preview-responsive h2 {
+    .homepage-preview-responsive h3 {
         color: #002849;
         text-transform: uppercase;
         text-align: center;
@@ -3563,11 +3612,13 @@ input:checked + .slider:before {
         background-color: white; }
     .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-img-box {
         position: relative; }
-    .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-img-box h3 {
+    .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-img-box .title {
         position: absolute;
         bottom: 10%;
         left: 5%;
-        color: white; }
+        color: white;
+        font-size: 1.2em;
+        font-weight: 700; }
     .homepage-preview-responsive-container .homepage-preview-responsive-block .homepage-preview-responsive-img-box img {
         width: 100%;
         height: auto; }
@@ -3614,7 +3665,7 @@ input:checked + .slider:before {
     .homepage-services {
         width: 100%; }
 
-    .homepage-services-container h2 {
+    .homepage-services-container h3 {
         font-size: 0.9em;
         font-weight: normal; }
     .homepage-services-container .homepage-services-box {
@@ -3653,7 +3704,7 @@ input:checked + .slider:before {
     /*************************************************************************
     *********************************  TESTIMONIES  **************************
     **************************************************************************/
-    .homepage-testimonies-container h2 {
+    .homepage-testimonies-container h4 {
         text-align: center; }
 
     .homepage-testimonies .owl-item {
@@ -3737,7 +3788,7 @@ input:checked + .slider:before {
     **************************************************************************/
     .homepage-newsletter {
         padding-top: 0; }
-    .homepage-newsletter h2 {
+    .homepage-newsletter .title {
         font-size: 0.7em;
         margin-bottom: 10px; }
 
