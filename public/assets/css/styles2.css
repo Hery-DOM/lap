@@ -3245,7 +3245,8 @@ input:checked + .slider:before {
     left: 0;
     width: 100vw;
     height: 10vh;
-    background-color: rgba(0, 0, 0, 0.7); }
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99999999999999999; }
 
 .cookie-banner-row {
     display: -webkit-box;

@@ -51,7 +51,7 @@ easy_admin:
 #          - {property: 'descriptionMore', label: 'Description +'}
           - {property: 'description', type: 'fos_ckeditor', label: 'Description principale' }
           - {property: 'address', label: 'Adresse' }
-          - {property: 'city', label: 'Ville' }
+          - {property: 'city', label: 'Ville', type_options: { required: true } }
           - {property: 'postcode', type: 'integer', label: 'Code postal' }
           - {property: 'region', label: 'Région' }
           - {property: 'price', label: 'prix' }
@@ -69,4 +69,4 @@ easy_admin:
           - {property: 'pagetitle', label: 'Titre de la page' }
           - {property: 'metatitle', label: 'Balise Title' }
           - {property: 'metadescription', label: 'Meta description' }
-          - {property: 'slug', label: 'Slug' }
+          - {property: 'slug', label: 'Slug', type_options: { required: true } }
