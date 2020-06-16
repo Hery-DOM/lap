@@ -75,7 +75,7 @@
 
 .homepage-search-text{
   text-align: center;
-  h2{
+  h1{
     color: white;
     text-transform: uppercase;
   }
@@ -513,11 +513,12 @@
   width: 90%;
   margin: 0 auto;
   padding: 50px 0;
-  h2{
+  h3{
     text-align: center;
     text-transform: uppercase;
     color: $blue;
     font-weight: bold;
+    font-size: 1.5em;
   }
 }
 
@@ -593,11 +594,12 @@
 .homepage-services-container{
   width: 90%;
   margin: 0 auto;
-  h2{
+  .title{
     color: $ligthblue;
     text-align: center;
     text-decoration: underline $yellow;
     margin-bottom: 80px;
+    font-size: 1.5em;
   }
 
   .homepage-services-box{
@@ -607,7 +609,7 @@
 
     .homepage-services-block{
       width: 12%;
-      h3{
+      .title{
         font-weight: bold;
         font-size: 0.8em;
         height: 20px;
@@ -730,7 +732,7 @@
     }
   }
 
-  h2{
+  h4{
     text-transform: uppercase;
     color: $blue;
   }
@@ -831,6 +833,11 @@
   border-radius: 30px;
   font-size: 1.4em;
   text-align: center;
+  font-family: "Gilroy", sans-serif;
+}
+
+.homepage-project-blog-btn:hover, .homepage-project-owner-btn:hover, .homepage-project-find-btn:hover{
+  cursor: pointer;
 }
 
 .homepage-project-pdf-box{
@@ -874,11 +881,13 @@
 .homepage-newsletter{
   padding-top: 40px;
   padding-bottom: 30px;
-  h2{
+  .title{
     text-align: center;
     color: $blue;
     text-transform: uppercase;
     margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 1.2em;
   }
 }
 

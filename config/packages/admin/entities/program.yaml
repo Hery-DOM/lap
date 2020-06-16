@@ -23,7 +23,7 @@ easy_admin:
         fields:
           - {property: 'name', label: 'Nom du bien'}
           - {property: 'description', label: 'Description'}
-          - {property: 'descriptionMore', label: 'Description +'}
+#          - {property: 'descriptionMore', label: 'Description +'}
           - {property: 'address', label: 'Adresse'}
           - {property: 'city', label: 'Ville'}
           - {property: 'postcode', label: 'Code postal'}
@@ -44,10 +44,11 @@ easy_admin:
           - {property: 'pagetitle', label: 'Titre de la page' }
           - {property: 'metatitle', label: 'Meta title' }
           - {property: 'metadescription', label: 'Meta description' }
+          - {property: 'slug', label: 'Slug' }
       form:
         fields:
           - {property: 'name', label: 'Nom du bien'}
-          - {property: 'descriptionMore', label: 'Description +'}
+#          - {property: 'descriptionMore', label: 'Description +'}
           - {property: 'description', type: 'fos_ckeditor', label: 'Description principale' }
           - {property: 'address', label: 'Adresse' }
           - {property: 'city', label: 'Ville' }
@@ -68,3 +69,4 @@ easy_admin:
           - {property: 'pagetitle', label: 'Titre de la page' }
           - {property: 'metatitle', label: 'Balise Title' }
           - {property: 'metadescription', label: 'Meta description' }
+          - {property: 'slug', label: 'Slug' }

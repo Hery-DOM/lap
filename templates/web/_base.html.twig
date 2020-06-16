@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owlcarousel/owl.theme.default.min.css') }}">
     {% block style %}{% endblock %}
-    <link rel="stylesheet" href="{{ asset('assets/css/styles2.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 </head>
 <body>
 
@@ -156,7 +156,7 @@
                 </div>
                 <div class="contact-modal-container">
                     <div class="contact-modal-block">
-                        <h2>Vous voulez parler à un conseiller ?</h2>
+                        <p class="title">Vous voulez parler à un conseiller ?</p>
                         <div class="contact-modal-number">
                             <div class="img-box">
                                 <img src="{{ asset('assets/img/static/icone-contact.png') }}" alt="icone téléphone">
@@ -175,7 +175,7 @@
                             </div>
                         </div>
                         <div class="contact-modal-social">
-                            <h2>Suivez-nous</h2>
+                            <p class="title">Suivez-nous</p>
                             <div class="contact-modal-social-box">
                                 <div class="img-box">
                                     <a target="_blank" href="https://www.facebook.com/zammitconseilsetpatrimoine">
@@ -197,7 +197,7 @@
                         </div>
                     </div>
                     <div class="contact-modal-block">
-                        <h2>Contacter un conseiller</h2>
+                        <p class="title">Contacter un conseiller</p>
 
                         <form action="{{ path('contact') }}" method="POST">
                             <div class="form-row-radio">

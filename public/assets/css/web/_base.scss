@@ -108,9 +108,11 @@ main{
 
 .contact-modal-block{
   width: 50%;
-  h2{
+  .title{
     color: $blue;
     margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.5em;
   }
 
   .contact-modal-number, .contact-modal-mail, .contact-modal-social{
@@ -146,8 +148,12 @@ main{
 
   .contact-modal-social{
     margin-top: 100px;
-    h2{
+    .title{
       text-align: center;
+      color: $blue;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.5em;
     }
   }
 

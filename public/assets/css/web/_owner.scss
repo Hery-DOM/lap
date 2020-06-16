@@ -40,9 +40,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      h2{
+      .title{
         font-size: 1.1em;
         color: $blue;
+        font-weight: 700;
+        font-size: 1.3em;
       }
       .img-box{
         width: 50%;
@@ -54,7 +56,7 @@
 
     }
     .owner-elm-block:hover{
-      h2{
+      .title{
         color: $ligthblue;
       }
     }

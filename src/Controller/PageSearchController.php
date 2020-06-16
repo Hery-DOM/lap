@@ -15,8 +15,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageSearchController extends PersonalClass
 {
     /**
-     * @Route("/trouvez-un-logement/", name="search_redirect")
-     * @Route("/trouvez-un-logement", name="search_redirect2")
+     * @Route("/programmes-neufs/", name="search_redirect")
+     * @Route("/programmes-neufs", name="search_redirect2")
      * No view, to redirect if there isn't a slug
      */
     public function searchRedirect()
@@ -27,7 +27,7 @@ class PageSearchController extends PersonalClass
     }
 
     /**
-     * @Route("/trouvez-un-logement/{slug}", name="search")
+     * @Route("/programmes-neufs/{slug}", name="search")
      */
     public function search($slug, ProgramRepository $programRepository, Request $request, CriteriaRepository
     $criteriaRepository, SearchPageRepository $searchPageRepository, SearchBrochureRepository

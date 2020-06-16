@@ -108,7 +108,7 @@ $(document).ready(function(){
     $('#city').change(function(){
         // change value in attr action form form (for URL after submit)
         var url = $('.homepage-search-barre form').data('url')
-        var newValue = url+'/trouvez-un-logement/'+$('#city').val()
+        var newValue = url+'/programmes-neufs/'+$('#city').val()
         $('.homepage-search-barre form').attr('action', newValue)
     })
 

@@ -309,7 +309,8 @@
 
 
             {% for program in programs %}
-                <form action="{{ path('program',{'id':program.id,'slug':program.name|url}) }}" method="POST"
+                <form action="{{ path('program',{'id':program.id,'slug':program.slug|url,'city':program
+                    .city|url}) }}" method="POST"
                       id="form-{{ program.id }}">
                     <input type="hidden" name="city" value="{{ form['city'] }}">
                     <input type="hidden" name="typo" value="{{ form['typo'] }}">
@@ -351,7 +352,7 @@
                             {% endif %}
 
                         </div>
-                        <h2>{{ program.name }}</h2>
+                        <p class="title">{{ program.name }}</p>
                         <p>{{ program.city }}</p>
                         <p class="price">A partir de {{ program.price }} €</p>
                     </a>

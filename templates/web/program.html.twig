@@ -290,7 +290,8 @@
             {% for lastProgram in lastPrograms %}
                 {% if program.id != lastProgram.id %}
                     <div class="program-others-block">
-                        <a href="{{ path('program',{'id':lastProgram.id,'slug':lastProgram.name|url}) }}">
+                        <a href="{{ path('program',{'id':lastProgram.id,'slug':lastProgram.slug|url,
+                            'city':lastProgram.city|url}) }}">
                             <div class="img-box">
                                 {% if lastProgram.programPicture[0] is defined %}
                                     <img src="{{ asset('assets/img/programs/') }}{{ lastProgram.programPicture[0].picture }}"

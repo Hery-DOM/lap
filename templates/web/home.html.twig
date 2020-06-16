@@ -18,7 +18,7 @@
             <div class="load-program-picture-close" onclick="closePlan()">
                 X
             </div>
-            <p>Pour recevoir le plan et plus d'informations sur ce programme,
+            <p>Pour recevoir ce guide,
                 merci de remplir ce formulaire de contact</p>
             <div class="program-plan-form">
                 <form action="#" method="POST" class="form-guide">
@@ -37,7 +37,7 @@
                     <div class="program-plan-form-row">
                         <input type="checkbox" id="plan-check" required>
                         <label for="plan-check">
-                            Recevoir des biens similaires de Locataire A Proprietaire par mail
+                            Recevoir des offres de Locataire A Proprietaire par mail
                         </label>
                     </div>
                     <div class="program-plan-submit">
@@ -109,7 +109,7 @@
         </div>
 
         <div class="homepage-search-text">
-            <h2>Trouver le logement qui me correspond</h2>
+            <h1>Trouver le logement qui me correspond</h1>
         </div>
 
         <div class="homepage-search-barre">
@@ -359,7 +359,7 @@
 
     <section class="homepage-preview">
         <div class="homepage-preview-container">
-            <h2>En avant première</h2>
+            <h3>En avant première</h3>
 
             <div class="homepage-preview-filters-box">
                 <div class="homepage-preview-filter" onclick="previewClick(this, '{{ path('preview_load',{'filter':'Sélection du mois'}) }}')">
@@ -382,7 +382,8 @@
             <div class="homepage-preview-result">
                 {% for program in programSelection|slice(0,3) %}
                 <div class="homepage-preview-block">
-                    <a href="{{ path('program',{'slug':program.name|url,'id':program.id}) }}">
+                    <a href="{{ path('program',{'slug':program.name|url,'id':program.id,'city':program.city|url})
+                    }}">
                         {% if program.programPicture is not empty %}
                             <div class="img-box">
                                 <img src="{{ asset('assets/img/programs/') }}{{ program.programPicture[0].picture }}"
@@ -405,12 +406,12 @@
     </section>
 
     <section class="homepage-preview-responsive">
-        <h2>Découvrez nos offres</h2>
+        <h3>Découvrez nos offres</h3>
 
         <div class="homepage-preview-responsive-container">
             <div class="homepage-preview-responsive-block">
                 <div class="homepage-preview-responsive-img-box">
-                    <h3>En avant première</h3>
+                    <p class="title">En avant première</p>
                     <img src="{{ asset('assets/img/static/image-home.jpg') }}" alt="image offres">
                 </div>
                 <div class="homepage-preview-responsive-txt-box">
@@ -429,7 +430,7 @@
 
             <div class="homepage-preview-responsive-block">
                 <div class="homepage-preview-responsive-img-box">
-                    <h3>TVA réduite 5,5%</h3>
+                    <p class="title">TVA réduite 5,5%</p>
                     <img src="{{ asset('assets/img/static/image-home.jpg') }}" alt="image offres">
                 </div>
                 <div class="homepage-preview-responsive-txt-box">
@@ -449,7 +450,7 @@
 
             <div class="homepage-preview-responsive-block">
                 <div class="homepage-preview-responsive-img-box">
-                    <h3>Quartier par quartier</h3>
+                    <p class="title">Quartier par quartier</p>
                     <img src="{{ asset('assets/img/static/image-home.jpg') }}" alt="image offres">
                 </div>
                 <div class="homepage-preview-responsive-txt-box">
@@ -479,14 +480,14 @@
 
     <section class="homepage-services">
         <div class="homepage-services-container">
-            <h2>Ce dont je bénéficie par un simple coup de fil</h2>
+            <h3>Ce dont je bénéficie par un simple coup de fil</h3>
 
             <div class="homepage-services-box">
                 <div class="homepage-services-block">
                     <div class="homepage-services-img-box">
                         <img src="{{ asset('assets/img/static/icon-commission.png') }}" alt="icone commision">
                     </div>
-                    <h3>0% commision</h3>
+                    <p class="title">0% commision</p>
                     <p>
                         Nous sommes rémunérés par les promoteurs,
                         les prix sont directs
@@ -504,7 +505,7 @@
                     <div class="homepage-services-img-box">
                         <img src="{{ asset('assets/img/static/icone-global.png') }}" alt="icone offre globale">
                     </div>
-                    <h3>Une offre globale et exhaustive</h3>
+                    <p class="title">Une offre globale et exhaustive</p>
                     <p>
                         Nous vous présentons
                         l'ensemble des biens
@@ -524,7 +525,7 @@
                     <div class="homepage-services-img-box">
                         <img src="{{ asset('assets/img/static/icone-valid.png') }}" alt="icone financement adapté">
                     </div>
-                    <h3>Un financement adapté</h3>
+                    <p class="title">Un financement adapté</p>
                     <p>
                        Nous réalisons une étude
                         financière pour connaître
@@ -544,7 +545,7 @@
                     <div class="homepage-services-img-box">
                         <img src="{{ asset('assets/img/static/icone-user.png') }}" alt="icone interlocuteur unique">
                     </div>
-                    <h3>Un interlocuteur unique</h3>
+                    <p class="title">Un interlocuteur unique</p>
                     <p>
                         Plus de pertes de temps
                         et d'énergie avec
@@ -567,7 +568,7 @@
                     <div class="homepage-services-img-box">
                         <img src="{{ asset('assets/img/static/icone-home.png') }}" alt="icone service clé en main">
                     </div>
-                    <h3>Un service clé en main</h3>
+                    <p class="title">Un service clé en main</p>
                     <p>
                         Vou sn'avez rien à faire,
                         aucun travaux à réaliser,
@@ -588,7 +589,7 @@
                     <div class="homepage-services-img-box">
                         <img src="{{ asset('assets/img/static/icone-engrenage.png') }}" alt="icone service sur-mesure">
                     </div>
-                    <h3>Un service sur-mesure</h3>
+                    <p class="title">Un service sur-mesure</p>
                     <p>
                         Une aide pour toutes les démarches,
                         comparaison des biens
@@ -631,7 +632,7 @@
 
     <section class="homepage-testimonies">
         <div class="homepage-testimonies-container">
-            <h2>Témoiganges clients</h2>
+            <h4>Témoiganges clients</h4>
 
             <div class="owl-carousel owl-theme owl-loaded">
                 <div class="owl-stage-outer">
@@ -715,7 +716,7 @@
 ################################################################### #}
 
     <section class="homepage-newsletter">
-        <h2>Rester informé des meilleurs plans sur Bordeaux Métropole</h2>
+        <p class="title">Rester informé des meilleurs plans sur Bordeaux Métropole</p>
         <form action="#" method="POST" name="newsletter">
             <div class="homepage-newsletter-form-box">
                 <div class="homepage-newsletter-form-block">
@@ -899,7 +900,7 @@
         $(document).ready(function(){
             $('.homepage-project-find-btn, .homepage-project-owner-btn').click(function(){
                 let thisClass = this
-                $('.program-plan').show()
+                $('.program-plan').css('display','flex')
                 $('.form-guide').submit(function(){
                     let url = $(thisClass).data('url')
                     window.open(url,"_blank",null)

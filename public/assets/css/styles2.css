@@ -1282,7 +1282,11 @@ main {
     padding: 10px 20px;
     border-radius: 30px;
     font-size: 1.4em;
-    text-align: center; }
+    text-align: center;
+    font-family: "Gilroy", sans-serif; }
+
+.homepage-project-blog-btn:hover, .homepage-project-owner-btn:hover, .homepage-project-find-btn:hover {
+    cursor: pointer; }
 
 .homepage-project-pdf-box {
     display: -webkit-box;
