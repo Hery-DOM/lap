@@ -1,6 +1,6 @@
 {% for program in programs|slice(0,3) %}
     <div class="homepage-preview-block">
-        <a href="{{ path('program',{'slug':program.name|url,'id':program.id}) }}">
+        <a href="{{ path('program',{'slug':program.name|url,'id':program.id,'city':program.city|url}) }}">
             {% if program.programPicture is not empty %}
                 <div class="img-box">
                     <img src="{{ asset('assets/img/programs/') }}{{ program.programPicture[0].picture }}"alt="{{program.programPicture[0].pictureAlt }}">

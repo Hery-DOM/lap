@@ -141,6 +141,10 @@ class PageSearchController extends PersonalClass
                     $priceMax = $this->secureInput($_POST['priceMax']);
                     $form['priceMax'] = $priceMax;
                 }
+                if(isset($_POST['priceMaxResp']) && !empty($_POST['priceMaxResp'])){
+                    $priceMax = $this->secureInput($_POST['priceMaxResp']);
+                    $form['priceMax'] = $priceMax;
+                }
                 if(isset($_POST['surfaceMin'])){
                     $surfaceMin = $this->secureInput($_POST['surfaceMin']);
                     $form['surfaceMin'] = $surfaceMin;
@@ -177,7 +181,7 @@ class PageSearchController extends PersonalClass
 
                 // find the programs
                 // first : get the programs with the firsts criteria by repository
-                $programs = $programRepository->findBySearch($city,$typo,$priceMin,$priceMax,$surfaceMin,$surfaceMax,
+                $programs = $programRepository->findBySearch($city,$typo,$priceMax,$surfaceMin,$surfaceMax,
                     $handicap);
 
                 // second : get the programs with the the criteria rooms, disponibility, prestation and others

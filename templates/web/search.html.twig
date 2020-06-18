@@ -127,12 +127,13 @@
                         </div>#}
 
                         <div class="homepage-search-block homepage-search-price">
-                            <input type="text" name="priceMax" placeholder="Budget max">
+                            <input type="text" name="priceMax" placeholder="Budget max" value="{{ form['priceMax'] }}">
                         </div>
 
                         <div class="homepage-search-block homepage-search-price-responsive ">
                             {#<input type="text" name="priceMin" placeholder="Budget min">#}
-                            <input type="text" name="priceMax" placeholder="Budget max">
+                            <input type="text" name="priceMaxResp" placeholder="Budget max" value="{{ form['priceMax']
+                            }}">
 
                         </div>
                         <div class="homepage-search-block homepage-search-price-responsive">
@@ -225,13 +226,15 @@
 
                                 </div>
                             </div>
-
                             <div class="homepage-search-others-block">
                                 <div class="homepage-search-others-box">
                                     <label for="prestation">Prestations</label>
                                     <div class="prestations">
                                         {% for prestation in prestations %}
-                                            <p class="form-btn-selection"
+                                            <p class="form-btn-selection
+                                                {% if form['prestations']['prestations-'~prestation.criteriaOption] is
+                                           defined %}selected{% endif %}
+                                                "
                                                onclick="formSelect(this,'prestations-{{ prestation.criteriaOption }}')">{{ prestation.criteriaOption }}</p>
                                         {% endfor %}
                                     </div>

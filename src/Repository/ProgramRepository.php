@@ -36,7 +36,7 @@ class ProgramRepository extends ServiceEntityRepository
     }
 
 
-    public function findBySearch($city, $typo, $priceMin, $priceMax, $surfaceMin, $surfaceMax, $handicap)
+    public function findBySearch($city, $typo, $priceMax, $surfaceMin, $surfaceMax, $handicap)
     {
         $search = $this->createQueryBuilder('p')
                         ->select('p')
