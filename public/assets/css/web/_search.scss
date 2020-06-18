@@ -162,7 +162,7 @@
   .btn{
     text-align: center;
     margin: 30px 0;
-    input[type='submit']{
+    button{
       text-align: center;
       background-color: $ligthblue;
       color: white;
@@ -171,7 +171,7 @@
       border-radius: 30px;
       margin: 0 auto;
     }
-    input[type='submit']:hover{
+    button:hover{
       background-color: $yellow;
       cursor: pointer;
     }

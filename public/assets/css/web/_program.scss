@@ -56,7 +56,7 @@
 }
 
 .program-plan-submit{
-  input{
+  button{
     text-transform: uppercase;
     color: white;
     background-color: $ligthblue;
@@ -66,7 +66,7 @@
     border: none;
     font-size: 1.3em;
   }
-  input:hover{
+  button:hover{
     background-color: $yellow;
     cursor: pointer;
   }

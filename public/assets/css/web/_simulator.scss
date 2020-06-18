@@ -67,7 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    input{
+    button{
       background-color: $blue;
       color: white;
       padding: 10px 20px;
@@ -75,7 +75,7 @@
       text-transform: uppercase;
       font-size: 1em;
     }
-    input:hover{
+    button:hover{
       cursor: pointer;
       background-color: $yellow;
     }

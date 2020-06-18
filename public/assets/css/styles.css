@@ -19,7 +19,7 @@ a:hover, li:hover, button:hover {
   font-family: "Gilroy";
   src: url("../font/Gilroy-Bold.ttf") format("truetype");
   font-weight: bold; }
-h1, h2, h3, a, li, p, label, button, input::placeholder {
+h1, h2, h3, h4, h5, h6, a, li, p, label, button, input::placeholder {
   font-family: "Gilroy", sans-serif; }
 
 button {
@@ -471,7 +471,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 12%; }
-  .homepage-search-block-submit input {
+  .homepage-search-block-submit button {
     width: 100%;
     color: white;
     text-transform: uppercase;
@@ -479,7 +479,7 @@ main {
     border: 1px solid #FBB03B;
     border-radius: 20px;
     padding: 10% 0; }
-  .homepage-search-block-submit input:hover {
+  .homepage-search-block-submit button:hover {
     cursor: pointer;
     color: #FBB03B;
     background-color: white; }
@@ -784,6 +784,8 @@ main {
 .homepage-services-container {
   width: 90%;
   margin: 0 auto; }
+  .homepage-services-container h3 {
+    margin-bottom: 10px; }
   .homepage-services-container .title {
     color: #4489C8;
     text-align: center;
@@ -889,7 +891,8 @@ main {
         height: auto; }
   .homepage-testimonies-container h4 {
     text-transform: uppercase;
-    color: #002849; }
+    color: #002849;
+    margin-bottom: 10px; }
 
 .homepage-testimonies .owl-item {
   display: flex;
@@ -1253,7 +1256,7 @@ input:checked + .slider:before {
   .search-modal-form .btn {
     text-align: center;
     margin: 30px 0; }
-    .search-modal-form .btn input[type='submit'] {
+    .search-modal-form .btn button {
       text-align: center;
       background-color: #4489C8;
       color: white;
@@ -1261,7 +1264,7 @@ input:checked + .slider:before {
       padding: 5px 10px;
       border-radius: 30px;
       margin: 0 auto; }
-    .search-modal-form .btn input[type='submit']:hover {
+    .search-modal-form .btn button:hover {
       background-color: #FBB03B;
       cursor: pointer; }
 
@@ -1457,7 +1460,7 @@ input:checked + .slider:before {
   .program-plan-form-row label, .program-plan-form-row input {
     margin: 0 10px; }
 
-.program-plan-submit input {
+.program-plan-submit button {
   text-transform: uppercase;
   color: white;
   background-color: #4489C8;
@@ -1466,7 +1469,7 @@ input:checked + .slider:before {
   margin: 20px auto;
   border: none;
   font-size: 1.3em; }
-.program-plan-submit input:hover {
+.program-plan-submit button:hover {
   background-color: #FBB03B;
   cursor: pointer; }
 
@@ -2524,14 +2527,14 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: center; }
-    .simulator-form-container .form-submit input {
+    .simulator-form-container .form-submit button {
       background-color: #002849;
       color: white;
       padding: 10px 20px;
       border-radius: 20px;
       text-transform: uppercase;
       font-size: 1em; }
-    .simulator-form-container .form-submit input:hover {
+    .simulator-form-container .form-submit button:hover {
       cursor: pointer;
       background-color: #FBB03B; }
 
@@ -2582,7 +2585,7 @@ input:checked + .slider:before {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 10vh;
+  height: 15vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 99999999999999999; }
 
@@ -2595,12 +2598,12 @@ input:checked + .slider:before {
   margin: 0 auto; }
 
 .cookie-banner-text {
-  width: 80%; }
+  width: 75%; }
   .cookie-banner-text p {
     color: white; }
 
 .cookie-banner-btn {
-  width: 20%; }
+  width: 25%; }
   .cookie-banner-btn button {
     font-size: 1em;
     text-transform: uppercase;
@@ -2722,7 +2725,7 @@ input:checked + .slider:before {
     transform: none;
     width: 100%;
     height: 100%;
-    padding: 20px 10px;
+    padding: 50px 10px 20px;
     overflow-y: scroll; }
 
   .contact-modal-container {
@@ -2913,7 +2916,8 @@ input:checked + .slider:before {
 
   .homepage-services-container h3 {
     font-size: 0.9em;
-    font-weight: normal; }
+    font-weight: normal;
+    margin-bottom: 10px; }
   .homepage-services-container .homepage-services-box {
     flex-wrap: wrap;
     padding: 0 5px; }
@@ -2921,6 +2925,8 @@ input:checked + .slider:before {
       width: 30%; }
       .homepage-services-container .homepage-services-box .homepage-services-block p {
         display: none; }
+      .homepage-services-container .homepage-services-box .homepage-services-block .title {
+        display: block; }
       .homepage-services-container .homepage-services-box .homepage-services-block .homepage-services-img-box {
         height: 100%; }
     .homepage-services-container .homepage-services-box .homepage-services-divider {
@@ -3095,7 +3101,7 @@ input:checked + .slider:before {
       .homepage-search-price-responsive .img-box-responsive img {
         width: 100%;
         height: auto; }
-    .homepage-search-price-responsive input[type="submit"] {
+    .homepage-search-price-responsive button {
       width: 100%;
       color: white;
       text-transform: uppercase;
@@ -3104,7 +3110,7 @@ input:checked + .slider:before {
       border-radius: 20px;
       padding: 2% 0;
       margin-left: 3px !important; }
-    .homepage-search-price-responsive input[type="submit"]:hover {
+    .homepage-search-price-responsive button:hover {
       cursor: pointer;
       color: #FBB03B;
       background-color: white; }
@@ -3194,11 +3200,27 @@ input:checked + .slider:before {
     float: right; }
 
   /********************** TOP ***********************/
+  .program-top .owl-carousel {
+    height: 100%; }
+
+  .program-top .owl-stage-outer {
+    height: 100%; }
+
+  .program-top .owl-stage {
+    height: 100%; }
+
+  .program-top .owl-item {
+    height: 100%; }
+
+  .program-top .item {
+    height: 100%; }
+
   .program-top .owl-stage .img-box {
     height: 100%; }
 
   .owl-carousel .owl-item img {
-    width: 120%; }
+    height: 100%;
+    width: auto; }
 
   .program-top {
     height: 35vh; }
@@ -3210,7 +3232,7 @@ input:checked + .slider:before {
       display: none; }
 
   .program-top .owl-dots {
-    top: 40%;
+    top: 70%;
     left: 50%;
     transform: translateX(-50%); }
 
@@ -3263,10 +3285,12 @@ input:checked + .slider:before {
       margin-bottom: 40px; }
 
   .program-description-more {
-    margin: 50px auto; }
+    margin: 50px auto;
+    width: 90%; }
 
   .program-view .program-view-container {
-    margin-top: 30px; }
+    margin-top: 30px;
+    width: 100%; }
 
   .program-view .program-view-container .program-view-text {
     width: 70%; }
@@ -3327,6 +3351,9 @@ input:checked + .slider:before {
     width: 90%; }
     .owner-home-top .owner-h1 h1 {
       font-size: 1.4em; }
+
+  .owner-elm-block .title {
+    font-size: 0.7em !important; }
 
   .owner-home-top .owner-sections-container .owner-elm-block {
     width: 25%; }

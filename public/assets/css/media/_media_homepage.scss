@@ -189,6 +189,7 @@
     h3{
       font-size: 0.9em;
       font-weight: normal;
+      margin-bottom: 10px;
     }
 
     .homepage-services-box{
@@ -198,6 +199,9 @@
         width: 30%;
         p{
           display: none;
+        }
+        .title{
+          display: block;
         }
         .homepage-services-img-box{
           height: 100%;

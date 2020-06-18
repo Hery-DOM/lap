@@ -22,13 +22,36 @@
 
 
   /********************** TOP ***********************/
+
+  .program-top .owl-carousel{
+    height: 100%;
+  }
+
+  .program-top .owl-stage-outer{
+    height: 100%;
+  }
+
+  .program-top .owl-stage{
+    height: 100%;
+  }
+
+  .program-top .owl-item{
+    height: 100%;
+  }
+
+  .program-top .item{
+    height: 100%;
+  }
+
+
   .program-top .owl-stage .img-box{
     height: 100%;
   }
 
 
   .owl-carousel .owl-item img{
-    width: 120%;
+    height: 100%;
+    width: auto;
   }
 
   .program-top{
@@ -45,7 +68,7 @@
   }
 
   .program-top .owl-dots{
-    top: 40%;
+    top: 70%;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -116,10 +139,12 @@
 
   .program-description-more{
     margin: 50px auto;
+    width: 90%;
   }
 
   .program-view .program-view-container{
     margin-top: 30px;
+    width: 100%;
   }
 
   .program-view .program-view-container .program-view-text{

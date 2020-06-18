@@ -70,7 +70,7 @@
         height: auto;
       }
     }
-    input[type="submit"]{
+    button{
       width: 100%;
       color: white;
       text-transform: uppercase;
@@ -80,7 +80,7 @@
       padding: 2% 0;
       margin-left: 3px!important;
     }
-    input[type="submit"]:hover{
+    button:hover{
       cursor: pointer;
       color: $yellow;
       background-color: white;

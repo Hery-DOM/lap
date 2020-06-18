@@ -72,7 +72,7 @@ class Program
     private $number_rooms;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $surface;
 
@@ -298,12 +298,12 @@ class Program
         return $this;
     }
 
-    public function getSurface(): ?float
+    public function getSurface(): ?string
     {
         return $this->surface;
     }
 
-    public function setSurface(?float $surface): self
+    public function setSurface(?string $surface): self
     {
         $this->surface = $surface;
 
