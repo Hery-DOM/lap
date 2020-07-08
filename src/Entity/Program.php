@@ -57,7 +57,7 @@ class Program
     private $region;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $price;
 
@@ -262,12 +262,12 @@ class Program
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?string
     {
         return $this->price;
     }
 
-    public function setPrice(?float $price): self
+    public function setPrice(?string $price): self
     {
         $this->price = $price;
 

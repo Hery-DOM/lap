@@ -17,7 +17,7 @@
   align-items: center;
   padding-top: 12vh;
   .homepage-ptz{
-    min-width: 95px;
+    min-width: 105px;
     width: 9%;
     margin-left: 4%;
     .homepage-ptz-btn{
@@ -82,7 +82,7 @@
 }
 
 .homepage-search-barre{
-  width: 67%;
+  width: 68%;
   margin: 20px auto;
   min-height: 6vh;
   background-color: white;
@@ -160,6 +160,7 @@
 }
 .homepage-search-block-last{
   border-right: none;
+  width: 21%;
 }
 .homepage-search-block-last input:hover{
   cursor: pointer;
@@ -176,13 +177,13 @@
   align-items: center;
   width: 12%;
   button{
-    width: 100%;
+    //width: 100%;
     color: white;
     text-transform: uppercase;
     background-color: $yellow;
     border: 1px solid $yellow;
     border-radius: 20px;
-    padding: 10% 0;
+    padding: 10% 5px;
   }
   button:hover{
     cursor: pointer;
@@ -749,6 +750,9 @@
 
 .homepage-testimony-video-box{
   width: 50%;
+  iframe{
+    width: 100%;
+  }
 }
 
 .homepage-testimony-second-box{

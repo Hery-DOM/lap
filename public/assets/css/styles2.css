@@ -454,7 +454,7 @@ main {
     align-items: center;
     padding-top: 12vh; }
 .homepage-top-first-block .homepage-ptz {
-    min-width: 95px;
+    min-width: 105px;
     width: 9%;
     margin-left: 4%; }
 .homepage-top-first-block .homepage-ptz .homepage-ptz-btn {
@@ -524,7 +524,7 @@ main {
     text-transform: uppercase; }
 
 .homepage-search-barre {
-    width: 67%;
+    width: 68%;
     margin: 20px auto;
     min-height: 6vh;
     background-color: white;
@@ -613,7 +613,8 @@ main {
     cursor: pointer; }
 
 .homepage-search-block-last {
-    border-right: none; }
+    border-right: none;
+    width: 21%; }
 
 .homepage-search-block-last input:hover {
     cursor: pointer; }
@@ -634,13 +635,12 @@ main {
     align-items: center;
     width: 12%; }
 .homepage-search-block-submit button {
-    width: 100%;
     color: white;
     text-transform: uppercase;
     background-color: #FBB03B;
     border: 1px solid #FBB03B;
     border-radius: 20px;
-    padding: 10% 0; }
+    padding: 10% 5px; }
 .homepage-search-block-submit button:hover {
     cursor: pointer;
     color: #FBB03B;
@@ -1209,6 +1209,8 @@ main {
 
 .homepage-testimony-video-box {
     width: 50%; }
+.homepage-testimony-video-box iframe {
+    width: 100%; }
 
 .homepage-testimony-second-box {
     width: 50%;
@@ -3818,7 +3820,7 @@ input:checked + .slider:before {
         margin-top: 10px; }
     .homepage-newsletter-form-box input[type="image"] {
         margin-top: 20px; } }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
     .homepage-search-text h2 {
         font-size: 1em; }
 
@@ -3943,8 +3945,6 @@ input:checked + .slider:before {
         margin: 0;
         border: none;
         width: 100%; }
-    .search-search-barre .homepage-search-barre .homepage-search-block-submit {
-        margin-top: 20px; }
 
     .search-results {
         width: 100%; }
@@ -3964,6 +3964,9 @@ input:checked + .slider:before {
 
     .search-bottom-text {
         width: 90%; } }
+@media screen and (max-width: 1000px) {
+    .homepage-search-block-submit {
+        margin-top: 20px; } }
 @media screen and (max-width: 1300px) {
     /********************** MODAL ***********************/
     .program-modal {
@@ -3999,17 +4002,20 @@ input:checked + .slider:before {
         height: 100%; }
 
     .owl-carousel .owl-item img {
-        height: 100%;
-        width: auto; }
+        height: auto;
+        width: 100%; }
 
     .program-top {
-        height: 35vh; }
+        height: 80vh; }
 
     .program-top .program-back {
-        width: 30px;
-        height: 30px; }
+        width: 50px;
+        height: 50px; }
     .program-top .program-back span {
         display: none; }
+    .program-top .program-back img {
+        width: 50%;
+        height: 50%; }
 
     .program-top .owl-dots {
         top: 70%;
@@ -4028,7 +4034,7 @@ input:checked + .slider:before {
     .program-top .program-form-btn {
         display: block;
         position: absolute;
-        bottom: -4%;
+        bottom: 0;
         left: 50%;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
@@ -4056,9 +4062,10 @@ input:checked + .slider:before {
     .program-main-criteria-container .program-elm-box {
         text-align: center;
         width: 35%;
-        font-size: 0.7em; }
-    .program-main-criteria-container .program-elm-box .verticalDivider {
-        display: none; }
+        font-size: 0.7em;
+        /*.verticalDivider{
+          display: none;
+        }*/ }
 
     /********************** DESCRIPTION ***********************/
     .program-description {
@@ -4081,7 +4088,7 @@ input:checked + .slider:before {
 
     .program-view .program-view-container .program-view-plan {
         padding: 0;
-        width: 20%; }
+        width: 14%; }
     .program-view .program-view-container .program-view-plan .img-box {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -4128,7 +4135,17 @@ input:checked + .slider:before {
         width: 90%;
         margin: 10px auto 50px;
         text-align: center; } }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
+    .program-top {
+        height: 35vh; }
+
+    .owl-carousel .owl-item img {
+        width: auto;
+        height: 100%; }
+
+    .program-view .program-view-container .program-view-plan {
+        width: 20%; } }
+@media screen and (max-width: 1000px) {
     /************************************************************
   **************************  HOME  ***************************
    ************************************************************/

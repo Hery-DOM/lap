@@ -40,9 +40,6 @@
       border: none;
       width: 100%;
 
-      .homepage-search-block-submit{
-        margin-top: 20px;
-      }
     }
   }
 
@@ -73,4 +70,10 @@
 
 
 
+}
+
+@media screen and(max-width: 1000px){
+  .homepage-search-block-submit{
+    margin-top: 20px;
+  }
 }
