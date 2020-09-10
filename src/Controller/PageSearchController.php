@@ -214,37 +214,40 @@ class PageSearchController extends PersonalClass
                 if(!empty($disponibilty)){
                     $temp = [];
                     foreach($programs as $program){
-                        foreach($disponibilty as $dispo){
-                            $now = new \DateTimeImmutable('now');
+                        if(!is_null($program->getDateDelivery())){
+                            foreach($disponibilty as $dispo){
+                                $now = new \DateTimeImmutable('now');
 
-                            switch ($dispo){
-                                case "immediatly":
-                                    if($program->getDateDelivery() <= $now){
-                                        $temp[] = $program;
-                                    }
-                                    break;
+                                switch ($dispo){
+                                    case "immediatly":
+                                        if($program->getDateDelivery() <= $now){
+                                            $temp[] = $program;
+                                        }
+                                        break;
 
-                                case "0":
-                                    if($program->getDateDelivery()->format('Y') == $now->format('Y')){
-                                        $temp[] = $program;
-                                    }
-                                    break;
+                                    case "0":
+                                        if($program->getDateDelivery()->format('Y') == $now->format('Y')){
+                                            $temp[] = $program;
+                                        }
+                                        break;
 
-                                case "1":
-                                    $year1 = intval($now->format('Y'))+1;
-                                    if($program->getDateDelivery()->format('Y') == $year1){
-                                        $temp[] = $program;
-                                    }
-                                    break;
+                                    case "1":
+                                        $year1 = intval($now->format('Y'))+1;
+                                        if($program->getDateDelivery()->format('Y') == $year1){
+                                            $temp[] = $program;
+                                        }
+                                        break;
 
-                                case "2":
-                                    $year2 = intval($now->format('Y'))+2;
-                                    if($program->getDateDelivery()->format('Y') >= $year2){
-                                        $temp[] = $program;
-                                    }
-                                    break;
+                                    case "2":
+                                        $year2 = intval($now->format('Y'))+2;
+                                        if($program->getDateDelivery()->format('Y') >= $year2){
+                                            $temp[] = $program;
+                                        }
+                                        break;
+                                }
                             }
                         }
+
                     }
                     // reinitialize + save in $programs
                     $programs = [];

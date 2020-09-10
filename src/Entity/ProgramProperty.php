@@ -27,7 +27,7 @@ class ProgramProperty
     private $typo;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $surface;
 
@@ -75,12 +75,12 @@ class ProgramProperty
         return $this;
     }
 
-    public function getSurface(): ?float
+    public function getSurface(): ?string
     {
         return $this->surface;
     }
 
-    public function setSurface(?float $surface): self
+    public function setSurface(?string $surface): self
     {
         $this->surface = $surface;
 

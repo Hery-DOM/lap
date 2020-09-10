@@ -4,7 +4,11 @@
   box-sizing: border-box;
 }
 
-li{
+/*li{
+  list-style-type: none;
+}*/
+
+.li-none{
   list-style-type: none;
 }
 
@@ -12,7 +16,7 @@ a{
   text-decoration: none;
 }
 
-a:hover, li:hover, button:hover{
+a:hover, .li-none:hover, button:hover{
   cursor: pointer;
 }
 

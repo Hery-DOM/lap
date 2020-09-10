@@ -34,7 +34,7 @@ class BlogArticle
     private $introduction;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $date;
 

@@ -21,7 +21,7 @@ class ProgramPropertyType extends AbstractType
             ->add('typo', TextType::class,[
                 'label' => 'Typologie'
             ])
-            ->add('surface', NumberType::class,[
+            ->add('surface', TextType::class,[
                 'label' => 'Surface'
             ])
             ->add('price', NumberType::class,[

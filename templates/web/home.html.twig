@@ -133,7 +133,7 @@
                         <div id="resultTypo">
                             <ul>
                                 {% for typo in typologies %}
-                                    <li onclick="choice('{{ typo }}','#typologie','#resultTypo')">{{ typo }}</li>
+                                    <li class="li-none" onclick="choice('{{ typo }}','#typologie','#resultTypo')">{{ typo }}</li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -834,6 +834,10 @@
             let muteBtn = $('#mute')
             let volumeslider = $('#volumeSlider')
             let blueBar = $('.blue-bar')
+
+            $('.allvideo').click(function(){
+                $('.controls').css('transform','translateY(0)')
+            })
 
             function togglePlayPause(){
                 if(video.paused){

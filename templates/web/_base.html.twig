@@ -35,33 +35,34 @@
                 <ul class="header-menu-ul">
                     {% if page is defined %}
                         {% if page == 'logement' %}
-                            <li class="header-selected"><a href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">Trouvez
+                            <li class="header-selected li-none"><a href="{{ path('search',
+                                    {'slug':'bordeaux-metropole'}) }}">Trouvez
                                     un logement</a></li>
                         {% else %}
-                            <li><a href="{{ path('search',{'slug':'bordeaux-metropole'})
+                            <li class="li-none"><a href="{{ path('search',{'slug':'bordeaux-metropole'})
                                 }}">Trouvez un logement</a></li>
                         {% endif %}
                         {% if page == 'proprietaire' %}
-                            <li class="header-selected"><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
+                            <li class="header-selected li-none"><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
                         {% else %}
-                            <li><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
+                            <li class="li-none"><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
                         {% endif %}
                         {% if page == 'nous' %}
-                            <li class="header-selected"><a href="{{ path('about') }}">Qui sommes nous</a></li>
+                            <li class="header-selected li-none"><a href="{{ path('about') }}">Qui sommes nous</a></li>
                         {% else %}
-                            <li><a href="{{ path('about') }}">Qui sommes nous</a></li>
+                            <li class="li-none"><a href="{{ path('about') }}">Qui sommes nous</a></li>
                         {% endif %}
                         {% if page == 'blog' %}
-                            <li class="header-selected"><a href="https://blog.locataireaproprietaire.fr">Blog</a></li>
+                            <li class="header-selected li-none"><a href="https://blog.locataireaproprietaire.fr">Blog</a></li>
                         {% else %}
-                            <li><a href="https://blog.locataireaproprietaire.fr">Blog</a></li>
+                            <li class="li-none"><a href="https://blog.locataireaproprietaire.fr">Blog</a></li>
                         {% endif %}
                     {% else %}
-                        <li><a href="{{ path('search',{'slug':'bordeaux-metropole'})
+                        <li class="li-none"><a href="{{ path('search',{'slug':'bordeaux-metropole'})
                             }}">Trouvez un logement</a></li>
-                        <li><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
-                        <li><a href="{{ path('about') }}">Qui sommes nous</a></li>
-                        <li><a href="https://blog.locataireaproprietaire.fr">Blog</a></li>
+                        <li class="li-none"><a href="{{ path('owner_home') }}">Devenir propriétaire</a></li>
+                        <li class="li-none"><a href="{{ path('about') }}">Qui sommes nous</a></li>
+                        <li class="li-none"><a href="https://blog.locataireaproprietaire.fr">Blog</a></li>
                     {% endif %}
 
 
@@ -94,7 +95,7 @@
         <div class="header-responsive-menu">
             <nav class="header-responsive-menu-container">
                 <ul>
-                    <li>
+                    <li class="li-none">
                         <a href="{{ path('search',{'slug':'bordeaux-metropole'}) }}">
                             <div class="header-responsive-img-box">
                                 <img src="{{ asset('assets/img/static/icone-home-search.png') }}" alt="icone">
@@ -104,7 +105,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li class="li-none">
                         <a href="{{ path('owner_home') }}">
                             <div class="header-responsive-img-box">
                                 <img src="{{ asset('assets/img/static/icone-home-key.png') }}" alt="icone">
@@ -114,7 +115,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li class="li-none">
                         <a href="#">
                             <div class="header-responsive-img-box-phone">
                                 <a href="#" onclick="contactModal()">
@@ -123,7 +124,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li class="li-none">
                         <a href="{{ path('about') }}">
                             <div class="header-responsive-img-box">
                                 <img src="{{ asset('assets/img/static/icone-about.png') }}" alt="icone">
@@ -133,7 +134,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li class="li-none">
                         <a href="https://blog.locataireaproprietaire.fr">
                             <div class="header-responsive-img-box">
                                 <img src="{{ asset('assets/img/static/icone-blog.png') }}" alt="icone">
@@ -317,12 +318,12 @@
                 <p>Site réalisé par <a href="https://meliway.fr">Meliway</a></p>
                 <nav>
                     <ul>
-                        <li><a href="{{ path('sitemap') }}">Plan du site</a></li>
-                        <li><a href="{{ path('confidentiality') }}">Politique de confidentialité</a></li>
+                        <li class="li-none"><a href="{{ path('sitemap') }}">Plan du site</a></li>
+                        <li class="li-none"><a href="{{ path('confidentiality') }}">Politique de confidentialité</a></li>
                         {#<li><a href="#">Politique cookie</a></li>#}
-                        <li><a href="{{ path('legal') }}">Mentions légales</a></li>
-                        <li><a href="{{ path('lexique') }}">Lexique</a></li>
-                        <li><a href="{{ path('faq') }}">FAQ</a></li>
+                        <li class="li-none"><a href="{{ path('legal') }}">Mentions légales</a></li>
+                        <li class="li-none"><a href="{{ path('lexique') }}">Lexique</a></li>
+                        <li class="li-none"><a href="{{ path('faq') }}">FAQ</a></li>
                     </ul>
                 </nav>
             </div>

@@ -318,7 +318,7 @@
     justify-content: space-between;
     align-items: flex-end;
     margin: 5px 0;
-    width: 60%;
+    width: 100%;
     height: 50px;
     .program-view-text{
       width: 60%;
@@ -353,9 +353,11 @@
       .img-box{
         width: 100%;
         height: 100%;
+        display: flex;
+        justify-content: center;
         img{
-          width: 100%;
-          height: auto;
+          width: auto;
+          height: 100%;
         }
       }
 

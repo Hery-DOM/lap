@@ -36,13 +36,14 @@ class PageOneProgramController extends PersonalClass
      * @Route("/programmes-neufs/{id}/{city}/{slug}", name="program")
      * $id is program's ID
      */
-    public function oneProgram($id, ProgramRepository $programRepository, $slug, SearchBrochureRepository
+    public function oneProgram($id, ProgramRepository $programRepository, $slug,$city, SearchBrochureRepository
     $searchBrochureRepository, Request $request)
     {
         // secure $id ang get program
         $id = $this->secureInput($id);
         $program = $programRepository->find($id);
         $slug = $this->secureInput($slug);
+        $city = $this->secureInput($city);
 
         // get brochure
         $brochure = $searchBrochureRepository->findOneBy([]);
@@ -97,11 +98,9 @@ class PageOneProgramController extends PersonalClass
             'othersCriteria' => []
         ];
 
-        // get slug
+        // get slug by form if there is one
         if(isset($_POST['slug'])){
             $slug = $this->secureInput($_POST['slug']);
-        }else{
-            $slug = 'bordeaux-metropole';
         }
 
         if(isset($_POST['city'])){
@@ -310,9 +309,11 @@ class PageOneProgramController extends PersonalClass
             ];
             $this->sendEmail($subject,$from,$to,$view,$viewParam);
             $this->addFlash('info','Merci, vous serez recontacté prochainement');
+
             return $this->redirectToRoute('program',[
                 'slug' => $slug,
-                'id' => $id
+                'id' => $id,
+                'city' => $city
             ]);
 
 
