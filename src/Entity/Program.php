@@ -156,6 +156,21 @@ class Program
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $number_rooms_max;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $surface_min;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $surface_max;
+
 
     public function __construct()
     {
@@ -593,6 +608,42 @@ class Program
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getNumberRoomsMax(): ?int
+    {
+        return $this->number_rooms_max;
+    }
+
+    public function setNumberRoomsMax(?int $number_rooms_max): self
+    {
+        $this->number_rooms_max = $number_rooms_max;
+
+        return $this;
+    }
+
+    public function getSurfaceMin(): ?float
+    {
+        return $this->surface_min;
+    }
+
+    public function setSurfaceMin(?float $surface_min): self
+    {
+        $this->surface_min = $surface_min;
+
+        return $this;
+    }
+
+    public function getSurfaceMax(): ?float
+    {
+        return $this->surface_max;
+    }
+
+    public function setSurfaceMax(?float $surface_max): self
+    {
+        $this->surface_max = $surface_max;
 
         return $this;
     }

@@ -46,6 +46,7 @@ class ProgramProperty
      */
     private $listorder;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,4 +123,5 @@ class ProgramProperty
 
         return $this;
     }
+
 }

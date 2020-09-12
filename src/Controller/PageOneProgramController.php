@@ -41,7 +41,7 @@ class PageOneProgramController extends PersonalClass
     {
         // secure $id ang get program
         $id = $this->secureInput($id);
-        $program = $programRepository->find($id);
+        $programOne = $programRepository->find($id);
         $slug = $this->secureInput($slug);
         $city = $this->secureInput($city);
 
@@ -56,7 +56,7 @@ class PageOneProgramController extends PersonalClass
             $name = $this->secureInput($_POST['name']);
             $phone = $this->secureInput($_POST['phone']);
             $gender = $this->secureInput($_POST['gender']);
-            $programMail = $program->getName();
+            $programMail = $programOne->getName();
             $view = "email/contact_search.html.twig";
             $viewParam = [
                 'name' => $name,
@@ -147,9 +147,9 @@ class PageOneProgramController extends PersonalClass
         }
 
         // get geolocalisation
-        $address = $program->getAddress();
-        $city = $program->getCity();
-        $postcode = $program->getPostcode();
+        $address = $programOne->getAddress();
+        $city = $programOne->getCity();
+        $postcode = $programOne->getPostcode();
         $fullAddress = '';
         if(!empty($address)){
             $fullAddress .= $address.' ';
@@ -186,21 +186,21 @@ class PageOneProgramController extends PersonalClass
 
         // get two others programs according with criteria
         // first step : by repo
-        $lastPrograms = $programRepository->findBySearch($form['city'],$form['typo'],$form['priceMin'],$form['priceMax'],$form['surfaceMin'],$form['surfaceMax'],$form['handicap']);
+        $lastPrograms = $programRepository->findBySearch($form['city'],$form['typo'],$form['priceMax'],$form['surfaceMin'],$form['surfaceMax'],$form['handicap']);
 
         // second : get the programs with the the criteria rooms, disponibility, prestation and others
         // ROOMS
         if(!empty($form['rooms'])){
             $temp = [];
-            foreach($lastPrograms as $program){
+            foreach($lastPrograms as $lastProgram){
                 foreach($form['rooms'] as $room){
-                    if($room == $program->getNumberRooms()){
-                        $temp[] = $program;
+                    if($room == $lastProgram->getNumberRooms()){
+                        $temp[] = $lastProgram;
                         break;
                     }
                     if($room == 6){
-                        if($program->getNumberRooms() > 6){
-                            $temp[] = $program;
+                        if($lastProgram->getNumberRooms() > 6){
+                            $temp[] = $lastProgram;
                             break;
                         }
                     }
@@ -217,34 +217,34 @@ class PageOneProgramController extends PersonalClass
         // DISPONIBILTY
         if(!empty($form['disponibility'])){
             $temp = [];
-            foreach($lastPrograms as $program){
+            foreach($lastPrograms as $lastProgram2){
                 foreach($form['disponibility'] as $dispo){
                     $now = new \DateTimeImmutable('now');
 
                     switch ($dispo){
                         case "immediatly":
-                            if($program->getDateDelivery() <= $now){
-                                $temp[] = $program;
+                            if($lastProgram2->getDateDelivery() <= $now){
+                                $temp[] = $lastProgram2;
                             }
                             break;
 
                         case "0":
-                            if($program->getDateDelivery()->format('Y') == $now->format('Y')){
-                                $temp[] = $program;
+                            if($lastProgram2->getDateDelivery()->format('Y') == $now->format('Y')){
+                                $temp[] = $lastProgram2;
                             }
                             break;
 
                         case "1":
                             $year1 = intval($now->format('Y'))+1;
-                            if($program->getDateDelivery()->format('Y') == $year1){
-                                $temp[] = $program;
+                            if($lastProgram2->getDateDelivery()->format('Y') == $year1){
+                                $temp[] = $lastProgram2;
                             }
                             break;
 
                         case "2":
                             $year2 = intval($now->format('Y'))+2;
-                            if($program->getDateDelivery()->format('Y') >= $year2){
-                                $temp[] = $program;
+                            if($lastProgram2->getDateDelivery()->format('Y') >= $year2){
+                                $temp[] = $lastProgram2;
                             }
                             break;
                     }
@@ -259,13 +259,13 @@ class PageOneProgramController extends PersonalClass
         // PRESTATIONS
         if(!empty($form['prestations'])){
             $temp = [];
-            foreach($lastPrograms as $program){
+            foreach($lastPrograms as $lastProgram3){
 
                 foreach($form['prestations'] as $prestation){
-                    foreach($program->getCriteria() as $criteria){
+                    foreach($lastProgram3->getCriteria() as $criteria){
                         if($criteria->getName() == 'Prestations'){
                             if(stripos(strtolower($criteria->getCriteriaOption()), $prestation) !== false){
-                                $temp[] = $program;
+                                $temp[] = $lastProgram3;
                             }
 
                         }
@@ -283,9 +283,9 @@ class PageOneProgramController extends PersonalClass
         $lastPrograms = $this->theLastest($lastPrograms, 3);
 
         // get texts
-        $h1 = $program->getPagetitle();
-        $metaTitle = $program->getMetatitle();
-        $metaDescription = $program->getMetadescription();
+        $h1 = $programOne->getPagetitle();
+        $metaTitle = $programOne->getMetatitle();
+        $metaDescription = $programOne->getMetadescription();
 
 
         // if form modal "plan" is submitted
@@ -295,7 +295,7 @@ class PageOneProgramController extends PersonalClass
             $gender = $this->secureInput($_POST['gender']);
             $email = $this->secureInput($_POST['email']);
             $phone = $this->secureInput($_POST['phone']);
-            $progPlan = $program->getName();
+            $progPlan = $programOne->getName();
             $subject = "Formulaire d'un programme";
             $from = $this->noreplyEmail();
             $to = $this->emailAdmin();
@@ -327,8 +327,9 @@ class PageOneProgramController extends PersonalClass
             $cookieBanner = false;
         }
 
+
         return $this->render('web/program.html.twig',[
-            'program' => $program,
+            'program' => $programOne,
             'form' => $form,
             'slug' => $slug,
             'latitude' => $local_latitude,

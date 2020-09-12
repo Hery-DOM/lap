@@ -44,6 +44,8 @@ class ProgramRepository extends ServiceEntityRepository
                         ->addSelect('c')
                         ->leftJoin('p.city','city')
                         ->addSelect('city')
+                        ->leftJoin('p.programProperties', 'property')
+                        ->addSelect('property')
                         ->where('p.published = :published')
                         ->setParameter('published', true);
 
@@ -65,11 +67,11 @@ class ProgramRepository extends ServiceEntityRepository
                     ->setParameter('priceMax', $priceMax);
         }
         if(!empty($surfaceMin)){
-            $search->andwhere('p.surface >= :surfaceMin')
+            $search->andwhere('p.surface_min >= :surfaceMin')
                     ->setParameter('surfaceMin', $surfaceMin);
         }
         if(!empty($surfaceMax)){
-            $search->andwhere('p.surface >= :surfaceMax')
+            $search->andwhere('p.surface_max <= :surfaceMax')
                 ->setParameter('surfaceMax', $surfaceMax);
         }
         if(!empty($handicap) && $handicap === true){

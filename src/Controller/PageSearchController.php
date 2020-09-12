@@ -190,17 +190,20 @@ class PageSearchController extends PersonalClass
                     $temp = [];
                     foreach($programs as $program){
                         foreach($rooms as $room){
-                            if($room == $program->getNumberRooms()){
+
+                            if($room >= $program->getNumberRooms() && $room <= $program->getNumberRoomsMax()){
                                 $temp[] = $program;
                                 break;
                             }
+
                             if($room == 6){
-                                if($program->getNumberRooms() > 6){
+                                if($program->getRoomMin() >= 6){
                                     $temp[] = $program;
                                     break;
                                 }
                             }
                         }
+
                     }
 
                     // reinitialize + save in $programs
