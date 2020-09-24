@@ -67,11 +67,11 @@ class ProgramRepository extends ServiceEntityRepository
                     ->setParameter('priceMax', $priceMax);
         }
         if(!empty($surfaceMin)){
-            $search->andwhere('p.surface_min >= :surfaceMin')
+            $search->andwhere('p.surface_min >= :surfaceMin OR p.surface_max >= :surfaceMin')
                     ->setParameter('surfaceMin', $surfaceMin);
         }
         if(!empty($surfaceMax)){
-            $search->andwhere('p.surface_max <= :surfaceMax')
+            $search->andwhere('p.surface_max <= :surfaceMax OR p.surface_min <= :surfaceMax')
                 ->setParameter('surfaceMax', $surfaceMax);
         }
         if(!empty($handicap) && $handicap === true){

@@ -179,6 +179,7 @@ class PageSearchController extends PersonalClass
                     }
                 }
 
+
                 // find the programs
                 // first : get the programs with the firsts criteria by repository
                 $programs = $programRepository->findBySearch($city,$typo,$priceMax,$surfaceMin,$surfaceMax,
