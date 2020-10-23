@@ -899,10 +899,10 @@
         // brochure
         $(document).ready(function(){
             $('.homepage-project-find-btn, .homepage-project-owner-btn').click(function(){
-                let thisClass = this
+                var thisClass = this
+                var url = $(thisClass).data('url')
                 $('.program-plan').css('display','flex')
                 $('.form-guide').submit(function(){
-                    let url = $(thisClass).data('url')
                     window.open(url,"_blank",null)
                 })
 
